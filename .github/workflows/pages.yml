@@ -1,0 +1,89 @@
+name: Refresh and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # twice a day; the decide job thins this out as the launch gets older
+    - cron: "17 1,13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  LAUNCH_DATE: "2026-10-16"
+
+jobs:
+  decide:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.when.outputs.run }}
+    steps:
+      - id: when
+        # Scheduled runs: both daily runs for the first 14 days, the 13:17 run until day 45, then Mondays only.
+        # Pushes and manual runs always go.
+        run: |
+          days=$(( ( $(date -u +%s) - $(date -u -d "$LAUNCH_DATE" +%s) ) / 86400 ))
+          hour=$(date -u +%H); dow=$(date -u +%u); run=false
+          if [ "${{ github.event_name }}" != "schedule" ]; then run=true
+          elif [ "$days" -lt 14 ]; then run=true
+          elif [ "$days" -lt 45 ] && [ "$hour" = "13" ]; then run=true
+          elif [ "$dow" = "1" ] && [ "$hour" = "13" ]; then run=true
+          fi
+          echo "day $days since launch, refresh=$run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: decide
+    if: needs.decide.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for API key
+        id: key
+        env:
+          OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
+        run: |
+          if [ -n "$OPENSEA_API_KEY" ]; then echo "refresh=true" >> "$GITHUB_OUTPUT"; else echo "::notice::No OPENSEA_API_KEY secret; deploying the committed snapshot."; fi
+      - uses: actions/setup-python@v5
+        if: steps.key.outputs.refresh == 'true'
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        if: steps.key.outputs.refresh == 'true'
+        run: |
+          pip install -q "pillow>=11.2"
+      - uses: actions/cache@v4
+        if: steps.key.outputs.refresh == 'true'
+        with:
+          path: data/img
+          key: avatars-${{ github.run_id }}
+          restore-keys: avatars-
+      - name: Crawl and build
+        if: steps.key.outputs.refresh == 'true'
+        env:
+          OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
+          SITE_URL: https://ryanio.github.io/card-census/
+          GA_ID: ${{ vars.GA_ID }}
+        run: ./scripts/refresh.sh
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

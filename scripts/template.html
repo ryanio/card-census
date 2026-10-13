@@ -1,0 +1,590 @@
+<title>Card Census</title>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a magazine feature, sibling of PFP Census. Black cover (question headline, most graded cards, a wall of the priciest slabs), five chapters with figures, then a lookup for every card with a pop report per card. */
+:root {
+  --paper: #FFFFFF;
+  --wash: #F3F3F5;
+  --ink: #121214;
+  --ink-2: #3B3D44;
+  --ink-3: #64666F;
+  --rule: #DDDDE2;
+  --accent: #B8165E;
+  --accent-soft: #FBE7F0;
+  --heat: #C2185B;
+  --hero: #0B0A0C;
+  --hero-ink: #F5F4F6;
+  --hero-ink-2: #B5B3BA;
+  --hero-rule: #2C2A30;
+  --hero-wash: #18161B;
+  --slab: #ECECEF;
+  --bar: #121214;
+  --bar-hi: #D81B60;
+  --bar-mute: #B9B9C1;
+  --c-en: #3B3D44;
+  --c-ja: #D81B60;
+  --c-ot: #B9B9C1;
+  --holo: conic-gradient(from var(--holo-angle), #FF4D8D, #FFB547, #FFE45E, #4DE0C9, #3DA9FF, #9B6BFF, #FF4D8D);
+  --f-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter: clamp(18px, 4.5vw, 56px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F0E11; --wash: #18171B; --ink: #EEEDF0; --ink-2: #C6C4CC; --ink-3: #908E98; --rule: #2B2A30;
+    --accent: #FF6FA3; --accent-soft: #2A1220; --heat: #FF4F8F; --hero: #000000; --hero-wash: #151318; --slab: #1C1B20;
+    --bar: #EEEDF0; --bar-hi: #FF4F8F; --bar-mute: #4D4B54; --c-en: #C6C4CC; --c-ja: #FF4F8F; --c-ot: #55535C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F0E11; --wash: #18171B; --ink: #EEEDF0; --ink-2: #C6C4CC; --ink-3: #908E98; --rule: #2B2A30;
+  --accent: #FF6FA3; --accent-soft: #2A1220; --heat: #FF4F8F; --hero: #000000; --hero-wash: #151318; --slab: #1C1B20;
+  --bar: #EEEDF0; --bar-hi: #FF4F8F; --bar-mute: #4D4B54; --c-en: #C6C4CC; --c-ja: #FF4F8F; --c-ot: #55535C;
+  color-scheme: dark;
+}
+@property --holo-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@keyframes holo-spin { from { --holo-angle: 0deg; } to { --holo-angle: 360deg; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+html { scroll-padding-top: 64px; }
+[hidden] { display: none !important; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+code { font-family: var(--f-mono); font-size: .82em; background: var(--accent-soft); color: var(--accent); padding: .1em .35em; border-radius: 3px; overflow-wrap: anywhere; }
+
+/* card frame: holo foil rim around a photo from the sprite */
+.card { position: relative; display: block; aspect-ratio: 5 / 7; border-radius: 9px; padding: 2.5px; background: var(--holo); flex: none; text-decoration: none; }
+.card > i { display: block; width: 100%; height: 100%; border-radius: 7px; background-color: var(--slab); background-repeat: no-repeat; }
+a.card:hover, button.card:hover, .lift:hover .card { animation: holo-spin 3.5s linear infinite; }
+.card.empty > i { background-image: linear-gradient(135deg, var(--slab), var(--wash)); }
+
+/* masthead */
+.mast { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--hero); color: var(--hero-ink); border-bottom: 1px solid var(--hero-rule); }
+.mast-in { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); height: 52px; display: flex; align-items: center; gap: 24px; }
+.wm { font-family: var(--f-display); font-weight: 900; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 9px; }
+.wm i { width: 13px; height: 18px; border-radius: 3px; background: conic-gradient(#FF4D8D, #FFE45E, #4DE0C9, #3DA9FF, #9B6BFF, #FF4D8D); }
+.mast nav { display: flex; gap: 20px; margin-left: auto; font: 600 14px var(--f-ui); }
+.mast nav a { text-decoration: none; color: var(--hero-ink-2); }
+.mast nav a:hover { color: var(--hero-ink); }
+@media (max-width: 560px) { .mast nav a.opt { display: none; } }
+
+/* cover */
+.cover { background: var(--hero); color: var(--hero-ink); }
+.cover-in { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 36px 40px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px 56px; align-items: start; }
+.kicker { font: 500 13px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: #FF6FA3; margin: 0 0 12px; }
+h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5vw, 84px); line-height: .86; letter-spacing: -.005em; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.dek { font: 400 clamp(19px, 1.7vw, 23px)/1.42 var(--f-serif); margin: 20px 0 0; max-width: 36ch; text-wrap: pretty; }
+.byline { font: 500 13px/1.5 var(--f-mono); color: var(--hero-ink-2); margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.byline a { color: var(--hero-ink); text-underline-offset: 3px; }
+.top10 { margin-top: 28px; border-top: 2px solid var(--hero-ink); }
+.top10 h2 { font: 500 12.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--hero-ink-2); margin: 10px 0 6px; display: grid; grid-template-columns: 1fr 70px 70px; gap: 12px; }
+.top10 h2 span:not(:first-child) { text-align: right; }
+.trow { display: grid; grid-template-columns: 24px 26px minmax(0, 1fr) 70px 70px; gap: 12px; align-items: center; width: 100%; padding: 6px 6px 6px 0; border: 0; border-bottom: 1px solid var(--hero-rule); background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.trow:hover { background: var(--hero-wash); }
+.trow .r { font: 800 20px/1 var(--f-display); color: var(--hero-ink-2); text-align: right; }
+.trow .card { width: 26px; padding: 1.5px; border-radius: 4px; }
+.trow .card > i { border-radius: 3px; }
+.trow .t { min-width: 0; display: grid; }
+.trow .t b { font: 600 15.5px/1.2 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trow .t span { font: 500 11.5px var(--f-mono); color: var(--hero-ink-2); text-transform: uppercase; letter-spacing: .05em; }
+.trow .c { font: 800 23px/1 var(--f-display); text-align: right; font-variant-numeric: tabular-nums; }
+.trow .c.ten { color: #FF8AB8; }
+.wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 16px; margin: 0; }
+.wall .lift { display: grid; gap: 7px; text-decoration: none; color: inherit; min-width: 0; }
+.wall .lift b { font: 800 22px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.wall .lift span { font: 12px/1.35 var(--f-ui); color: var(--hero-ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.cover figcaption { font: 13px/1.5 var(--f-mono); color: var(--hero-ink-2); margin-top: 16px; }
+.cue { display: flex; justify-content: center; padding-bottom: 26px; }
+.cue a { font: 600 14px var(--f-ui); color: var(--hero-ink); text-decoration: none; border: 1.5px solid var(--hero-rule); border-radius: 999px; padding: 9px 18px; }
+.cue a:hover { border-color: var(--hero-ink); }
+@media (max-width: 1000px) {
+  .cover-in { grid-template-columns: minmax(0, 1fr); }
+  .cover-l { display: contents; }
+  .cover-l > .head { order: 1; } .cover-r { order: 2; } .top10 { order: 3; }
+  .dek { max-width: 46ch; }
+}
+@media (max-width: 560px) { .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 10px; } .wall .lift:nth-child(n+10) { display: none; } .wall .lift b { font-size: 17px; } }
+
+/* story */
+.story { --col: minmax(var(--gutter), 1fr) minmax(0, 150px) min(680px, calc(100% - 2 * var(--gutter))) minmax(0, 150px) minmax(var(--gutter), 1fr); padding-block: 56px 24px; }
+.blk { display: grid; grid-template-columns: var(--col); }
+.blk > * { grid-column: 3; }
+.blk > .wide { grid-column: 2 / 5; }
+.story p { font: 400 clamp(18px, 1.35vw, 20.5px)/1.62 var(--f-serif); margin: 0 0 1.05em; text-wrap: pretty; }
+.lead::first-letter { font-family: var(--f-display); font-weight: 900; float: left; font-size: 5.4em; line-height: .76; padding: .07em .1em 0 0; }
+.ch { padding-top: 64px; }
+.ch-k { font: 500 13px var(--f-mono) !important; letter-spacing: .12em; text-transform: uppercase; color: var(--accent) !important; margin: 0 0 10px !important; }
+.ch h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(38px, 5vw, 60px); line-height: .96; margin: 0 0 22px; text-wrap: balance; }
+.pull { margin: 56px 0 8px; padding: 6px 0 6px 28px; border-left: 6px solid; border-image: linear-gradient(#FF4D8D, #FFE45E, #4DE0C9, #3DA9FF, #9B6BFF) 1; font-family: var(--f-display); font-weight: 800; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.02; text-wrap: balance; }
+.share { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; }
+.share a, .share button { font: 600 13px var(--f-ui); color: var(--ink-2); background: transparent; border: 1.5px solid var(--rule); border-radius: 999px; padding: 6px 13px; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.share a:hover, .share button:hover { border-color: var(--ink); color: var(--ink); }
+.share svg { width: 13px; height: 13px; fill: currentColor; }
+.fig { margin: 30px 0 14px; }
+.fig figcaption { font: 13px/1.5 var(--f-mono); color: var(--ink-3); margin-top: 12px; border-top: 1px solid var(--rule); padding-top: 9px; }
+.fig figcaption b { color: var(--ink); font-weight: 500; }
+.bars { display: grid; gap: 1px; }
+.bars h4 { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 16px 0 4px; }
+.brow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(60px, 2.6fr) 120px; gap: 14px; align-items: center; padding: 7px 6px; }
+.brow .bn { min-width: 0; display: grid; }
+.brow .bn b { font: 600 15.5px/1.25 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brow .bn span { font: 500 12px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.brow .track { display: block; height: 12px; min-width: 0; }
+.brow .fill { display: block; height: 100%; background: var(--bar); border-radius: 0 4px 4px 0; min-width: 2px; }
+.brow.hi .fill { background: var(--bar-hi); }
+.brow.mute .fill { background: var(--bar-mute); }
+.brow .bv { text-align: right; display: grid; }
+.brow .bv b { font: 800 24px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.brow .bv span { font: 12px var(--f-mono); color: var(--ink-3); white-space: nowrap; }
+.stack { display: flex; height: 22px; border-radius: 4px; overflow: hidden; gap: 2px; background: var(--paper); }
+.stack i { display: block; height: 100%; min-width: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 13px var(--f-ui); color: var(--ink-2); margin: 4px 0 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+@media (max-width: 620px) { .brow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n v" "t t"; row-gap: 6px; } .brow .bn { grid-area: n; } .brow .track, .brow .stack { grid-area: t; } .brow .bv { grid-area: v; } }
+.pop { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.pop-wrap { overflow-x: auto; }
+.pop th { font: 500 12px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); text-align: right; padding: 8px 8px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+.pop th:first-child { text-align: left; }
+.pop td { padding: 0; border-bottom: 1px solid var(--rule); text-align: right; }
+.pop td.subj { text-align: left; }
+.pop td > span { display: block; padding: 9px 8px; font: 600 14.5px var(--f-ui); }
+.pop td.subj button { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 6px 8px 6px 0; font: 600 15px var(--f-ui); color: inherit; cursor: pointer; text-align: left; min-width: 180px; }
+.pop td.subj .card { width: 28px; padding: 1.5px; border-radius: 4px; }
+.pop td.subj .card > i { border-radius: 3px; }
+.pop td.subj small { display: block; font: 500 11.5px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.pop tr:hover td { background: var(--wash); }
+.pop td.tot > span { font: 800 20px var(--f-display); }
+.cols { display: flex; align-items: flex-end; gap: 2px; height: 220px; border-bottom: 1px solid var(--ink); }
+.cols i { flex: 1 1 0; min-width: 2px; background: var(--bar-mute); border-radius: 3px 3px 0 0; position: relative; }
+.cols i.hi { background: var(--bar-hi); }
+.cols i:hover { outline: 2px solid var(--ink); }
+.cols-x { display: flex; justify-content: space-between; font: 12px var(--f-mono); color: var(--ink-3); margin-top: 6px; }
+.cols-tip { font: 14px var(--f-ui); color: var(--ink-2); min-height: 1.5em; margin-top: 6px; }
+.champs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px 16px; }
+.champ { display: grid; gap: 8px; text-decoration: none; color: inherit; }
+.champ b { font: 800 24px/1 var(--f-display); }
+.champ span { font: 13px/1.35 var(--f-ui); color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.champ small { font: 500 11.5px var(--f-mono); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+
+/* explore */
+.sect { max-width: 1240px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 72px 0; }
+.sect-h { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 24px; margin-bottom: 18px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.sect-h h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(38px, 5vw, 60px); line-height: .96; margin: 0; }
+.sect-h p { font: 400 18px/1.5 var(--f-serif); color: var(--ink-2); margin: 0; max-width: 52ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 4px; }
+.tabs { display: inline-flex; flex-wrap: wrap; border: 1.5px solid var(--ink); border-radius: 4px; overflow: hidden; }
+.tabs button { font: 600 14px/1 var(--f-ui); padding: 11px 15px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.tabs button + button { border-left: 1.5px solid var(--ink); }
+.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.tabs button:hover:not([aria-pressed="true"]) { background: var(--wash); }
+select, input[type="search"] { font: 500 15px var(--f-ui); color: var(--ink); background: var(--paper); border: 1.5px solid var(--rule); border-radius: 4px; padding: 9px 11px; min-width: 0; }
+input[type="search"] { flex: 1 1 220px; max-width: 360px; }
+.sort-note { font: 400 16px/1.5 var(--f-serif); color: var(--ink-2); margin: 8px 0 14px; min-height: 1.5em; }
+.reg { border-top: 2px solid var(--ink); }
+.reg-head, .row { display: grid; grid-template-columns: 40px minmax(0, 2.4fr) minmax(0, 2fr) minmax(0, .9fr) minmax(0, .9fr) minmax(0, 1fr); gap: 14px; align-items: center; }
+.reg-head { font: 500 12px var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); padding: 10px 8px; border-bottom: 1px solid var(--rule); }
+.reg-head .r { text-align: right; }
+.row { width: 100%; text-align: left; font: inherit; color: inherit; background: transparent; border: 0; border-bottom: 1px solid var(--rule); padding: 9px 8px; cursor: pointer; }
+.row:hover { background: var(--wash); }
+.row .rank { font: 800 24px var(--f-display); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.who { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.who .card { width: 34px; padding: 1.5px; border-radius: 4px; }
+.who .card > i { border-radius: 3px; }
+.who-t { min-width: 0; display: grid; }
+.who-t b { font: 600 16px/1.3 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.who-t span { font: 500 12px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
+.bar { display: grid; gap: 5px; min-width: 0; }
+.bar-v { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.bar-v b { font: 800 24px/1 var(--f-display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar-v span { font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar i { display: block; height: 6px; border-radius: 0 3px 3px 0; background: var(--accent); min-width: 3px; }
+.cell-v { text-align: right; font-variant-numeric: tabular-nums; min-width: 0; }
+.cell-v b { font: 600 15px var(--f-ui); display: block; white-space: nowrap; }
+.cell-v span { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
+.more { margin-top: 16px; font: 600 15px var(--f-ui); background: transparent; border: 1.5px solid var(--ink); color: var(--ink); border-radius: 4px; padding: 11px 18px; cursor: pointer; }
+.more:hover { background: var(--wash); }
+.empty { padding: 28px 8px; color: var(--ink-2); }
+@media (max-width: 980px) { .reg-head, .row { grid-template-columns: 34px minmax(0, 2fr) minmax(0, 1.6fr) minmax(0, .9fr) minmax(0, .9fr); } .c-val { display: none; } }
+@media (max-width: 620px) {
+  .reg-head { display: none; }
+  .row { grid-template-columns: 30px minmax(0, 1fr); grid-template-areas: "rank who" "rank bar"; row-gap: 8px; }
+  .row .rank { grid-area: rank; font-size: 20px; align-self: start; } .row .who { grid-area: who; } .row .bar { grid-area: bar; } .row .c-alt { display: none; }
+}
+.method { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+.method p { font: 400 16.5px/1.6 var(--f-serif); color: var(--ink-2); margin: 0 0 14px; max-width: 64ch; }
+@media (max-width: 760px) { .method { grid-template-columns: minmax(0, 1fr); } }
+.foot { max-width: 1240px; margin: 56px auto 0; padding: 22px var(--gutter) 48px; border-top: 1px solid var(--rule); font: 13px/1.6 var(--f-mono); color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: space-between; }
+
+/* dialog */
+dialog { width: min(1040px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink); }
+dialog::backdrop { background: rgba(0, 0, 0, .66); }
+.dlg { display: grid; grid-template-rows: auto 1fr; max-height: calc(100dvh - 26px); }
+.dlg-top { display: flex; gap: 16px; align-items: center; padding: 18px 20px 14px; border-bottom: 2px solid var(--ink); }
+.dlg-top h3 { font-family: var(--f-display); font-weight: 800; font-size: clamp(30px, 4.4vw, 46px); line-height: .95; margin: 0; overflow-wrap: anywhere; }
+.dlg-top .links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 14px; margin-top: 8px; color: var(--ink-2); }
+.dlg-top .links .share { margin: 0; flex-wrap: nowrap; }
+.dlg-top .x { margin-left: auto; align-self: start; font: 600 22px/1 var(--f-ui); width: 40px; height: 40px; border-radius: 4px; border: 1.5px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; flex: none; }
+.dlg-body { overflow: auto; padding: 18px 20px 26px; display: grid; gap: 26px; }
+.dlg-stats { display: flex; flex-wrap: wrap; gap: 8px 30px; margin: 0; }
+.dlg-stats div { display: grid; }
+.dlg-stats dt { font: 500 11.5px var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); }
+.dlg-stats dd { margin: 0; font: 800 28px/1.05 var(--f-display); font-variant-numeric: tabular-nums; }
+.dlg-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 26px 36px; }
+.dlg h4 { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.dlg h4 .tabs button { padding: 6px 10px; font-size: 12.5px; }
+.copies { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.copies a { display: grid; gap: 7px; text-decoration: none; color: inherit; min-width: 0; }
+.copies b { font: 800 20px/1 var(--f-display); }
+.copies span { font: 12px/1.35 var(--f-ui); color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.mini .brow { grid-template-columns: 70px minmax(40px, 1fr) 90px; padding: 4px 0; }
+.mini .brow .bv b { font-size: 19px; }
+.mini .brow .bn b { font-size: 14px; }
+.list { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.list li { display: flex; justify-content: space-between; gap: 12px; font: 14.5px var(--f-ui); padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.list li span:last-child { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+@media (max-width: 720px) { .dlg-grid { grid-template-columns: minmax(0, 1fr); } .copies { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dlg-top { padding: 14px; } .dlg-body { padding-inline: 14px; } }
+@media (prefers-reduced-motion: reduce) { a.card:hover, button.card:hover, .lift:hover .card { animation: none; } }
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <a class="wm" href="#top"><i aria-hidden="true"></i>Card Census</a>
+    <nav aria-label="Sections">
+      <a href="#story" class="opt">Story</a>
+      <a href="#explore">Look up a card</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cover" id="top" aria-labelledby="h1">
+  <div class="cover-in">
+    <div class="cover-l">
+      <div class="head">
+        <p class="kicker">An onchain pop report</p>
+        <h1 id="h1"></h1>
+        <p class="dek" id="dek"></p>
+        <p class="byline"><span>By <a href="https://github.com/ryanio">Ryan Ghods</a></span><span id="snap"></span></p>
+      </div>
+      <div class="top10" id="top10"></div>
+    </div>
+    <figure class="cover-r" style="margin:0">
+      <div class="wall" id="wall"></div>
+      <figcaption id="wall-cap"></figcaption>
+    </figure>
+  </div>
+  <div class="cue"><a href="#story">Read the story</a></div>
+</section>
+
+<main>
+  <article class="story" id="story">
+    <div class="blk"><p class="lead" id="lead"></p><p id="why"></p></div>
+    <section class="blk ch" id="tens" aria-labelledby="h-tens">
+      <p class="ch-k">Chapter 1</p><h2 id="h-tens"></h2><div id="p-tens"></div>
+      <figure class="fig wide" id="fig-grades"></figure>
+      <figure class="fig wide" id="fig-graders"></figure>
+      <div class="share" data-share="tens"></div>
+    </section>
+    <section class="blk ch" id="cards" aria-labelledby="h-cards">
+      <p class="ch-k">Chapter 2</p><h2 id="h-cards"></h2><div id="p-cards"></div>
+      <figure class="fig wide" id="fig-pop"></figure>
+      <div class="share" data-share="cards"></div>
+    </section>
+    <div class="blk"><blockquote class="pull wide" id="pull" hidden></blockquote></div>
+    <section class="blk ch" id="japanese" aria-labelledby="h-japanese">
+      <p class="ch-k">Chapter 3</p><h2 id="h-japanese"></h2><div id="p-japanese"></div>
+      <figure class="fig wide" id="fig-lang"></figure>
+      <div class="share" data-share="japanese"></div>
+    </section>
+    <section class="blk ch" id="years" aria-labelledby="h-years">
+      <p class="ch-k">Chapter 4</p><h2 id="h-years"></h2><div id="p-years"></div>
+      <figure class="fig wide" id="fig-years"></figure>
+      <div class="share" data-share="years"></div>
+    </section>
+    <section class="blk ch" id="grails" aria-labelledby="h-grails">
+      <p class="ch-k">Chapter 5</p><h2 id="h-grails"></h2><div id="p-grails"></div>
+      <figure class="fig wide" id="fig-champs"></figure>
+      <div class="share" data-share="grails"></div>
+    </section>
+  </article>
+
+  <section class="sect" id="explore" aria-labelledby="h-explore">
+    <div class="sect-h"><h2 id="h-explore">Look up a card</h2><p id="explore-note"></p></div>
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Sort cards" id="sorts">
+        <button type="button" data-sort="n" aria-pressed="true">Most copies</button>
+        <button type="button" data-sort="ten" aria-pressed="false">Most 10s</button>
+        <button type="button" data-sort="gem" aria-pressed="false">Gem rate</button>
+        <button type="button" data-sort="val" aria-pressed="false">Priciest copy</button>
+      </div>
+      <select id="fr" aria-label="Filter by franchise"></select>
+      <input type="search" id="q" placeholder="Pikachu, Luffy, Jordan…" aria-label="Filter cards by name">
+    </div>
+    <p class="sort-note" id="sort-note"></p>
+    <div class="reg" role="list" id="reg"></div>
+    <button type="button" class="more" id="more" hidden>Show all</button>
+  </section>
+
+  <section class="sect" id="method" aria-labelledby="h-method">
+    <div class="sect-h"><h2 id="h-method">How I counted</h2></div>
+    <div class="method" id="method-body"></div>
+  </section>
+
+  <footer class="foot">
+    <span>Made by <a href="https://github.com/ryanio">Ryan Ghods</a> with the OpenSea API. Sibling of <a href="https://ryanio.github.io/pfp-census/">PFP Census</a></span>
+    <span><a href="https://github.com/ryanio/card-census">Code and data on GitHub</a></span>
+  </footer>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlg-name">
+  <div class="dlg">
+    <div class="dlg-top">
+      <div style="min-width:0"><h3 id="dlg-name"></h3><div class="links" id="dlg-links"></div></div>
+      <button type="button" class="x" id="dlg-x" aria-label="Close">&times;</button>
+    </div>
+    <div class="dlg-body" id="dlg-body"></div>
+  </div>
+</dialog>
+
+<script type="application/json" id="summary">/*__SUMMARY__*/</script>
+<script>
+(() => {
+  const S = JSON.parse(document.getElementById("summary").textContent);
+  const $ = (id) => document.getElementById(id);
+  const nf = new Intl.NumberFormat("en-US");
+  const cf = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 });
+  const usd = (v) => v == null ? "–" : v >= 1e6 ? "$" + cf.format(v) : "$" + nf.format(Math.round(v));
+  const money = (v) => v >= 1e6 ? "$" + (v / 1e6).toFixed(1) + " million" : v >= 10000 ? "$" + nf.format(Math.round(v / 1000) * 1000) : "$" + nf.format(Math.round(v));
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  const pct0 = (r) => Math.round(r * 100) + "%";
+  const pct1 = (r) => (r * 100).toFixed(1) + "%";
+  const num = (g) => parseFloat(g);
+  const tot = (pairs) => pairs.reduce((s, p) => s + p[1], 0);
+  const tens = (pairs) => pairs.reduce((s, p) => s + (num(p[0]) >= 10 ? p[1] : 0), 0);
+  const joinList = (xs) => xs.length <= 1 ? (xs[0] || "") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
+  const WORDS = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+  const oneIn = (share) => { if (share >= 0.45 && share <= 0.55) return ["half of", false]; const n = Math.round(1 / share); return n >= 2 && n <= 10 && Math.abs(1 / n - share) / share < 0.15 ? [`one in ${WORDS[n]}`, true] : [pct0(share) + " of", false]; };
+  const cap = (s) => s[0].toUpperCase() + s.slice(1);
+  const slug = (s) => "card-" + s.toLowerCase().normalize("NFKD").replace(/[^\w]+/g, "-").replace(/^-|-$/g, "");
+  const base = location.origin + location.pathname;
+  const SUB = S.subjects;
+  const subBySlug = new Map(SUB.map((s) => [slug(s.s), s]));
+
+  /* sprite */
+  const sp = S.sprite;
+  const cardStyle = (i, w) => { if (i == null || i < 0) return ""; const per = sp.cols * sp.rows, k = Math.floor(i / per), j = i % per, h = w * sp.h / sp.w; return `background-image:url(${sp.files[k]});background-size:${sp.cols * w}px ${sp.rows * h}px;background-position:-${(j % sp.cols) * w}px -${Math.floor(j / sp.cols) * h}px`; };
+  const lazy = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute("style", e.target.dataset.bg); lazy.unobserve(e.target); } }), { rootMargin: "500px" });
+  const cardHTML = (i, w, tag = "span", attrs = "") => `<${tag} class="card${i < 0 ? " empty" : ""}" ${attrs}><i data-w="${w}" data-i="${i}"></i></${tag}>`;
+  const hydrate = (root) => root.querySelectorAll(".card > i[data-i]").forEach((el) => { const i = +el.dataset.i; if (i < 0) return; const w = el.getBoundingClientRect().width || +el.dataset.w; el.dataset.bg = cardStyle(i, w); lazy.observe(el); el.removeAttribute("data-i"); });
+
+  /* share */
+  const X_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.8 2h6.4l4.4 5.8L18.9 2Zm-1.1 18h1.7L8.3 3.9H6.5L17.8 20Z"/></svg>`;
+  const shareHTML = (text, hash) => { const url = base + "#" + hash; return `<a href="${esc("https://x.com/intent/post?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url))}" target="_blank" rel="noopener" data-track="${esc(hash)}">${X_ICON}Share</a><button type="button" data-copy="${esc(url)}">Copy link</button>`; };
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-copy]");
+    if (b) { const t = b.textContent; (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).then(() => { b.textContent = "Copied"; setTimeout(() => (b.textContent = t), 1500); }, () => window.prompt?.("Copy this link", b.dataset.copy)); window.gtag?.("event", "share", { method: "copy" }); }
+    const a = e.target.closest("a[data-track]"); if (a) window.gtag?.("event", "share", { method: "x", item_id: a.dataset.track });
+  });
+
+  /* ---------- numbers ---------- */
+  const graded = S.grade.reduce((s, p) => s + p[1], 0), tenN = tens(S.grade), tenShare = graded ? tenN / graded : 0;
+  const G = S.graders.filter((g) => g.n >= 1000);
+  const psa = G.find((g) => g.g === "PSA"), cgc = G.find((g) => g.g === "CGC");
+  const gem = (g) => g.n ? g.ten / g.n : 0;
+  const byN = [...SUB].sort((a, b) => b.n - a.n);
+  const top = byN[0];
+  const zard = SUB.find((s) => s.s === "Charizard"), pika = SUB.find((s) => s.s === "Pikachu");
+  const hero = zard || top;
+  const tenOf = (s) => tens(s.grade), gemOf = (s) => s.graded ? tens(s.grade) / s.graded : 0;
+  const psa10 = (s) => s.psa.reduce((a, p) => a + (num(p[0]) === 10 ? p[1] : 0), 0);
+  const langShare = (lang, name) => { const t = tot(lang); const v = (lang.find((p) => p[0] === name) || [0, 0])[1]; return t ? v / t : 0; };
+  const jaAll = langShare(S.lang, "Japanese");
+  const FR = S.franchises;
+  const yearsAll = S.years.filter(([y]) => y >= 1950 && y <= 2030);
+  const yTot = tot(yearsAll), modern = yearsAll.filter(([y]) => y >= 2020).reduce((s, p) => s + p[1], 0), modernShare = yTot ? modern / yTot : 0;
+  const poke = FR.find((f) => f.f === "Pokemon");
+  const wotc = poke ? poke.years.filter(([y]) => y >= 1999 && y <= 2003).reduce((s, p) => s + p[1], 0) : 0;
+  const bestCopy = (s) => (s.copies || []).filter((c) => c.v != null).sort((a, b) => b.v - a.v)[0];
+  const seen = new Set();
+  const priciest = S.top.filter((c) => c.v != null && !seen.has(c.name + c.v) && seen.add(c.name + c.v));
+  const when = new Date(S.at);
+  const whenTxt = when.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "UTC", timeZoneName: "short" });
+
+  /* ---------- cover ---------- */
+  $("h1").textContent = `How many ${hero.s}s are onchain?`;
+  const heroP = psa10(hero);
+  $("dek").textContent = `${nf.format(hero.n)}. ${heroP ? `${nf.format(heroP)} of them are PSA 10s. ` : ""}I counted all ${nf.format(S.n)} tokenized trading cards on OpenSea by card, grade and grader, the way collectors read a pop report.`;
+  $("snap").textContent = "Snapshot " + whenTxt;
+  $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
+    <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
+      <span class="t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span><span class="c">${cf.format(s.n)}</span><span class="c ten">${cf.format(tenOf(s))}</span></button>`).join("");
+  $("wall").innerHTML = priciest.slice(0, 12).map((c) => `<a class="lift" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.name)}">${cardHTML(c.i, 160)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("");
+  $("wall-cap").textContent = `The ${Math.min(12, priciest.length)} most valuable cards onchain, by OpenSea's estimated value. Click any to see it on OpenSea.`;
+
+  /* ---------- story ---------- */
+  const P_ = (h) => `<p>${h}</p>`;
+  $("lead").innerHTML = `Card companies have published population reports for decades: how many copies of each card they have graded, at each grade. Collectors use them to tell a rare slab from a common one. Nobody had one for cards that live onchain, so I made one from the ${nf.format(S.n)} tokenized cards on OpenSea.`;
+  $("why").innerHTML = `I'm a developer at OpenSea. I added the endpoint behind this page, <code>/api/v2/nfts/group/{group}/facets</code>, so apps can filter cards from every issuer by the same attributes: franchise, grader, grade, card and set.`;
+
+  const [half] = oneIn(tenShare);
+  $("h-tens").textContent = `${cap(half)} graded cards onchain ${tenShare >= 0.45 && tenShare <= 0.55 ? "are" : "are"} 10s`;
+  const tp = [`Of the ${nf.format(graded)} graded cards onchain, ${nf.format(tenN)} carry a 10 or better.`];
+  if (psa && cgc) tp.push(`It depends on who graded it. ${pct0(gem(psa))} of PSA slabs here are 10s, against ${pct0(gem(cgc))} for CGC.${G.find((g) => g.g === "BGS") ? ` Beckett's BGS sits at ${pct0(gem(G.find((g) => g.g === "BGS")))}, and its scale tops out differently, with 9.5 as Gem Mint.` : ""}`);
+  tp.push(`Part of that is probably selection. Vaulting a card to tokenize it costs money, so people send the copies worth the trouble.`);
+  $("p-tens").innerHTML = tp.map(P_).join("");
+  const gOrder = ["10.5", "10", "9.5", "9", "8.5", "8", "7.5", "7"];
+  const gRows = gOrder.map((g) => [g, (S.grade.find((p) => p[0] === g) || [g, 0])[1]]).filter((r) => r[1] > 0);
+  const lower = graded - gRows.reduce((s, r) => s + r[1], 0);
+  if (lower > 0) gRows.push(["6.5 and under", lower]);
+  const gMax = Math.max(...gRows.map((r) => r[1]));
+  $("fig-grades").innerHTML = `<div class="bars">${gRows.map(([g, c]) => `<div class="brow ${num(g) >= 10 ? "hi" : ""}"><span class="bn"><b>${esc(g === "6.5 and under" ? g : "Grade " + g)}</b></span><span class="track"><span class="fill" style="width:${Math.max(0.4, c / gMax * 100)}%"></span></span><span class="bv"><b>${pct1(c / graded)}</b><span>${nf.format(c)} cards</span></span></div>`).join("")}</div>
+    <figcaption><b>Fig. 1</b> Every graded card onchain by grade, all graders combined.</figcaption>`;
+  const gm = Math.max(...G.map(gem));
+  $("fig-graders").innerHTML = `<div class="bars"><h4>Share of 10s by grader</h4>${G.map((g) => `<div class="brow ${g === psa || g === cgc ? "hi" : "mute"}"><span class="bn"><b>${esc(g.g)}</b><span>${nf.format(g.n)} graded</span></span><span class="track"><span class="fill" style="width:${Math.max(0.4, gem(g) / gm * 100)}%"></span></span><span class="bv"><b>${pct0(gem(g))}</b><span>${nf.format(g.ten)} 10s</span></span></div>`).join("")}</div>
+    <figcaption><b>Fig. 2</b> Graders with at least 1,000 cards onchain. A 10 means 10 or higher on that grader's scale.</figcaption>`;
+
+  $("h-cards").textContent = `${top.s} is the most common card onchain`;
+  const cp = [`${top.s} leads with ${nf.format(top.n)} copies${byN[1] ? `, ahead of ${byN[1].s} (${nf.format(byN[1].n)})${byN[2] ? ` and ${byN[2].s} (${nf.format(byN[2].n)})` : ""}` : ""}.`];
+  const zb = zard && bestCopy(zard), pb = pika && bestCopy(pika);
+  if (zard && pika && pika.n > zard.n) cp.push(`There are more Pikachus onchain than Charizards: ${nf.format(pika.n)} to ${nf.format(zard.n)}.${zb && pb && zb.v > pb.v ? ` Charizard still wins on price: its top copy is estimated at ${usd(zb.v)}, against ${usd(pb.v)} for Pikachu.` : ""}`);
+  const rare = byN.slice(0, 40).filter((s) => s.graded >= 300).sort((a, b) => gemOf(a) - gemOf(b))[0];
+  if (rare) cp.push(`Among the 40 most common cards, ${rare.s} is the hardest to find in a 10: only ${pct0(gemOf(rare))} of its graded copies made it.`);
+  $("p-cards").innerHTML = cp.map(P_).join("");
+  const popCols = ["10.5", "10", "9.5", "9", "8.5", "8"];
+  const popRows = byN.slice(0, 14);
+  $("fig-pop").innerHTML = `<div class="pop-wrap"><table class="pop"><thead><tr><th>Card</th><th>Total</th>${popCols.map((g) => `<th>${g}</th>`).join("")}<th>7.5 &amp; under</th></tr></thead><tbody>${popRows.map((s) => {
+    const cells = popCols.map((g) => (s.grade.find((p) => p[0] === g) || [g, 0])[1]); const under = s.graded - cells.reduce((a, b) => a + b, 0); const all = [...cells, under]; const mx = Math.max(...all);
+    return `<tr><td class="subj"><button type="button" data-slug="${slug(s.s)}">${cardHTML(s.copies[0] ? s.copies[0].i : -1, 28)}<span>${esc(s.s)}<small>${esc(s.f)}</small></span></button></td><td class="tot"><span>${nf.format(s.n)}</span></td>${all.map((c) => { const a = mx ? c / mx : 0; return `<td><span style="background:color-mix(in srgb, var(--heat) ${Math.round(a * 70)}%, transparent);${a > .55 ? "color:#fff" : ""}">${c ? nf.format(c) : "–"}</span></td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div>
+    <figcaption><b>Fig. 3</b> The pop report for the 14 most common cards onchain, all graders. Shading is relative within each row. Click a card for its full report.</figcaption>`;
+
+  const jaFr = FR.filter((f) => f.n >= 2000).map((f) => ({ f, ja: langShare(f.lang, "Japanese"), en: langShare(f.lang, "English") }));
+  const jaWins = byN.slice(0, 60).filter((s) => langShare(s.lang, "Japanese") > langShare(s.lang, "English"));
+  const [jaPhrase] = oneIn(jaAll);
+  $("h-japanese").textContent = `${cap(jaPhrase)} cards onchain ${jaPhrase.startsWith("one in") ? "is" : "are"} Japanese`;
+  const jp = [`English cards are still the majority, ${pct0(langShare(S.lang, "English"))}. Japanese cards make up ${pct0(jaAll)}, and every other language combined is under ${Math.max(1, Math.ceil((1 - jaAll - langShare(S.lang, "English")) * 100))}%.`];
+  const op = jaFr.find((x) => x.f.f === "One Piece"), pk = jaFr.find((x) => x.f.f === "Pokemon");
+  if (op && pk) jp.push(`It splits by franchise. ${pct0(op.ja)} of One Piece cards onchain are Japanese, against ${pct0(pk.ja)} of Pokemon.`);
+  if (jaWins.length >= 2) jp.push(`For ${jaWins.length} of the 60 most common cards, Japanese copies outnumber English ones, including ${joinList(jaWins.slice(0, 3).map((s) => s.s))}.`);
+  $("p-japanese").innerHTML = jp.map(P_).join("");
+  $("fig-lang").innerHTML = `<div class="legend"><span><i style="background:var(--c-en)"></i>English</span><span><i style="background:var(--c-ja)"></i>Japanese</span><span><i style="background:var(--c-ot)"></i>Other</span></div><div class="bars">${jaFr.map(({ f, ja, en }) => `<div class="brow"><span class="bn"><b>${esc(f.f)}</b><span>${nf.format(f.n)} cards</span></span><span class="stack" title="English ${pct0(en)}, Japanese ${pct0(ja)}"><i style="width:${en * 100}%;background:var(--c-en)"></i><i style="width:${ja * 100}%;background:var(--c-ja)"></i><i style="width:${Math.max(0, (1 - en - ja) * 100)}%;background:var(--c-ot)"></i></span><span class="bv"><b>${pct0(ja)}</b><span>Japanese</span></span></div>`).join("")}</div>
+    <figcaption><b>Fig. 4</b> Language of tokenized cards by franchise, for franchises with at least 2,000 cards.</figcaption>`;
+
+  $("h-years").textContent = modernShare >= 0.5 ? `${cap(oneIn(modernShare)[0])} cards onchain ${oneIn(modernShare)[1] ? "was" : "were"} printed since 2020` : "Old cards and new";
+  const yp = [`Most of what's onchain is modern. ${pct0(modernShare)} of cards with a known year were printed in 2020 or later, and the busiest year is ${yearsAll.reduce((a, b) => b[1] > a[1] ? b : a)[0]}.`];
+  if (wotc) yp.push(`Vintage is scarce. Pokemon's Wizards of the Coast era, 1999 to 2003, accounts for ${nf.format(wotc)} cards onchain${zb && /\b(1999|2000|2001|2002|2003)\b/.test(zb.name) ? `, and the priciest Charizard here is one of them` : ""}.`);
+  $("p-years").innerHTML = yp.map(P_).join("");
+  const y0 = 1990, yrs = []; let before = 0;
+  yearsAll.forEach(([y, c]) => { if (y < y0) before += c; });
+  for (let y = y0; y <= new Date().getUTCFullYear(); y++) yrs.push([y, (yearsAll.find((p) => p[0] === y) || [y, 0])[1]]);
+  const yMax = Math.max(...yrs.map((r) => r[1]));
+  $("fig-years").innerHTML = `<div class="cols" id="cols">${yrs.map(([y, c]) => `<i class="${y >= 2020 ? "hi" : ""}" data-y="${y}" data-c="${c}" style="height:${Math.max(c ? 0.6 : 0, c / yMax * 100)}%"></i>`).join("")}</div>
+    <div class="cols-x"><span>${y0}</span><span>2000</span><span>2010</span><span>2020</span><span>${yrs[yrs.length - 1][0]}</span></div><p class="cols-tip" id="cols-tip">Hover a year for its count.</p>
+    <figcaption><b>Fig. 5</b> Cards onchain by the year they were printed, from ${y0}. ${before ? `${nf.format(before)} cards are older. ` : ""}2020 and later in color.</figcaption>`;
+  $("cols").addEventListener("mouseover", (e) => { const i = e.target.closest("i"); if (i) $("cols-tip").textContent = `${i.dataset.y}: ${nf.format(+i.dataset.c)} cards`; });
+
+  const champs = FR.filter((f) => f.n >= 2000).map((f) => { const best = SUB.filter((s) => s.f === f.f).map(bestCopy).filter(Boolean).sort((a, b) => b.v - a.v)[0]; return best ? { f: f.f, c: best } : null; }).filter(Boolean);
+  const top1 = priciest[0];
+  $("h-grails").textContent = top1 ? `The most valuable card onchain is worth about ${money(top1.v)}` : "The grails";
+  const gp = [];
+  if (top1) gp.push(`That's ${esc(top1.name)}, by OpenSea's estimate. ${priciest.length >= 12 ? `The twelve cards on the cover are each worth at least ${money(priciest[11].v)}.` : ""}`);
+  gp.push(`Every franchise has its own top card. Here is the most valuable copy I found for each one.`);
+  $("p-grails").innerHTML = gp.map(P_).join("");
+  $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<a class="champ lift" href="${esc(c.url)}" target="_blank" rel="noopener"><small>${esc(f)}</small>${cardHTML(c.i, 160)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("")}</div>
+    <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
+
+  const SHARE = {
+    tens: `${cap(half)} graded trading cards onchain are 10s. ${psa && cgc ? `PSA: ${pct0(gem(psa))}. CGC: ${pct0(gem(cgc))}.` : ""}`,
+    cards: zard && pika && pika.n > zard.n ? `There are more Pikachus onchain than Charizards: ${nf.format(pika.n)} to ${nf.format(zard.n)}.` : `${top.s} is the most common trading card onchain, with ${nf.format(top.n)} copies.`,
+    japanese: `${cap(jaPhrase)} tokenized trading cards on OpenSea ${jaPhrase.startsWith("one in") ? "is" : "are"} Japanese.`,
+    years: `${pct0(modernShare)} of trading cards onchain were printed in 2020 or later.`,
+    grails: top1 ? `The most valuable trading card onchain is worth about ${money(top1.v)}: ${top1.name}.` : "The most valuable trading cards onchain.",
+  };
+  document.querySelectorAll("[data-share]").forEach((el) => { el.innerHTML = shareHTML(SHARE[el.dataset.share], el.dataset.share); });
+  if (zard && pika && pika.n > zard.n) { $("pull").hidden = false; $("pull").textContent = "There are more Pikachus onchain than Charizards."; }
+
+  /* ---------- lookup ---------- */
+  $("explore-note").textContent = `${nf.format(SUB.length)} cards with their own pop report. Open one for its grades by grader, languages, sets and most valuable copies.`;
+  $("fr").innerHTML = `<option value="">All franchises</option>` + FR.map((f) => `<option value="${esc(f.f)}">${esc(f.f)} (${SUB.filter((s) => s.f === f.f).length})</option>`).join("");
+  const state = { sort: "n", fr: "", q: "", all: false };
+  const NOTES = { n: "Ranked by copies onchain: graded, raw and sealed.", ten: "Ranked by copies graded 10 or higher, any grader.", gem: "Share of graded copies that are 10s. Cards with at least 200 graded copies.", val: "Ranked by the most valuable copy found, by OpenSea's estimated value." };
+  const metric = { n: (s) => s.n, ten: tenOf, gem: gemOf, val: (s) => (bestCopy(s) || {}).v || 0 };
+  function rows() {
+    let list = SUB.filter((s) => (!state.fr || s.f === state.fr) && (!state.q || s.s.toLowerCase().includes(state.q)));
+    if (state.sort === "gem") list = list.filter((s) => s.graded >= 200);
+    if (state.sort === "val") list = list.filter((s) => bestCopy(s));
+    return list.sort((a, b) => metric[state.sort](b) - metric[state.sort](a));
+  }
+  function render() {
+    const list = rows(), shown = state.all ? list : list.slice(0, 50), mx = Math.max(1e-9, ...list.map(metric[state.sort]));
+    $("sort-note").textContent = NOTES[state.sort];
+    const main = { n: (s) => [nf.format(s.n), "copies"], ten: (s) => [nf.format(tenOf(s)), `of ${nf.format(s.graded)} graded`], gem: (s) => [pct0(gemOf(s)), `${nf.format(tenOf(s))} of ${nf.format(s.graded)}`], val: (s) => [usd(bestCopy(s).v), "top copy"] }[state.sort];
+    $("reg").innerHTML = `<div class="reg-head" aria-hidden="true"><span>#</span><span>Card</span><span>${{ n: "Copies", ten: "10s", gem: "Gem rate", val: "Priciest copy" }[state.sort]}</span><span class="r c-alt">PSA 10</span><span class="r c-alt">Japanese</span><span class="r c-val">Top copy</span></div>` +
+      (shown.length ? shown.map((s, i) => { const [v, sub] = main(s), b = bestCopy(s); return `<button type="button" role="listitem" class="row" data-slug="${slug(s.s)}"><span class="rank">${i + 1}</span>
+        <span class="who">${cardHTML(s.copies[0] ? s.copies[0].i : -1, 34)}<span class="who-t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span></span>
+        <span class="bar"><span class="bar-v"><b>${v}</b><span>${esc(sub)}</span></span><i style="width:${Math.max(2, metric[state.sort](s) / mx * 100)}%"></i></span>
+        <span class="cell-v c-alt"><b>${nf.format(psa10(s))}</b><span>of ${nf.format(tot(s.psa))} PSA</span></span>
+        <span class="cell-v c-alt"><b>${pct0(langShare(s.lang, "Japanese"))}</b><span>of copies</span></span>
+        <span class="cell-v c-val"><b>${b ? usd(b.v) : "–"}</b><span>${b ? "estimated" : ""}</span></span></button>`; }).join("") : `<p class="empty">No cards match.</p>`);
+    $("more").hidden = state.all || list.length <= 50; $("more").textContent = `Show all ${nf.format(list.length)}`;
+    hydrate($("reg"));
+  }
+  $("sorts").addEventListener("click", (e) => { const b = e.target.closest("button[data-sort]"); if (!b) return; state.sort = b.dataset.sort; $("sorts").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); render(); });
+  $("fr").addEventListener("change", (e) => { state.fr = e.target.value; render(); });
+  $("q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); render(); });
+  $("more").addEventListener("click", () => { state.all = true; render(); });
+  render();
+
+  /* ---------- card dialog ---------- */
+  const dlg = $("dlg");
+  function openCard(s) {
+    if (!s) return;
+    const h = slug(s.s), b = bestCopy(s), ja = langShare(s.lang, "Japanese");
+    $("dlg-name").textContent = s.s;
+    const shareText = `${nf.format(s.n)} ${s.s} cards are onchain. ${nf.format(tenOf(s))} are graded 10 or higher${psa10(s) ? `, ${nf.format(psa10(s))} of them PSA 10s` : ""}.`;
+    $("dlg-links").innerHTML = `<span>${esc(s.f)}</span><span class="share">${shareHTML(shareText, h)}</span>`;
+    const gradeBars = (pairs) => { const g = pairs.filter((p) => num(p[0]) >= 7).sort((a, b) => num(b[0]) - num(a[0])); const rest = tot(pairs) - tot(g); const rowsG = rest > 0 ? [...g, ["≤6.5", rest]] : g; const mx = Math.max(1, ...rowsG.map((r) => r[1])), t = Math.max(1, tot(pairs));
+      return rowsG.length ? rowsG.map(([gr, c]) => `<div class="brow ${num(gr) >= 10 ? "hi" : ""}"><span class="bn"><b>${esc(gr)}</b></span><span class="track"><span class="fill" style="width:${Math.max(0.5, c / mx * 100)}%"></span></span><span class="bv"><b>${nf.format(c)}</b><span>${pct1(c / t)}</span></span></div>`).join("") : `<p class="empty">No graded copies.</p>`; };
+    $("dlg-body").innerHTML = `
+      <dl class="dlg-stats"><div><dt>Copies</dt><dd>${nf.format(s.n)}</dd></div><div><dt>Graded</dt><dd>${nf.format(s.graded)}</dd></div><div><dt>10s</dt><dd>${nf.format(tenOf(s))}</dd></div><div><dt>Gem rate</dt><dd>${s.graded ? pct0(gemOf(s)) : "–"}</dd></div><div><dt>Japanese</dt><dd>${pct0(ja)}</dd></div>${b ? `<div><dt>Top copy</dt><dd>${usd(b.v)}</dd></div>` : ""}</dl>
+      ${s.copies.length ? `<div><h4>Most valuable copies onchain</h4><div class="copies">${s.copies.map((c) => `<a class="lift" href="${esc(c.url)}" target="_blank" rel="noopener">${cardHTML(c.i, 200)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("")}</div></div>` : ""}
+      <div class="dlg-grid">
+        <div class="mini"><h4>Pop report <span class="tabs" role="group" aria-label="Grader" id="gtabs"><button type="button" data-g="all" aria-pressed="true">All</button><button type="button" data-g="psa" aria-pressed="false">PSA</button><button type="button" data-g="cgc" aria-pressed="false">CGC</button></span></h4><div class="bars" id="gbars">${gradeBars(s.grade)}</div></div>
+        <div style="display:grid;gap:22px;align-content:start">
+          <div><h4>Languages</h4><ul class="list">${s.lang.map(([l, c]) => `<li><span>${esc(l)}</span><span>${nf.format(c)}</span></li>`).join("")}</ul></div>
+          <div><h4>Top sets</h4><ul class="list">${s.sets.map(([x, c]) => `<li><span>${esc(x)}</span><span>${nf.format(c)}</span></li>`).join("")}</ul></div>
+          <div><h4>Graders</h4><ul class="list">${s.graders.map(([x, c]) => `<li><span>${esc(x)}</span><span>${nf.format(c)}</span></li>`).join("")}</ul></div>
+        </div>
+      </div>`;
+    $("gtabs").addEventListener("click", (e) => { const t = e.target.closest("button[data-g]"); if (!t) return; $("gtabs").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === t))); $("gbars").innerHTML = gradeBars({ all: s.grade, psa: s.psa, cgc: s.cgc }[t.dataset.g]); });
+    if (!dlg.open) dlg.showModal();
+    $("dlg-body").scrollTop = 0;
+    hydrate($("dlg-body"));
+    try { history.replaceState(null, "", "#" + h); } catch (_) {}
+    window.gtag?.("event", "select_content", { content_type: "card", item_id: s.s });
+  }
+  document.addEventListener("click", (e) => { const t = e.target.closest("[data-slug]"); if (t) openCard(subBySlug.get(t.dataset.slug)); });
+  $("dlg-x").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", () => { try { history.replaceState(null, "", location.pathname + location.search); } catch (_) {} });
+
+  /* ---------- method ---------- */
+  $("method-body").innerHTML = `<div>
+      <p>Every number comes from <code>GET /api/v2/nfts/group/trading_cards/facets</code> on the OpenSea API. It returns each normalized attribute (franchise, grader, grade, subject, year, set, language, edition, product type) with a count of matching cards. Each facet narrows by the filters on the others, so asking for <code>subject=Charizard&amp;grader=PSA</code> returns Charizard's grades on PSA's scale.</p>
+      <p>For each of the ${nf.format(SUB.length)} cards here I asked for its facets overall, then for PSA and for CGC. A value list stops at 100 entries, so cards outside each franchise's top 30 and the overall top 100 are counted in the totals but don't get their own report.</p>
+    </div><div>
+      <p>A 10 means 10 or higher on the grader's scale, including CGC's Pristine and BGS's Black Label, which show up as 10.5. Graded counts only include cards with a numeric grade. Card images and values come from <code>GET /api/v2/nfts/group/trading_cards</code> sorted by <code>estimated_value</code>, OpenSea's estimate, not a sale price.</p>
+      <p>Snapshot taken ${esc(whenTxt)}.</p>
+    </div>`;
+
+  hydrate(document);
+  const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (!h || document.getElementById(h)) return; const s = subBySlug.get(h); if (s) openCard(s); };
+  fromHash(); window.addEventListener("hashchange", fromHash);
+})();
+</script>
