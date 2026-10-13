@@ -122,17 +122,19 @@ S["vintage"] = {"cut": 2004, "all": sum(c for y, c in S["years"] if y < 2004), "
 # high-res, background-trimmed images for the cards shown large
 def hires_file(c, name, FW=600, FH=840):
     u = c.get("u")
-    p = os.path.join(HIRES, hashlib.sha1(u.encode()).hexdigest() + ".png") if u else None
-    if not p or not os.path.exists(p): return None
+    if not u: return None
+    h = hashlib.sha1(u.encode()).hexdigest() + ".png"
+    p = os.path.join(ROOT, "data", "hires_big", h) if FW > 600 and os.path.exists(os.path.join(ROOT, "data", "hires_big", h)) else os.path.join(HIRES, h)
+    if not os.path.exists(p): return None
     im = Image.open(p).convert("RGBA")
     sc = min(FW / im.width, FH / im.height); im = im.resize((max(1, round(im.width * sc)), max(1, round(im.height * sc))), Image.LANCZOS)
     cell = Image.new("RGBA", (FW, FH), (0, 0, 0, 0)); cell.alpha_composite(im, ((FW - im.width) // 2, (FH - im.height) // 2))
     cell.save(os.path.join(SITE, "w", name), "WEBP", quality=82, method=6); return "w/" + name
-for k, c in enumerate(S["top"][:16]): c["w"] = hires_file(c, f"t{k}.webp")
+for k, c in enumerate(S["top"][:16]): c["w"] = hires_file(c, f"t{k}.webp", *((900, 1260) if k == 0 else (800, 1120) if k < 4 else (600, 840)))
 for k, ch in enumerate(S["champs"]): ch["c"]["w"] = hires_file(ch["c"], f"f{k}.webp")
 S["sealed"] = dedupe([copy(n) for n in cr.get("sealed", [])])
 S["sealed_n"] = S["sealed_total"] = dict(A.get("product_type", [])).get("Sealed Product", 0)
-for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", 720, 720)
+for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", *((960, 960) if k < 2 else (600, 600)))
 
 # sprite sheets
 per = COLS * ROWS; files = []

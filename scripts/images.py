@@ -64,3 +64,24 @@ urls = list(dict.fromkeys(u for u in urls if u))
 print("images:", len(urls), flush=True)
 with cf.ThreadPoolExecutor(16) as ex: res = list(ex.map(fetch, urls))
 print(f"done ok={sum(res)} fail={len(res) - sum(res)}", flush=True)
+
+# sharper source photos for the lots shown large (cover hero, the vault's first tier, the biggest sealed lots)
+BIG = os.path.join(ROOT, "data", "hires_big"); os.makedirs(BIG, exist_ok=True)
+def fetch_big(u):
+    path = os.path.join(BIG, key(u) + ".png")
+    if os.path.exists(path): return True
+    try:
+        p = urllib.parse.urlsplit(u)
+        if p.netloc.endswith("seadn.io"):
+            q = dict(urllib.parse.parse_qsl(p.query)); q.update({"w": "1400", "auto": "format"})
+            src = urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, urllib.parse.urlencode(q), ""))
+        else: src = sized(u)
+        req = urllib.request.Request(src, headers={"user-agent": "Mozilla/5.0 card-census", "accept": "image/webp,image/png,image/*;q=0.8"})
+        with urllib.request.urlopen(req, timeout=40) as r: data = r.read(30_000_000)
+        im = Image.open(io.BytesIO(data)); im.seek(0); im = trim(im.convert("RGBA")); im.thumbnail((1100, 1540), Image.LANCZOS); im.save(path); return True
+    except Exception as e:
+        print("big fail", str(e)[:80]); return False
+big = [url_of(n) for n in crawl["top"][:10] + crawl.get("sealed", [])[:6]]
+big = list(dict.fromkeys(u for u in big if u))
+with cf.ThreadPoolExecutor(8) as ex: rb = list(ex.map(fetch_big, big))
+print(f"big ok={sum(rb)} of {len(rb)}", flush=True)

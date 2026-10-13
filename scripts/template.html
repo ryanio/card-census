@@ -201,6 +201,59 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .toc li.sep { height: 10px; }
 @media (max-width: 1419px) { .toc { display: none; } }
 @media (prefers-reduced-motion: reduce) { .toc { transition: none; } }
+/* the vault: lots in spotlit cases */
+.lot { display: grid; gap: 10px; align-content: start; background: none; border: 0; padding: 0; color: inherit; text-align: left; cursor: zoom-in; font: inherit; min-width: 0; }
+.case { position: relative; display: block; aspect-ratio: 5 / 7; border-radius: 12px; overflow: hidden; background: radial-gradient(75% 55% at 50% 16%, #3B3A42 0%, #1B1A20 58%, #0F0E12 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); transition: transform .2s ease, box-shadow .2s ease; }
+.case.sq { aspect-ratio: 1; }
+.case img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; padding: 6% 7% 9%; }
+.case::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: 4.5%; height: 5%; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.75), transparent); }
+.lot:hover .case, .lot:focus-visible .case { transform: translateY(-4px); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.5), 0 18px 40px rgba(0,0,0,.55); }
+.lot:focus-visible { outline: none; }
+.lot .no { font: 500 12px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--hero-ink-2); }
+.lot .val { font-family: var(--f-display); font-weight: 800; line-height: .92; font-variant-numeric: tabular-nums; }
+.lot .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.lot .chip { background: rgba(255,255,255,.1); color: #F5F4F6; font-size: 12px; }
+.lot .t { font: 14px/1.38 var(--f-ui); color: var(--hero-ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.hero-lot { display: grid; grid-template-columns: auto minmax(180px, 230px); gap: 28px; align-items: end; justify-content: end; }
+.hero-lot .case { width: min(100%, calc(min(72vh, 700px) * 5 / 7)); }
+.hero-lot .lbl { display: grid; gap: 12px; padding-bottom: 6px; }
+.hero-lot .val { font-size: clamp(48px, 5vw, 76px); }
+.hero-lot .t { font: 18px/1.4 var(--f-serif); color: var(--hero-ink); -webkit-line-clamp: 4; }
+.hero-lot .acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-lot .acts a, .hero-lot .acts button { font: 600 13.5px var(--f-ui); color: var(--hero-ink); background: transparent; border: 1.5px solid var(--hero-rule); border-radius: 999px; padding: 8px 14px; text-decoration: none; cursor: pointer; }
+.hero-lot .acts a:hover, .hero-lot .acts button:hover { border-color: var(--hero-ink); }
+.vault { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 12px 36px; }
+.vault-h { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; border-top: 2px solid var(--hero-ink); padding-top: 12px; margin-bottom: 24px; }
+.vault-h h2 { font: 800 clamp(34px, 4.4vw, 54px)/.95 var(--f-display); margin: 0; }
+.vault-h p { font: 13px/1.5 var(--f-mono); color: var(--hero-ink-2); margin: 0; max-width: 52ch; }
+.tier { display: grid; gap: 30px 24px; margin-bottom: 40px; }
+.tier.a { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tier.a .val { font-size: clamp(32px, 3.2vw, 46px); }
+.tier.b { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 20px; }
+.tier.b .val { font-size: clamp(22px, 1.9vw, 28px); }
+.tier.b .t { font-size: 12.5px; }
+.tier.s2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tier.s2 .val { font-size: clamp(30px, 3.4vw, 44px); }
+.tier.s4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tier.s4 .val { font-size: clamp(20px, 2vw, 26px); }
+.light .lot .no { color: var(--ink-3); }
+.light .lot .chip { background: var(--accent-soft); color: var(--accent); }
+.light .lot .t { color: var(--ink-2); }
+.light .case { background: radial-gradient(75% 55% at 50% 16%, #FFFFFF 0%, #EFEFF2 60%, #E2E2E7 100%); box-shadow: inset 0 0 0 1px var(--rule); }
+.light .case::after { background: radial-gradient(closest-side, rgba(0,0,0,.22), transparent); }
+.light .lot:hover .case { box-shadow: inset 0 0 0 1.5px var(--ink), 0 14px 30px rgba(0,0,0,.14); }
+@media (max-width: 1000px) {
+  .hero-lot { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
+  .hero-lot .case { width: min(100%, 440px); justify-self: center; }
+  .tier.a { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tier.b { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tier.s4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .tier.a, .tier.b, .tier.s2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+  .tier.a .val { font-size: 30px; } .tier.b .val { font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .case { transition: none; } }
 /* lightbox: read the slab */
 dialog.zoom { width: min(1180px, calc(100vw - 20px)); height: calc(100dvh - 20px); max-height: none; background: #0B0A0C; color: #F5F4F6; border: 0; border-radius: 10px; padding: 0; }
 .zoom-in { display: grid; grid-template-columns: minmax(0, 1fr) 300px; height: 100%; }
@@ -318,11 +371,13 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       </div>
       <div class="top10" id="top10"></div>
     </div>
-    <figure class="cover-r" style="margin:0">
-      <div class="wall" id="wall"></div>
-      <figcaption id="wall-cap"></figcaption>
-    </figure>
+    <figure class="cover-r" style="margin:0" id="lot-1"></figure>
   </div>
+  <section class="vault" id="vault" aria-labelledby="h-vault">
+    <div class="vault-h"><h2 id="h-vault">The vault</h2><p id="vault-note"></p></div>
+    <div class="tier a" id="tier-a"></div>
+    <div class="tier b" id="tier-b"></div>
+  </section>
   <div class="cue"><a href="#story">Read the story</a></div>
 </section>
 
@@ -369,7 +424,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <p class="ch-k">Chapter 5</p><h2 id="h-grails"></h2><div id="p-grails"></div>
       <figure class="fig wide" id="fig-champs"></figure>
       <div id="p-sealed"></div>
-      <figure class="fig wide light" id="fig-sealed"><div class="wall" id="sealed"></div><figcaption id="cap-sealed"></figcaption></figure>
+      <figure class="fig wide light" id="fig-sealed"><div class="tier s2" id="sealed-a"></div><div class="tier s4" id="sealed-b"></div><figcaption id="cap-sealed"></figcaption></figure>
       <div class="share" data-share="grails"></div>
     </section>
   </article>
@@ -511,28 +566,19 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
     <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
       <span class="t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span><span class="c">${cf.format(s.n)}</span><span class="c ten">${cf.format(tenOf(s))}</span></button>`).join("");
-  function skyline(el, items, { ar = 5 / 7, maxH }) {
-    const ids = items.map(zid);
-    const draw = () => {
-      const W = el.clientWidth; if (!W || !items.length) return;
-      const narrow = W < 560, gap = narrow ? 12 : 18, lab = narrow ? 62 : 80, titleMin = narrow ? 1e9 : 150, Hmax = maxH(narrow);
-      const lay = (k) => { const rows = []; let row = [], rw = 0;
-        items.forEach((c, n) => { const h = k * Math.sqrt(c.v), w = h * ar; if (row.length && rw + gap + w > W) { rows.push(row); row = []; rw = 0; } row.push({ c, n, w, h }); rw += (row.length > 1 ? gap : 0) + w; });
-        if (row.length) rows.push(row);
-        return { rows, H: rows.reduce((t, r) => t + Math.max(...r.map((x) => x.h)) + lab, 0) + gap * (rows.length - 1) }; };
-      let lo = 0.001, hi = W / (ar * Math.sqrt(items[0].v));
-      for (let i = 0; i < 32; i++) { const mid = (lo + hi) / 2; if (lay(mid).H <= Hmax) lo = mid; else hi = mid; }
-      el.style.rowGap = gap + "px";
-      el.innerHTML = lay(lo).rows.map((r) => `<div class="srow" style="gap:${gap}px">${r.map(({ c, n, w, h }) => {
-        const fs = Math.round(Math.max(17, Math.min(40, w / (narrow ? 7 : 6.2))));
-        return `<button type="button" class="slab" data-zoom="${ids[n]}" style="width:${w.toFixed(1)}px;--lab:${lab}px" aria-label="${esc(c.t)}${c.g ? ", " + esc(c.g) : ""}, estimated ${usd(c.v)}"><span class="frame" style="height:${h.toFixed(1)}px"><img src="${esc(c.w)}" alt="" decoding="async"></span><span class="lab"><b style="font-size:${fs}px">${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}${w >= titleMin ? `<span>${esc(c.t)}</span>` : ""}</span></button>`; }).join("")}</div>`).join("");
-    };
-    draw();
-    let lw = el.clientWidth; new ResizeObserver(() => { if (el.clientWidth !== lw) { lw = el.clientWidth; draw(); } }).observe(el);
+  const lotHTML = (c, no, { sq = false } = {}) => `<button type="button" class="lot" id="lot-${no}" data-zoom="${zid(c)}" aria-label="Lot ${no}: ${esc(c.t)}${c.g ? ", " + esc(c.g) : ""}, estimated ${usd(c.v)}"><span class="case${sq ? " sq" : ""}"><img src="${esc(c.w)}" alt="${esc(c.t)}" loading="lazy" decoding="async"></span><span class="no">Lot ${String(no).padStart(2, "0")}</span><span class="val">${usd(c.v)}</span>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span class="t">${esc(c.t)}</span></button>`;
+  const lots = priciest.filter((c) => c.w);
+  const heroLot = lots[0];
+  if (heroLot) {
+    const hz = zid(heroLot);
+    $("lot-1").innerHTML = `<div class="hero-lot"><button type="button" class="lot" data-zoom="${hz}" aria-label="Lot 1: ${esc(heroLot.t)}, estimated ${usd(heroLot.v)}"><span class="case"><img src="${esc(heroLot.w)}" alt="${esc(heroLot.t)}" fetchpriority="high" decoding="async"></span></button>
+      <div class="lbl lot" style="cursor:default"><span class="no">Lot 01 · The most valuable card onchain</span><span class="val">${usd(heroLot.v)}</span>${heroLot.g ? `<span class="meta"><span class="chip">${esc(heroLot.g)}</span></span>` : ""}<span class="t">${esc(heroLot.t)}</span><span class="no" style="letter-spacing:.04em;text-transform:none">Estimated value from OpenSea</span>
+      <span class="acts"><button type="button" data-zoom="${hz}">Read the slab</button><a href="${esc(heroLot.url)}" target="_blank" rel="noopener">View on OpenSea</a></span></div></div>`;
   }
-  const wallItems = priciest.filter((c) => c.w).slice(0, 9);
-  skyline($("wall"), wallItems, { maxH: (narrow) => narrow ? 860 : Math.max(600, Math.min(920, innerHeight - 70)) });
-  $("wall-cap").textContent = `The ${wallItems.length} most valuable graded cards onchain, each sized by OpenSea's estimated value. Click one to read the slab.`;
+  $("tier-a").innerHTML = lots.slice(1, 4).map((c, k) => lotHTML(c, k + 2)).join("");
+  $("tier-b").innerHTML = lots.slice(4, 10).map((c, k) => lotHTML(c, k + 5)).join("");
+  $("vault-note").textContent = `The ${Math.min(10, lots.length)} most valuable graded cards onchain, by OpenSea's estimated value. Bigger lots, bigger money. Click any to read the slab.`;
+  const wallItems = lots.slice(0, 10);
 
   /* ---------- story ---------- */
   const P_ = (h) => `<p>${h}</p>`;
@@ -606,15 +652,16 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const top1 = priciest[0];
   $("h-grails").textContent = top1 ? `The most valuable card onchain is worth about ${money(top1.v)}` : "The grails";
   const gp = [];
-  if (top1) gp.push(`That's ${an(top1.t)} ${esc(top1.t)}${top1.g ? ` graded ${esc(top1.g)}` : ""}, by OpenSea's estimate. ${wallItems.length >= 6 ? `The ${WORDS[wallItems.length] || wallItems.length} cards on the cover are each estimated at ${money(wallItems[wallItems.length - 1].v)} or more.` : ""}`);
+  if (top1) gp.push(`That's ${an(top1.t)} ${esc(top1.t)}${top1.g ? ` graded ${esc(top1.g)}` : ""}, by OpenSea's estimate. ${wallItems.length >= 6 ? `The ${WORDS[wallItems.length] || wallItems.length} lots in the vault are each estimated at ${money(wallItems[wallItems.length - 1].v)} or more.` : ""}`);
   gp.push(`Every franchise has its own top card. Here is the most valuable copy I found for each one.`);
   $("p-grails").innerHTML = gp.map(P_).join("");
   const sealed = (S.sealed || []).filter((c) => c.w && c.v != null).slice(0, 10);
   if (sealed.length) {
     const s1 = sealed[0];
     $("p-sealed").innerHTML = P_(`Not everything onchain is a card. ${nf.format(S.sealed_n)} sealed products are tokenized too, mostly booster boxes nobody will ever open. The most valuable is ${an(s1.t)} ${esc(s1.t)} at about ${money(s1.v)}${sealed[1] ? `, then ${an(sealed[1].t)} ${esc(sealed[1].t)} at ${money(sealed[1].v)}` : ""}.`);
-    skyline($("sealed"), sealed, { ar: 1, maxH: (narrow) => narrow ? 760 : 620 });
-    $("cap-sealed").innerHTML = `<b>Fig. 7</b> The ${sealed.length} most valuable sealed products onchain, each sized by OpenSea's estimated value. Click one for a closer look.`;
+    $("sealed-a").innerHTML = sealed.slice(0, 2).map((c, k) => lotHTML(c, k + 1, { sq: true }).replace(`id="lot-${k + 1}"`, `id="sealed-${k + 1}"`)).join("");
+    $("sealed-b").innerHTML = sealed.slice(2, 10).map((c, k) => lotHTML(c, k + 3, { sq: true }).replace(`id="lot-${k + 3}"`, `id="sealed-${k + 3}"`)).join("");
+    $("cap-sealed").innerHTML = `<b>Fig. 7</b> The ${sealed.length} most valuable sealed products onchain, by OpenSea's estimated value. Click one for a closer look.`;
   } else $("fig-sealed").hidden = true;
   $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(c.w)}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
     <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
