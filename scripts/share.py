@@ -160,7 +160,7 @@ ld = [{"@context": "https://schema.org", "@type": "Article", "headline": h1 + ":
        "author": {"@type": "Person", "name": "Ryan Ghods", "url": "https://github.com/ryanio"}, "datePublished": "2026-10-13", "dateModified": S["at"][:10], "mainEntityOfPage": SITE_URL},
       {"@context": "https://schema.org", "@type": "Dataset", "name": "Card Census", "description": f"Tokenized trading cards on OpenSea counted by card, grade and grader: {S['n']:,} cards, {len(SUB)} cards with their own pop report.",
        "url": SITE_URL, "creator": {"@type": "Person", "name": "Ryan Ghods"}, "isAccessibleForFree": True, "license": "https://creativecommons.org/licenses/by/4.0/",
-       "keywords": ["trading cards", "pop report", "PSA", "CGC", "Pokemon", "OpenSea", "onchain"], "dateModified": S["at"][:10]}]
+       "keywords": ["trading cards", "pop report", "PSA", "CGC", "Pokemon", "OpenSea", "onchain"], "dateModified": S["at"][:10], "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://raw.githubusercontent.com/ryanio/card-census/main/data/cards.csv"}, {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://raw.githubusercontent.com/ryanio/card-census/main/data/grades.csv"}]}]
 page = page.replace("</head>", '<script type="application/ld+json">' + json.dumps(ld, separators=(",", ":")) + "</script>\n</head>", 1)
 open(os.path.join(SITE, "index.html"), "w").write(page)
 open(os.path.join(SITE, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{SITE_URL}</loc><lastmod>{S["at"][:10]}</lastmod><changefreq>daily</changefreq></url></urlset>\n')

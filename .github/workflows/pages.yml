@@ -98,7 +98,7 @@ jobs:
           last=$(git show HEAD:data/history/totals.csv 2>/dev/null | tail -n 1 | cut -d, -f1)
           if [ -n "$last" ] && [ "$last" != "at" ]; then
             age=$(( $(date -u +%s) - $(date -u -d "$last" +%s) ))
-            if [ "$age" -lt $(( DATA_EVERY_HOURS * 3600 )) ]; then echo "last data commit $(( age / 3600 ))h ago; next after ${DATA_EVERY_HOURS}h"; exit 0; fi
+            if [ "$age" -lt $(( DATA_EVERY_HOURS * 3600 - 7200 )) ]; then echo "last data commit $(( age / 3600 ))h ago; next after ${DATA_EVERY_HOURS}h"; exit 0; fi
           fi
           git commit -q -m "Data $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
