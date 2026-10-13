@@ -163,7 +163,7 @@ h2:hover .anchor, .anchor:focus-visible { opacity: 1; }
 .fig figcaption { font: 13px/1.5 var(--f-mono); color: var(--ink-3); margin-top: 12px; border-top: 1px solid var(--rule); padding-top: 9px; }
 .fig figcaption b { color: var(--ink); font-weight: 500; }
 .bars { display: grid; gap: 1px; }
-.bars h4 { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 16px 0 4px; }
+.bars h4, .bars h3.flabel { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 16px 0 4px; }
 .brow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(60px, 2.6fr) 120px; gap: 14px; align-items: center; padding: 7px 6px; }
 .brow .bn { min-width: 0; display: grid; }
 .brow .bn b { font: 600 15.5px/1.25 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -237,6 +237,13 @@ h2:hover .anchor, .anchor:focus-visible { opacity: 1; }
 .mast.chapping nav { display: none; }
 @media (min-width: 1420px) { .chap { display: none !important; } .mast.chapping nav { display: flex; } }
 @media (max-width: 1419px) { .toc { display: none; } }
+@media (max-width: 620px) {
+  .mast nav a { padding-block: 15px; }
+  .hl .hl-t .acts a { padding-block: 8px; }
+  .hl .hl-t .acts .sx { padding: 8px 13px; }
+  .share a, .share button { min-height: 36px; padding-inline: 14px; }
+  .anchor { padding: 6px 8px; margin-left: 0; }
+}
 @media (prefers-reduced-motion: reduce) { .toc { transition: none; } }
 /* the vault: lots in spotlit cases */
 .lot { display: grid; gap: 10px; align-content: start; background: none; border: 0; padding: 0; color: inherit; text-align: left; cursor: zoom-in; font: inherit; min-width: 0; }
@@ -608,9 +615,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const whenTxt = when.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "UTC", timeZoneName: "short" });
 
   /* ---------- cover ---------- */
-  $("h1").textContent = `How many ${hero.s}s are onchain?`;
-  const heroP = psa10(hero);
-  $("dek").textContent = `${nf.format(hero.n)}. ${heroP ? `${nf.format(heroP)} of them are PSA 10s. ` : ""}I counted all ${nf.format(S.n)} tokenized trading cards on OpenSea by card, grade and grader, the way collectors read a pop report.`;
+  $("h1").textContent = "Every card onchain, counted";
+  $("dek").textContent = `How many ${hero.s}s are there? ${nf.format(hero.n)}. Which grader hands out the most 10s? I counted all ${nf.format(S.n)} tokenized trading cards on OpenSea, by card, grade and grader, the way collectors read a pop report.`;
   $("snap").textContent = "Snapshot " + whenTxt;
   $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
     <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
@@ -649,7 +655,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("fig-grades").innerHTML = `<div class="bars">${gRows.map(([g, c]) => `<div class="brow ${num(g) >= 10 ? "hi" : ""}"><span class="bn"><b>${esc(g === "6.5 and under" ? g : "Grade " + g)}</b></span><span class="track"><span class="fill" style="width:${Math.max(0.4, c / gMax * 100)}%"></span></span><span class="bv"><b>${pct1(c / graded)}</b><span>${nf.format(c)} cards</span></span></div>`).join("")}</div>
     <figcaption><b>Fig. 1</b> Every graded card onchain by grade, all graders combined.</figcaption>`;
   const gm = Math.max(...G.map(gem));
-  $("fig-graders").innerHTML = `<div class="bars"><h4>Share of 10s by grader</h4>${G.map((g) => `<div class="brow ${g === psa || g === cgc ? "hi" : "mute"}"><span class="bn"><b>${esc(g.g)}</b><span>${nf.format(g.n)} graded</span></span><span class="track"><span class="fill" style="width:${Math.max(0.4, gem(g) / gm * 100)}%"></span></span><span class="bv"><b>${pct0(gem(g))}</b><span>${nf.format(g.ten)} 10s</span></span></div>`).join("")}</div>
+  $("fig-graders").innerHTML = `<div class="bars"><h3 class="flabel">Share of 10s by grader</h3>${G.map((g) => `<div class="brow ${g === psa || g === cgc ? "hi" : "mute"}"><span class="bn"><b>${esc(g.g)}</b><span>${nf.format(g.n)} graded</span></span><span class="track"><span class="fill" style="width:${Math.max(0.4, gem(g) / gm * 100)}%"></span></span><span class="bv"><b>${pct0(gem(g))}</b><span>${nf.format(g.ten)} 10s</span></span></div>`).join("")}</div>
     <figcaption><b>Fig. 2</b> Graders with at least 1,000 cards onchain. A 10 means 10 or higher on that grader's scale.</figcaption>`;
 
   $("h-cards").textContent = `${top.s} is the most common card onchain`;
@@ -689,7 +695,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   yearsAll.forEach(([y, c]) => { if (y < y0) before += c; });
   for (let y = y0; y <= new Date().getUTCFullYear(); y++) yrs.push([y, (yearsAll.find((p) => p[0] === y) || [y, 0])[1]]);
   const yMax = Math.max(...yrs.map((r) => r[1]));
-  $("fig-years").innerHTML = `<div class="vs bars"><h4>Printed before ${V.cut}</h4>
+  $("fig-years").innerHTML = `<div class="vs bars"><h3 class="flabel">Printed before ${V.cut}</h3>
       <div class="brow mute"><span class="bn"><b>All cards onchain</b><span>${nf.format(V.dated)} with a year</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vShare * 100)}%"></span></span><span class="bv"><b>${pct0(vShare)}</b><span>${nf.format(V.all)} cards</span></span></div>
       <div class="brow hi"><span class="bn"><b>Most valuable graded</b><span>top ${V.top_n} by estimate</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vTop * 100)}%"></span></span><span class="bv"><b>${pct0(vTop)}</b><span>${V.top_old} of ${V.top_n}</span></span></div></div>
     <div class="cols" id="cols">${yrs.map(([y, c]) => `<i class="${y < V.cut ? "hi" : ""}" data-y="${y}" data-c="${c}" style="height:${Math.max(c ? 0.6 : 0, c / yMax * 100)}%"></i>`).join("")}</div>
@@ -826,7 +832,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
     prog.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
     const storyTop = $("story").offsetTop, end = document.querySelector(".foot").offsetTop;
-    toc.classList.toggle("on", y + 80 > storyTop && y + innerHeight * 0.6 < end);
+    const storyEnd = $("story").offsetTop + $("story").offsetHeight;
+    toc.classList.toggle("on", y + 80 > storyTop && y + innerHeight * 0.5 < storyEnd);
     let cur = 0; marks.forEach((m, i) => { if (m && m.getBoundingClientRect().top < innerHeight * 0.35) cur = i; });
     links.forEach((a, i) => a.classList.toggle("cur", i === cur));
     const inStory = y + 80 > storyTop && y + innerHeight * 0.6 < end;

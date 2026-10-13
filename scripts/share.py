@@ -153,11 +153,10 @@ for h in H + ENT:
 light = [{k: h[k] for k in ("id", "anchor", "kicker", "big", "title", "text")} for h in H]
 page = page.replace("/*__HIGHLIGHTS__*/", json.dumps({"h": light, "c": {e["anchor"]: e["id"] for e in ENT}}, separators=(",", ":")).replace("</", "<\\/"))
 hero = zard or by_n[0]
-h1 = f"How many {hero['s']}s are onchain?"
-p10 = psa10(hero)
-dek = f"{hero['n']:,}. " + (f"{p10:,} of them are PSA 10s. " if p10 else "") + f"I counted all {S['n']:,} tokenized trading cards on OpenSea by card, grade and grader, the way collectors read a pop report."
+h1 = "Every card onchain, counted"
+dek = f"How many {hero['s']}s are there? {hero['n']:,}. Which grader hands out the most 10s? I counted all {S['n']:,} tokenized trading cards on OpenSea, by card, grade and grader, the way collectors read a pop report."
 page = page.replace('<h1 id="h1"></h1>', f'<h1 id="h1">{esc(h1)}</h1>').replace('<p class="dek" id="dek"></p>', f'<p class="dek" id="dek">{esc(dek)}</p>')
-ld = [{"@context": "https://schema.org", "@type": "Article", "headline": h1 + " The Card Census", "description": dek, "image": [SITE_URL + "og.png"],
+ld = [{"@context": "https://schema.org", "@type": "Article", "headline": h1 + ": the Card Census", "description": dek, "image": [SITE_URL + "og.png"],
        "author": {"@type": "Person", "name": "Ryan Ghods", "url": "https://github.com/ryanio"}, "datePublished": "2026-10-13", "dateModified": S["at"][:10], "mainEntityOfPage": SITE_URL},
       {"@context": "https://schema.org", "@type": "Dataset", "name": "Card Census", "description": f"Tokenized trading cards on OpenSea counted by card, grade and grader: {S['n']:,} cards, {len(SUB)} cards with their own pop report.",
        "url": SITE_URL, "creator": {"@type": "Person", "name": "Ryan Ghods"}, "isAccessibleForFree": True, "license": "https://creativecommons.org/licenses/by/4.0/",

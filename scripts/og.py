@@ -15,14 +15,14 @@ hero = sub.get("Charizard") or S["subjects"][0]
 L = 64 * K
 d.text((L, 56 * K), "CARD CENSUS", font=font("mono.ttf", 17), fill=PINK)
 title = font("bsd.ttf", 84, b"Black")
-for k, line in enumerate(["HOW MANY", f"{hero['s'].upper()}S", "ARE ONCHAIN?"]):
+for k, line in enumerate(["EVERY CARD", "ONCHAIN,", "COUNTED"]):
     d.text((L, 86 * K + k * 76 * K), line, font=title, fill=INK)
 y = 86 * K + 3 * 76 * K + 26 * K
 holo = [(255, 77, 141), (255, 181, 71), (255, 228, 94), (77, 224, 201), (61, 169, 255), (155, 107, 255)]
 for i, c in enumerate(holo): d.rectangle([L + i * 30 * K, y, L + (i + 1) * 30 * K, y + 6 * K], fill=c)
 num, lab = font("bsd.ttf", 52, b"ExtraBold"), font("ps.ttf", 17, b"Medium")
 y += 30 * K
-for v, t in [(f"{hero['n']:,}", f"{hero['s']}s onchain"), (f"{S['n']:,}", "trading cards counted")]:
+for v, t in [(f"{S['n']:,}", "trading cards counted"), (f"{hero['n']:,}", f"of them are {hero['s']}s")]:
     d.text((L, y), v, font=num, fill=INK); d.text((L + d.textlength(v, font=num) + 14 * K, y + 24 * K), t, font=lab, fill=INK2); y += 62 * K
 d.text((L, H - 56 * K), "By Ryan Ghods  ·  data from the OpenSea API", font=font("mono.ttf", 15), fill=INK2)
 # slab grid from the sprite, distinct cards only
