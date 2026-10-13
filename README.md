@@ -8,9 +8,13 @@ Every number comes from [`GET /api/v2/nfts/group/{group}/facets`](https://docs.o
 
 `scripts/refresh.sh` walks the facets (overall, per franchise, per grader, and for about 300 cards overall and on PSA and CGC), downloads the most valuable copies' photos, and builds `site/`: one HTML page with the data inline and WebP sprite sheets of card photos. The API key is only used by the crawl, never by the page.
 
+## Data
+
+Each fresh crawl commits CSVs to `data/`: `cards.csv` (one row per card: copies, graded, 10s, PSA and CGC counts, gem rate, Japanese share, top copy) and `grades.csv` (every card's grades overall, on PSA and on CGC). `data/history/` keeps an append-only record keyed by crawl time: `totals.csv` (headline numbers per crawl) and `cards.csv` (each card per crawl), so you can chart how the onchain pop changes.
+
 ## Refreshing
 
-The `Refresh and deploy` workflow re-crawls twice a day for the first two weeks after `LAUNCH_DATE`, daily through day 45, then weekly on Mondays, when the `OPENSEA_API_KEY` repository secret is set. Without it, it deploys the committed snapshot in `site/`. The Google Analytics tag comes from the `GA_ID` repository variable.
+The `Refresh and deploy` workflow re-crawls twice a day for the first two weeks after `LAUNCH_DATE`, daily through day 45, then weekly on Mondays, when the `OPENSEA_API_KEY` repository secret is set. The built site is deployed straight to Pages and not committed. The Google Analytics tag comes from the `GA_ID` repository variable.
 
 To run it locally:
 

@@ -1,5 +1,8 @@
 TWEETS.md
-data
+data/*
+!data/*.csv
+!data/history/
+site/
 .claude/
 __pycache__/
 .DS_Store

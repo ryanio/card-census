@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -44,6 +44,8 @@ jobs:
     needs: decide
     if: needs.decide.outputs.run == 'true'
     runs-on: ubuntu-latest
+    outputs:
+      built: ${{ steps.key.outputs.refresh }}
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +54,7 @@ jobs:
         env:
           OPENSEA_API_KEY: ${{ secrets.OPENSEA_API_KEY }}
         run: |
-          if [ -n "$OPENSEA_API_KEY" ]; then echo "refresh=true" >> "$GITHUB_OUTPUT"; else echo "::notice::No OPENSEA_API_KEY secret; deploying the committed snapshot."; fi
+          if [ -n "$OPENSEA_API_KEY" ]; then echo "refresh=true" >> "$GITHUB_OUTPUT"; else echo "::warning::No OPENSEA_API_KEY secret, so nothing to build. Add the secret to refresh and deploy."; fi
       - uses: actions/setup-python@v5
         if: steps.key.outputs.refresh == 'true'
         with:
@@ -84,12 +86,23 @@ jobs:
           SITE_URL: https://ryanio.github.io/card-census/
           GA_ID: ${{ vars.GA_ID }}
         run: ./scripts/refresh.sh
+      - name: Commit refreshed data
+        if: steps.key.outputs.refresh == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv data/history
+          if git diff --cached --quiet; then echo "data unchanged"; exit 0; fi
+          git commit -q -m "Data $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
       - uses: actions/upload-pages-artifact@v3
+        if: steps.key.outputs.refresh == 'true'
         with:
           path: site
 
   deploy:
     needs: build
+    if: needs.build.outputs.built == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

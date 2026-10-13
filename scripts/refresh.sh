@@ -20,3 +20,4 @@ rm -rf site
 python3 scripts/build.py "$ROOT"
 python3 scripts/og.py "$ROOT"
 python3 scripts/share.py "$ROOT"
+python3 scripts/export.py "$ROOT"
