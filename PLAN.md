@@ -24,3 +24,7 @@ Built from the first snapshot: 907,093 cards, 308 cards with their own pop repor
 
 - A set lookup next to the card lookup, using the per-set facets already in the crawl.
 - Pop history: keep a dated snapshot of each card's grade counts to show what got tokenized this week.
+
+## Data in the repo
+
+Each fresh crawl writes CSVs to `data/` and appends to `data/history/`, and the workflow commits them at most once every `DATA_EVERY_HOURS` (24 now). In a few weeks, set it to 168 in `.github/workflows/pages.yml` for weekly commits. The live site still refreshes on its own schedule.
