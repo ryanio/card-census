@@ -551,7 +551,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 
   /* sprite */
   const sp = S.sprite;
-  const cardStyle = (i, w) => { if (i == null || i < 0) return ""; const per = sp.cols * sp.rows, k = Math.floor(i / per), j = i % per, h = w * sp.h / sp.w; return `background-image:url(${sp.files[k]});background-size:${sp.cols * w}px ${sp.rows * h}px;background-position:-${(j % sp.cols) * w}px -${Math.floor(j / sp.cols) * h}px`; };
+  const cardStyle = (i, w) => { if (i == null || i < 0) return ""; const per = sp.cols * sp.rows, k = Math.floor(i / per), j = i % per, h = w * sp.h / sp.w; return `background-image:url(${sp.files[k]}?v=${S.v});background-size:${sp.cols * w}px ${sp.rows * h}px;background-position:-${(j % sp.cols) * w}px -${Math.floor(j / sp.cols) * h}px`; };
   const lazy = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute("style", e.target.dataset.bg); lazy.unobserve(e.target); } }), { rootMargin: "500px" });
   const cardHTML = (i, w, tag = "span", attrs = "") => `<${tag} class="card${i < 0 ? " empty" : ""}" ${attrs}><i data-w="${w}" data-i="${i}"></i></${tag}>`;
   const hydrate = (root) => root.querySelectorAll(".card > i[data-i]").forEach((el) => { const i = +el.dataset.i; if (i < 0) return; const w = el.getBoundingClientRect().width || +el.dataset.w; el.dataset.bg = cardStyle(i, w); lazy.observe(el); el.removeAttribute("data-i"); });
@@ -562,7 +562,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const zoom = $("zoom");
   function openZoom(c) {
     const img = $("zoom-img");
-    img.src = c.w || cdn(c.u, 500);
+    img.src = c.w ? ver(c.w) : cdn(c.u, 500);
     if (c.u) { const big = new Image(); big.onload = () => { if (zoom.open && $("zoom-t").dataset.k === c.url) img.src = big.src; }; big.src = cdn(c.u, 1600); }
     img.alt = c.t || c.name;
     $("zoom-v").textContent = c.v != null ? usd(c.v) : "";
@@ -621,12 +621,13 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
     <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
       <span class="t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span><span class="c">${cf.format(s.n)}</span><span class="c ten">${cf.format(tenOf(s))}</span></button>`).join("");
-  const lotHTML = (c, no, { sq = false } = {}) => `<button type="button" class="lot" id="lot-${no}" data-zoom="${zid(c)}" aria-label="Lot ${no}: ${esc(c.t)}${c.g ? ", " + esc(c.g) : ""}, estimated ${usd(c.v)}"><span class="case${sq ? " sq" : ""}"><img src="${esc(c.w)}" alt="${esc(c.t)}" loading="lazy" decoding="async"></span><span class="no">Lot ${String(no).padStart(2, "0")}</span><span class="val">${usd(c.v)}</span>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span class="t">${esc(c.t)}</span></button>`;
+  const ver = (u) => u ? u + (u.includes("?") ? "&" : "?") + "v=" + S.v : u;
+  const lotHTML = (c, no, { sq = false } = {}) => `<button type="button" class="lot" id="lot-${no}" data-zoom="${zid(c)}" aria-label="Lot ${no}: ${esc(c.t)}${c.g ? ", " + esc(c.g) : ""}, estimated ${usd(c.v)}"><span class="case${sq ? " sq" : ""}"><img src="${esc(ver(c.w))}" alt="${esc(c.t)}" loading="lazy" decoding="async"></span><span class="no">Lot ${String(no).padStart(2, "0")}</span><span class="val">${usd(c.v)}</span>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span class="t">${esc(c.t)}</span></button>`;
   const lots = priciest.filter((c) => c.w);
   const heroLot = lots[0];
   if (heroLot) {
     const hz = zid(heroLot);
-    $("lot-1").innerHTML = `<div class="hero-lot"><button type="button" class="lot" data-zoom="${hz}" aria-label="Lot 1: ${esc(heroLot.t)}, estimated ${usd(heroLot.v)}"><span class="case"><img src="${esc(heroLot.w)}" alt="${esc(heroLot.t)}" fetchpriority="high" decoding="async"></span></button>
+    $("lot-1").innerHTML = `<div class="hero-lot"><button type="button" class="lot" data-zoom="${hz}" aria-label="Lot 1: ${esc(heroLot.t)}, estimated ${usd(heroLot.v)}"><span class="case"><img src="${esc(ver(heroLot.w))}" alt="${esc(heroLot.t)}" fetchpriority="high" decoding="async"></span></button>
       <div class="lbl lot" style="cursor:default"><span class="no">Lot 01 · The most valuable card onchain</span><span class="val">${usd(heroLot.v)}</span>${heroLot.g ? `<span class="meta"><span class="chip">${esc(heroLot.g)}</span></span>` : ""}<span class="t">${esc(heroLot.t)}</span><span class="no" style="letter-spacing:.04em;text-transform:none">Estimated value from OpenSea</span>
       <span class="acts"><button type="button" data-zoom="${hz}">Read the slab</button><a href="${esc(heroLot.url)}" target="_blank" rel="noopener">View on OpenSea</a></span></div></div>`;
   }
@@ -718,7 +719,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     $("sealed-b").innerHTML = sealed.slice(2, 10).map((c, k) => lotHTML(c, k + 3, { sq: true }).replace(`id="lot-${k + 3}"`, `id="sealed-${k + 3}"`)).join("");
     $("cap-sealed").innerHTML = `<b>Fig. 7</b> The ${sealed.length} most valuable sealed products onchain, by OpenSea's estimated value. Click one for a closer look.`;
   } else $("fig-sealed").hidden = true;
-  $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(c.w)}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
+  $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(ver(c.w))}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
     <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
 
   const SHARE = {

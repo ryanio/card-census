@@ -76,7 +76,7 @@ def dedupe(cs):
 
 A = cr["all"]
 pt = dict(A.get("product_type", []))
-S = {"at": cr["at"], "group": cr["group"], "n": best_total(A), "graded": pt.get("Graded Card", 0), "raw": pt.get("Raw Card", 0), "sealed": pt.get("Sealed Product", 0),
+S = {"v": re.sub(r"[^0-9]", "", cr["at"])[:14], "at": cr["at"], "group": cr["group"], "n": best_total(A), "graded": pt.get("Graded Card", 0), "raw": pt.get("Raw Card", 0), "sealed": pt.get("Sealed Product", 0),
      "grade": grades(A.get("grade")), "lang": langs(A.get("language")), "years": sorted([[int(y), c] for y, c in A.get("year", []) if str(y).isdigit()]),
      "graders": [], "franchises": [], "subjects": [], "sets": [], "top": []}
 for g, f in cr["grader"].items():
