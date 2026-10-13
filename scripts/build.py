@@ -1,8 +1,9 @@
 """Build site/ from data/crawl.json: one page with the summary inline, plus card-photo sprite sheets."""
-import hashlib, json, math, os, sys
+import hashlib, json, math, os, re, sys
 from PIL import Image
 ROOT = sys.argv[1]; SITE = os.path.join(ROOT, "site"); os.makedirs(SITE, exist_ok=True)
-CACHE = os.path.join(ROOT, "data", "img"); W, H = int(os.environ.get("CELL_W", 200)), int(os.environ.get("CELL_H", 280))
+HIRES = os.path.join(ROOT, "data", "hires"); os.makedirs(os.path.join(SITE, "w"), exist_ok=True)
+CACHE = os.path.join(ROOT, "data", "img2"); W, H = int(os.environ.get("CELL_W", 200)), int(os.environ.get("CELL_H", 280))
 COLS, ROWS = 10, 6
 cr = json.load(open(os.path.join(ROOT, "data", "crawl.json")))
 
@@ -39,14 +40,36 @@ def cell(n):
     if not p: return -1
     if u not in index: index[u] = len(cells); cells.append(p)
     return index[u]
+GRADE = re.compile(r"\b(PSA|CGC|BGS|SGC|TAG|Beckett|ACE)\s?(10|[1-9](?:\.5)?)(\s?(?:Pristine|Black Label|Gem Mint|Perfect|Auto(?:graph)?))?(?![\d.])", re.I)
+def smart_word(w):
+    if any(ch.isdigit() for ch in w) or "." in w or "/" in w: return w.lower() if w.isupper() and not ("." in w or "/" in w) else w
+    return w.capitalize() if w.isupper() and len(w) > 2 else w
+def clean(name):
+    n = (name or "").split(" | ")[0].strip()
+    chip = ""
+    g = GRADE.search(n)
+    if g:
+        who = "Beckett" if g.group(1).lower() == "beckett" else g.group(1).upper()
+        chip = f"{who} {g.group(2)}" + (f" {g.group(3).strip().title()}" if g.group(3) else "")
+        n = n[:g.start()] + n[g.end():]
+    n = re.sub(r"\s+-\s+|\s+-$|^-\s+", " ", n); n = re.sub(r"\s{2,}", " ", n).strip(" -,")
+    letters = [c for c in n if c.isalpha()]
+    if letters and sum(c.isupper() for c in letters) / len(letters) > 0.7: n = " ".join(smart_word(w) for w in n.split(" "))
+    return n, chip
+def year_of(name):
+    m = re.search(r"\b(19[5-9]\d|20[0-2]\d)\b", name or "")
+    return int(m.group(1)) if m else None
 def copy(n):
     v = n.get("estimated_value_usd"); lp = n.get("best_listing_price")
-    return {"i": cell(n), "v": round(float(v)) if v not in (None, "", "None") else None, "name": n.get("name") or "", "url": n.get("opensea_url") or "", "c": n.get("collection") or ""}
+    t, chip = clean(n.get("name"))
+    u = n.get("display_image_url") or n.get("image_url") or ""
+    return {"i": cell(n), "v": round(float(v)) if v not in (None, "", "None") else None, "name": n.get("name") or "", "t": t, "g": chip, "y": year_of(n.get("name")),
+            "u": u, "url": n.get("opensea_url") or "", "c": n.get("collection") or ""}
 
 def dedupe(cs):
     seen, out = set(), []
     for c in cs:
-        k = (c["name"], c["v"])
+        k = (re.sub(r"[^a-z0-9]", "", (c["t"] + c["g"]).lower()), c["v"])
         if k in seen: continue
         seen.add(k); out.append(c)
     return out
@@ -85,7 +108,31 @@ for x in cr["sets"]:
     gd = grades(f.get("grade"))
     S["sets"].append({"x": x, "n": tot(gd), "ten": tens(gd), "f": (f.get("franchise") or [["", 0]])[0][0], "y": (f.get("year") or [["", 0]])[0][0]})
 S["sets"].sort(key=lambda x: -x["n"])
-S["top"] = [copy(n) for n in cr["top"]]
+S["top"] = dedupe([copy(n) for n in cr["top"]])
+# franchise champions: the most valuable copy found for each franchise with at least 2,000 cards
+S["champs"] = []
+for fr in S["franchises"]:
+    if fr["n"] < 2000: continue
+    best = max((c for s in S["subjects"] if s["f"] == fr["f"] for c in s["copies"] if c["v"] is not None), key=lambda c: c["v"], default=None)
+    if best: S["champs"].append({"f": fr["f"], "c": best})
+# vintage: share of all dated cards printed before 2004, and among the most valuable graded cards
+dated = [c for c in S["top"] if c["y"]]
+S["vintage"] = {"cut": 2004, "all": sum(c for y, c in S["years"] if y < 2004), "dated": sum(c for _, c in S["years"]),
+                "top_n": len(dated), "top_old": sum(1 for c in dated if c["y"] < 2004)}
+# high-res, background-trimmed images for the cards shown large
+def hires_file(c, name, FW=600, FH=840):
+    u = c.get("u")
+    p = os.path.join(HIRES, hashlib.sha1(u.encode()).hexdigest() + ".png") if u else None
+    if not p or not os.path.exists(p): return None
+    im = Image.open(p).convert("RGBA")
+    sc = min(FW / im.width, FH / im.height); im = im.resize((max(1, round(im.width * sc)), max(1, round(im.height * sc))), Image.LANCZOS)
+    cell = Image.new("RGBA", (FW, FH), (0, 0, 0, 0)); cell.alpha_composite(im, ((FW - im.width) // 2, (FH - im.height) // 2))
+    cell.save(os.path.join(SITE, "w", name), "WEBP", quality=82, method=6); return "w/" + name
+for k, c in enumerate(S["top"][:16]): c["w"] = hires_file(c, f"t{k}.webp")
+for k, ch in enumerate(S["champs"]): ch["c"]["w"] = hires_file(ch["c"], f"f{k}.webp")
+S["sealed"] = dedupe([copy(n) for n in cr.get("sealed", [])])
+S["sealed_n"] = S["sealed_total"] = dict(A.get("product_type", [])).get("Sealed Product", 0)
+for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", 720, 720)
 
 # sprite sheets
 per = COLS * ROWS; files = []

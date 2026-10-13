@@ -59,14 +59,15 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 code { font-family: var(--f-mono); font-size: .82em; background: var(--accent-soft); color: var(--accent); padding: .1em .35em; border-radius: 3px; overflow-wrap: anywhere; }
 
-/* card frame: holo foil rim around a photo from the sprite */
-.card { position: relative; display: block; aspect-ratio: 5 / 7; border-radius: 9px; padding: 2.5px; background: var(--holo); flex: none; text-decoration: none; }
-.card > i { display: block; width: 100%; height: 100%; border-radius: 7px; background-color: var(--slab); background-repeat: no-repeat; }
-a.card:hover, button.card:hover, .lift:hover .card { animation: holo-spin 3.5s linear infinite; }
-.card.empty > i { background-image: linear-gradient(135deg, var(--slab), var(--wash)); }
+/* card frame: a quiet display bed, so the slab label stays readable */
+.card { position: relative; display: block; aspect-ratio: 5 / 7; border-radius: 7px; background: var(--slab); border: 1px solid var(--rule); overflow: hidden; flex: none; text-decoration: none; }
+.card > i, .card > img { display: block; width: 100%; height: 100%; background-repeat: no-repeat; object-fit: contain; }
+.lift:hover .card, a.card:hover { border-color: var(--ink); }
+.cover .card { background: #1D1C21; border-color: var(--hero-rule); }
+.chip { display: inline-block; font: 500 11.5px/1.4 var(--f-mono); letter-spacing: .04em; padding: 1px 6px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
 
 /* masthead */
-.mast { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--hero); color: var(--hero-ink); border-bottom: 1px solid var(--hero-rule); }
+.mast { position: sticky; position: -webkit-sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--hero); color: var(--hero-ink); border-bottom: 1px solid var(--hero-rule); }
 .mast-in { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); height: 52px; display: flex; align-items: center; gap: 24px; }
 .wm { font-family: var(--f-display); font-weight: 900; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 9px; }
 .wm i { width: 13px; height: 18px; border-radius: 3px; background: conic-gradient(#FF4D8D, #FFE45E, #4DE0C9, #3DA9FF, #9B6BFF, #FF4D8D); }
@@ -89,17 +90,24 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .trow { display: grid; grid-template-columns: 24px 26px minmax(0, 1fr) 70px 70px; gap: 12px; align-items: center; width: 100%; padding: 6px 6px 6px 0; border: 0; border-bottom: 1px solid var(--hero-rule); background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .trow:hover { background: var(--hero-wash); }
 .trow .r { font: 800 20px/1 var(--f-display); color: var(--hero-ink-2); text-align: right; }
-.trow .card { width: 26px; padding: 1.5px; border-radius: 4px; }
-.trow .card > i { border-radius: 3px; }
+.trow .card { width: 26px; border-radius: 3px; }
 .trow .t { min-width: 0; display: grid; }
 .trow .t b { font: 600 15.5px/1.2 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .trow .t span { font: 500 11.5px var(--f-mono); color: var(--hero-ink-2); text-transform: uppercase; letter-spacing: .05em; }
 .trow .c { font: 800 23px/1 var(--f-display); text-align: right; font-variant-numeric: tabular-nums; }
 .trow .c.ten { color: #FF8AB8; }
-.wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 16px; margin: 0; }
-.wall .lift { display: grid; gap: 7px; text-decoration: none; color: inherit; min-width: 0; }
-.wall .lift b { font: 800 22px/1 var(--f-display); font-variant-numeric: tabular-nums; }
-.wall .lift span { font: 12px/1.35 var(--f-ui); color: var(--hero-ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.wall { display: grid; margin: 0; }
+.srow { display: flex; align-items: flex-end; }
+.slab { display: grid; grid-template-rows: auto var(--lab); gap: 0; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; font: inherit; flex: none; transition: transform .18s ease; }
+.slab .frame { display: block; width: 100%; border-radius: 8px; overflow: hidden; background: radial-gradient(120% 85% at 50% 32%, #2B2A31, #121115); box-shadow: inset 0 0 0 1px rgba(255,255,255,.07); transition: box-shadow .18s ease; }
+.slab .frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.slab:hover, .slab:focus-visible { transform: translateY(-3px); outline: none; }
+.slab:hover .frame, .slab:focus-visible .frame { box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55), 0 10px 30px rgba(0,0,0,.5); }
+.slab .lab { display: grid; align-content: start; gap: 4px; padding-top: 9px; min-width: 0; overflow: hidden; }
+.slab .lab b { font-family: var(--f-display); font-weight: 800; line-height: .95; font-variant-numeric: tabular-nums; }
+.slab .lab .meta { display: flex; gap: 6px; align-items: center; min-width: 0; }
+.slab .lab .chip { background: rgba(255,255,255,.1); color: #F5F4F6; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.slab .lab span { font: 12.5px/1.35 var(--f-ui); color: var(--hero-ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .cover figcaption { font: 13px/1.5 var(--f-mono); color: var(--hero-ink-2); margin-top: 16px; }
 .cue { display: flex; justify-content: center; padding-bottom: 26px; }
 .cue a { font: 600 14px var(--f-ui); color: var(--hero-ink); text-decoration: none; border: 1.5px solid var(--hero-rule); border-radius: 999px; padding: 9px 18px; }
@@ -110,7 +118,6 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
   .cover-l > .head { order: 1; } .cover-r { order: 2; } .top10 { order: 3; }
   .dek { max-width: 46ch; }
 }
-@media (max-width: 560px) { .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 10px; } .wall .lift:nth-child(n+10) { display: none; } .wall .lift b { font-size: 17px; } }
 
 /* story */
 .story { --col: minmax(var(--gutter), 1fr) minmax(0, 150px) min(680px, calc(100% - 2 * var(--gutter))) minmax(0, 150px) minmax(var(--gutter), 1fr); padding-block: 56px 24px; }
@@ -157,8 +164,7 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .pop td.subj { text-align: left; }
 .pop td > span { display: block; padding: 9px 8px; font: 600 14.5px var(--f-ui); }
 .pop td.subj button { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 6px 8px 6px 0; font: 600 15px var(--f-ui); color: inherit; cursor: pointer; text-align: left; min-width: 180px; }
-.pop td.subj .card { width: 28px; padding: 1.5px; border-radius: 4px; }
-.pop td.subj .card > i { border-radius: 3px; }
+.pop td.subj .card { width: 28px; border-radius: 3px; }
 .pop td.subj small { display: block; font: 500 11.5px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
 .pop tr:hover td { background: var(--wash); }
 .pop td.tot > span { font: 800 20px var(--f-display); }
@@ -170,9 +176,45 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .cols-tip { font: 14px var(--f-ui); color: var(--ink-2); min-height: 1.5em; margin-top: 6px; }
 .champs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px 16px; }
 .champ { display: grid; gap: 8px; text-decoration: none; color: inherit; }
+.champ { cursor: zoom-in; background: none; border: 0; padding: 0; text-align: left; font: inherit; }
 .champ b { font: 800 24px/1 var(--f-display); }
-.champ span { font: 13px/1.35 var(--f-ui); color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.champ span { font: 13px/1.35 var(--f-ui); color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .champ small { font: 500 11.5px var(--f-mono); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+
+.vs { display: grid; gap: 10px; margin-bottom: 26px; }
+.vs .brow { padding: 2px 0; }
+.light .slab .frame { background: radial-gradient(120% 85% at 50% 32%, #FFFFFF, #E7E7EB); box-shadow: inset 0 0 0 1px var(--rule); }
+.light .slab:hover .frame, .light .slab:focus-visible .frame { box-shadow: inset 0 0 0 1.5px var(--ink), 0 10px 26px rgba(0,0,0,.14); }
+.light .slab .lab b { color: var(--ink); }
+.light .slab .lab .chip { background: var(--accent-soft); color: var(--accent); }
+.light .slab .lab span { color: var(--ink-2); }
+/* chapter rail and reading progress */
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, #FF4D8D, #FFB547, #FFE45E, #4DE0C9, #3DA9FF, #9B6BFF); pointer-events: none; }
+.toc { position: fixed; top: 112px; left: max(16px, calc(50vw - 700px)); width: 176px; z-index: 5; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+.toc.on { opacity: 1; pointer-events: auto; }
+.toc h3 { font: 500 11px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px 14px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; border-left: 1px solid var(--rule); }
+.toc a { display: grid; grid-template-columns: 24px minmax(0, 1fr); padding: 6px 0 6px 13px; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; color: var(--ink-3); font: 500 13.5px/1.3 var(--f-ui); }
+.toc a span { font: 500 11.5px/1.6 var(--f-mono); }
+.toc a:hover { color: var(--ink); }
+.toc a.cur { color: var(--ink); border-left-color: var(--accent); font-weight: 600; }
+.toc li.sep { height: 10px; }
+@media (max-width: 1419px) { .toc { display: none; } }
+@media (prefers-reduced-motion: reduce) { .toc { transition: none; } }
+/* lightbox: read the slab */
+dialog.zoom { width: min(1180px, calc(100vw - 20px)); height: calc(100dvh - 20px); max-height: none; background: #0B0A0C; color: #F5F4F6; border: 0; border-radius: 10px; padding: 0; }
+.zoom-in { display: grid; grid-template-columns: minmax(0, 1fr) 300px; height: 100%; }
+.zoom-img { min-height: 0; display: grid; place-items: center; padding: 22px; background: radial-gradient(90% 80% at 50% 40%, #222127, #0B0A0C); }
+.zoom-img img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+.zoom-cap { padding: 24px 22px; border-left: 1px solid #2C2A30; display: grid; align-content: start; gap: 12px; position: relative; }
+.zoom-cap b { font: 800 44px/1 var(--f-display); }
+.zoom-cap .chip { background: rgba(255,255,255,.12); color: #fff; font-size: 13px; justify-self: start; }
+.zoom-cap p { font: 17px/1.45 var(--f-serif); margin: 0; color: #E3E1E6; }
+.zoom-cap small { font: 12.5px/1.5 var(--f-mono); color: #A9A7AE; }
+.zoom-cap a { font: 600 14px var(--f-ui); color: #fff; justify-self: start; border: 1.5px solid #3A3840; border-radius: 999px; padding: 8px 15px; text-decoration: none; }
+.zoom-cap a:hover { border-color: #fff; }
+.zoom .x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 4px; border: 1.5px solid #3A3840; background: transparent; color: #fff; font: 600 22px/1 var(--f-ui); cursor: pointer; }
+@media (max-width: 760px) { .zoom-in { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; } .zoom-cap { border-left: 0; border-top: 1px solid #2C2A30; padding: 16px; } .zoom-cap b { font-size: 34px; } }
 
 /* explore */
 .sect { max-width: 1240px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 72px 0; }
@@ -196,8 +238,7 @@ input[type="search"] { flex: 1 1 220px; max-width: 360px; }
 .row:hover { background: var(--wash); }
 .row .rank { font: 800 24px var(--f-display); color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .who { display: flex; gap: 12px; align-items: center; min-width: 0; }
-.who .card { width: 34px; padding: 1.5px; border-radius: 4px; }
-.who .card > i { border-radius: 3px; }
+.who .card { width: 34px; border-radius: 3px; }
 .who-t { min-width: 0; display: grid; }
 .who-t b { font: 600 16px/1.3 var(--f-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .who-t span { font: 500 12px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
@@ -241,7 +282,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 .dlg h4 { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .dlg h4 .tabs button { padding: 6px 10px; font-size: 12.5px; }
 .copies { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.copies a { display: grid; gap: 7px; text-decoration: none; color: inherit; min-width: 0; }
+.copies button { display: grid; gap: 7px; color: inherit; min-width: 0; background: none; border: 0; padding: 0; text-align: left; font: inherit; cursor: zoom-in; }
+.copies button:hover .card { border-color: var(--ink); }
 .copies b { font: 800 20px/1 var(--f-display); }
 .copies span { font: 12px/1.35 var(--f-ui); color: var(--ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
 .mini .brow { grid-template-columns: 70px minmax(40px, 1fr) 90px; padding: 4px 0; }
@@ -251,7 +293,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 .list li { display: flex; justify-content: space-between; gap: 12px; font: 14.5px var(--f-ui); padding: 6px 0; border-bottom: 1px solid var(--rule); }
 .list li span:last-child { font-variant-numeric: tabular-nums; color: var(--ink-2); }
 @media (max-width: 720px) { .dlg-grid { grid-template-columns: minmax(0, 1fr); } .copies { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dlg-top { padding: 14px; } .dlg-body { padding-inline: 14px; } }
-@media (prefers-reduced-motion: reduce) { a.card:hover, button.card:hover, .lift:hover .card { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .slab, .slab .frame { transition: none !important; } }
 </style>
 
 <header class="mast">
@@ -262,6 +304,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <a href="#explore">Look up a card</a>
     </nav>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
 <section class="cover" id="top" aria-labelledby="h1">
@@ -282,6 +325,20 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   </div>
   <div class="cue"><a href="#story">Read the story</a></div>
 </section>
+
+<nav class="toc" id="toc" aria-label="Chapters">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#tens"><span>1</span>Half are 10s</a></li>
+    <li><a href="#cards"><span>2</span>Most common</a></li>
+    <li><a href="#japanese"><span>3</span>Japanese cards</a></li>
+    <li><a href="#years"><span>4</span>Vintage</a></li>
+    <li><a href="#grails"><span>5</span>Grails and sealed</a></li>
+    <li class="sep" aria-hidden="true"></li>
+    <li><a href="#explore"><span>→</span>Look up a card</a></li>
+    <li><a href="#method"><span>→</span>How I counted</a></li>
+  </ol>
+</nav>
 
 <main>
   <article class="story" id="story">
@@ -311,6 +368,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     <section class="blk ch" id="grails" aria-labelledby="h-grails">
       <p class="ch-k">Chapter 5</p><h2 id="h-grails"></h2><div id="p-grails"></div>
       <figure class="fig wide" id="fig-champs"></figure>
+      <div id="p-sealed"></div>
+      <figure class="fig wide light" id="fig-sealed"><div class="wall" id="sealed"></div><figcaption id="cap-sealed"></figcaption></figure>
       <div class="share" data-share="grails"></div>
     </section>
   </article>
@@ -353,6 +412,13 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   </div>
 </dialog>
 
+<dialog id="zoom" class="zoom" aria-label="Card">
+  <div class="zoom-in">
+    <div class="zoom-img"><img id="zoom-img" alt=""></div>
+    <div class="zoom-cap"><button type="button" class="x" id="zoom-x" aria-label="Close">&times;</button><b id="zoom-v"></b><span class="chip" id="zoom-g"></span><p id="zoom-t"></p><small id="zoom-n"></small><a id="zoom-a" target="_blank" rel="noopener">View on OpenSea</a></div>
+  </div>
+</dialog>
+
 <script type="application/json" id="summary">/*__SUMMARY__*/</script>
 <script>
 (() => {
@@ -384,6 +450,27 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const cardHTML = (i, w, tag = "span", attrs = "") => `<${tag} class="card${i < 0 ? " empty" : ""}" ${attrs}><i data-w="${w}" data-i="${i}"></i></${tag}>`;
   const hydrate = (root) => root.querySelectorAll(".card > i[data-i]").forEach((el) => { const i = +el.dataset.i; if (i < 0) return; const w = el.getBoundingClientRect().width || +el.dataset.w; el.dataset.bg = cardStyle(i, w); lazy.observe(el); el.removeAttribute("data-i"); });
 
+  const cdn = (u, w) => { if (!u) return ""; if (u.startsWith("ipfs://")) return "https://ipfs.io/ipfs/" + u.slice(7); try { const x = new URL(u); if (x.hostname.endsWith("seadn.io")) { x.searchParams.set("w", w); x.searchParams.set("auto", "format"); } return x.toString(); } catch { return u; } };
+  const ZOOM = [];
+  const zid = (c) => { ZOOM.push(c); return ZOOM.length - 1; };
+  const zoom = $("zoom");
+  function openZoom(c) {
+    const img = $("zoom-img");
+    img.src = c.w || cdn(c.u, 500);
+    if (c.u) { const big = new Image(); big.onload = () => { if (zoom.open && $("zoom-t").dataset.k === c.url) img.src = big.src; }; big.src = cdn(c.u, 1600); }
+    img.alt = c.t || c.name;
+    $("zoom-v").textContent = c.v != null ? usd(c.v) : "";
+    $("zoom-g").textContent = c.g || ""; $("zoom-g").hidden = !c.g;
+    $("zoom-t").textContent = c.t || c.name; $("zoom-t").dataset.k = c.url;
+    $("zoom-n").textContent = c.v != null ? "Estimated value from OpenSea. " + (c.c ? "Listed in " + c.c + "." : "") : (c.c ? "Listed in " + c.c + "." : "");
+    $("zoom-a").href = c.url;
+    if (!zoom.open) zoom.showModal();
+    window.gtag?.("event", "select_content", { content_type: "card_photo", item_id: c.t || c.name });
+  }
+  document.addEventListener("click", (e) => { const t = e.target.closest("[data-zoom]"); if (t) { e.preventDefault(); openZoom(ZOOM[+t.dataset.zoom]); } });
+  $("zoom-x").addEventListener("click", () => zoom.close());
+  zoom.addEventListener("click", (e) => { if (e.target === zoom || e.target.classList.contains("zoom-img")) zoom.close(); });
+
   /* share */
   const X_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.8 2h6.4l4.4 5.8L18.9 2Zm-1.1 18h1.7L8.3 3.9H6.5L17.8 20Z"/></svg>`;
   const shareHTML = (text, hash) => { const url = base + "#" + hash; return `<a href="${esc("https://x.com/intent/post?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url))}" target="_blank" rel="noopener" data-track="${esc(hash)}">${X_ICON}Share</a><button type="button" data-copy="${esc(url)}">Copy link</button>`; };
@@ -412,8 +499,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const poke = FR.find((f) => f.f === "Pokemon");
   const wotc = poke ? poke.years.filter(([y]) => y >= 1999 && y <= 2003).reduce((s, p) => s + p[1], 0) : 0;
   const bestCopy = (s) => (s.copies || []).filter((c) => c.v != null).sort((a, b) => b.v - a.v)[0];
-  const seen = new Set();
-  const priciest = S.top.filter((c) => c.v != null && !seen.has(c.name + c.v) && seen.add(c.name + c.v));
+  const priciest = S.top.filter((c) => c.v != null);
   const when = new Date(S.at);
   const whenTxt = when.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "UTC", timeZoneName: "short" });
 
@@ -425,11 +511,32 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
     <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
       <span class="t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span><span class="c">${cf.format(s.n)}</span><span class="c ten">${cf.format(tenOf(s))}</span></button>`).join("");
-  $("wall").innerHTML = priciest.slice(0, 12).map((c) => `<a class="lift" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.name)}">${cardHTML(c.i, 160)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("");
-  $("wall-cap").textContent = `The ${Math.min(12, priciest.length)} most valuable cards onchain, by OpenSea's estimated value. Click any to see it on OpenSea.`;
+  function skyline(el, items, { ar = 5 / 7, maxH }) {
+    const ids = items.map(zid);
+    const draw = () => {
+      const W = el.clientWidth; if (!W || !items.length) return;
+      const narrow = W < 560, gap = narrow ? 12 : 18, lab = narrow ? 62 : 80, titleMin = narrow ? 1e9 : 150, Hmax = maxH(narrow);
+      const lay = (k) => { const rows = []; let row = [], rw = 0;
+        items.forEach((c, n) => { const h = k * Math.sqrt(c.v), w = h * ar; if (row.length && rw + gap + w > W) { rows.push(row); row = []; rw = 0; } row.push({ c, n, w, h }); rw += (row.length > 1 ? gap : 0) + w; });
+        if (row.length) rows.push(row);
+        return { rows, H: rows.reduce((t, r) => t + Math.max(...r.map((x) => x.h)) + lab, 0) + gap * (rows.length - 1) }; };
+      let lo = 0.001, hi = W / (ar * Math.sqrt(items[0].v));
+      for (let i = 0; i < 32; i++) { const mid = (lo + hi) / 2; if (lay(mid).H <= Hmax) lo = mid; else hi = mid; }
+      el.style.rowGap = gap + "px";
+      el.innerHTML = lay(lo).rows.map((r) => `<div class="srow" style="gap:${gap}px">${r.map(({ c, n, w, h }) => {
+        const fs = Math.round(Math.max(17, Math.min(40, w / (narrow ? 7 : 6.2))));
+        return `<button type="button" class="slab" data-zoom="${ids[n]}" style="width:${w.toFixed(1)}px;--lab:${lab}px" aria-label="${esc(c.t)}${c.g ? ", " + esc(c.g) : ""}, estimated ${usd(c.v)}"><span class="frame" style="height:${h.toFixed(1)}px"><img src="${esc(c.w)}" alt="" decoding="async"></span><span class="lab"><b style="font-size:${fs}px">${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}${w >= titleMin ? `<span>${esc(c.t)}</span>` : ""}</span></button>`; }).join("")}</div>`).join("");
+    };
+    draw();
+    let lw = el.clientWidth; new ResizeObserver(() => { if (el.clientWidth !== lw) { lw = el.clientWidth; draw(); } }).observe(el);
+  }
+  const wallItems = priciest.filter((c) => c.w).slice(0, 9);
+  skyline($("wall"), wallItems, { maxH: (narrow) => narrow ? 860 : Math.max(600, Math.min(920, innerHeight - 70)) });
+  $("wall-cap").textContent = `The ${wallItems.length} most valuable graded cards onchain, each sized by OpenSea's estimated value. Click one to read the slab.`;
 
   /* ---------- story ---------- */
   const P_ = (h) => `<p>${h}</p>`;
+  const an = (w) => /^[aeiou]/i.test(String(w).trim()) ? "an" : "a";
   $("lead").innerHTML = `Card companies have published population reports for decades: how many copies of each card they have graded, at each grade. Collectors use them to tell a rare slab from a common one. Nobody had one for cards that live onchain, so I made one from the ${nf.format(S.n)} tokenized cards on OpenSea.`;
   $("why").innerHTML = `I'm a developer at OpenSea. I added the endpoint behind this page, <code>/api/v2/nfts/group/{group}/facets</code>, so apps can filter cards from every issuer by the same attributes: franchise, grader, grade, card and set.`;
 
@@ -476,34 +583,47 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("fig-lang").innerHTML = `<div class="legend"><span><i style="background:var(--c-en)"></i>English</span><span><i style="background:var(--c-ja)"></i>Japanese</span><span><i style="background:var(--c-ot)"></i>Other</span></div><div class="bars">${jaFr.map(({ f, ja, en }) => `<div class="brow"><span class="bn"><b>${esc(f.f)}</b><span>${nf.format(f.n)} cards</span></span><span class="stack" title="English ${pct0(en)}, Japanese ${pct0(ja)}"><i style="width:${en * 100}%;background:var(--c-en)"></i><i style="width:${ja * 100}%;background:var(--c-ja)"></i><i style="width:${Math.max(0, (1 - en - ja) * 100)}%;background:var(--c-ot)"></i></span><span class="bv"><b>${pct0(ja)}</b><span>Japanese</span></span></div>`).join("")}</div>
     <figcaption><b>Fig. 4</b> Language of tokenized cards by franchise, for franchises with at least 2,000 cards.</figcaption>`;
 
-  $("h-years").textContent = modernShare >= 0.5 ? `${cap(oneIn(modernShare)[0])} cards onchain ${oneIn(modernShare)[1] ? "was" : "were"} printed since 2020` : "Old cards and new";
-  const yp = [`Most of what's onchain is modern. ${pct0(modernShare)} of cards with a known year were printed in 2020 or later, and the busiest year is ${yearsAll.reduce((a, b) => b[1] > a[1] ? b : a)[0]}.`];
-  if (wotc) yp.push(`Vintage is scarce. Pokemon's Wizards of the Coast era, 1999 to 2003, accounts for ${nf.format(wotc)} cards onchain${zb && /\b(1999|2000|2001|2002|2003)\b/.test(zb.name) ? `, and the priciest Charizard here is one of them` : ""}.`);
+  const V = S.vintage, vShare = V.dated ? V.all / V.dated : 0, vTop = V.top_n ? V.top_old / V.top_n : 0;
+  const strong = vTop >= 2 * vShare && V.top_n >= 10;
+  $("h-years").textContent = strong ? `Old cards are ${pct0(vShare)} of what's onchain and ${oneIn(vTop)[0].replace(/ of$/, "")} of the most valuable` : "Old cards and new";
+  const yp = [`Cards printed before ${V.cut} make up ${pct0(vShare)} of the ${nf.format(V.dated)} cards onchain with a known year. Among the ${V.top_n} most valuable graded cards, ${V.top_old} are that old.`];
+  if (wotc) yp.push(`For Pokemon that's the Wizards of the Coast era, 1999 to 2003, with ${nf.format(wotc)} cards onchain${S.top[0] && S.top[0].y >= 1999 && S.top[0].y <= 2003 ? `, including the most valuable card in this census` : ""}.`);
+  yp.push(`The modern side is huge by count, ${pct0(modernShare)} printed in 2020 or later, and thin at the top.`);
   $("p-years").innerHTML = yp.map(P_).join("");
   const y0 = 1990, yrs = []; let before = 0;
   yearsAll.forEach(([y, c]) => { if (y < y0) before += c; });
   for (let y = y0; y <= new Date().getUTCFullYear(); y++) yrs.push([y, (yearsAll.find((p) => p[0] === y) || [y, 0])[1]]);
   const yMax = Math.max(...yrs.map((r) => r[1]));
-  $("fig-years").innerHTML = `<div class="cols" id="cols">${yrs.map(([y, c]) => `<i class="${y >= 2020 ? "hi" : ""}" data-y="${y}" data-c="${c}" style="height:${Math.max(c ? 0.6 : 0, c / yMax * 100)}%"></i>`).join("")}</div>
+  $("fig-years").innerHTML = `<div class="vs bars"><h4>Printed before ${V.cut}</h4>
+      <div class="brow mute"><span class="bn"><b>All cards onchain</b><span>${nf.format(V.dated)} with a year</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vShare * 100)}%"></span></span><span class="bv"><b>${pct0(vShare)}</b><span>${nf.format(V.all)} cards</span></span></div>
+      <div class="brow hi"><span class="bn"><b>Most valuable graded</b><span>top ${V.top_n} by estimate</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vTop * 100)}%"></span></span><span class="bv"><b>${pct0(vTop)}</b><span>${V.top_old} of ${V.top_n}</span></span></div></div>
+    <div class="cols" id="cols">${yrs.map(([y, c]) => `<i class="${y < V.cut ? "hi" : ""}" data-y="${y}" data-c="${c}" style="height:${Math.max(c ? 0.6 : 0, c / yMax * 100)}%"></i>`).join("")}</div>
     <div class="cols-x"><span>${y0}</span><span>2000</span><span>2010</span><span>2020</span><span>${yrs[yrs.length - 1][0]}</span></div><p class="cols-tip" id="cols-tip">Hover a year for its count.</p>
-    <figcaption><b>Fig. 5</b> Cards onchain by the year they were printed, from ${y0}. ${before ? `${nf.format(before)} cards are older. ` : ""}2020 and later in color.</figcaption>`;
+    <figcaption><b>Fig. 5</b> Top: share printed before ${V.cut}, for every card onchain and for the most valuable graded cards (year read from the listing title). Bottom: cards onchain by print year from ${y0}, before ${V.cut} in color.${before ? ` ${nf.format(before)} cards are older than ${y0}.` : ""}</figcaption>`;
   $("cols").addEventListener("mouseover", (e) => { const i = e.target.closest("i"); if (i) $("cols-tip").textContent = `${i.dataset.y}: ${nf.format(+i.dataset.c)} cards`; });
 
-  const champs = FR.filter((f) => f.n >= 2000).map((f) => { const best = SUB.filter((s) => s.f === f.f).map(bestCopy).filter(Boolean).sort((a, b) => b.v - a.v)[0]; return best ? { f: f.f, c: best } : null; }).filter(Boolean);
+  const champs = S.champs || [];
   const top1 = priciest[0];
   $("h-grails").textContent = top1 ? `The most valuable card onchain is worth about ${money(top1.v)}` : "The grails";
   const gp = [];
-  if (top1) gp.push(`That's ${esc(top1.name)}, by OpenSea's estimate. ${priciest.length >= 12 ? `The twelve cards on the cover are each worth at least ${money(priciest[11].v)}.` : ""}`);
+  if (top1) gp.push(`That's ${an(top1.t)} ${esc(top1.t)}${top1.g ? ` graded ${esc(top1.g)}` : ""}, by OpenSea's estimate. ${wallItems.length >= 6 ? `The ${WORDS[wallItems.length] || wallItems.length} cards on the cover are each estimated at ${money(wallItems[wallItems.length - 1].v)} or more.` : ""}`);
   gp.push(`Every franchise has its own top card. Here is the most valuable copy I found for each one.`);
   $("p-grails").innerHTML = gp.map(P_).join("");
-  $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<a class="champ lift" href="${esc(c.url)}" target="_blank" rel="noopener"><small>${esc(f)}</small>${cardHTML(c.i, 160)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("")}</div>
+  const sealed = (S.sealed || []).filter((c) => c.w && c.v != null).slice(0, 10);
+  if (sealed.length) {
+    const s1 = sealed[0];
+    $("p-sealed").innerHTML = P_(`Not everything onchain is a card. ${nf.format(S.sealed_n)} sealed products are tokenized too, mostly booster boxes nobody will ever open. The most valuable is ${an(s1.t)} ${esc(s1.t)} at about ${money(s1.v)}${sealed[1] ? `, then ${an(sealed[1].t)} ${esc(sealed[1].t)} at ${money(sealed[1].v)}` : ""}.`);
+    skyline($("sealed"), sealed, { ar: 1, maxH: (narrow) => narrow ? 760 : 620 });
+    $("cap-sealed").innerHTML = `<b>Fig. 7</b> The ${sealed.length} most valuable sealed products onchain, each sized by OpenSea's estimated value. Click one for a closer look.`;
+  } else $("fig-sealed").hidden = true;
+  $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(c.w)}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
     <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
 
   const SHARE = {
     tens: `${cap(half)} graded trading cards onchain are 10s. ${psa && cgc ? `PSA: ${pct0(gem(psa))}. CGC: ${pct0(gem(cgc))}.` : ""}`,
     cards: zard && pika && pika.n > zard.n ? `There are more Pikachus onchain than Charizards: ${nf.format(pika.n)} to ${nf.format(zard.n)}.` : `${top.s} is the most common trading card onchain, with ${nf.format(top.n)} copies.`,
     japanese: `${cap(jaPhrase)} tokenized trading cards on OpenSea ${jaPhrase.startsWith("one in") ? "is" : "are"} Japanese.`,
-    years: `${pct0(modernShare)} of trading cards onchain were printed in 2020 or later.`,
+    years: `Cards printed before ${V.cut} are ${pct0(vShare)} of trading cards onchain, and ${V.top_old} of the ${V.top_n} most valuable.`,
     grails: top1 ? `The most valuable trading card onchain is worth about ${money(top1.v)}: ${top1.name}.` : "The most valuable trading cards onchain.",
   };
   document.querySelectorAll("[data-share]").forEach((el) => { el.innerHTML = shareHTML(SHARE[el.dataset.share], el.dataset.share); });
@@ -553,7 +673,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       return rowsG.length ? rowsG.map(([gr, c]) => `<div class="brow ${num(gr) >= 10 ? "hi" : ""}"><span class="bn"><b>${esc(gr)}</b></span><span class="track"><span class="fill" style="width:${Math.max(0.5, c / mx * 100)}%"></span></span><span class="bv"><b>${nf.format(c)}</b><span>${pct1(c / t)}</span></span></div>`).join("") : `<p class="empty">No graded copies.</p>`; };
     $("dlg-body").innerHTML = `
       <dl class="dlg-stats"><div><dt>Copies</dt><dd>${nf.format(s.n)}</dd></div><div><dt>Graded</dt><dd>${nf.format(s.graded)}</dd></div><div><dt>10s</dt><dd>${nf.format(tenOf(s))}</dd></div><div><dt>Gem rate</dt><dd>${s.graded ? pct0(gemOf(s)) : "–"}</dd></div><div><dt>Japanese</dt><dd>${pct0(ja)}</dd></div>${b ? `<div><dt>Top copy</dt><dd>${usd(b.v)}</dd></div>` : ""}</dl>
-      ${s.copies.length ? `<div><h4>Most valuable copies onchain</h4><div class="copies">${s.copies.map((c) => `<a class="lift" href="${esc(c.url)}" target="_blank" rel="noopener">${cardHTML(c.i, 200)}<b>${usd(c.v)}</b><span>${esc(c.name)}</span></a>`).join("")}</div></div>` : ""}
+      ${s.copies.length ? `<div><h4>Most valuable copies onchain</h4><div class="copies">${s.copies.map((c) => `<button type="button" class="lift" data-zoom="${zid(c)}"><span class="card"><img src="${esc(cdn(c.u, 480))}" alt="" loading="lazy" decoding="async"></span><b>${c.v != null ? usd(c.v) : "–"}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div></div>` : ""}
       <div class="dlg-grid">
         <div class="mini"><h4>Pop report <span class="tabs" role="group" aria-label="Grader" id="gtabs"><button type="button" data-g="all" aria-pressed="true">All</button><button type="button" data-g="psa" aria-pressed="false">PSA</button><button type="button" data-g="cgc" aria-pressed="false">CGC</button></span></h4><div class="bars" id="gbars">${gradeBars(s.grade)}</div></div>
         <div style="display:grid;gap:22px;align-content:start">
@@ -582,6 +702,20 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <p>A 10 means 10 or higher on the grader's scale, including CGC's Pristine and BGS's Black Label, which show up as 10.5. Graded counts only include cards with a numeric grade. Card images and values come from <code>GET /api/v2/nfts/group/trading_cards</code> sorted by <code>estimated_value</code>, OpenSea's estimate, not a sale price.</p>
       <p>Snapshot taken ${esc(whenTxt)}.</p>
     </div>`;
+
+  const toc = $("toc"), prog = $("progress"), links = [...toc.querySelectorAll("a")];
+  const marks = links.map((a) => document.getElementById(a.getAttribute("href").slice(1)));
+  let ticking = false;
+  const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => {
+    ticking = false;
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+    const storyTop = $("story").offsetTop, end = document.querySelector(".foot").offsetTop;
+    toc.classList.toggle("on", y + 80 > storyTop && y + innerHeight * 0.6 < end);
+    let cur = 0; marks.forEach((m, i) => { if (m && m.getBoundingClientRect().top < innerHeight * 0.35) cur = i; });
+    links.forEach((a, i) => a.classList.toggle("cur", i === cur));
+  }); };
+  addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
 
   hydrate(document);
   const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (!h || document.getElementById(h)) return; const s = subBySlug.get(h); if (s) openCard(s); };

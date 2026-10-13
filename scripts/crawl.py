@@ -42,9 +42,10 @@ for f in franchises:
     sets += [v for v, _ in (FR[f] or {}).get("set", [])[:15]]
 sets = list(dict.fromkeys(sets))
 SET = pmap(lambda x: facets(types=["grade", "franchise", "year", "grader"], set=x), sets)
-TOP = search(limit=36)
+TOP = search(limit=40, product_type="Graded Card")
+SEALED = search(limit=16, product_type="Sealed Product")
 COPIES = pmap(lambda s: search(limit=4, subject=s), subjects)
 json.dump({"group": GROUP, "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "all": ALL, "franchise": FR, "grader": GR, "fg": FG,
-           "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "copies": COPIES}, open(OUT, "w"))
+           "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "sealed": SEALED, "copies": COPIES}, open(OUT, "w"))
 missing = sum(1 for v in list(SUB.values()) + list(SUBG.values()) + list(SET.values()) if v is None)
 print(f"done in {time.time() - t0:.0f}s, {len(subjects)} subjects, {len(sets)} sets, missing={missing}", flush=True)

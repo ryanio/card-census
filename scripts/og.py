@@ -39,9 +39,8 @@ for k, c in enumerate(picks):
     j = c["i"] % per; cell = sheets[f].crop(((j % sp["cols"]) * sp["w"], (j // sp["cols"]) * sp["h"], (j % sp["cols"] + 1) * sp["w"], (j // sp["cols"] + 1) * sp["h"]))
     x, yy = x0 + (k % 3) * (cw + gap), y0 + (k // 3) * (ch + gap)
     frame = Image.new("RGBA", (cw, ch), (0, 0, 0, 0)); fd = ImageDraw.Draw(frame)
-    for t in range(6): fd.rounded_rectangle([0, 0, cw - 1, ch - 1], radius=14 * K, fill=holo[(k + t) % 6] + (255,)) if t == 0 else None
-    fd.rounded_rectangle([3 * K, 3 * K, cw - 3 * K - 1, ch - 3 * K - 1], radius=12 * K, fill=(28, 27, 32, 255))
-    frame.alpha_composite(cell.resize((cw - 6 * K, ch - 6 * K), Image.LANCZOS), (3 * K, 3 * K))
+    fd.rounded_rectangle([0, 0, cw - 1, ch - 1], radius=12 * K, fill=(30, 29, 34, 255), outline=(58, 56, 64, 255), width=K)
+    frame.alpha_composite(cell.resize((cw - 4 * K, ch - 4 * K), Image.LANCZOS), (2 * K, 2 * K))
     img.paste(frame, (x, yy), frame)
 img.resize((1200, 630), Image.LANCZOS).save(os.path.join(SITE, "og.png"), optimize=True)
 print("og.png", os.path.getsize(os.path.join(SITE, "og.png")))
