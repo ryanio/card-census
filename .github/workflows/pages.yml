@@ -64,7 +64,7 @@ jobs:
       - uses: actions/cache@v4
         if: steps.key.outputs.refresh == 'true'
         with:
-          path: data/img
+          path: data/raw
           key: avatars-${{ github.run_id }}
           restore-keys: avatars-
       - name: Crawl and build
