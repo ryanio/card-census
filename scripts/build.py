@@ -158,14 +158,21 @@ meta = f"""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="{desc}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Card Census">
+<meta property="og:site_name" content="Card Census">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="The most valuable graded trading cards onchain">
+<meta name="twitter:image:alt" content="The most valuable graded trading cards onchain">
+<meta name="theme-color" content="#0B0A0C">
+<meta name="author" content="Ryan Ghods">
+<link rel="canonical" href="{SITE_URL}">
+<meta property="og:title" content="How many Charizards are onchain? The Card Census">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE_URL}">
 <meta property="og:image" content="{SITE_URL}og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Card Census">
+<meta name="twitter:title" content="How many Charizards are onchain? The Card Census">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{SITE_URL}og.png">
 {ga}<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='22' y='8' width='56' height='84' rx='8' fill='%23E2483D'/%3E%3C/svg%3E">

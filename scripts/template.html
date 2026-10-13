@@ -1,4 +1,4 @@
-<title>Card Census</title>
+<title>Card Census: an onchain pop report for trading cards</title>
 <meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,31 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
   .dek { max-width: 46ch; }
 }
 
+/* highlights strip */
+.hl { background: var(--paper); border-bottom: 1px solid var(--rule); }
+.hl-in { max-width: 1240px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 34px 38px; }
+.hl-in h2 { font: 500 12.5px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 14px; }
+.hl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.hl-t { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; padding: 16px 16px 14px; border: 1px solid var(--rule); border-radius: 8px; min-width: 0; transition: border-color .15s, transform .15s; }
+.hl-t:hover { border-color: var(--ink); transform: translateY(-2px); }
+.hl-t small { font: 500 11.5px var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.hl-t b { font: 800 40px/.95 var(--f-display); font-variant-numeric: tabular-nums; }
+.hl-t p { font: 400 16px/1.42 var(--f-serif); color: var(--ink-2); margin: 0; }
+.hl-t .acts { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 4px; }
+.hl-t .acts a { font: 600 13.5px var(--f-ui); color: var(--ink); text-decoration: none; }
+.hl-t .acts a:hover { text-decoration: underline; }
+.hl-t .acts .sx { display: inline-flex; align-items: center; gap: 6px; font: 600 12.5px var(--f-ui); color: var(--ink-2); border: 1.5px solid var(--rule); border-radius: 999px; padding: 5px 11px; text-decoration: none; }
+.hl-t .acts .sx:hover { border-color: var(--ink); color: var(--ink); text-decoration: none; }
+.hl-t .acts svg { width: 12px; height: 12px; fill: currentColor; }
+@media (max-width: 620px) { .hl-grid { grid-auto-flow: column; grid-auto-columns: 78%; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; } .hl-t { scroll-snap-align: start; } }
+/* heading anchors and a small toast */
+.anchor { margin-left: .28em; font: 600 .48em var(--f-mono); color: var(--ink-3); text-decoration: none; opacity: 0; vertical-align: .32em; transition: opacity .15s; }
+h2:hover .anchor, .anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .anchor { opacity: .55; } }
+.toast { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 12px); background: var(--ink); color: var(--paper); font: 600 14px var(--f-ui); padding: 10px 16px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 50; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .hl-t, .toast { transition: none; } }
+
 /* story */
 .story { --col: minmax(var(--gutter), 1fr) minmax(0, 150px) min(680px, calc(100% - 2 * var(--gutter))) minmax(0, 150px) minmax(var(--gutter), 1fr); padding-block: 56px 24px; }
 .blk { display: grid; grid-template-columns: var(--col); }
@@ -199,6 +224,18 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .toc a:hover { color: var(--ink); }
 .toc a.cur { color: var(--ink); border-left-color: var(--accent); font-weight: 600; }
 .toc li.sep { height: 10px; }
+.chap { display: none; position: relative; margin-left: auto; }
+.chap.on { display: block; }
+.chap > button { font: 600 13.5px var(--f-ui); color: var(--hero-ink); background: var(--hero-wash); border: 1px solid var(--hero-rule); border-radius: 999px; padding: 6px 13px; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; max-width: min(52vw, 280px); }
+.chap > button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chap > button i { font-style: normal; opacity: .7; font-size: 11px; }
+.chap ol { position: absolute; right: 0; top: calc(100% + 10px); min-width: 240px; list-style: none; margin: 0; padding: 8px; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 18px 44px rgba(0, 0, 0, .28); display: grid; gap: 1px; }
+.chap ol a { display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 9px 10px; border-radius: 6px; text-decoration: none; font: 500 14.5px var(--f-ui); color: var(--ink-2); }
+.chap ol a span { font: 500 12px/1.6 var(--f-mono); color: var(--ink-3); }
+.chap ol a:hover, .chap ol a.cur { background: var(--wash); color: var(--ink); }
+.chap ol li.sep { height: 6px; }
+.mast.chapping nav { display: none; }
+@media (min-width: 1420px) { .chap { display: none !important; } .mast.chapping nav { display: flex; } }
 @media (max-width: 1419px) { .toc { display: none; } }
 @media (prefers-reduced-motion: reduce) { .toc { transition: none; } }
 /* the vault: lots in spotlit cases */
@@ -352,6 +389,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 <header class="mast">
   <div class="mast-in">
     <a class="wm" href="#top"><i aria-hidden="true"></i>Card Census</a>
+    <div class="chap" id="chap"><button type="button" aria-expanded="false" aria-controls="chap-list" id="chap-btn"><span id="chap-now">Contents</span><i aria-hidden="true">▾</i></button><ol id="chap-list" hidden></ol></div>
     <nav aria-label="Sections">
       <a href="#story" class="opt">Story</a>
       <a href="#explore">Look up a card</a>
@@ -380,6 +418,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   </section>
   <div class="cue"><a href="#story">Read the story</a></div>
 </section>
+
+<section class="hl" id="highlights" aria-labelledby="h-hl">
+  <div class="hl-in"><h2 id="h-hl">In short</h2><div class="hl-grid" id="hl-grid"></div></div>
+</section>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <nav class="toc" id="toc" aria-label="Chapters">
   <h3>Contents</h3>
@@ -474,6 +517,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   </div>
 </dialog>
 
+<script type="application/json" id="highlights-data">/*__HIGHLIGHTS__*/</script>
 <script type="application/json" id="summary">/*__SUMMARY__*/</script>
 <script>
 (() => {
@@ -528,10 +572,15 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 
   /* share */
   const X_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.8 2h6.4l4.4 5.8L18.9 2Zm-1.1 18h1.7L8.3 3.9H6.5L17.8 20Z"/></svg>`;
-  const shareHTML = (text, hash) => { const url = base + "#" + hash; return `<a href="${esc("https://x.com/intent/post?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url))}" target="_blank" rel="noopener" data-track="${esc(hash)}">${X_ICON}Share</a><button type="button" data-copy="${esc(url)}">Copy link</button>`; };
+  let HL = { h: [], c: {} };
+  try { HL = JSON.parse(document.getElementById("highlights-data").textContent); } catch (_) {}
+  const shareUrl = (hash) => { const id = HL.h.some((h) => h.id === hash) ? hash : HL.c[hash]; return id ? base + "s/" + id + "/" : base + "#" + hash; };
+  const toastEl = document.getElementById("toast"); let toastT;
+  const toast = (msg) => { toastEl.textContent = msg; toastEl.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("on"), 1600); };
+  const shareHTML = (text, hash) => { const url = shareUrl(hash); return `<a href="${esc("https://x.com/intent/post?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url))}" target="_blank" rel="noopener" data-track="${esc(hash)}">${X_ICON}Share</a><button type="button" data-copy="${esc(url)}">Copy link</button>`; };
   document.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-copy]");
-    if (b) { const t = b.textContent; (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).then(() => { b.textContent = "Copied"; setTimeout(() => (b.textContent = t), 1500); }, () => window.prompt?.("Copy this link", b.dataset.copy)); window.gtag?.("event", "share", { method: "copy" }); }
+    if (b) { const t = b.textContent; (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).then(() => { b.textContent = "Copied"; toast("Link copied"); setTimeout(() => (b.textContent = t), 1500); }, () => window.prompt?.("Copy this link", b.dataset.copy)); window.gtag?.("event", "share", { method: "copy" }); }
     const a = e.target.closest("a[data-track]"); if (a) window.gtag?.("event", "share", { method: "x", item_id: a.dataset.track });
   });
 
@@ -676,6 +725,17 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   document.querySelectorAll("[data-share]").forEach((el) => { el.innerHTML = shareHTML(SHARE[el.dataset.share], el.dataset.share); });
   if (zard && pika && pika.n > zard.n) { $("pull").hidden = false; $("pull").textContent = "There are more Pikachus onchain than Charizards."; }
 
+  /* ---------- highlights strip and heading anchors ---------- */
+  $("hl-grid").innerHTML = HL.h.map((h) => { const url = shareUrl(h.id); const intent = "https://x.com/intent/post?text=" + encodeURIComponent(h.text) + "&url=" + encodeURIComponent(url);
+    return `<article class="hl-t"><small>${esc(h.kicker)}</small><b>${esc(h.big)}</b><p>${esc(h.title)}</p><div class="acts"><a href="#${esc(h.anchor)}">Read →</a><a class="sx" href="${esc(intent)}" target="_blank" rel="noopener" data-track="${esc(h.id)}">${X_ICON}Share</a></div></article>`; }).join("");
+  if (!HL.h.length) $("highlights").hidden = true;
+  document.querySelectorAll(".ch h2, .sect-h h2, .vault-h h2").forEach((h2) => {
+    const sec = h2.closest("section[id]"); if (!sec) return;
+    const a = document.createElement("a"); a.className = "anchor"; a.href = "#" + sec.id; a.textContent = "#"; a.setAttribute("aria-label", "Copy a link to this section");
+    a.addEventListener("click", (e) => { e.preventDefault(); history.replaceState(null, "", "#" + sec.id); sec.scrollIntoView({ behavior: "smooth" }); const u = shareUrl(sec.id); (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => toast("Link copied"), () => {}); });
+    h2.appendChild(a);
+  });
+
   /* ---------- lookup ---------- */
   $("explore-note").textContent = `${nf.format(SUB.length)} cards with their own pop report. Open one for its grades by grader, languages, sets and most valuable copies.`;
   $("fr").innerHTML = `<option value="">All franchises</option>` + FR.map((f) => `<option value="${esc(f.f)}">${esc(f.f)} (${SUB.filter((s) => s.f === f.f).length})</option>`).join("");
@@ -752,6 +812,14 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 
   const toc = $("toc"), prog = $("progress"), links = [...toc.querySelectorAll("a")];
   const marks = links.map((a) => document.getElementById(a.getAttribute("href").slice(1)));
+  const chap = $("chap"), chapBtn = $("chap-btn"), chapList = $("chap-list"), mast = document.querySelector(".mast");
+  chapList.innerHTML = toc.querySelector("ol").innerHTML;
+  const chapLinks = [...chapList.querySelectorAll("a")];
+  const closeChap = () => { chapList.hidden = true; chapBtn.setAttribute("aria-expanded", "false"); };
+  chapBtn.addEventListener("click", (e) => { e.stopPropagation(); const open = chapList.hidden; chapList.hidden = !open; chapBtn.setAttribute("aria-expanded", String(open)); });
+  chapList.addEventListener("click", (e) => { if (e.target.closest("a")) closeChap(); });
+  document.addEventListener("click", (e) => { if (!chap.contains(e.target)) closeChap(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeChap(); });
   let ticking = false;
   const onScroll = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => {
     ticking = false;
@@ -761,6 +829,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     toc.classList.toggle("on", y + 80 > storyTop && y + innerHeight * 0.6 < end);
     let cur = 0; marks.forEach((m, i) => { if (m && m.getBoundingClientRect().top < innerHeight * 0.35) cur = i; });
     links.forEach((a, i) => a.classList.toggle("cur", i === cur));
+    const inStory = y + 80 > storyTop && y + innerHeight * 0.6 < end;
+    chap.classList.toggle("on", inStory); mast.classList.toggle("chapping", inStory);
+    if (!inStory) closeChap();
+    chapLinks.forEach((a, i) => a.classList.toggle("cur", i === cur));
+    const t = links[cur]; if (t) $("chap-now").textContent = (/\d/.test(t.firstElementChild.textContent) ? t.firstElementChild.textContent + " · " : "") + t.lastChild.textContent;
   }); };
   addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
 
