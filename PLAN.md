@@ -27,4 +27,4 @@ Built from the first snapshot: 907,093 cards, 308 cards with their own pop repor
 
 ## Data in the repo
 
-Each fresh crawl writes CSVs to `data/` and appends to `data/history/`, and the workflow commits them at most once every `DATA_EVERY_HOURS` (24 now). In a few weeks, set it to 168 in `.github/workflows/pages.yml` for weekly commits. The live site still refreshes on its own schedule.
+Each fresh crawl writes CSVs to `data/` and appends to `data/history/`. The workflow commits them once per UTC day, from that day's first run. Runs drop to weekly at day 30, so the data commits do too.

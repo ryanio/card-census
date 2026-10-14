@@ -18,8 +18,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # at most one data commit per UTC day at 24; set to 168 for one per week
-  DATA_EVERY_HOURS: "24"
   LAUNCH_DATE: "2026-10-16"
 
 jobs:
@@ -29,14 +27,14 @@ jobs:
       run: ${{ steps.when.outputs.run }}
     steps:
       - id: when
-        # Scheduled runs: both daily runs for the first 14 days, the 13:17 run until day 45, then Mondays only.
+        # Scheduled runs: both daily runs for the first 14 days, the 13:17 run until day 30, then Mondays only.
         # Pushes and manual runs always go.
         run: |
           days=$(( ( $(date -u +%s) - $(date -u -d "$LAUNCH_DATE" +%s) ) / 86400 ))
           hour=$(date -u +%H); dow=$(date -u +%u); run=false
           if [ "${{ github.event_name }}" != "schedule" ]; then run=true
           elif [ "$days" -lt 14 ]; then run=true
-          elif [ "$days" -lt 45 ] && [ "$hour" = "13" ]; then run=true
+          elif [ "$days" -lt 30 ] && [ "$hour" = "13" ]; then run=true
           elif [ "$dow" = "1" ] && [ "$hour" = "13" ]; then run=true
           fi
           echo "day $days since launch, refresh=$run"
@@ -95,11 +93,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/*.csv data/history
           if git diff --cached --quiet; then echo "data unchanged"; exit 0; fi
-          # one data commit per DATA_EVERY_HOURS bucket: each UTC day at 24, each 7-day block at 168
+          # one data commit per UTC day, made by its first run; weekly once the runs go weekly at day 30
           last=$(git show HEAD:data/history/totals.csv 2>/dev/null | tail -n 1 | cut -d, -f1)
           if [ -n "$last" ] && [ "$last" != "at" ]; then
-            span=$(( DATA_EVERY_HOURS * 3600 ))
-            if [ $(( $(date -u -d "$last" +%s) / span )) -eq $(( $(date -u +%s) / span )) ]; then echo "already committed data this period (last $last); next after the period rolls over"; exit 0; fi
+            if [ $(( $(date -u -d "$last" +%s) / 86400 )) -eq $(( $(date -u +%s) / 86400 )) ]; then echo "already committed data today (last $last)"; exit 0; fi
           fi
           git commit -q -m "Data $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done

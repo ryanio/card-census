@@ -14,7 +14,7 @@ Each fresh crawl commits CSVs to `data/`: `cards.csv` (one row per card: copies,
 
 ## Refreshing
 
-The `Refresh and deploy` workflow re-crawls twice a day for the first two weeks after `LAUNCH_DATE`, daily through day 45, then weekly on Mondays, when the `OPENSEA_API_KEY` repository secret is set. The built site is deployed straight to Pages and not committed. The Google Analytics tag comes from the `GA_ID` repository variable.
+The `Refresh and deploy` workflow re-crawls twice a day for the first two weeks after `LAUNCH_DATE`, daily through day 30, then weekly on Mondays, when the `OPENSEA_API_KEY` repository secret is set. The built site is deployed straight to Pages and not committed. The Google Analytics tag comes from the `GA_ID` repository variable.
 
 To run it locally:
 
