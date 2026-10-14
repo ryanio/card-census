@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # data commits to the repo at most this often; set to 168 for weekly
+  # at most one data commit per UTC day at 24; set to 168 for one per week
   DATA_EVERY_HOURS: "24"
   LAUNCH_DATE: "2026-10-16"
 
@@ -95,10 +95,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/*.csv data/history
           if git diff --cached --quiet; then echo "data unchanged"; exit 0; fi
+          # one data commit per DATA_EVERY_HOURS bucket: each UTC day at 24, each 7-day block at 168
           last=$(git show HEAD:data/history/totals.csv 2>/dev/null | tail -n 1 | cut -d, -f1)
           if [ -n "$last" ] && [ "$last" != "at" ]; then
-            age=$(( $(date -u +%s) - $(date -u -d "$last" +%s) ))
-            if [ "$age" -lt $(( DATA_EVERY_HOURS * 3600 - 7200 )) ]; then echo "last data commit $(( age / 3600 ))h ago; next after ${DATA_EVERY_HOURS}h"; exit 0; fi
+            span=$(( DATA_EVERY_HOURS * 3600 ))
+            if [ $(( $(date -u -d "$last" +%s) / span )) -eq $(( $(date -u +%s) / span )) ]; then echo "already committed data this period (last $last); next after the period rolls over"; exit 0; fi
           fi
           git commit -q -m "Data $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
