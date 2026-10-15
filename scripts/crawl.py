@@ -12,12 +12,20 @@ def facets(types=None, **filters):
     if s != 200 or not b: return None
     return {f["type"]: [[v["value"], v["count"]] for v in f["values"]] for f in b.get("facets", [])}
 
-def search(limit=4, **filters):
-    params = [(k, v) for k, v in filters.items()] + [("sort_by", "estimated_value"), ("sort_direction", "desc"), ("limit", limit)]
-    s, b = get(f"/nfts/group/{GROUP}", params)
-    if s != 200 or not b: return []
-    keep = ("name", "collection", "contract", "identifier", "display_image_url", "image_url", "estimated_value_usd", "best_listing_price", "opensea_url")
-    return [{k: n.get(k) for k in keep} for n in b.get("nfts", [])]
+KEEP = ("name", "collection", "contract", "identifier", "display_image_url", "image_url", "estimated_value_usd", "best_listing_price", "opensea_url")
+def search(limit=4, by_value=True, **filters):
+    """Up to `limit` cards, most valuable first (or the API's default order), following the cursor past 100."""
+    out, cursor = [], None
+    while len(out) < limit:
+        params = [(k, v) for k, v in filters.items()] + [("limit", min(100, limit - len(out)))]
+        if by_value: params += [("sort_by", "estimated_value"), ("sort_direction", "desc")]
+        if cursor: params.append(("next", cursor))
+        s, b = get(f"/nfts/group/{GROUP}", params)
+        if s != 200 or not b: break
+        out += [{k: n.get(k) for k in KEEP} for n in b.get("nfts", [])]
+        cursor = b.get("next")
+        if not cursor or not b.get("nfts"): break
+    return out[:limit]
 
 def pmap(fn, items, workers=6):
     with cf.ThreadPoolExecutor(workers) as ex: return dict(zip(items, ex.map(fn, items)))
@@ -45,7 +53,17 @@ SET = pmap(lambda x: facets(types=["grade", "franchise", "year", "grader"], set=
 TOP = search(limit=40, product_type="Graded Card")
 SEALED = search(limit=16, product_type="Sealed Product")
 COPIES = pmap(lambda s: search(limit=4, subject=s), subjects)
+# photos for the cover map: a territory for every card with 1,500+ copies, and a mix of the priciest and the
+# API's default order for the rest of each franchise, roughly one photo per thousand cards
+own_n = lambda s: next((c for v, c in (SUB[s] or {}).get("subject", []) if v == s), 0)
+MAP_SUB = pmap(lambda s: search(limit=min(100, max(8, -(-own_n(s) // 450))), subject=s), [s for s in subjects if own_n(s) >= 1500])
+fr_n = dict(ALL["franchise"])
+def fr_photos(f):
+    k = min(400, max(30, -(-fr_n[f] // 1100)))
+    return search(limit=k // 2, franchise=f) + search(limit=k - k // 2, by_value=False, franchise=f)
+MAP_FR = pmap(fr_photos, franchises)
 json.dump({"group": GROUP, "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "all": ALL, "franchise": FR, "grader": GR, "fg": FG,
-           "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "sealed": SEALED, "copies": COPIES}, open(OUT, "w"))
+           "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "sealed": SEALED, "copies": COPIES,
+           "map": {"subject": MAP_SUB, "franchise": MAP_FR}}, open(OUT, "w"))
 missing = sum(1 for v in list(SUB.values()) + list(SUBG.values()) + list(SET.values()) if v is None)
 print(f"done in {time.time() - t0:.0f}s, {len(subjects)} subjects, {len(sets)} sets, missing={missing}", flush=True)

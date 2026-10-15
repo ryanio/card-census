@@ -66,7 +66,9 @@ jobs:
       - uses: actions/cache@v4
         if: steps.key.outputs.refresh == 'true'
         with:
-          path: data/raw
+          path: |
+            data/raw
+            data/mini
           key: avatars-${{ github.run_id }}
           restore-keys: avatars-
       - uses: actions/cache@v4
@@ -75,8 +77,9 @@ jobs:
           path: |
             data/crawl.json
             data/crawled_at
-          key: crawl-${{ github.run_id }}
-          restore-keys: crawl-
+          # keyed on the crawler, so a change to what it fetches never reuses an older crawl
+          key: crawl-${{ hashFiles('scripts/crawl.py') }}-${{ github.run_id }}
+          restore-keys: crawl-${{ hashFiles('scripts/crawl.py') }}-
       - name: Crawl and build
         if: steps.key.outputs.refresh == 'true'
         env:

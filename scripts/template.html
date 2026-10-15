@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: a magazine feature, sibling of PFP Census. Black cover (question headline, most graded cards, a wall of the priciest slabs), five chapters with figures, then a lookup for every card with a pop report per card. */
+/* Layout: a magazine feature, sibling of PFP Census. Black cover (headline, most common cards, a map of every card made of card photos), the vault of the priciest slabs, five chapters with figures, then a lookup for every card with a pop report per card. */
 :root {
   --paper: #FFFFFF;
   --wash: #F3F3F5;
@@ -90,7 +90,7 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .top10 h2 { font: 500 12.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--hero-ink-2); margin: 10px 0 6px; display: grid; grid-template-columns: 1fr 70px 70px; gap: 12px; }
 .top10 h2 span:not(:first-child) { text-align: right; }
 .trow { display: grid; grid-template-columns: 24px 26px minmax(0, 1fr) 70px 70px; gap: 12px; align-items: center; width: 100%; padding: 6px 6px 6px 0; border: 0; border-bottom: 1px solid var(--hero-rule); background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
-.trow:hover { background: var(--hero-wash); }
+.trow:hover, .trow.on { background: var(--hero-wash); }
 .trow .r { font: 800 20px/1 var(--f-display); color: var(--hero-ink-2); text-align: right; }
 .trow .card { width: 26px; border-radius: 3px; }
 .trow .t { min-width: 0; display: grid; }
@@ -120,6 +120,31 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
   .cover-l > .head { order: 1; } .cover-r { order: 2; } .top10 { order: 3; }
   .dek { max-width: 46ch; }
 }
+
+/* cover map: every franchise one territory of real card photos */
+.cmap { position: relative; touch-action: manipulation; }
+.cmap canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border-radius: 14px; }
+.cmap canvas.top { cursor: pointer; }
+.cmap .glare { position: absolute; inset: 0; border-radius: 14px; pointer-events: none; opacity: 0; transition: opacity .3s ease; background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), rgba(255,255,255,.28), rgba(255,255,255,0) 34%); mix-blend-mode: soft-light; }
+.cmap:hover .glare { opacity: 1; }
+.ctag { position: absolute; width: max-content; transform: translate(-50%, -50%); border: 0; margin: 0; padding: 4px 9px 5px; border-radius: 3px; background: #FFFFFF; color: #111214; box-shadow: 0 4px 16px rgba(0,0,0,.5); display: grid; line-height: 1.05; text-align: center; cursor: pointer; max-width: 170px; z-index: 2; opacity: 0; transition: opacity .5s ease, background .15s ease; }
+.cmap.ready .ctag { opacity: 1; }
+.ctag b { font-family: var(--f-display); font-weight: 800; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ctag span { font: 500 10.5px var(--f-mono); color: #4A4E55; white-space: nowrap; }
+.ctag.fr { background: #111214; color: #FFFFFF; box-shadow: 0 0 0 1.5px rgba(255,255,255,.9), 0 4px 16px rgba(0,0,0,.5); padding: 5px 11px 6px; }
+.ctag.fr b { font-size: 19px; }
+.ctag.fr span { color: #D2D0D7; font-size: 11px; }
+.ctag.on, .ctag:hover, .ctag:focus-visible { background: #FF6FA3; color: #111214; outline: none; }
+.ctag.on span, .ctag:hover span, .ctag:focus-visible span { color: #2A1220; }
+.cpop { position: absolute; z-index: 3; pointer-events: none; border-radius: 5px; background-color: #1B1A20; background-repeat: no-repeat; box-shadow: 0 0 0 2px #FFFFFF, 0 16px 36px rgba(0,0,0,.65); overflow: hidden; animation: cpop .16s ease-out; }
+.cpop img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .15s ease; }
+.cpop img.on { opacity: 1; }
+@keyframes cpop { from { transform: scale(.35); opacity: .3; } to { transform: none; opacity: 1; } }
+.ctip { position: absolute; z-index: 4; pointer-events: none; background: #FFFFFF; color: #111214; font: 13.5px/1.4 var(--f-ui); padding: 8px 11px; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.45); max-width: 300px; }
+.ctip b { font-weight: 700; }
+.ctip span { color: #4A4E55; font-size: 12.5px; }
+@media (max-width: 560px) { .ctag { padding: 3px 6px 4px; max-width: 120px; } .ctag b { font-size: 12px; } .ctag.fr b { font-size: 14px; } .ctag span, .ctag.fr span { font-size: 9.5px; } }
+@media (prefers-reduced-motion: reduce) { .cpop { animation: none; } .ctag, .cmap .glare { transition: none; } }
 
 /* highlights strip */
 .hl { background: var(--paper); border-bottom: 1px solid var(--rule); }
@@ -260,7 +285,7 @@ h2:hover .anchor, .anchor:focus-visible { opacity: 1; }
 .lot .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .lot .chip { background: rgba(255,255,255,.1); color: #F5F4F6; font-size: 12px; }
 .lot .t { font: 14px/1.38 var(--f-ui); color: var(--hero-ink-2); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.hero-lot { display: grid; grid-template-columns: auto minmax(180px, 230px); gap: 28px; align-items: end; justify-content: end; }
+.hero-lot { display: grid; grid-template-columns: auto minmax(220px, 320px); gap: 36px; align-items: end; justify-content: center; margin-bottom: 48px; }
 .hero-lot .case { width: min(100%, calc(min(72vh, 700px) * 5 / 7)); }
 .hero-lot .lbl { display: grid; gap: 12px; padding-bottom: 6px; }
 .hero-lot .val { font-size: clamp(48px, 5vw, 76px); }
@@ -419,10 +444,20 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       </div>
       <div class="top10" id="top10"></div>
     </div>
-    <figure class="cover-r" style="margin:0" id="lot-1"></figure>
+    <figure class="cover-r" style="margin:0">
+      <div class="cmap" id="cmap">
+        <canvas id="cmap-base" aria-hidden="true"></canvas>
+        <canvas id="cmap-top" class="top" aria-hidden="true"></canvas>
+        <div class="glare" aria-hidden="true"></div>
+        <div class="cpop" id="cpop" hidden><img alt=""></div>
+        <div class="ctip" id="ctip" hidden></div>
+      </div>
+      <figcaption id="cmap-note"></figcaption>
+    </figure>
   </div>
   <section class="vault" id="vault" aria-labelledby="h-vault">
     <div class="vault-h"><h2 id="h-vault">The vault</h2><p id="vault-note"></p></div>
+    <div id="lot-1"></div>
     <div class="tier a" id="tier-a"></div>
     <div class="tier b" id="tier-b"></div>
   </section>
@@ -638,6 +673,245 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("tier-b").innerHTML = lots.slice(4, 10).map((c, k) => lotHTML(c, k + 5)).join("");
   $("vault-note").textContent = `The ${Math.min(10, lots.length)} most valuable graded cards onchain, by OpenSea's estimated value. Bigger lots, bigger money. Click any to read the slab.`;
   const wallItems = lots.slice(0, 10);
+
+  /* ---------- the map: every franchise one territory of real card photos, laid along a Gilbert curve ---------- */
+  const MD = S.map, MG = MD.groups.filter((g) => g.n > 0);
+  const cmap = $("cmap"), cBase = $("cmap-base"), cTop = $("cmap-top"), ctip = $("ctip"), cpop = $("cpop"), coverL = document.querySelector(".cover-l");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function gilbert(w, h) {
+    const pts = [];
+    const gen = (x, y, ax, ay, bx, by) => {
+      const W = Math.abs(ax + ay), H = Math.abs(bx + by), dax = Math.sign(ax), day = Math.sign(ay), dbx = Math.sign(bx), dby = Math.sign(by);
+      if (H === 1) { for (let i = 0; i < W; i++) { pts.push([x, y]); x += dax; y += day; } return; }
+      if (W === 1) { for (let i = 0; i < H; i++) { pts.push([x, y]); x += dbx; y += dby; } return; }
+      let ax2 = Math.floor(ax / 2), ay2 = Math.floor(ay / 2), bx2 = Math.floor(bx / 2), by2 = Math.floor(by / 2);
+      const W2 = Math.abs(ax2 + ay2), H2 = Math.abs(bx2 + by2);
+      if (2 * W > 3 * H) {
+        if (W2 % 2 && W > 2) { ax2 += dax; ay2 += day; }
+        gen(x, y, ax2, ay2, bx, by); gen(x + ax2, y + ay2, ax - ax2, ay - ay2, bx, by);
+      } else {
+        if (H2 % 2 && H > 2) { bx2 += dbx; by2 += dby; }
+        gen(x, y, bx2, by2, ax2, ay2); gen(x + bx2, y + by2, ax, ay, bx - bx2, by - by2);
+        gen(x + (ax - dax) + (bx2 - dbx), y + (ay - day) + (by2 - dby), -bx2, -by2, -(ax - ax2), -(ay - ay2));
+      }
+    };
+    if (w >= h) gen(0, 0, w, 0, 0, h); else gen(0, 0, 0, h, w, 0);
+    // end the line in a bottom corner, so its last territory (cards with no franchise) sits low on the map
+    return pts[pts.length - 1][1] === 0 ? pts.map(([x, y]) => [x, h - 1 - y]) : pts;
+  }
+  function allocate(counts, N) {
+    const total = counts.reduce((s, x) => s + x, 0), raw = counts.map((x) => (x * N) / total);
+    const a = raw.map((x) => Math.max(1, Math.floor(x)));
+    let sum = a.reduce((s, x) => s + x, 0);
+    const order = raw.map((x, i) => [x - Math.floor(x), i]).sort((p, q) => q[0] - p[0]);
+    for (let k = 0; sum < N; k++, sum++) a[order[k % order.length][1]]++;
+    while (sum > N) { const i = a.indexOf(Math.max(...a)); a[i]--; sum--; }
+    return a;
+  }
+  const gName = (g) => g.k === "s" ? g.s : g.k === "f" ? g.f : "No franchise";
+  const gCount = (g) => g.k === "f" ? g.total : g.n;
+  const unshort = (u) => (u || "").replace(/^~i\//, "https://i2c.seadn.io/").replace(/^~a\//, "https://opensea.io/assets/");
+  const mImgs = MD.files.map((f) => { const im = new Image(); im.decoding = "async"; im.src = f + "?v=" + S.v; return im; });
+  let CM = null, META = null, hoverG = -1, hoverCell = -1, raf = 0, intro = false, introT0 = 0, introDone = false;
+  const wantIntro = !reduceMotion && !location.hash && scrollY < 120;
+  function layout() {
+    const W = cmap.clientWidth, cols = W < 560 ? 24 : W < 900 ? 36 : 40, tw = W / cols, th = tw * MD.h / MD.w;
+    const side = coverL.offsetHeight > 0 && matchMedia("(min-width: 1001px)").matches;
+    const rows = side ? Math.max(28, Math.min(48, 2 * Math.round((coverL.offsetHeight - 64) / th / 2))) : cols < 30 ? 26 : 28;
+    const pts = gilbert(cols, rows), N = pts.length, alloc = allocate(MG.map((g) => g.n), N);
+    const owner = new Int16Array(N), tile = new Int32Array(N), at = new Int32Array(N);
+    let k = 0;
+    MG.forEach((g, gi) => { for (let j = 0; j < alloc[gi]; j++, k++) { owner[k] = gi; tile[k] = g.tiles.length ? g.tiles[j % g.tiles.length] : -1; } });
+    pts.forEach(([x, y], i) => (at[y * cols + x] = i));
+    const cells = MG.map(() => []);
+    for (let i = 0; i < N; i++) cells[owner[i]].push(i);
+    CM = { W, H: Math.round(rows * th), cols, rows, tw, th, N, pts, owner, tile, at, cells };
+    cmap.style.height = CM.H + "px";
+    $("cmap-note").textContent = `Each tile is a real card from the census, standing in for about ${nf.format(Math.round(S.n / N / 10) * 10)} cards. Franchises run along one unbroken curve, so each stays in one piece, sized by its count, and every card with ${nf.format(1500)} or more copies gets its own territory. Face-down tiles have no franchise listed. Hover to explore, click to open.`;
+  }
+  const px = (i) => CM.pts[i][0] * CM.tw, py = (i) => CM.pts[i][1] * CM.th;
+  const nbr = (i, dx, dy) => { const x = CM.pts[i][0] + dx, y = CM.pts[i][1] + dy; return x < 0 || y < 0 || x >= CM.cols || y >= CM.rows ? -1 : CM.at[y * CM.cols + x]; };
+  function sizeCv(cv) { const dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(CM.W * dpr); cv.height = Math.round(CM.H * dpr); const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return g; }
+  const rrect = (g, x, y, w, h, r) => { g.beginPath(); if (g.roundRect) g.roundRect(x, y, w, h, r); else g.rect(x, y, w, h); };
+  function drawBase() {
+    const g = sizeCv(cBase), { tw, th } = CM, gap = Math.max(1, tw * 0.08), r = Math.max(1.5, tw * 0.13), w = tw - gap, h = th - gap;
+    for (let i = 0; i < CM.N; i++) {
+      const x = px(i) + gap / 2, y = py(i) + gap / 2, t = CM.tile[i];
+      g.save(); rrect(g, x, y, w, h, r); g.clip();
+      if (t < 0) {
+        // face down: a plain card back
+        g.fillStyle = "#1C1B21"; g.fillRect(x, y, w, h);
+        const b = Math.max(1.5, w * 0.14), d = Math.min(w, h) * 0.17;
+        g.strokeStyle = "rgba(255,255,255,.13)"; g.lineWidth = 1; g.strokeRect(x + b, y + b, w - 2 * b, h - 2 * b);
+        g.fillStyle = "rgba(255,111,163,.4)"; g.beginPath(); g.moveTo(x + w / 2, y + h / 2 - d); g.lineTo(x + w / 2 + d * 0.72, y + h / 2); g.lineTo(x + w / 2, y + h / 2 + d); g.lineTo(x + w / 2 - d * 0.72, y + h / 2); g.closePath(); g.fill();
+      } else {
+        const im = mImgs[Math.floor(t / MD.per)], j = t % MD.per;
+        if (im.complete && im.naturalWidth) g.drawImage(im, (j % MD.cols) * MD.w, Math.floor(j / MD.cols) * MD.h, MD.w, MD.h, x, y, w, h);
+        else { g.fillStyle = "#2A2930"; g.fillRect(x, y, w, h); }
+      }
+      g.restore();
+    }
+    // territory borders: widen the gutter between territories, more between franchises
+    g.globalCompositeOperation = "destination-out"; g.lineCap = "square";
+    for (const wide of [true, false]) {
+      g.lineWidth = wide ? Math.max(3, tw * 0.3) : Math.max(2, tw * 0.17); g.beginPath();
+      for (let i = 0; i < CM.N; i++) for (const [dx, dy] of [[1, 0], [0, 1]]) {
+        const j = nbr(i, dx, dy); if (j < 0) continue;
+        const a = MG[CM.owner[i]], b = MG[CM.owner[j]]; if (a === b || (a.f === b.f) === wide) continue;
+        const x = px(i) + (dx ? tw : 0), y = py(i) + (dy ? th : 0);
+        g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
+      }
+      g.stroke();
+    }
+    g.globalCompositeOperation = "source-over";
+    // a faint outline around each big card's territory, so the provinces read without hovering
+    g.strokeStyle = "rgba(255,255,255,.34)"; g.lineWidth = 1; g.beginPath();
+    for (let i = 0; i < CM.N; i++) {
+      if (MG[CM.owner[i]].k !== "s") continue;
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const j = nbr(i, dx, dy); if (j >= 0 && CM.owner[j] === CM.owner[i]) continue;
+        const x = px(i) + (dx > 0 ? tw : 0), y = py(i) + (dy > 0 ? th : 0);
+        g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
+      }
+    }
+    g.stroke();
+  }
+  const family = (gi) => { const g = MG[gi]; return g.k === "f" ? MG.map((h, j) => h.f === g.f ? j : -1).filter((j) => j >= 0) : [gi]; };
+  function centerOf(cs) {
+    let sx = 0, sy = 0; for (const i of cs) { sx += px(i); sy += py(i); } sx /= cs.length; sy /= cs.length;
+    let best = cs[0], bd = Infinity; for (const i of cs) { const d = (px(i) - sx) ** 2 + (py(i) - sy) ** 2; if (d < bd) { bd = d; best = i; } }
+    return [px(best) + CM.tw / 2, py(best) + CM.th / 2];
+  }
+  function placeTags() {
+    cmap.querySelectorAll(".ctag").forEach((e) => e.remove());
+    const placed = [], minCells = CM.cols < 30 ? 5 : 9;
+    MG.map((g, gi) => gi).sort((a, b) => CM.cells[b].length - CM.cells[a].length).forEach((gi) => {
+      const g = MG[gi], cs = CM.cells[gi]; if (cs.length < minCells) return;
+      const [x, y] = centerOf(cs), b = document.createElement("button");
+      b.type = "button"; b.className = "ctag" + (g.k === "s" ? "" : " fr"); b.dataset.g = gi;
+      b.setAttribute("aria-label", `${gName(g)}: ${nf.format(gCount(g))} cards`);
+      b.innerHTML = `<b>${esc(gName(g))}</b><span>${nf.format(gCount(g))}</span>`;
+      cmap.appendChild(b);
+      const hw = b.offsetWidth / 2 + 2, hh = b.offsetHeight / 2 + 2;
+      b.style.left = Math.min(CM.W - hw, Math.max(hw, x)) + "px"; b.style.top = Math.min(CM.H - hh, Math.max(hh, y)) + "px";
+      const r = b.getBoundingClientRect();
+      if (placed.some((p) => !(r.right + 4 < p.left || r.left - 4 > p.right || r.bottom + 2 < p.top || r.top - 2 > p.bottom))) { b.remove(); return; }
+      placed.push(r);
+      b.addEventListener("mouseenter", () => setHover(gi, -1)); b.addEventListener("mouseleave", () => setHover(-1, -1));
+      b.addEventListener("focus", () => setHover(gi, -1)); b.addEventListener("blur", () => setHover(-1, -1));
+      b.addEventListener("click", () => openGroup(gi));
+    });
+  }
+  const coverBg = () => getComputedStyle(document.querySelector(".cover")).backgroundColor;
+  let hlKey = -1, hlIn = null, hlCells = [];
+  function drawTop(now = performance.now()) {
+    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1);
+    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const { tw, th } = CM;
+    if (intro || (wantIntro && !introDone)) {
+      const p = intro ? Math.min(1, (now - introT0) / 1800) : 0, e = p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2, k = Math.floor(e * CM.N);
+      g.fillStyle = coverBg(); g.beginPath();
+      for (let i = k; i < CM.N; i++) g.rect(px(i) - 0.5, py(i) - 0.5, tw + 1, th + 1);
+      g.fill();
+      if (intro && k < CM.N) {
+        const hx = px(k) + tw / 2, hy = py(k) + th / 2, R = tw * 3.2, rg = g.createRadialGradient(hx, hy, 0, hx, hy, R);
+        rg.addColorStop(0, "rgba(255,111,163,.95)"); rg.addColorStop(1, "rgba(255,111,163,0)"); g.fillStyle = rg; g.fillRect(hx - R, hy - R, R * 2, R * 2);
+      }
+      if (intro && p < 1) raf = requestAnimationFrame(drawTop);
+      else if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); drawTop(); }
+      return;
+    }
+    if (hoverG < 0) return;
+    if (hlKey !== hoverG) { hlKey = hoverG; hlCells = family(hoverG).flatMap((j) => CM.cells[j]); hlIn = new Uint8Array(CM.N); for (const i of hlCells) hlIn[i] = 1; }
+    g.globalAlpha = 0.72; g.fillStyle = coverBg(); g.fillRect(0, 0, CM.W, CM.H); g.globalAlpha = 1;
+    g.globalCompositeOperation = "destination-out"; g.beginPath();
+    for (const i of hlCells) g.rect(px(i), py(i), tw, th);
+    g.fill(); g.globalCompositeOperation = "source-over";
+    const [cx, cy] = centerOf(hlCells), ang = reduceMotion ? 0 : ((now / 4000) % 1) * Math.PI * 2;
+    let grad = "#FF6FA3";
+    if (g.createConicGradient) { grad = g.createConicGradient(ang, cx, cy); grad.addColorStop(0, "#FF6FA3"); grad.addColorStop(0.33, "rgba(255,111,163,.35)"); grad.addColorStop(0.66, "#FFFFFF"); grad.addColorStop(1, "#FF6FA3"); }
+    g.strokeStyle = grad; g.lineWidth = Math.max(2, tw * 0.16); g.lineCap = "round"; g.beginPath();
+    for (const i of hlCells) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const j = nbr(i, dx, dy); if (j >= 0 && hlIn[j]) continue;
+      const x = px(i) + (dx > 0 ? tw : 0), y = py(i) + (dy > 0 ? th : 0);
+      g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
+    }
+    g.stroke();
+    if (!reduceMotion) raf = requestAnimationFrame(drawTop);
+  }
+  function setHover(gi, cell) {
+    if (intro) return;
+    if (gi === hoverG && cell === hoverCell) return;
+    const moved = gi !== hoverG; hoverG = gi; hoverCell = cell;
+    if (moved) { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawTop); }
+    cmap.querySelectorAll(".ctag").forEach((e) => e.classList.toggle("on", gi >= 0 && family(gi).includes(+e.dataset.g)));
+    const s = gi >= 0 && MG[gi].k === "s" ? slug(MG[gi].s) : null;
+    $("top10").querySelectorAll(".trow").forEach((e) => e.classList.toggle("on", e.dataset.slug === s));
+    if (cell < 0) { cpop.hidden = true; ctip.hidden = true; }
+  }
+  function showPop(i) {
+    const t = CM.tile[i]; if (t < 0) { cpop.hidden = true; return; }
+    const { tw, th } = CM, w = Math.max(76, tw * 4.6), h = w * MD.h / MD.w, im = mImgs[Math.floor(t / MD.per)], j = t % MD.per, rowsK = im.naturalHeight ? im.naturalHeight / MD.h : MD.cols;
+    const x = Math.min(CM.W - w, Math.max(0, px(i) + tw / 2 - w / 2)), y = Math.min(CM.H - h, Math.max(0, py(i) + th / 2 - h / 2));
+    Object.assign(cpop.style, { left: x + "px", top: y + "px", width: w + "px", height: h + "px", backgroundImage: `url(${MD.files[Math.floor(t / MD.per)]}?v=${S.v})`, backgroundSize: `${MD.cols * w}px ${rowsK * h}px`, backgroundPosition: `-${(j % MD.cols) * w}px -${Math.floor(j / MD.cols) * h}px`, animation: "none" });
+    void cpop.offsetWidth; cpop.style.animation = "";
+    const img = cpop.querySelector("img"), m = META && META[t];
+    img.classList.remove("on"); img.removeAttribute("src");
+    if (m && m[3]) { img.onload = () => img.classList.add("on"); img.src = cdn(unshort(m[3]), 320); }
+    cpop.hidden = false;
+  }
+  function showTip(i, x, y) {
+    const g = MG[CM.owner[i]], m = META && CM.tile[i] >= 0 ? META[CM.tile[i]] : null;
+    const head = g.k === "s" ? `<b>${esc(g.s)}</b> · ${nf.format(g.n)} cards · ${nf.format(g.ten)} 10s` : g.k === "f" ? `<b>${esc(g.f)}</b> · ${nf.format(g.total)} cards` : `<b>No franchise listed</b> · ${nf.format(g.n)} cards`;
+    const sub = m ? `<br><span>${esc(m[0])}${m[1] ? " · " + esc(m[1]) : ""}${m[2] != null ? " · " + usd(m[2]) : ""}</span>` : g.k === "x" ? `<br><span>Counted, with no franchise to sort them by</span>` : "";
+    ctip.innerHTML = head + sub; ctip.hidden = false;
+    const left = x + 18 + ctip.offsetWidth > CM.W ? x - 18 - ctip.offsetWidth : x + 18;
+    ctip.style.left = Math.max(4, left) + "px"; ctip.style.top = Math.max(4, Math.min(CM.H - ctip.offsetHeight - 4, y + 18)) + "px";
+  }
+  const cellAt = (x, y) => { const cx = Math.floor(x / CM.tw), cy = Math.floor(y / CM.th); return cx < 0 || cy < 0 || cx >= CM.cols || cy >= CM.rows ? -1 : CM.at[cy * CM.cols + cx]; };
+  function openGroup(gi, cell = -1) {
+    const g = MG[gi];
+    if (g.k === "s") return openCard(subBySlug.get(slug(g.s)));
+    const m = cell >= 0 && META && CM.tile[cell] >= 0 ? META[CM.tile[cell]] : null;
+    if (m) return openZoom({ t: m[0], g: m[1], v: m[2], u: unshort(m[3]), url: unshort(m[4]), c: "" });
+    if (g.k === "f") { const sel = $("fr"); if ([...sel.options].some((o) => o.value === g.f)) { sel.value = g.f; sel.dispatchEvent(new Event("change")); } $("explore").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); }
+  }
+  cTop.addEventListener("mousemove", (e) => {
+    if (intro) return;
+    const b = cTop.getBoundingClientRect(), x = e.clientX - b.left, y = e.clientY - b.top, i = cellAt(x, y);
+    cmap.style.setProperty("--mx", x + "px"); cmap.style.setProperty("--my", y + "px");
+    if (i < 0) { setHover(-1, -1); return; }
+    const prev = hoverCell; setHover(CM.owner[i], i);
+    if (i !== prev) showPop(i);
+    showTip(i, x, y);
+  });
+  cTop.addEventListener("mouseleave", () => setHover(-1, -1));
+  cTop.addEventListener("click", (e) => {
+    if (intro) return;
+    const b = cTop.getBoundingClientRect(), i = cellAt(e.clientX - b.left, e.clientY - b.top);
+    if (i >= 0) openGroup(CM.owner[i], i);
+  });
+  $("top10").querySelectorAll(".trow").forEach((b) => {
+    const gi = () => MG.findIndex((g) => g.k === "s" && slug(g.s) === b.dataset.slug);
+    b.addEventListener("mouseenter", () => setHover(gi(), -1)); b.addEventListener("mouseleave", () => setHover(-1, -1));
+    b.addEventListener("focus", () => setHover(gi(), -1)); b.addEventListener("blur", () => setHover(-1, -1));
+  });
+  function drawMap() { layout(); drawBase(); sizeCv(cTop); placeTags(); drawTop(); }
+  drawMap();
+  if (!wantIntro) { introDone = true; cmap.classList.add("ready"); drawTop(); }
+  const loaded = Promise.all(mImgs.map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })));
+  loaded.then(() => CM && drawBase());
+  if (wantIntro) Promise.race([loaded, new Promise((r) => setTimeout(r, 1800))]).then(() => {
+    if (introDone) return;
+    if (scrollY > 400) { introDone = true; cmap.classList.add("ready"); drawTop(); return; }
+    intro = true; introT0 = performance.now(); raf = requestAnimationFrame(drawTop);
+  });
+  fetch("map.json?v=" + S.v).then((r) => r.json()).then((j) => { META = j.m; }).catch(() => {});
+  let lastKey = "", rz;
+  const mapKey = () => cmap.clientWidth + "x" + coverL.offsetHeight;
+  lastKey = mapKey();
+  new ResizeObserver(() => { const k = mapKey(); if (k === lastKey) return; lastKey = k; clearTimeout(rz); rz = setTimeout(() => { if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); } hlKey = -1; drawMap(); }, 120); }).observe(cmap);
+  document.fonts?.ready.then(() => { const k = mapKey(); if (k !== lastKey) { lastKey = k; hlKey = -1; drawMap(); } });
 
   /* ---------- story ---------- */
   const P_ = (h) => `<p>${h}</p>`;

@@ -136,6 +136,47 @@ S["sealed"] = dedupe([copy(n) for n in cr.get("sealed", [])])
 S["sealed_n"] = S["sealed_total"] = dict(A.get("product_type", [])).get("Sealed Product", 0)
 for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", *((960, 960) if k < 2 else (600, 600)))
 
+# cover map: territories in the order they run along the curve (franchises by size, each one's long tail, then its big cards),
+# with small photo tiles; tile captions go to map.json, which the page loads after first paint
+MINI, MW, MH, MCOLS, MBIG = os.path.join(ROOT, "data", "mini"), 36, 50, 32, 1500
+mcells, mindex, mmeta = [], {}, []
+def short(u): return (u or "").replace("https://i2c.seadn.io/", "~i/").replace("https://opensea.io/assets/", "~a/")
+def mcell(n):
+    u = n.get("display_image_url") or n.get("image_url")
+    p = u and os.path.join(MINI, hashlib.sha1(u.encode()).hexdigest() + ".png")
+    if not p or not os.path.exists(p): return -1
+    if u not in mindex:
+        mindex[u] = len(mcells); mcells.append(p)
+        t, chip = clean(n.get("name")); v = n.get("estimated_value_usd")
+        mmeta.append([t, chip, round(float(v)) if v not in (None, "", "None") else None, short(u), short(n.get("opensea_url"))])
+    return mindex[u]
+def tiles_of(ns): return list(dict.fromkeys(i for i in (mcell(n) for n in ns) if i >= 0))
+MP = cr.get("map") or {}
+groups, by_f = [], {}
+for s in S["subjects"]: by_f.setdefault(s["f"], []).append(s)
+for fr in S["franchises"]:
+    f, named = fr["f"], []
+    big = [s for s in by_f.get(f, []) if s["n"] >= MBIG]
+    for s in big:
+        t = tiles_of((MP.get("subject", {}).get(s["s"]) or []) + (cr["copies"].get(s["s"]) or []))
+        if t: named.append({"k": "s", "s": s["s"], "f": f, "n": s["n"], "ten": tens(s["grade"]), "tiles": t})
+    names = [s["s"].lower() for s in big]
+    pool = (MP.get("franchise", {}).get(f) or []) + [n for s in by_f.get(f, []) if s["n"] < MBIG for n in (cr["copies"].get(s["s"]) or [])]
+    rest = [n for n in pool if not any(x in (n.get("name") or "").lower() for x in names)] or pool
+    # the long tail first, then the big cards, which puts Pokemon's big cards near the middle of the line: the top of the map
+    groups.append({"k": "f", "f": f, "n": max(0, fr["n"] - sum(g["n"] for g in named)), "total": fr["n"], "ten": tens(fr["grade"]), "tiles": tiles_of(rest)})
+    groups += named
+unsorted = S["n"] - sum(fr["n"] for fr in S["franchises"])
+if unsorted > 0: groups.append({"k": "x", "n": unsorted, "tiles": []})
+mper, mfiles = MCOLS * MCOLS, []
+for k in range(math.ceil(len(mcells) / mper)):
+    chunk = mcells[k * mper:(k + 1) * mper]
+    sheet = Image.new("RGB", (MCOLS * MW, math.ceil(len(chunk) / MCOLS) * MH), (27, 26, 32))
+    for j, p in enumerate(chunk): sheet.paste(Image.open(p).convert("RGB"), ((j % MCOLS) * MW, (j // MCOLS) * MH))
+    fn = f"m{k}.webp"; sheet.save(os.path.join(SITE, fn), "WEBP", quality=80, method=6); mfiles.append(fn)
+S["map"] = {"w": MW, "h": MH, "cols": MCOLS, "per": mper, "files": mfiles, "groups": groups}
+json.dump({"m": mmeta}, open(os.path.join(SITE, "map.json"), "w"), separators=(",", ":"))
+
 # sprite sheets
 per = COLS * ROWS; files = []
 for k in range(max(1, math.ceil(len(cells) / per))):
@@ -160,8 +201,8 @@ meta = f"""<meta charset="utf-8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Card Census">
 <meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="The most valuable graded trading cards onchain">
-<meta name="twitter:image:alt" content="The most valuable graded trading cards onchain">
+<meta property="og:image:alt" content="A map of every trading card onchain, made of the cards' own photos">
+<meta name="twitter:image:alt" content="A map of every trading card onchain, made of the cards' own photos">
 <meta name="theme-color" content="#0B0A0C">
 <meta name="author" content="Ryan Ghods">
 <link rel="canonical" href="{SITE_URL}">

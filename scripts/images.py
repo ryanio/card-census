@@ -1,4 +1,4 @@
-"""Download card photos from crawl.json into data/img, fitted into 5:7 cells with transparent padding."""
+"""Download card photos from crawl.json into data/img2 (5:7 cells with transparent padding), sharper copies for the big lots, and small tiles for the cover map."""
 import hashlib, io, json, os, sys, urllib.parse, urllib.request, concurrent.futures as cf
 from PIL import Image
 ROOT = sys.argv[1]; W, H = int(os.environ.get("CELL_W", 200)), int(os.environ.get("CELL_H", 280))
@@ -85,3 +85,34 @@ big = [url_of(n) for n in crawl["top"][:10] + crawl.get("sealed", [])[:6]]
 big = list(dict.fromkeys(u for u in big if u))
 with cf.ThreadPoolExecutor(8) as ex: rb = list(ex.map(fetch_big, big))
 print(f"big ok={sum(rb)} of {len(rb)}", flush=True)
+
+# cover map tiles: small photos cropped to fill a 5:7 cell, flattened on the dark display bed
+MINI = os.path.join(ROOT, "data", "mini"); os.makedirs(MINI, exist_ok=True)
+MW, MH = 36, 50
+def fetch_mini(u):
+    path = os.path.join(MINI, key(u) + ".png")
+    if os.path.exists(path) or os.path.exists(path + ".fail"): return os.path.exists(path)
+    try:
+        raw = os.path.join(RAW, key(u))
+        if os.path.exists(raw): data = open(raw, "rb").read()
+        else:
+            p = urllib.parse.urlsplit(u)
+            if p.netloc.endswith("seadn.io"):
+                q = dict(urllib.parse.parse_qsl(p.query)); q.update({"w": "160", "auto": "format"})
+                src = urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, urllib.parse.urlencode(q), ""))
+            else: src = sized(u)
+            req = urllib.request.Request(src, headers={"user-agent": "Mozilla/5.0 card-census", "accept": "image/webp,image/png,image/*;q=0.8"})
+            with urllib.request.urlopen(req, timeout=30) as r: data = r.read(25_000_000)
+        im = Image.open(io.BytesIO(data)); im.seek(0); im = im.convert("RGBA"); im.thumbnail((480, 480), Image.LANCZOS); im = trim(im)
+        r = MW / MH
+        if im.width / im.height > r: nw = round(im.height * r); x = (im.width - nw) // 2; im = im.crop((x, 0, x + nw, im.height))
+        else: nh = round(im.width / r); y = round((im.height - nh) * 0.3); im = im.crop((0, y, im.width, y + nh))
+        bed = Image.new("RGBA", (MW, MH), (27, 26, 32, 255)); bed.alpha_composite(im.resize((MW, MH), Image.LANCZOS)); bed.convert("RGB").save(path)
+        return True
+    except Exception as e:
+        open(path + ".fail", "w").write(str(e)[:200]); return False
+mp = crawl.get("map") or {}
+mini = urls + [url_of(n) for group in (mp.get("subject") or {}, mp.get("franchise") or {}) for ns in group.values() for n in (ns or [])]
+mini = list(dict.fromkeys(u for u in mini if u))
+with cf.ThreadPoolExecutor(16) as ex: rm = list(ex.map(fetch_mini, mini))
+print(f"map tiles ok={sum(rm)} of {len(rm)}", flush=True)

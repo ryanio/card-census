@@ -18,7 +18,8 @@ Built from the first snapshot: 907,093 cards, 308 cards with their own pop repor
 - A facet value list stops at 100 entries, so only cards in the overall top 100 or a franchise's top 30 get their own report. Everything is still in the totals.
 - Grades are compared on each grader's own scale. A 10 means 10 or higher, including 10.5 (CGC Pristine, BGS Black Label). BGS calls 9.5 Gem Mint, so its share of 10s reads low.
 - Values are OpenSea's estimated value, not sales.
-- The same card can be listed more than once (two issuers, or the same slab in two places). The cover wall and each card's copies drop repeats by name and value.
+- The cover map shows real photos, but not every card: each tile stands in for several hundred cards, and a territory cycles through the photos fetched for it (about one per 450 copies for a big card, up to 400 for a franchise's long tail). Cards with no franchise tag are drawn face down.
+- The same card can be listed more than once (two issuers, or the same slab in two places). The vault and each card's copies drop repeats by name and value.
 
 ## Later
 
