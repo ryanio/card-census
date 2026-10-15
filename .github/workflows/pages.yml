@@ -69,6 +69,7 @@ jobs:
           path: |
             data/raw
             data/mini
+            data/midi
           key: avatars-${{ github.run_id }}
           restore-keys: avatars-
       - uses: actions/cache@v4

@@ -46,25 +46,64 @@ def allocate(counts, n):
 M = S["map"]; G = [g for g in M["groups"] if g["n"] > 0]
 COLS, ROWS = 40, 36
 pts = gilbert(COLS, ROWS); N = len(pts); alloc = allocate([g["n"] for g in G], N)
-owner, tile = [], []
-for gi, g in enumerate(G):
-    for j in range(alloc[gi]): owner.append(gi); tile.append(g["tiles"][j % len(g["tiles"])] if g["tiles"] else -1)
+owner = [gi for gi, g in enumerate(G) for _ in range(alloc[gi])]
 at = {p: i for i, p in enumerate(pts)}
+own = {p: owner[i] for p, i in at.items()}
+cells = [[] for _ in G]
+for i, o in enumerate(owner): cells[o].append(i)
+# the priciest cards get 2x2 to 4x4 tiles inside their own territory, spread apart, as on the page
+items, used, centers, placed_t = [], set(), [], [set() for _ in G]
+cands, seen_t = [], set()
+for gi, g in enumerate(G):
+    for t, b, v in g.get("big") or []:
+        if t not in seen_t: seen_t.add(t); cands.append((gi, t, b, v))
+cands.sort(key=lambda c: -c[3])
+n4, n3, n2 = max(1, round(N / 480)), round(N / 130), round(N / 40)
+def fits(gi, x, y, sz):
+    return x + sz <= COLS and y + sz <= ROWS and all((xx, yy) not in used and own[(xx, yy)] == gi for yy in range(y, y + sz) for xx in range(x, x + sz))
+for rank, (gi, t, b, v) in enumerate(cands):
+    target = 4 if rank < n4 else 3 if rank < n4 + n3 else 2 if rank < n4 + n3 + n2 else 0
+    if not target: break
+    cs = cells[gi]; mx = sum(pts[i][0] for i in cs) / len(cs); my = sum(pts[i][1] for i in cs) / len(cs)
+    for sz in range(target, 1, -1):
+        best, best_score = None, -1e18
+        for i in cs:
+            x, y = pts[i]
+            if not fits(gi, x, y, sz): continue
+            cx, cy = x + sz / 2, y + sz / 2
+            dmin = min([math.hypot(px - cx, py - cy) for px, py in centers] or [1e9])
+            score = min(dmin, 12) * 10 - math.hypot(cx - mx, cy - my)
+            if score > best_score: best_score, best = score, (x, y)
+        if not best: continue
+        x, y = best
+        for yy in range(y, y + sz):
+            for xx in range(x, x + sz): used.add((xx, yy))
+        items.append((x, y, sz, t, b)); placed_t[gi].add(t); centers.append((x + sz / 2, y + sz / 2))
+        break
+nxt = [[[t for t in g["tiles"] if t not in placed_t[gi]] or g["tiles"], 0] for gi, g in enumerate(G)]
+for i, (x, y) in enumerate(pts):
+    if (x, y) in used: continue
+    q = nxt[owner[i]]; t = q[0][q[1] % len(q[0])] if q[0] else -1; q[1] += 1
+    items.append((x, y, 1, t, -1))
 tw = (H - 40 * K) / (ROWS * M["h"] / M["w"]); th = tw * M["h"] / M["w"]
 ox, oy = W - 40 * K - COLS * tw, 20 * K
 gap = max(2, round(tw * 0.08)); cw, ch = round(tw - gap), round(th - gap)
-mask = Image.new("L", (cw * 4, ch * 4), 0); ImageDraw.Draw(mask).rounded_rectangle([0, 0, cw * 4 - 1, ch * 4 - 1], radius=round(tw * 0.13 * 4), fill=255); mask = mask.resize((cw, ch), Image.LANCZOS)
 sheets = [Image.open(os.path.join(SITE, f)).convert("RGB") for f in M["files"]]
-back = Image.new("RGB", (cw, ch), (28, 27, 33)); bd = ImageDraw.Draw(back); b = max(2, round(cw * 0.14))
-bd.rectangle([b, b, cw - 1 - b, ch - 1 - b], outline=(58, 57, 63), width=1)
-dd = min(cw, ch) * 0.17; bd.polygon([(cw / 2, ch / 2 - dd), (cw / 2 + dd * 0.72, ch / 2), (cw / 2, ch / 2 + dd), (cw / 2 - dd * 0.72, ch / 2)], fill=(122, 62, 86))
-for i, (x, y) in enumerate(pts):
-    t = tile[i]
-    if t < 0: cell = back
-    else:
+B = M["big"]; bsheet = Image.open(os.path.join(SITE, B["file"])).convert("RGB")
+masks = {}
+def mask_for(w, h, r):
+    if (w, h) not in masks:
+        m = Image.new("L", (w * 4, h * 4), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w * 4 - 1, h * 4 - 1], radius=round(r * 4), fill=255); masks[(w, h)] = m.resize((w, h), Image.LANCZOS)
+    return masks[(w, h)]
+for x, y, sz, t, b in items:
+    w, h = round(sz * tw - gap), round(sz * th - gap)
+    if b >= 0: cell = bsheet.crop(((b % B["cols"]) * B["w"], (b // B["cols"]) * B["h"], (b % B["cols"] + 1) * B["w"], (b // B["cols"] + 1) * B["h"]))
+    elif t >= 0:
         sh, j = sheets[t // M["per"]], t % M["per"]
-        cell = sh.crop(((j % M["cols"]) * M["w"], (j // M["cols"]) * M["h"], (j % M["cols"] + 1) * M["w"], (j // M["cols"] + 1) * M["h"])).resize((cw, ch), Image.LANCZOS)
-    img.paste(cell, (round(ox + x * tw + gap / 2), round(oy + y * th + gap / 2)), mask)
+        cell = sh.crop(((j % M["cols"]) * M["w"], (j // M["cols"]) * M["h"], (j % M["cols"] + 1) * M["w"], (j // M["cols"] + 1) * M["h"]))
+    else: cell = Image.new("RGB", (M["w"], M["h"]), (42, 41, 48))
+    img.paste(cell.resize((w, h), Image.LANCZOS), (round(ox + x * tw + gap / 2), round(oy + y * th + gap / 2)), mask_for(w, h, tw * (0.2 if sz > 1 else 0.13)))
+    if sz > 1: d.rounded_rectangle([ox + x * tw + gap / 2, oy + y * th + gap / 2, ox + x * tw + gap / 2 + w - 1, oy + y * th + gap / 2 + h - 1], radius=round(tw * 0.2), outline=(205, 204, 210), width=K)
 # gutters between territories, wider between franchises, and a faint line around each big card's territory
 for wide in (True, False):
     lw = max(3, round(tw * (0.3 if wide else 0.17)))
@@ -84,8 +123,6 @@ for i, (x, y) in enumerate(pts):
         X, Y = ox + (x + (dx > 0)) * tw, oy + (y + (dy > 0)) * th
         d.line([(X, Y), (X, Y + th)] if dx else [(X, Y), (X + tw, Y)], fill=(112, 110, 118), width=K)
 # labels on the biggest territories, skipping any that would collide
-cells = [[] for _ in G]
-for i, o in enumerate(owner): cells[o].append(i)
 def center(cs):
     sx = sum(pts[i][0] for i in cs) / len(cs); sy = sum(pts[i][1] for i in cs) / len(cs)
     i = min(cs, key=lambda i: (pts[i][0] - sx) ** 2 + (pts[i][1] - sy) ** 2)
@@ -94,7 +131,7 @@ tb, ts = font("bsd.ttf", 19, b"ExtraBold"), font("mono.ttf", 11)
 placed = []
 for gi in sorted(range(len(G)), key=lambda gi: -len(cells[gi])):
     g = G[gi]
-    if len(cells[gi]) < 12 or g["k"] == "x": continue
+    if len(cells[gi]) < 12: continue
     name = (g.get("s") or g.get("f")).upper(); cnt = f"{(g.get('total') or g['n']):,}"
     bw = max(d.textlength(name, font=tb), d.textlength(cnt, font=ts)) + 22 * K; bh = 44 * K
     cx, cy = center(cells[gi]); x0 = min(ox + COLS * tw - bw - 4 * K, max(ox + 4 * K, cx - bw / 2)); y0 = min(oy + ROWS * th - bh - 4 * K, max(oy + 4 * K, cy - bh / 2))
@@ -123,4 +160,6 @@ for v, t in [(f"{S['n']:,}", "trading cards onchain"), (f"{hero['n']:,}", f"of t
     d.text((L, y), v, font=num, fill=INK); d.text((L + d.textlength(v, font=num) + 14 * K, y + 24 * K), t, font=lab, fill=INK2); y += 62 * K
 d.text((L, H - 56 * K), "By Ryan Ghods  ·  data from the OpenSea API", font=font("mono.ttf", 15), fill=INK2)
 img.resize((1200, 630), Image.LANCZOS).save(os.path.join(SITE, "og.png"), optimize=True)
+# the map alone, for the map's share card
+img.crop((int(ox) - 2 * K, int(oy) - 2 * K, int(ox + COLS * tw) + 2 * K, int(oy + ROWS * th) + 2 * K)).save(os.path.join(ROOT, "data", "og_map.png"))
 print("og.png", os.path.getsize(os.path.join(SITE, "og.png")))

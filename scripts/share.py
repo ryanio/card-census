@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = sys.argv[1]; SITE = os.path.join(ROOT, "site"); FONTS = os.path.join(ROOT, "data", "fonts"); HIRES = os.path.join(ROOT, "data", "hires")
 SITE_URL = os.environ.get("SITE_URL", "https://ryanio.github.io/card-census/")
 page = open(os.path.join(SITE, "index.html")).read()
-S = json.loads(re.search(r'<script type="application/json" id="summary">(.*?)</script>', page, re.S).group(1))
+S = json.load(open(os.path.join(ROOT, "data", "summary.json")))
 SUB = S["subjects"]; os.makedirs(os.path.join(SITE, "s"), exist_ok=True)
 
 num = lambda g: float(g) if re.fullmatch(r"[\d.]+", str(g)) else None
@@ -68,6 +68,30 @@ if top:
     H.append({"id": "grails", "anchor": "lot-1", "kicker": "Lot 01", "big": f"${h1['v'] / 1000:.0f}K" if h1["v"] < 1e6 else f"${h1['v'] / 1e6:.1f}M",
               "title": f"The most valuable card onchain is worth about {money(h1['v'])}", "sub": f"{h1['t']}, {h1['g']}" if h1.get("g") else h1["t"],
               "text": f"The most valuable trading card onchain is worth about {money(h1['v'])}: {h1['t']}{', ' + h1['g'] if h1.get('g') else ''}.", "cards": [h1], "solo": True})
+IS = S.get("issuers") or []
+if len(IS) >= 2:
+    i0 = IS[0]
+    H.append({"id": "vaults", "anchor": "vaults", "kicker": "Who vaults them", "big": f"{round(i0['n'] / S['n'] * 100)}%",
+              "title": f"{i0['name']} vaults {round(i0['n'] / S['n'] * 100)}% of the cards onchain",
+              "sub": " · ".join(f"{x['name']} {round(x['n'] / S['n'] * 100)}%" for x in IS[1:4]),
+              "text": f"{i0['name']} vaults {round(i0['n'] / S['n'] * 100)}% of the trading cards onchain. " + ", ".join(f"{x['name']}: {round(x['n'] / S['n'] * 100)}%" for x in IS[1:4]) + ".",
+              "bars": [(x["name"], x["n"] / i0["n"], f"{x['n']:,}") for x in IS[:5]]})
+most10 = max(SUB, key=lambda s: tens(s["grade"]))
+if most10 is not by_n[0]:
+    t0 = by_n[0]
+    H.append({"id": "most-tens", "anchor": slug(most10["s"]), "kicker": "Most 10s", "big": f"{tens(most10['grade']):,}", "only": True,
+              "title": f"{most10['s']} has more 10s onchain than any other card",
+              "sub": f"{tens(most10['grade']):,} of {most10['n']:,} copies graded 10 or higher, against {tens(t0['grade']):,} for {t0['s']}",
+              "text": f"{most10['s']} has more 10s onchain than any other card: {tens(most10['grade']):,} of {most10['n']:,} copies are graded 10 or higher.",
+              "cards": [x for x in (best(most10),) if x], "solo": True})
+FRS = sorted(S["franchises"], key=lambda f: -f["n"]); on_map = S["n"] - (S.get("map") or {}).get("off", 0)
+if FRS and os.path.exists(os.path.join(ROOT, "data", "og_map.png")):
+    f0 = FRS[0]
+    H.append({"id": "map", "anchor": "top", "kicker": "The map", "big": f"{round(f0['n'] / S['n'] * 100)}%", "only": True,
+              "title": f"{f0['f']} is {round(f0['n'] / S['n'] * 100)}% of every card onchain",
+              "sub": " · ".join(f"{f['f']} {round(f['n'] / S['n'] * 100)}%" for f in FRS[1:4]),
+              "text": f"A map of {S['n']:,} trading cards onchain, made of the cards themselves. {f0['f']} is {round(f0['n'] / S['n'] * 100)}% of it.",
+              "img": os.path.join(ROOT, "data", "og_map.png")})
 ENT = []
 for s in by_n[:40]:
     b = best(s)
@@ -97,7 +121,17 @@ def wrap(d, text, f, width):
     return lines + ([cur] if cur else [])
 def render(h, path):
     img = Image.new("RGB", (W, Hh), BG); d = ImageDraw.Draw(img)
-    ims = [p for p in (photo(c) for c in h["cards"]) if p][:(1 if h.get("solo") else 2)]
+    ims = [p for p in (photo(c) for c in h.get("cards", [])) if p][:(1 if h.get("solo") else 2)]
+    if h.get("img"):
+        m = Image.open(h["img"]).convert("RGB"); sc = min(520 * K / m.width, 570 * K / m.height); m = m.resize((int(m.width * sc), int(m.height * sc)), Image.LANCZOS)
+        img.paste(m, (1180 * K - m.width, (Hh - m.height) // 2))
+    if h.get("bars"):
+        fb, fs2 = font("bsd.ttf", 30, b"ExtraBold"), font("mono.ttf", 15)
+        x0, x1, y = 660 * K, 1150 * K, 120 * K
+        for name, frac, label in h["bars"]:
+            d.text((x0, y), name.upper(), font=fb, fill=INK); d.text((x1, y + 8 * K), label, font=fs2, fill=INK2, anchor="ra")
+            d.rounded_rectangle([x0, y + 44 * K, x0 + max(8 * K, int((x1 - x0) * frac)), y + 62 * K], radius=4 * K, fill=PINK if name == h["bars"][0][0] else (90, 88, 98))
+            y += 88 * K
     if ims:
         x0, x1, y0, y1 = 640 * K, 1160 * K, 40 * K, 590 * K
         n = len(ims); gap = 18 * K
@@ -150,7 +184,7 @@ for h in H + ENT:
     open(os.path.join(SITE, "s", h["id"], "index.html"), "w").write(share_page(h))
 
 # ---- page: highlights, share map, static headline and dek, JSON-LD, sitemap ----
-light = [{k: h[k] for k in ("id", "anchor", "kicker", "big", "title", "text")} for h in H]
+light = [{k: h[k] for k in ("id", "anchor", "kicker", "big", "title", "text")} for h in H if not h.get("only")]
 page = page.replace("/*__HIGHLIGHTS__*/", json.dumps({"h": light, "c": {e["anchor"]: e["id"] for e in ENT}}, separators=(",", ":")).replace("</", "<\\/"))
 hero = zard or by_n[0]
 h1 = "Every card onchain, counted"

@@ -109,6 +109,15 @@ for x in cr["sets"]:
     S["sets"].append({"x": x, "n": tot(gd), "ten": tens(gd), "f": (f.get("franchise") or [["", 0]])[0][0], "y": (f.get("year") or [["", 0]])[0][0]})
 S["sets"].sort(key=lambda x: -x["n"])
 S["top"] = dedupe([copy(n) for n in cr["top"]])
+# issuers: the platforms that vault and tokenize the cards, with chain-specific collections merged (Beezie - Flow, Beezie - Base)
+iss = {}
+for it in cr.get("issuers") or []:
+    f = it.get("facets") or {}; pt = dict(f.get("product_type", []))
+    name = re.sub(r"\.io$", "", (it.get("name") or it["slug"]).split(" - ")[0].strip())
+    x = iss.setdefault(name, {"name": name, "slugs": [], "n": 0, "graded": 0, "raw": 0, "sealed": 0, "fr": {}})
+    x["slugs"].append(it["slug"]); x["n"] += tot(f.get("product_type")); x["graded"] += pt.get("Graded Card", 0); x["raw"] += pt.get("Raw Card", 0); x["sealed"] += pt.get("Sealed Product", 0)
+    for v, c in f.get("franchise", []): x["fr"][v] = x["fr"].get(v, 0) + c
+S["issuers"] = sorted([dict(x, fr=sorted(x["fr"].items(), key=lambda kv: -kv[1])[:4]) for x in iss.values() if x["n"]], key=lambda x: -x["n"])
 # franchise champions: the most valuable copy found for each franchise with at least 2,000 cards
 S["champs"] = []
 for fr in S["franchises"]:
@@ -139,16 +148,17 @@ for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", *(
 # cover map: territories in the order they run along the curve (franchises by size, each one's long tail, then its big cards),
 # with small photo tiles; tile captions go to map.json, which the page loads after first paint
 MINI, MW, MH, MCOLS, MBIG = os.path.join(ROOT, "data", "mini"), 36, 50, 32, 1500
-mcells, mindex, mmeta = [], {}, []
+mcells, mindex, mmeta, murls, mvals = [], {}, [], [], []
 def short(u): return (u or "").replace("https://i2c.seadn.io/", "~i/").replace("https://opensea.io/assets/", "~a/")
 def mcell(n):
     u = n.get("display_image_url") or n.get("image_url")
     p = u and os.path.join(MINI, hashlib.sha1(u.encode()).hexdigest() + ".png")
     if not p or not os.path.exists(p): return -1
     if u not in mindex:
-        mindex[u] = len(mcells); mcells.append(p)
-        t, chip = clean(n.get("name")); v = n.get("estimated_value_usd")
-        mmeta.append([t, chip, round(float(v)) if v not in (None, "", "None") else None, short(u), short(n.get("opensea_url"))])
+        mindex[u] = len(mcells); mcells.append(p); murls.append(u)
+        t, chip = clean(n.get("name")); v = n.get("estimated_value_usd"); v = round(float(v)) if v not in (None, "", "None") else None
+        box = [float(x) for x in open(p + ".box").read().split()] if os.path.exists(p + ".box") else [0, 0, 1, 1]
+        mmeta.append([t, chip, v, short(u), short(n.get("opensea_url")), box]); mvals.append(v or 0)
     return mindex[u]
 def tiles_of(ns): return list(dict.fromkeys(i for i in (mcell(n) for n in ns) if i >= 0))
 MP = cr.get("map") or {}
@@ -166,28 +176,40 @@ for fr in S["franchises"]:
     # the long tail first, then the big cards, which puts Pokemon's big cards near the middle of the line: the top of the map
     groups.append({"k": "f", "f": f, "n": max(0, fr["n"] - sum(g["n"] for g in named)), "total": fr["n"], "ten": tens(fr["grade"]), "tiles": tiles_of(rest)})
     groups += named
-unsorted = S["n"] - sum(fr["n"] for fr in S["franchises"])
-if unsorted > 0: groups.append({"k": "x", "n": unsorted, "tiles": []})
+# the most valuable cards get a bigger photo, which the page draws across 2x2 to 4x4 cells
+MIDI, BW, BH, BCOLS = os.path.join(ROOT, "data", "midi"), 120, 168, 10
+has_big = lambda t: mvals[t] > 0 and os.path.exists(os.path.join(MIDI, hashlib.sha1(murls[t].encode()).hexdigest() + ".png"))
+bset = sorted({t for g in groups for t in g["tiles"] if has_big(t)}, key=lambda t: -mvals[t])[:90]
+bindex = {t: k for k, t in enumerate(bset)}
+for g in groups: g["big"] = sorted([[t, bindex[t], mvals[t]] for t in g["tiles"] if t in bindex], key=lambda c: -c[2])
+bsheet = Image.new("RGB", (BCOLS * BW, max(1, math.ceil(len(bset) / BCOLS)) * BH), (27, 26, 32))
+for k, t in enumerate(bset): bsheet.paste(Image.open(os.path.join(MIDI, hashlib.sha1(murls[t].encode()).hexdigest() + ".png")).convert("RGB"), ((k % BCOLS) * BW, (k // BCOLS) * BH))
+bsheet.save(os.path.join(SITE, "mb.webp"), "WEBP", quality=78, method=6)
 mper, mfiles = MCOLS * MCOLS, []
 for k in range(math.ceil(len(mcells) / mper)):
     chunk = mcells[k * mper:(k + 1) * mper]
     sheet = Image.new("RGB", (MCOLS * MW, math.ceil(len(chunk) / MCOLS) * MH), (27, 26, 32))
     for j, p in enumerate(chunk): sheet.paste(Image.open(p).convert("RGB"), ((j % MCOLS) * MW, (j // MCOLS) * MH))
-    fn = f"m{k}.webp"; sheet.save(os.path.join(SITE, fn), "WEBP", quality=80, method=6); mfiles.append(fn)
-S["map"] = {"w": MW, "h": MH, "cols": MCOLS, "per": mper, "files": mfiles, "groups": groups}
+    fn = f"m{k}.webp"; sheet.save(os.path.join(SITE, fn), "WEBP", quality=74, method=6); mfiles.append(fn)
+S["map"] = {"w": MW, "h": MH, "cols": MCOLS, "per": mper, "files": mfiles, "groups": groups, "big": {"w": BW, "h": BH, "cols": BCOLS, "file": "mb.webp"},
+            "off": S["n"] - sum(fr["n"] for fr in S["franchises"])}
 json.dump({"m": mmeta}, open(os.path.join(SITE, "map.json"), "w"), separators=(",", ":"))
 
-# sprite sheets
+# sprite sheets for the card thumbnails, which are drawn at 26 to 34px, so cells about twice that are enough
+SW, SH = 72, 100
 per = COLS * ROWS; files = []
 for k in range(max(1, math.ceil(len(cells) / per))):
-    sheet = Image.new("RGBA", (COLS * W, ROWS * H), (0, 0, 0, 0))
+    sheet = Image.new("RGBA", (COLS * SW, ROWS * SH), (0, 0, 0, 0))
     for j, p in enumerate(cells[k * per:(k + 1) * per]):
-        sheet.alpha_composite(Image.open(p).convert("RGBA").resize((W, H)), ((j % COLS) * W, (j // COLS) * H))
+        sheet.alpha_composite(Image.open(p).convert("RGBA").resize((SW, SH), Image.LANCZOS), ((j % COLS) * SW, (j // COLS) * SH))
     fn = f"c{k}.webp"; sheet.save(os.path.join(SITE, fn), "WEBP", quality=78, method=6); files.append(fn)
-S["sprite"] = {"cols": COLS, "rows": ROWS, "w": W, "h": H, "files": files}
+S["sprite"] = {"cols": COLS, "rows": ROWS, "w": SW, "h": SH, "files": files}
 
 tpl = open(os.path.join(ROOT, "scripts", "template.html")).read()
-page = tpl.replace("/*__SUMMARY__*/", json.dumps(S, separators=(",", ":")).replace("</", "<\\/"))
+# the page gets a slimmer summary: each copy drops its raw name and the common URL prefixes, which the page restores
+slim = lambda c: {k: (short(v) if k in ("u", "url") else v) for k, v in c.items() if k != "name"}
+PS = dict(S, subjects=[dict(s, copies=[slim(c) for c in s["copies"]]) for s in S["subjects"]])
+page = tpl.replace("/*__SUMMARY__*/", json.dumps(PS, separators=(",", ":")).replace("</", "<\\/"))
 SITE_URL = os.environ.get("SITE_URL", "https://ryanio.github.io/card-census/")
 GA_ID = os.environ.get("GA_ID", "").strip()
 head_end = page.index("</style>") + len("</style>")

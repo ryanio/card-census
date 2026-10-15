@@ -54,16 +54,23 @@ TOP = search(limit=40, product_type="Graded Card")
 SEALED = search(limit=16, product_type="Sealed Product")
 COPIES = pmap(lambda s: search(limit=4, subject=s), subjects)
 # photos for the cover map: a territory for every card with 1,500+ copies, and a mix of the priciest and the
-# API's default order for the rest of each franchise, roughly one photo per thousand cards
+# API's default order for the rest of each franchise, roughly one photo per 750 cards
 own_n = lambda s: next((c for v, c in (SUB[s] or {}).get("subject", []) if v == s), 0)
 MAP_SUB = pmap(lambda s: search(limit=min(100, max(8, -(-own_n(s) // 450))), subject=s), [s for s in subjects if own_n(s) >= 1500])
 fr_n = dict(ALL["franchise"])
 def fr_photos(f):
-    k = min(400, max(30, -(-fr_n[f] // 1100)))
+    k = min(800, max(30, -(-fr_n[f] // 750)))
     return search(limit=k // 2, franchise=f) + search(limit=k - k // 2, by_value=False, franchise=f)
 MAP_FR = pmap(fr_photos, franchises)
+# the issuers that vault the cards: every collection seen in the photos above, counted with collection_slugs
+seen = [n.get("collection") for n in TOP + SEALED + [n for v in list(COPIES.values()) + list(MAP_SUB.values()) + list(MAP_FR.values()) for n in (v or [])]]
+slugs = [c for c in dict.fromkeys(seen) if c and seen.count(c) >= 3]
+def issuer(slug):
+    s, b = get(f"/collections/{slug}", [])
+    return {"slug": slug, "name": (b or {}).get("name") if s == 200 else slug, "facets": facets(types=["product_type", "franchise", "grader"], collection_slugs=slug)}
+ISSUERS = list(pmap(issuer, slugs).values())
 json.dump({"group": GROUP, "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "all": ALL, "franchise": FR, "grader": GR, "fg": FG,
            "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "sealed": SEALED, "copies": COPIES,
-           "map": {"subject": MAP_SUB, "franchise": MAP_FR}}, open(OUT, "w"))
+           "map": {"subject": MAP_SUB, "franchise": MAP_FR}, "issuers": ISSUERS}, open(OUT, "w"))
 missing = sum(1 for v in list(SUB.values()) + list(SUBG.values()) + list(SET.values()) if v is None)
 print(f"done in {time.time() - t0:.0f}s, {len(subjects)} subjects, {len(sets)} sets, missing={missing}", flush=True)

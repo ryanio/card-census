@@ -17,8 +17,8 @@ def sized(u):
     if u.startswith("ipfs://"): return "https://ipfs.io/ipfs/" + u[7:]
     return u
 
-def trim(im):
-    """Crop a flat or softly lit studio background (white sheet, black table) so the slab fills its cell.
+def trim_box(im):
+    """Box around the slab on a flat or softly lit studio background (white sheet, black table), or None.
     Uses rows and columns where at least 2% of pixels differ from the corner color, so shadows and noise don't widen the box."""
     from PIL import ImageChops
     w, h = im.size; px = im.load()
@@ -33,11 +33,15 @@ def trim(im):
     cols = [sum(1 for y in range(sh) if data[y * sw + x]) for x in range(sw)]
     rows = [sum(1 for x in range(sw) if data[y * sw + x]) for y in range(sh)]
     cx = [i for i, c in enumerate(cols) if c > 0.02 * sh]; ry = [i for i, r in enumerate(rows) if r > 0.02 * sw]
-    if not cx or not ry: return im
+    if not cx or not ry: return None
     x0, x1, y0, y1 = cx[0] * 2, (cx[-1] + 1) * 2, ry[0] * 2, (ry[-1] + 1) * 2
-    if (x1 - x0) * (y1 - y0) > 0.94 * w * h: return im
+    if (x1 - x0) * (y1 - y0) > 0.94 * w * h: return None
     m = round(0.012 * max(w, h))
-    return im.crop((max(0, x0 - m), max(0, y0 - m), min(w, x1 + m), min(h, y1 + m)))
+    return (max(0, x0 - m), max(0, y0 - m), min(w, x1 + m), min(h, y1 + m))
+def trim(im):
+    """Crop the studio background so the slab fills its cell."""
+    b = trim_box(im)
+    return im.crop(b) if b else im
 
 def fetch(u):
     path = os.path.join(CACHE, key(u) + ".png")
@@ -86,24 +90,29 @@ big = list(dict.fromkeys(u for u in big if u))
 with cf.ThreadPoolExecutor(8) as ex: rb = list(ex.map(fetch_big, big))
 print(f"big ok={sum(rb)} of {len(rb)}", flush=True)
 
-# cover map tiles: small photos cropped to fill a 5:7 cell, flattened on the dark display bed
+# cover map tiles: small photos cropped to fill a 5:7 cell, flattened on the dark display bed; the most valuable
+# cards also get a bigger tile (data/midi), since the map draws them across 2x2 to 4x4 cells
 MINI = os.path.join(ROOT, "data", "mini"); os.makedirs(MINI, exist_ok=True)
-MW, MH = 36, 50
-def fetch_mini(u):
-    path = os.path.join(MINI, key(u) + ".png")
-    if os.path.exists(path) or os.path.exists(path + ".fail"): return os.path.exists(path)
+MIDI = os.path.join(ROOT, "data", "midi"); os.makedirs(MIDI, exist_ok=True)
+def fetch_mini(u, MW=36, MH=50, out=MINI, w=160):
+    """Write the tile, and next to it a .box file: where the slab sits in the photo, as fractions, for the page's preview."""
+    path = os.path.join(out, key(u) + ".png")
+    if os.path.exists(path + ".fail") or (os.path.exists(path) and (out != MINI or os.path.exists(path + ".box"))): return os.path.exists(path)
     try:
         raw = os.path.join(RAW, key(u))
         if os.path.exists(raw): data = open(raw, "rb").read()
         else:
             p = urllib.parse.urlsplit(u)
             if p.netloc.endswith("seadn.io"):
-                q = dict(urllib.parse.parse_qsl(p.query)); q.update({"w": "160", "auto": "format"})
+                q = dict(urllib.parse.parse_qsl(p.query)); q.update({"w": str(w), "auto": "format"})
                 src = urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, urllib.parse.urlencode(q), ""))
             else: src = sized(u)
             req = urllib.request.Request(src, headers={"user-agent": "Mozilla/5.0 card-census", "accept": "image/webp,image/png,image/*;q=0.8"})
             with urllib.request.urlopen(req, timeout=30) as r: data = r.read(25_000_000)
-        im = Image.open(io.BytesIO(data)); im.seek(0); im = im.convert("RGBA"); im.thumbnail((480, 480), Image.LANCZOS); im = trim(im)
+        im = Image.open(io.BytesIO(data)); im.seek(0); im = im.convert("RGBA"); im.thumbnail((480, 480), Image.LANCZOS)
+        b = trim_box(im) or (0, 0, im.width, im.height)
+        open(path + ".box", "w").write(" ".join(f"{v:.3f}" for v in (b[0] / im.width, b[1] / im.height, b[2] / im.width, b[3] / im.height)))
+        im = im.crop(b)
         r = MW / MH
         if im.width / im.height > r: nw = round(im.height * r); x = (im.width - nw) // 2; im = im.crop((x, 0, x + nw, im.height))
         else: nh = round(im.width / r); y = round((im.height - nh) * 0.3); im = im.crop((0, y, im.width, y + nh))
@@ -112,7 +121,13 @@ def fetch_mini(u):
     except Exception as e:
         open(path + ".fail", "w").write(str(e)[:200]); return False
 mp = crawl.get("map") or {}
-mini = urls + [url_of(n) for group in (mp.get("subject") or {}, mp.get("franchise") or {}) for ns in group.values() for n in (ns or [])]
-mini = list(dict.fromkeys(u for u in mini if u))
+nfts = crawl["top"] + crawl.get("sealed", []) + [n for cs in crawl["copies"].values() for n in (cs or [])] + [n for group in (mp.get("subject") or {}, mp.get("franchise") or {}) for ns in group.values() for n in (ns or [])]
+mini = list(dict.fromkeys(u for u in (url_of(n) for n in nfts) if u))
 with cf.ThreadPoolExecutor(16) as ex: rm = list(ex.map(fetch_mini, mini))
 print(f"map tiles ok={sum(rm)} of {len(rm)}", flush=True)
+def value(n):
+    try: return float(n.get("estimated_value_usd") or 0)
+    except (TypeError, ValueError): return 0
+big = list(dict.fromkeys(url_of(n) for n in sorted(nfts, key=lambda n: -value(n)) if url_of(n)))[:160]
+with cf.ThreadPoolExecutor(12) as ex: rb = list(ex.map(lambda u: fetch_mini(u, 120, 168, MIDI, 420), big))
+print(f"big map tiles ok={sum(rb)} of {len(rb)}", flush=True)

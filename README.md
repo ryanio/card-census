@@ -22,3 +22,9 @@ To run it locally:
 pip install "pillow>=11.2"
 OPENSEA_API_KEY=... ./scripts/refresh.sh
 ```
+
+To retake screenshots of the live site and download every share card (needs Google Chrome):
+
+```sh
+node scripts/shots.mjs
+```

@@ -121,12 +121,10 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
   .dek { max-width: 46ch; }
 }
 
-/* cover map: every franchise one territory of real card photos */
+/* cover map: every franchise one territory of real card photos, the most valuable drawn bigger */
 .cmap { position: relative; touch-action: manipulation; }
 .cmap canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border-radius: 14px; }
 .cmap canvas.top { cursor: pointer; }
-.cmap .glare { position: absolute; inset: 0; border-radius: 14px; pointer-events: none; opacity: 0; transition: opacity .3s ease; background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), rgba(255,255,255,.28), rgba(255,255,255,0) 34%); mix-blend-mode: soft-light; }
-.cmap:hover .glare { opacity: 1; }
 .ctag { position: absolute; width: max-content; transform: translate(-50%, -50%); border: 0; margin: 0; padding: 4px 9px 5px; border-radius: 3px; background: #FFFFFF; color: #111214; box-shadow: 0 4px 16px rgba(0,0,0,.5); display: grid; line-height: 1.05; text-align: center; cursor: pointer; max-width: 170px; z-index: 2; opacity: 0; transition: opacity .5s ease, background .15s ease; }
 .cmap.ready .ctag { opacity: 1; }
 .ctag b { font-family: var(--f-display); font-weight: 800; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -136,15 +134,33 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .ctag.fr span { color: #D2D0D7; font-size: 11px; }
 .ctag.on, .ctag:hover, .ctag:focus-visible { background: #FF6FA3; color: #111214; outline: none; }
 .ctag.on span, .ctag:hover span, .ctag:focus-visible span { color: #2A1220; }
-.cpop { position: absolute; z-index: 3; pointer-events: none; border-radius: 5px; background-color: #1B1A20; background-repeat: no-repeat; box-shadow: 0 0 0 2px #FFFFFF, 0 16px 36px rgba(0,0,0,.65); overflow: hidden; animation: cpop .16s ease-out; }
-.cpop img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .15s ease; }
-.cpop img.on { opacity: 1; }
-@keyframes cpop { from { transform: scale(.35); opacity: .3; } to { transform: none; opacity: 1; } }
-.ctip { position: absolute; z-index: 4; pointer-events: none; background: #FFFFFF; color: #111214; font: 13.5px/1.4 var(--f-ui); padding: 8px 11px; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.45); max-width: 300px; }
-.ctip b { font-weight: 700; }
-.ctip span { color: #4A4E55; font-size: 12.5px; }
+/* the preview: the card under the pointer, big enough to read the slab */
+.cprev { position: absolute; z-index: 6; width: 268px; pointer-events: none; background: #FFFFFF; color: #111214; border-radius: 12px; box-shadow: 0 20px 56px rgba(0,0,0,.62), 0 0 0 1px rgba(0,0,0,.06); overflow: hidden; opacity: 0; transform: translateY(6px); transition: opacity .12s ease, transform .12s ease; }
+.cprev.on { opacity: 1; transform: none; }
+.cprev .ph { position: relative; aspect-ratio: 5 / 7; overflow: hidden; background: #1B1A20; }
+.cprev .ph canvas { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); filter: blur(9px); }
+.cprev .ph img { position: absolute; z-index: 1; max-width: none; opacity: 0; transition: opacity .18s ease; }
+.cprev .ph img.on { opacity: 1; }
+.cprev .cap { padding: 11px 13px 13px; display: grid; gap: 5px; }
+.cprev .v { font: 800 28px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.cprev .v:empty { display: none; }
+.cprev .g { justify-self: start; font: 600 11.5px var(--f-mono); background: #F6E3EC; color: #8F1149; padding: 2px 7px; border-radius: 3px; }
+.cprev .t { font: 600 14px/1.32 var(--f-ui); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.cprev .terr { font: 12px/1.45 var(--f-mono); color: #4A4E55; border-top: 1px solid #E6E6EA; padding-top: 7px; margin-top: 2px; }
+.cprev .terr b { color: #111214; font-weight: 600; }
+.cprev .hint { font: 600 12px var(--f-ui); color: #8F1149; }
+.cprev .acts { display: none; }
+/* on touch screens the first tap shows the card as a sheet, with buttons to open it */
+.cprev.sheet { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: auto; pointer-events: auto; display: grid; grid-template-columns: 44% minmax(0, 1fr); z-index: 40; }
+.cprev.sheet .ph { aspect-ratio: auto; min-height: 100%; }
+.cprev.sheet .cap { align-content: start; padding: 12px 12px 12px 13px; }
+.cprev.sheet .hint { display: none; }
+.cprev.sheet .acts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.cprev.sheet .acts button { font: 600 13px var(--f-ui); color: #111214; background: #FFFFFF; border: 1.5px solid #D6D5DB; border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+.cprev.sheet .acts button[data-act="pop"] { background: #111214; color: #FFFFFF; border-color: #111214; }
+.cprev.sheet .acts button[data-act="close"] { position: absolute; top: 8px; right: 8px; padding: 2px 10px 4px; font-size: 18px; line-height: 1; }
 @media (max-width: 560px) { .ctag { padding: 3px 6px 4px; max-width: 120px; } .ctag b { font-size: 12px; } .ctag.fr b { font-size: 14px; } .ctag span, .ctag.fr span { font-size: 9.5px; } }
-@media (prefers-reduced-motion: reduce) { .cpop { animation: none; } .ctag, .cmap .glare { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .ctag, .cprev, .cprev .ph img { transition: none; } }
 
 /* highlights strip */
 .hl { background: var(--paper); border-bottom: 1px solid var(--rule); }
@@ -341,6 +357,7 @@ dialog.zoom { width: min(1180px, calc(100vw - 20px)); height: calc(100dvh - 20px
 @media (max-width: 760px) { .zoom-in { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; } .zoom-cap { border-left: 0; border-top: 1px solid #2C2A30; padding: 16px; } .zoom-cap b { font-size: 34px; } }
 
 /* explore */
+#explore, #method { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
 .sect { max-width: 1240px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 72px 0; }
 .sect-h { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 24px; margin-bottom: 18px; border-top: 2px solid var(--ink); padding-top: 14px; }
 .sect-h h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(38px, 5vw, 60px); line-height: .96; margin: 0; }
@@ -448,9 +465,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <div class="cmap" id="cmap">
         <canvas id="cmap-base" aria-hidden="true"></canvas>
         <canvas id="cmap-top" class="top" aria-hidden="true"></canvas>
-        <div class="glare" aria-hidden="true"></div>
-        <div class="cpop" id="cpop" hidden><img alt=""></div>
-        <div class="ctip" id="ctip" hidden></div>
+        <div class="cprev" id="cprev" hidden><div class="ph"><canvas width="120" height="168" aria-hidden="true"></canvas><img alt=""></div><div class="cap"><span class="v"></span><span class="g"></span><span class="t"></span><span class="terr"></span><span class="hint"></span><span class="acts"></span></div></div>
       </div>
       <figcaption id="cmap-note"></figcaption>
     </figure>
@@ -477,6 +492,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     <li><a href="#japanese"><span>3</span>Japanese cards</a></li>
     <li><a href="#years"><span>4</span>Vintage</a></li>
     <li><a href="#grails"><span>5</span>Grails and sealed</a></li>
+    <li><a href="#vaults"><span>6</span>Who vaults them</a></li>
     <li class="sep" aria-hidden="true"></li>
     <li><a href="#explore"><span>→</span>Look up a card</a></li>
     <li><a href="#method"><span>→</span>How I counted</a></li>
@@ -514,6 +530,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <div id="p-sealed"></div>
       <figure class="fig wide light" id="fig-sealed"><div class="tier s2" id="sealed-a"></div><div class="tier s4" id="sealed-b"></div><figcaption id="cap-sealed"></figcaption></figure>
       <div class="share" data-share="grails"></div>
+    </section>
+    <section class="blk ch" id="vaults" aria-labelledby="h-vaults" hidden>
+      <p class="ch-k">Chapter 6</p><h2 id="h-vaults"></h2><div id="p-vaults"></div>
+      <figure class="fig wide" id="fig-vaults"></figure>
+      <div class="share" data-share="vaults"></div>
     </section>
   </article>
 
@@ -567,6 +588,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 <script>
 (() => {
   const S = JSON.parse(document.getElementById("summary").textContent);
+  const unshort = (u) => (u || "").replace(/^~i\//, "https://i2c.seadn.io/").replace(/^~a\//, "https://opensea.io/assets/");
+  for (const s of S.subjects) for (const c of s.copies) { c.u = unshort(c.u); c.url = unshort(c.url); }
   const $ = (id) => document.getElementById(id);
   const nf = new Intl.NumberFormat("en-US");
   const cf = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 });
@@ -592,7 +615,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const cardStyle = (i, w) => { if (i == null || i < 0) return ""; const per = sp.cols * sp.rows, k = Math.floor(i / per), j = i % per, h = w * sp.h / sp.w; return `background-image:url(${sp.files[k]}?v=${S.v});background-size:${sp.cols * w}px ${sp.rows * h}px;background-position:-${(j % sp.cols) * w}px -${Math.floor(j / sp.cols) * h}px`; };
   const lazy = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute("style", e.target.dataset.bg); lazy.unobserve(e.target); } }), { rootMargin: "500px" });
   const cardHTML = (i, w, tag = "span", attrs = "") => `<${tag} class="card${i < 0 ? " empty" : ""}" ${attrs}><i data-w="${w}" data-i="${i}"></i></${tag}>`;
-  const hydrate = (root) => root.querySelectorAll(".card > i[data-i]").forEach((el) => { const i = +el.dataset.i; if (i < 0) return; const w = el.getBoundingClientRect().width || +el.dataset.w; el.dataset.bg = cardStyle(i, w); lazy.observe(el); el.removeAttribute("data-i"); });
+  const hydrate = (root) => root.querySelectorAll(".card > i[data-i]").forEach((el) => { const i = +el.dataset.i; if (i < 0) return; const w = +el.dataset.w; el.dataset.bg = cardStyle(i, w); lazy.observe(el); el.removeAttribute("data-i"); });
 
   const cdn = (u, w) => { if (!u) return ""; if (u.startsWith("ipfs://")) return "https://ipfs.io/ipfs/" + u.slice(7); try { const x = new URL(u); if (x.hostname.endsWith("seadn.io")) { x.searchParams.set("w", w); x.searchParams.set("auto", "format"); } return x.toString(); } catch { return u; } };
   const ZOOM = [];
@@ -674,9 +697,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("vault-note").textContent = `The ${Math.min(10, lots.length)} most valuable graded cards onchain, by OpenSea's estimated value. Bigger lots, bigger money. Click any to read the slab.`;
   const wallItems = lots.slice(0, 10);
 
-  /* ---------- the map: every franchise one territory of real card photos, laid along a Gilbert curve ---------- */
-  const MD = S.map, MG = MD.groups.filter((g) => g.n > 0);
-  const cmap = $("cmap"), cBase = $("cmap-base"), cTop = $("cmap-top"), ctip = $("ctip"), cpop = $("cpop"), coverL = document.querySelector(".cover-l");
+  /* ---------- the map: every franchise one territory of real card photos, laid along a Gilbert curve,
+     with each territory's most valuable cards drawn across 2x2 to 4x4 cells ---------- */
+  const MD = S.map, MG = MD.groups.filter((g) => g.n > 0), MB = MD.big;
+  const cmap = $("cmap"), cBase = $("cmap-base"), cTop = $("cmap-top"), cprev = $("cprev"), coverL = document.querySelector(".cover-l");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   function gilbert(w, h) {
     const pts = [];
@@ -696,7 +720,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       }
     };
     if (w >= h) gen(0, 0, w, 0, 0, h); else gen(0, 0, 0, h, w, 0);
-    // end the line in a bottom corner, so its last territory (cards with no franchise) sits low on the map
+    // end the line in a bottom corner, so the smallest franchises sit low on the map
     return pts[pts.length - 1][1] === 0 ? pts.map(([x, y]) => [x, h - 1 - y]) : pts;
   }
   function allocate(counts, N) {
@@ -708,50 +732,83 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     while (sum > N) { const i = a.indexOf(Math.max(...a)); a[i]--; sum--; }
     return a;
   }
-  const gName = (g) => g.k === "s" ? g.s : g.k === "f" ? g.f : "No franchise";
+  const gName = (g) => g.k === "s" ? g.s : g.f;
   const gCount = (g) => g.k === "f" ? g.total : g.n;
-  const unshort = (u) => (u || "").replace(/^~i\//, "https://i2c.seadn.io/").replace(/^~a\//, "https://opensea.io/assets/");
-  const mImgs = MD.files.map((f) => { const im = new Image(); im.decoding = "async"; im.src = f + "?v=" + S.v; return im; });
-  let CM = null, META = null, hoverG = -1, hoverCell = -1, raf = 0, intro = false, introT0 = 0, introDone = false;
+  const loadImg = (src) => { const im = new Image(); im.decoding = "async"; im.src = src + "?v=" + S.v; return im; };
+  const mImgs = MD.files.map(loadImg), bImg = loadImg(MB.file);
+  let CM = null, META = null, hoverG = -1, hoverItem = -1, intro = false, introT0 = 0, introDone = false, introRaf = 0, moveRaf = 0;
   const wantIntro = !reduceMotion && !location.hash && scrollY < 120;
   function layout() {
     const W = cmap.clientWidth, cols = W < 560 ? 24 : W < 900 ? 36 : 40, tw = W / cols, th = tw * MD.h / MD.w;
     const side = coverL.offsetHeight > 0 && matchMedia("(min-width: 1001px)").matches;
-    const rows = side ? Math.max(28, Math.min(48, 2 * Math.round((coverL.offsetHeight - 64) / th / 2))) : cols < 30 ? 26 : 28;
+    const rows = side ? Math.max(28, Math.min(48, 2 * Math.round((coverL.offsetHeight - 64) / th / 2))) : cols < 30 ? 28 : 28;
     const pts = gilbert(cols, rows), N = pts.length, alloc = allocate(MG.map((g) => g.n), N);
-    const owner = new Int16Array(N), tile = new Int32Array(N), at = new Int32Array(N);
+    const owner = new Int16Array(N), at = new Int32Array(cols * rows), own = new Int16Array(cols * rows);
     let k = 0;
-    MG.forEach((g, gi) => { for (let j = 0; j < alloc[gi]; j++, k++) { owner[k] = gi; tile[k] = g.tiles.length ? g.tiles[j % g.tiles.length] : -1; } });
-    pts.forEach(([x, y], i) => (at[y * cols + x] = i));
+    MG.forEach((g, gi) => { for (let j = 0; j < alloc[gi]; j++, k++) owner[k] = gi; });
+    pts.forEach(([x, y], i) => { at[y * cols + x] = i; own[y * cols + x] = owner[i]; });
     const cells = MG.map(() => []);
     for (let i = 0; i < N; i++) cells[owner[i]].push(i);
-    CM = { W, H: Math.round(rows * th), cols, rows, tw, th, N, pts, owner, tile, at, cells };
+    // the priciest cards across the map get the biggest tiles, each placed inside its own territory, spread apart
+    const items = [], used = new Uint8Array(cols * rows), placedT = MG.map(() => new Set()), centers = [];
+    const cands = [], seen = new Set();
+    MG.forEach((g, gi) => (g.big || []).forEach(([t, b, v]) => { if (!seen.has(t)) { seen.add(t); cands.push([gi, t, b, v]); } }));
+    cands.sort((a, b) => b[3] - a[3]);
+    const n4 = Math.max(1, Math.round(N / 480)), n3 = Math.round(N / 130), n2 = Math.round(N / 40);
+    const fits = (gi, x, y, sz) => { if (x + sz > cols || y + sz > rows) return false; for (let yy = y; yy < y + sz; yy++) for (let xx = x; xx < x + sz; xx++) { const c = yy * cols + xx; if (used[c] || own[c] !== gi) return false; } return true; };
+    cands.forEach(([gi, t, b, v], rank) => {
+      const target = rank < n4 ? 4 : rank < n4 + n3 ? 3 : rank < n4 + n3 + n2 ? 2 : 0;
+      for (let sz = target; sz >= 2; sz--) {
+        let best = null, bestScore = -Infinity;
+        const cs = cells[gi]; let mx = 0, my = 0; for (const i of cs) { mx += pts[i][0]; my += pts[i][1]; } mx /= cs.length; my /= cs.length;
+        for (const i of cs) {
+          const [x, y] = pts[i]; if (!fits(gi, x, y, sz)) continue;
+          const cx = x + sz / 2, cy = y + sz / 2;
+          let d = 1e9; for (const [px, py] of centers) d = Math.min(d, Math.hypot(px - cx, py - cy));
+          const score = Math.min(d, 12) * 10 - Math.hypot(cx - mx, cy - my);
+          if (score > bestScore) { bestScore = score; best = [x, y]; }
+        }
+        if (!best) continue;
+        const [x, y] = best;
+        for (let yy = y; yy < y + sz; yy++) for (let xx = x; xx < x + sz; xx++) used[yy * cols + xx] = 1;
+        items.push({ x, y, sz, t, b, v, gi }); placedT[gi].add(t); centers.push([x + sz / 2, y + sz / 2]);
+        break;
+      }
+    });
+    // everything else: one cell each, cycling through the territory's other photos
+    const nextT = MG.map((g, gi) => { const rest = g.tiles.filter((t) => !placedT[gi].has(t)); return { list: rest.length ? rest : g.tiles, j: 0 }; });
+    for (let i = 0; i < N; i++) {
+      const [x, y] = pts[i]; if (used[y * cols + x]) continue;
+      const q = nextT[owner[i]], t = q.list.length ? q.list[q.j++ % q.list.length] : -1;
+      items.push({ x, y, sz: 1, t, b: -1, v: 0, gi: owner[i] });
+    }
+    const itemAt = new Int32Array(cols * rows);
+    items.forEach((it, n) => { for (let yy = it.y; yy < it.y + it.sz; yy++) for (let xx = it.x; xx < it.x + it.sz; xx++) itemAt[yy * cols + xx] = n; });
+    CM = { W, H: Math.round(rows * th), cols, rows, tw, th, N, pts, owner, at, own, cells, items, itemAt };
     cmap.style.height = CM.H + "px";
-    $("cmap-note").textContent = `Each tile is a real card from the census, standing in for about ${nf.format(Math.round(S.n / N / 10) * 10)} cards. Franchises run along one unbroken curve, so each stays in one piece, sized by its count, and every card with ${nf.format(1500)} or more copies gets its own territory. Face-down tiles have no franchise listed. Hover to explore, click to open.`;
+    $("cmap-note").textContent = `Each tile is a real card from the census. A small one stands in for about ${nf.format(Math.round((S.n - MD.off) / N / 10) * 10)} cards, and the most valuable cards in each territory are drawn bigger. Franchises run along one unbroken curve, so each stays in one piece, sized by its count, and every card with ${nf.format(1500)} or more copies gets its own territory. ${MD.off ? `The ${nf.format(MD.off)} cards with no franchise listed aren't on the map.` : ""}`;
   }
   const px = (i) => CM.pts[i][0] * CM.tw, py = (i) => CM.pts[i][1] * CM.th;
-  const nbr = (i, dx, dy) => { const x = CM.pts[i][0] + dx, y = CM.pts[i][1] + dy; return x < 0 || y < 0 || x >= CM.cols || y >= CM.rows ? -1 : CM.at[y * CM.cols + x]; };
+  const cellIdx = (x, y) => x < 0 || y < 0 || x >= CM.cols || y >= CM.rows ? -1 : CM.at[y * CM.cols + x];
+  const nbr = (i, dx, dy) => cellIdx(CM.pts[i][0] + dx, CM.pts[i][1] + dy);
   function sizeCv(cv) { const dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(CM.W * dpr); cv.height = Math.round(CM.H * dpr); const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return g; }
-  const rrect = (g, x, y, w, h, r) => { g.beginPath(); if (g.roundRect) g.roundRect(x, y, w, h, r); else g.rect(x, y, w, h); };
+  const box = (it) => { const gap = Math.max(1, CM.tw * 0.08); return [it.x * CM.tw + gap / 2, it.y * CM.th + gap / 2, it.sz * CM.tw - gap, it.sz * CM.th - gap]; };
+  function drawItem(g, it) {
+    const [x, y, w, h] = box(it);
+    if (it.b >= 0 && bImg.complete && bImg.naturalWidth) return g.drawImage(bImg, (it.b % MB.cols) * MB.w, Math.floor(it.b / MB.cols) * MB.h, MB.w, MB.h, x, y, w, h);
+    const im = it.t >= 0 && mImgs[Math.floor(it.t / MD.per)], j = it.t % MD.per;
+    if (im && im.complete && im.naturalWidth) g.drawImage(im, (j % MD.cols) * MD.w, Math.floor(j / MD.cols) * MD.h, MD.w, MD.h, x, y, w, h);
+    else { g.fillStyle = "#2A2930"; g.fillRect(x, y, w, h); }
+  }
   function drawBase() {
-    const g = sizeCv(cBase), { tw, th } = CM, gap = Math.max(1, tw * 0.08), r = Math.max(1.5, tw * 0.13), w = tw - gap, h = th - gap;
-    for (let i = 0; i < CM.N; i++) {
-      const x = px(i) + gap / 2, y = py(i) + gap / 2, t = CM.tile[i];
-      g.save(); rrect(g, x, y, w, h, r); g.clip();
-      if (t < 0) {
-        // face down: a plain card back
-        g.fillStyle = "#1C1B21"; g.fillRect(x, y, w, h);
-        const b = Math.max(1.5, w * 0.14), d = Math.min(w, h) * 0.17;
-        g.strokeStyle = "rgba(255,255,255,.13)"; g.lineWidth = 1; g.strokeRect(x + b, y + b, w - 2 * b, h - 2 * b);
-        g.fillStyle = "rgba(255,111,163,.4)"; g.beginPath(); g.moveTo(x + w / 2, y + h / 2 - d); g.lineTo(x + w / 2 + d * 0.72, y + h / 2); g.lineTo(x + w / 2, y + h / 2 + d); g.lineTo(x + w / 2 - d * 0.72, y + h / 2); g.closePath(); g.fill();
-      } else {
-        const im = mImgs[Math.floor(t / MD.per)], j = t % MD.per;
-        if (im.complete && im.naturalWidth) g.drawImage(im, (j % MD.cols) * MD.w, Math.floor(j / MD.cols) * MD.h, MD.w, MD.h, x, y, w, h);
-        else { g.fillStyle = "#2A2930"; g.fillRect(x, y, w, h); }
-      }
-      g.restore();
-    }
-    // territory borders: widen the gutter between territories, more between franchises
+    const g = sizeCv(cBase), { tw, th } = CM, r = Math.max(1.5, tw * 0.13);
+    // one clip for every rounded tile, then plain image draws
+    const clip = new Path2D();
+    for (const it of CM.items) { const [x, y, w, h] = box(it); if (clip.roundRect) clip.roundRect(x, y, w, h, it.sz > 1 ? r * 1.6 : r); else clip.rect(x, y, w, h); }
+    g.save(); g.clip(clip);
+    for (const it of CM.items) drawItem(g, it);
+    g.restore();
+    // territory gutters, wider between franchises
     g.globalCompositeOperation = "destination-out"; g.lineCap = "square";
     for (const wide of [true, false]) {
       g.lineWidth = wide ? Math.max(3, tw * 0.3) : Math.max(2, tw * 0.17); g.beginPath();
@@ -764,7 +821,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       g.stroke();
     }
     g.globalCompositeOperation = "source-over";
-    // a faint outline around each big card's territory, so the provinces read without hovering
+    // a faint outline around each big card's territory, and a ring and price on the biggest tiles
     g.strokeStyle = "rgba(255,255,255,.34)"; g.lineWidth = 1; g.beginPath();
     for (let i = 0; i < CM.N; i++) {
       if (MG[CM.owner[i]].k !== "s") continue;
@@ -775,143 +832,194 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       }
     }
     g.stroke();
+    g.font = `600 ${Math.max(9, Math.round(tw * 0.62))}px "IBM Plex Mono", ui-monospace, monospace`; g.textBaseline = "middle";
+    for (const it of CM.items) {
+      if (it.sz < 2) continue;
+      const [x, y, w, h] = box(it);
+      g.strokeStyle = "rgba(255,255,255,.6)"; g.lineWidth = 1; g.beginPath(); if (g.roundRect) g.roundRect(x + 0.5, y + 0.5, w - 1, h - 1, r * 1.6); else g.rect(x + 0.5, y + 0.5, w - 1, h - 1); g.stroke();
+      if (it.sz < 3 || !it.v) continue;
+      const label = usd(it.v), lw = g.measureText(label).width + 10, lh = Math.max(14, tw * 0.95);
+      g.fillStyle = "rgba(11,10,12,.82)"; g.beginPath(); if (g.roundRect) g.roundRect(x + 4, y + h - lh - 4, lw, lh, 3); else g.rect(x + 4, y + h - lh - 4, lw, lh); g.fill();
+      g.fillStyle = "#FFFFFF"; g.fillText(label, x + 9, y + h - lh / 2 - 4);
+    }
   }
   const family = (gi) => { const g = MG[gi]; return g.k === "f" ? MG.map((h, j) => h.f === g.f ? j : -1).filter((j) => j >= 0) : [gi]; };
   function centerOf(cs) {
-    let sx = 0, sy = 0; for (const i of cs) { sx += px(i); sy += py(i); } sx /= cs.length; sy /= cs.length;
-    let best = cs[0], bd = Infinity; for (const i of cs) { const d = (px(i) - sx) ** 2 + (py(i) - sy) ** 2; if (d < bd) { bd = d; best = i; } }
+    const free = cs.filter((i) => CM.items[CM.itemAt[CM.pts[i][1] * CM.cols + CM.pts[i][0]]].sz === 1), use = free.length ? free : cs;
+    let sx = 0, sy = 0; for (const i of use) { sx += px(i); sy += py(i); } sx /= use.length; sy /= use.length;
+    let best = use[0], bd = Infinity; for (const i of use) { const d = (px(i) - sx) ** 2 + (py(i) - sy) ** 2; if (d < bd) { bd = d; best = i; } }
     return [px(best) + CM.tw / 2, py(best) + CM.th / 2];
   }
   function placeTags() {
     cmap.querySelectorAll(".ctag").forEach((e) => e.remove());
-    const placed = [], minCells = CM.cols < 30 ? 5 : 9;
+    const placed = [], minCells = CM.cols < 30 ? 6 : 9;
+    const bigRects = CM.items.filter((it) => it.sz > 1).map((it) => { const [x, y, w, h] = box(it); return { left: x, right: x + w, top: y, bottom: y + h }; });
     MG.map((g, gi) => gi).sort((a, b) => CM.cells[b].length - CM.cells[a].length).forEach((gi) => {
       const g = MG[gi], cs = CM.cells[gi]; if (cs.length < minCells) return;
-      const [x, y] = centerOf(cs), b = document.createElement("button");
+      const b = document.createElement("button");
       b.type = "button"; b.className = "ctag" + (g.k === "s" ? "" : " fr"); b.dataset.g = gi;
       b.setAttribute("aria-label", `${gName(g)}: ${nf.format(gCount(g))} cards`);
       b.innerHTML = `<b>${esc(gName(g))}</b><span>${nf.format(gCount(g))}</span>`;
       cmap.appendChild(b);
-      const hw = b.offsetWidth / 2 + 2, hh = b.offsetHeight / 2 + 2;
-      b.style.left = Math.min(CM.W - hw, Math.max(hw, x)) + "px"; b.style.top = Math.min(CM.H - hh, Math.max(hh, y)) + "px";
-      const r = b.getBoundingClientRect();
-      if (placed.some((p) => !(r.right + 4 < p.left || r.left - 4 > p.right || r.bottom + 2 < p.top || r.top - 2 > p.bottom))) { b.remove(); return; }
-      placed.push(r);
+      const hw = b.offsetWidth / 2 + 2, hh = b.offsetHeight / 2 + 2, [cx, cy] = centerOf(cs);
+      const hit = (r) => placed.some((p) => !(r.right + 4 < p.left || r.left - 4 > p.right || r.bottom + 2 < p.top || r.top - 2 > p.bottom));
+      const spot = cs.map((i) => [px(i) + CM.tw / 2, py(i) + CM.th / 2]).sort((a, q) => Math.hypot(a[0] - cx, a[1] - cy) - Math.hypot(q[0] - cx, q[1] - cy)).slice(0, 80).map(([x, y]) => {
+        const l = Math.min(CM.W - hw, Math.max(hw, x)), t = Math.min(CM.H - hh, Math.max(hh, y));
+        return { left: l - hw, right: l + hw, top: t - hh, bottom: t + hh, l, t };
+      }).find((r) => !hit(r) && !bigRects.some((p) => !(r.right < p.left || r.left > p.right || r.bottom < p.top || r.top > p.bottom)));
+      if (!spot) { b.remove(); return; }
+      placed.push(spot); b.style.left = spot.l + "px"; b.style.top = spot.t + "px";
       b.addEventListener("mouseenter", () => setHover(gi, -1)); b.addEventListener("mouseleave", () => setHover(-1, -1));
       b.addEventListener("focus", () => setHover(gi, -1)); b.addEventListener("blur", () => setHover(-1, -1));
       b.addEventListener("click", () => openGroup(gi));
     });
   }
   const coverBg = () => getComputedStyle(document.querySelector(".cover")).backgroundColor;
-  let hlKey = -1, hlIn = null, hlCells = [];
-  function drawTop(now = performance.now()) {
-    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1);
+  function drawIntro(now) {
+    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1), { tw, th } = CM;
     g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const { tw, th } = CM;
-    if (intro || (wantIntro && !introDone)) {
-      const p = intro ? Math.min(1, (now - introT0) / 1800) : 0, e = p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2, k = Math.floor(e * CM.N);
-      g.fillStyle = coverBg(); g.beginPath();
-      for (let i = k; i < CM.N; i++) g.rect(px(i) - 0.5, py(i) - 0.5, tw + 1, th + 1);
-      g.fill();
-      if (intro && k < CM.N) {
-        const hx = px(k) + tw / 2, hy = py(k) + th / 2, R = tw * 3.2, rg = g.createRadialGradient(hx, hy, 0, hx, hy, R);
-        rg.addColorStop(0, "rgba(255,111,163,.95)"); rg.addColorStop(1, "rgba(255,111,163,0)"); g.fillStyle = rg; g.fillRect(hx - R, hy - R, R * 2, R * 2);
-      }
-      if (intro && p < 1) raf = requestAnimationFrame(drawTop);
-      else if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); drawTop(); }
-      return;
+    const p = intro ? Math.min(1, (now - introT0) / 1800) : 0, e = p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2, k = Math.floor(e * CM.N);
+    g.fillStyle = coverBg(); g.beginPath();
+    for (let i = k; i < CM.N; i++) g.rect(px(i) - 0.5, py(i) - 0.5, tw + 1, th + 1);
+    g.fill();
+    if (intro && k < CM.N) {
+      const hx = px(k) + tw / 2, hy = py(k) + th / 2, R = tw * 3.2, rg = g.createRadialGradient(hx, hy, 0, hx, hy, R);
+      rg.addColorStop(0, "rgba(255,111,163,.95)"); rg.addColorStop(1, "rgba(255,111,163,0)"); g.fillStyle = rg; g.fillRect(hx - R, hy - R, R * 2, R * 2);
     }
+    if (intro && p < 1) introRaf = requestAnimationFrame(drawIntro);
+    else if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); drawTop(); }
+  }
+  function drawTop() {
+    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1), { tw, th } = CM;
+    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (hoverG < 0) return;
-    if (hlKey !== hoverG) { hlKey = hoverG; hlCells = family(hoverG).flatMap((j) => CM.cells[j]); hlIn = new Uint8Array(CM.N); for (const i of hlCells) hlIn[i] = 1; }
+    const set = family(hoverG).flatMap((j) => CM.cells[j]), inSet = new Uint8Array(CM.N);
+    for (const i of set) inSet[i] = 1;
     g.globalAlpha = 0.72; g.fillStyle = coverBg(); g.fillRect(0, 0, CM.W, CM.H); g.globalAlpha = 1;
     g.globalCompositeOperation = "destination-out"; g.beginPath();
-    for (const i of hlCells) g.rect(px(i), py(i), tw, th);
+    for (const i of set) g.rect(px(i), py(i), tw, th);
     g.fill(); g.globalCompositeOperation = "source-over";
-    const [cx, cy] = centerOf(hlCells), ang = reduceMotion ? 0 : ((now / 4000) % 1) * Math.PI * 2;
-    let grad = "#FF6FA3";
-    if (g.createConicGradient) { grad = g.createConicGradient(ang, cx, cy); grad.addColorStop(0, "#FF6FA3"); grad.addColorStop(0.33, "rgba(255,111,163,.35)"); grad.addColorStop(0.66, "#FFFFFF"); grad.addColorStop(1, "#FF6FA3"); }
-    g.strokeStyle = grad; g.lineWidth = Math.max(2, tw * 0.16); g.lineCap = "round"; g.beginPath();
-    for (const i of hlCells) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-      const j = nbr(i, dx, dy); if (j >= 0 && hlIn[j]) continue;
+    g.strokeStyle = "#FF6FA3"; g.lineWidth = Math.max(2, tw * 0.16); g.lineCap = "round"; g.beginPath();
+    for (const i of set) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const j = nbr(i, dx, dy); if (j >= 0 && inSet[j]) continue;
       const x = px(i) + (dx > 0 ? tw : 0), y = py(i) + (dy > 0 ? th : 0);
       g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
     }
     g.stroke();
-    if (!reduceMotion) raf = requestAnimationFrame(drawTop);
+    if (hoverItem >= 0) { const it = CM.items[hoverItem], [x, y, w, h] = box(it); g.strokeStyle = "#FFFFFF"; g.lineWidth = 2; g.strokeRect(x - 1, y - 1, w + 2, h + 2); }
   }
-  function setHover(gi, cell) {
-    if (intro) return;
-    if (gi === hoverG && cell === hoverCell) return;
-    const moved = gi !== hoverG; hoverG = gi; hoverCell = cell;
-    if (moved) { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawTop); }
-    cmap.querySelectorAll(".ctag").forEach((e) => e.classList.toggle("on", gi >= 0 && family(gi).includes(+e.dataset.g)));
-    const s = gi >= 0 && MG[gi].k === "s" ? slug(MG[gi].s) : null;
-    $("top10").querySelectorAll(".trow").forEach((e) => e.classList.toggle("on", e.dataset.slug === s));
-    if (cell < 0) { cpop.hidden = true; ctip.hidden = true; }
+  function setHover(gi, item) {
+    if (intro || (gi === hoverG && item === hoverItem)) return;
+    const moved = gi !== hoverG; hoverG = gi; hoverItem = item;
+    drawTop();
+    if (moved) {
+      cmap.querySelectorAll(".ctag").forEach((e) => e.classList.toggle("on", gi >= 0 && family(gi).includes(+e.dataset.g)));
+      const s = gi >= 0 && MG[gi].k === "s" ? slug(MG[gi].s) : null;
+      $("top10").querySelectorAll(".trow").forEach((e) => e.classList.toggle("on", e.dataset.slug === s));
+    }
   }
-  function showPop(i) {
-    const t = CM.tile[i]; if (t < 0) { cpop.hidden = true; return; }
-    const { tw, th } = CM, w = Math.max(76, tw * 4.6), h = w * MD.h / MD.w, im = mImgs[Math.floor(t / MD.per)], j = t % MD.per, rowsK = im.naturalHeight ? im.naturalHeight / MD.h : MD.cols;
-    const x = Math.min(CM.W - w, Math.max(0, px(i) + tw / 2 - w / 2)), y = Math.min(CM.H - h, Math.max(0, py(i) + th / 2 - h / 2));
-    Object.assign(cpop.style, { left: x + "px", top: y + "px", width: w + "px", height: h + "px", backgroundImage: `url(${MD.files[Math.floor(t / MD.per)]}?v=${S.v})`, backgroundSize: `${MD.cols * w}px ${rowsK * h}px`, backgroundPosition: `-${(j % MD.cols) * w}px -${Math.floor(j / MD.cols) * h}px`, animation: "none" });
-    void cpop.offsetWidth; cpop.style.animation = "";
-    const img = cpop.querySelector("img"), m = META && META[t];
+  /* the preview: the card under the pointer, big enough to read the slab, framed on the slab itself */
+  function cardOf(it) {
+    const m = META && it.t >= 0 ? META[it.t] : null;
+    return m ? { t: m[0], g: m[1], v: m[2], u: unshort(m[3]), url: unshort(m[4]), box: m[5], c: "" } : null;
+  }
+  function frameImg(img, b) {
+    const ph = img.parentNode, cw = ph.clientWidth, ch = ph.clientHeight, iw = img.naturalWidth, ih = img.naturalHeight;
+    const bw = (b[2] - b[0]) * iw, bh = (b[3] - b[1]) * ih, s = Math.min(cw / bw, ch / bh);
+    Object.assign(img.style, { width: iw * s + "px", height: ih * s + "px", left: cw / 2 - (b[0] * iw + bw / 2) * s + "px", top: ch / 2 - (b[1] * ih + bh / 2) * s + "px" });
+  }
+  let prevItem = -1;
+  function fillPreview(it) {
+    const g = MG[it.gi], c = cardOf(it), ph = cprev.querySelector(".ph"), img = ph.querySelector("img");
+    // placeholder while the sharp photo loads: just this tile, drawn small and blurred by CSS
+    const pc = ph.querySelector("canvas").getContext("2d");
+    pc.fillStyle = "#1B1A20"; pc.fillRect(0, 0, 120, 168);
+    if (it.b >= 0 && bImg.naturalWidth) pc.drawImage(bImg, (it.b % MB.cols) * MB.w, Math.floor(it.b / MB.cols) * MB.h, MB.w, MB.h, 0, 0, 120, 168);
+    else if (it.t >= 0) { const im = mImgs[Math.floor(it.t / MD.per)], j = it.t % MD.per; if (im.naturalWidth) pc.drawImage(im, (j % MD.cols) * MD.w, Math.floor(j / MD.cols) * MD.h, MD.w, MD.h, 0, 0, 120, 168); }
     img.classList.remove("on"); img.removeAttribute("src");
-    if (m && m[3]) { img.onload = () => img.classList.add("on"); img.src = cdn(unshort(m[3]), 320); }
-    cpop.hidden = false;
+    if (c && c.u) { const want = c.u; img.onload = () => { if (img.dataset.k === want) { frameImg(img, c.box || [0, 0, 1, 1]); img.classList.add("on"); } }; img.dataset.k = want; img.src = cdn(c.u, 640); }
+    cprev.querySelector(".v").textContent = c && c.v != null ? usd(c.v) : "";
+    cprev.querySelector(".t").textContent = c ? c.t : (META ? "" : "Loading…");
+    const chip = cprev.querySelector(".g"); chip.textContent = c && c.g ? c.g : ""; chip.hidden = !(c && c.g);
+    cprev.querySelector(".terr").innerHTML = g.k === "s" ? `<b>${esc(g.s)}</b> · ${nf.format(g.n)} cards · ${nf.format(g.ten)} 10s` : `<b>${esc(g.f)}</b> · ${nf.format(g.total)} cards`;
+    cprev.querySelector(".hint").textContent = g.k === "s" ? `Click for ${g.s}'s pop report` : "Click to read the slab";
+    const acts = cprev.querySelector(".acts");
+    acts.innerHTML = (c ? `<button type="button" data-act="zoom">Read the slab</button>` : "") + (g.k === "s" ? `<button type="button" data-act="pop">Pop report</button>` : "") + `<button type="button" data-act="close" aria-label="Close">×</button>`;
   }
-  function showTip(i, x, y) {
-    const g = MG[CM.owner[i]], m = META && CM.tile[i] >= 0 ? META[CM.tile[i]] : null;
-    const head = g.k === "s" ? `<b>${esc(g.s)}</b> · ${nf.format(g.n)} cards · ${nf.format(g.ten)} 10s` : g.k === "f" ? `<b>${esc(g.f)}</b> · ${nf.format(g.total)} cards` : `<b>No franchise listed</b> · ${nf.format(g.n)} cards`;
-    const sub = m ? `<br><span>${esc(m[0])}${m[1] ? " · " + esc(m[1]) : ""}${m[2] != null ? " · " + usd(m[2]) : ""}</span>` : g.k === "x" ? `<br><span>Counted, with no franchise to sort them by</span>` : "";
-    ctip.innerHTML = head + sub; ctip.hidden = false;
-    const left = x + 18 + ctip.offsetWidth > CM.W ? x - 18 - ctip.offsetWidth : x + 18;
-    ctip.style.left = Math.max(4, left) + "px"; ctip.style.top = Math.max(4, Math.min(CM.H - ctip.offsetHeight - 4, y + 18)) + "px";
+  function placePreview(clientX, clientY) {
+    const m = cmap.getBoundingClientRect(), w = cprev.offsetWidth, h = cprev.offsetHeight, gap = 22;
+    let x = clientX - m.left + gap; if (m.left + x + w > window.innerWidth - 8) x = clientX - m.left - gap - w;
+    let y = clientY - m.top - h * 0.4; y = Math.max(8 - m.top, Math.min(y, window.innerHeight - 8 - m.top - h));
+    cprev.style.left = x + "px"; cprev.style.top = y + "px";
   }
-  const cellAt = (x, y) => { const cx = Math.floor(x / CM.tw), cy = Math.floor(y / CM.th); return cx < 0 || cy < 0 || cx >= CM.cols || cy >= CM.rows ? -1 : CM.at[cy * CM.cols + cx]; };
-  function openGroup(gi, cell = -1) {
-    const g = MG[gi];
+  function showPreview(item, clientX, clientY, sheet = false) {
+    cprev.classList.toggle("sheet", sheet);
+    if (item !== prevItem) { prevItem = item; fillPreview(CM.items[item]); }
+    cprev.hidden = false;
+    if (!sheet) placePreview(clientX, clientY); else { cprev.style.left = ""; cprev.style.top = ""; }
+    requestAnimationFrame(() => cprev.classList.add("on"));
+  }
+  function hidePreview() { cprev.classList.remove("on"); cprev.hidden = true; prevItem = -1; }
+  const itemAtPoint = (clientX, clientY) => { const b = cTop.getBoundingClientRect(), cx = Math.floor((clientX - b.left) / CM.tw), cy = Math.floor((clientY - b.top) / CM.th); return cx < 0 || cy < 0 || cx >= CM.cols || cy >= CM.rows ? -1 : CM.itemAt[cy * CM.cols + cx]; };
+  function openGroup(gi, item = -1) {
+    const g = MG[gi], c = item >= 0 ? cardOf(CM.items[item]) : null;
     if (g.k === "s") return openCard(subBySlug.get(slug(g.s)));
-    const m = cell >= 0 && META && CM.tile[cell] >= 0 ? META[CM.tile[cell]] : null;
-    if (m) return openZoom({ t: m[0], g: m[1], v: m[2], u: unshort(m[3]), url: unshort(m[4]), c: "" });
-    if (g.k === "f") { const sel = $("fr"); if ([...sel.options].some((o) => o.value === g.f)) { sel.value = g.f; sel.dispatchEvent(new Event("change")); } $("explore").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); }
+    if (c) return openZoom(c);
+    const sel = $("fr"); if ([...sel.options].some((o) => o.value === g.f)) { sel.value = g.f; sel.dispatchEvent(new Event("change")); }
+    $("explore").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
   }
-  cTop.addEventListener("mousemove", (e) => {
-    if (intro) return;
-    const b = cTop.getBoundingClientRect(), x = e.clientX - b.left, y = e.clientY - b.top, i = cellAt(x, y);
-    cmap.style.setProperty("--mx", x + "px"); cmap.style.setProperty("--my", y + "px");
-    if (i < 0) { setHover(-1, -1); return; }
-    const prev = hoverCell; setHover(CM.owner[i], i);
-    if (i !== prev) showPop(i);
-    showTip(i, x, y);
+  const loadMeta = () => { if (!loadMeta.p) loadMeta.p = fetch("map.json?v=" + S.v).then((r) => r.json()).then((j) => { META = j.m; if (prevItem >= 0) { const k = prevItem; prevItem = -1; showPreview(k, lastPt[0], lastPt[1], cprev.classList.contains("sheet")); } }).catch(() => {}); return loadMeta.p; };
+  let lastPt = [0, 0], pending = null, lastType = "mouse";
+  cTop.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse" || intro) return;
+    pending = [e.clientX, e.clientY];
+    if (moveRaf) return;
+    moveRaf = requestAnimationFrame(() => {
+      moveRaf = 0; const [x, y] = pending; lastPt = pending; const n = itemAtPoint(x, y);
+      if (n < 0) { setHover(-1, -1); hidePreview(); return; }
+      setHover(CM.items[n].gi, n); showPreview(n, x, y);
+    });
   });
-  cTop.addEventListener("mouseleave", () => setHover(-1, -1));
+  cTop.addEventListener("pointerenter", loadMeta);
+  cTop.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { setHover(-1, -1); hidePreview(); } });
+  cTop.addEventListener("pointerdown", (e) => { lastType = e.pointerType; });
   cTop.addEventListener("click", (e) => {
     if (intro) return;
-    const b = cTop.getBoundingClientRect(), i = cellAt(e.clientX - b.left, e.clientY - b.top);
-    if (i >= 0) openGroup(CM.owner[i], i);
+    const n = itemAtPoint(e.clientX, e.clientY); if (n < 0) return;
+    if (lastType === "mouse") return openGroup(CM.items[n].gi, n);
+    // touch: the first tap shows the card, with buttons to open it
+    loadMeta(); lastPt = [e.clientX, e.clientY]; setHover(CM.items[n].gi, n); showPreview(n, e.clientX, e.clientY, true);
   });
+  cprev.addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-act]"); if (!b || prevItem < 0) return;
+    const it = CM.items[prevItem], act = b.dataset.act;
+    if (act === "close") { setHover(-1, -1); hidePreview(); return; }
+    if (act === "zoom") { const c = cardOf(it); if (c) openZoom(c); }
+    if (act === "pop") openCard(subBySlug.get(slug(MG[it.gi].s)));
+  });
+  document.addEventListener("click", (e) => { if (cprev.classList.contains("sheet") && !cprev.hidden && !e.target.closest("#cprev, #cmap-top")) { setHover(-1, -1); hidePreview(); } });
   $("top10").querySelectorAll(".trow").forEach((b) => {
     const gi = () => MG.findIndex((g) => g.k === "s" && slug(g.s) === b.dataset.slug);
     b.addEventListener("mouseenter", () => setHover(gi(), -1)); b.addEventListener("mouseleave", () => setHover(-1, -1));
     b.addEventListener("focus", () => setHover(gi(), -1)); b.addEventListener("blur", () => setHover(-1, -1));
   });
-  function drawMap() { layout(); drawBase(); sizeCv(cTop); placeTags(); drawTop(); }
+  // while the intro runs, its own loop repaints the top layer on the next frame
+  function drawMap() { layout(); drawBase(); sizeCv(cTop); placeTags(); if (!intro) { if (wantIntro && !introDone) drawIntro(performance.now()); else drawTop(); } }
   drawMap();
-  if (!wantIntro) { introDone = true; cmap.classList.add("ready"); drawTop(); }
-  const loaded = Promise.all(mImgs.map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })));
+  if (!wantIntro) { introDone = true; cmap.classList.add("ready"); }
+  const loaded = Promise.all([...mImgs, bImg].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })));
   loaded.then(() => CM && drawBase());
   if (wantIntro) Promise.race([loaded, new Promise((r) => setTimeout(r, 1800))]).then(() => {
     if (introDone) return;
     if (scrollY > 400) { introDone = true; cmap.classList.add("ready"); drawTop(); return; }
-    intro = true; introT0 = performance.now(); raf = requestAnimationFrame(drawTop);
+    intro = true; introT0 = performance.now(); introRaf = requestAnimationFrame(drawIntro);
   });
-  fetch("map.json?v=" + S.v).then((r) => r.json()).then((j) => { META = j.m; }).catch(() => {});
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1500)))(loadMeta, { timeout: 4000 });
   let lastKey = "", rz;
   const mapKey = () => cmap.clientWidth + "x" + coverL.offsetHeight;
   lastKey = mapKey();
-  new ResizeObserver(() => { const k = mapKey(); if (k === lastKey) return; lastKey = k; clearTimeout(rz); rz = setTimeout(() => { if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); } hlKey = -1; drawMap(); }, 120); }).observe(cmap);
-  document.fonts?.ready.then(() => { const k = mapKey(); if (k !== lastKey) { lastKey = k; hlKey = -1; drawMap(); } });
+  new ResizeObserver(() => { const k = mapKey(); if (k === lastKey) return; lastKey = k; clearTimeout(rz); rz = setTimeout(() => { if (intro) { cancelAnimationFrame(introRaf); intro = false; introDone = true; cmap.classList.add("ready"); } hidePreview(); drawMap(); }, 120); }).observe(cmap);
+  document.fonts?.ready.then(() => { const k = mapKey(); if (k !== lastKey) { lastKey = k; drawMap(); } });
 
   /* ---------- story ---------- */
   const P_ = (h) => `<p>${h}</p>`;
@@ -996,6 +1104,22 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     $("sealed-b").innerHTML = sealed.slice(2, 10).map((c, k) => lotHTML(c, k + 3, { sq: true }).replace(`id="lot-${k + 3}"`, `id="sealed-${k + 3}"`)).join("");
     $("cap-sealed").innerHTML = `<b>Fig. 7</b> The ${sealed.length} most valuable sealed products onchain, by OpenSea's estimated value. Click one for a closer look.`;
   } else $("fig-sealed").hidden = true;
+  /* ---------- who vaults them: the issuers behind the tokens ---------- */
+  const IS = S.issuers || [];
+  if (IS.length >= 2) {
+    $("vaults").hidden = false;
+    const i0 = IS[0], others = IS.slice(1), share = (x) => x.n / S.n;
+    const rawLead = [...IS].sort((a, b) => b.raw - a.raw)[0], sealedLead = [...IS].sort((a, b) => b.sealed - a.sealed)[0];
+    $("h-vaults").textContent = `${i0.name} vaults ${pct0(share(i0))} of the cards onchain`;
+    const restN = S.n - IS.reduce((a, x) => a + x.n, 0);
+    const vp = [`${restN > 0 ? "Almost every" : "Every"} card on this page is a real card in a vault, put onchain by one of ${IS.length < WORDS.length ? WORDS[IS.length] : IS.length} platforms. ${i0.name} holds ${nf.format(i0.n)} of them, ${pct0(share(i0))}, ahead of ${joinList(others.slice(0, 2).map((x) => `${x.name} (${nf.format(x.n)})`))}.`];
+    if (rawLead.raw / rawLead.n > 0.25) vp.push(`${rawLead.name} is where the raw cards are: ${nf.format(rawLead.raw)} of its ${nf.format(rawLead.n)} are ungraded, ${pct0(rawLead.raw / rawLead.n)}.${sealedLead.sealed ? ` ${sealedLead.name === rawLead.name ? "It also" : sealedLead.name} holds the most sealed product, ${nf.format(sealedLead.sealed)} boxes and packs.` : ""}`);
+    $("p-vaults").innerHTML = vp.map(P_).join("");
+    const mxI = i0.n, rest = S.n - IS.reduce((a, x) => a + x.n, 0);
+    $("fig-vaults").innerHTML = `<div class="legend"><span><i style="background:var(--c-ja)"></i>Graded</span><span><i style="background:var(--c-en)"></i>Raw</span><span><i style="background:var(--c-ot)"></i>Sealed</span></div><div class="bars">${IS.map((x) => `<div class="brow"><span class="bn"><b>${esc(x.name)}</b><span>${nf.format(x.n)} cards</span></span><span class="stack" style="width:${Math.max(4, x.n / mxI * 100)}%" title="Graded ${nf.format(x.graded)}, raw ${nf.format(x.raw)}, sealed ${nf.format(x.sealed)}"><i style="width:${x.graded / x.n * 100}%;background:var(--c-ja)"></i><i style="width:${x.raw / x.n * 100}%;background:var(--c-en)"></i><i style="width:${x.sealed / x.n * 100}%;background:var(--c-ot)"></i></span><span class="bv"><b>${pct0(share(x))}</b><span>of all cards</span></span></div>`).join("")}</div>
+      <figcaption><b>Fig. 8</b> Cards by the platform that tokenized them, split into graded slabs, raw cards and sealed product.${IS.some((x) => x.slugs.length > 1) ? ` ${joinList(IS.filter((x) => x.slugs.length > 1).map((x) => x.name))} counts its collections on every chain together.` : ""}${rest > 0 ? ` ${nf.format(rest)} cards come from other collections.` : ""}</figcaption>`;
+  }
+
   $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(ver(c.w))}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
     <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
 
@@ -1005,6 +1129,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     japanese: `${cap(jaPhrase)} tokenized trading cards on OpenSea ${jaPhrase.startsWith("one in") ? "is" : "are"} Japanese.`,
     years: `Cards printed before ${V.cut} are ${pct0(vShare)} of trading cards onchain, and ${V.top_old} of the ${V.top_n} most valuable.`,
     grails: top1 ? `The most valuable trading card onchain is worth about ${money(top1.v)}: ${top1.name}.` : "The most valuable trading cards onchain.",
+    vaults: (S.issuers || []).length ? `${S.issuers[0].name} vaults ${pct0(S.issuers[0].n / S.n)} of the trading cards onchain. ${joinList(S.issuers.slice(1, 3).map((x) => `${x.name}: ${pct0(x.n / S.n)}`))}.` : "",
   };
   document.querySelectorAll("[data-share]").forEach((el) => { el.innerHTML = shareHTML(SHARE[el.dataset.share], el.dataset.share); });
   if (zard && pika && pika.n > zard.n) { $("pull").hidden = false; $("pull").textContent = "There are more Pikachus onchain than Charizards."; }
@@ -1033,6 +1158,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     return list.sort((a, b) => metric[state.sort](b) - metric[state.sort](a));
   }
   function render() {
+    listed = true;
     const list = rows(), shown = state.all ? list : list.slice(0, 50), mx = Math.max(1e-9, ...list.map(metric[state.sort]));
     $("sort-note").textContent = NOTES[state.sort];
     const main = { n: (s) => [nf.format(s.n), "copies"], ten: (s) => [nf.format(tenOf(s)), `of ${nf.format(s.graded)} graded`], gem: (s) => [pct0(gemOf(s)), `${nf.format(tenOf(s))} of ${nf.format(s.graded)}`], val: (s) => [usd(bestCopy(s).v), "top copy"] }[state.sort];
@@ -1050,7 +1176,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("fr").addEventListener("change", (e) => { state.fr = e.target.value; render(); });
   $("q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); render(); });
   $("more").addEventListener("click", () => { state.all = true; render(); });
-  render();
+  let listed = false;
+  const listOnce = () => { if (listed) return; listed = true; render(); };
+  new IntersectionObserver((es, io) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); listOnce(); } }, { rootMargin: "1200px" }).observe($("explore"));
+  (window.requestIdleCallback || ((f) => setTimeout(f, 1200)))(listOnce, { timeout: 3000 });
 
   /* ---------- card dialog ---------- */
   const dlg = $("dlg");
@@ -1091,6 +1220,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <p>For each of the ${nf.format(SUB.length)} cards here I asked for its facets overall, then for PSA and for CGC. A value list stops at 100 entries, so cards outside each franchise's top 30 and the overall top 100 are counted in the totals but don't get their own report.</p>
     </div><div>
       <p>A 10 means 10 or higher on the grader's scale, including CGC's Pristine and BGS's Black Label, which show up as 10.5. Graded counts only include cards with a numeric grade. Card images and values come from <code>GET /api/v2/nfts/group/trading_cards</code> sorted by <code>estimated_value</code>, OpenSea's estimate, not a sale price.</p>
+      <p>Platform counts use the same facets endpoint with <code>collection_slugs</code> set to each platform's collections. The cover map draws the cards with a franchise listed; each tile is a photo of a real card from that territory.</p>
       <p>Snapshot taken ${esc(whenTxt)}.</p>
       <p>The data is open. Every refresh updates <a href="https://github.com/ryanio/card-census/blob/main/data/cards.csv">cards.csv</a> and <a href="https://github.com/ryanio/card-census/blob/main/data/grades.csv">grades.csv</a> in <a href="https://github.com/ryanio/card-census">the GitHub repo</a>, and <a href="https://github.com/ryanio/card-census/tree/main/data/history">data/history</a> keeps one row per crawl so you can track changes over time. The code that crawls and builds this page is there too.</p>
     </div>`;

@@ -11,14 +11,16 @@ Built from the first snapshot: 907,093 cards, 308 cards with their own pop repor
    ```sh
    ~/.claude/skills/onepassword/scripts/op-sa run --env-file ~/.config/op/opensea.env -- sh -c 'printf %s "$OPENSEA_API_KEY" | gh secret set OPENSEA_API_KEY -R ryanio/card-census'
    ```
-3. Run `gh workflow run pages.yml -R ryanio/card-census` about an hour before posting and update the numbers in `TWEETS.md`.
+3. Run `gh workflow run pages.yml -R ryanio/card-census` about an hour before posting.
+4. Retake the tweet images and check the numbers: `node scripts/shots.mjs` (needs Chrome). It writes screenshots and every share card to `tweet-images/` (gitignored) and prints the headline numbers on the live page, so the copy in `TWEETS.md` can be checked against them.
 
 ## Known limits
 
 - A facet value list stops at 100 entries, so only cards in the overall top 100 or a franchise's top 30 get their own report. Everything is still in the totals.
 - Grades are compared on each grader's own scale. A 10 means 10 or higher, including 10.5 (CGC Pristine, BGS Black Label). BGS calls 9.5 Gem Mint, so its share of 10s reads low.
 - Values are OpenSea's estimated value, not sales.
-- The cover map shows real photos, but not every card: each tile stands in for several hundred cards, and a territory cycles through the photos fetched for it (about one per 450 copies for a big card, up to 400 for a franchise's long tail). Cards with no franchise tag are drawn face down.
+- The cover map shows real photos, but not every card: a small tile stands in for several hundred cards, and a territory cycles through the photos fetched for it (about one per 450 copies for a big card, about one per 750 for a franchise's long tail, up to 800). The most valuable cards in each territory are drawn across 2x2 to 4x4 cells. Cards with no franchise listed aren't on the map; the caption says how many.
+- Platform counts come from the facets endpoint with `collection_slugs`. The platforms are the collections seen in the crawled photos, so a platform with no photo in any sample would be missed (1,698 cards come from other collections today).
 - The same card can be listed more than once (two issuers, or the same slab in two places). The vault and each card's copies drop repeats by name and value.
 
 ## Later
