@@ -48,7 +48,7 @@ if zard and pika and pika["n"] > zard["n"]:
 else:
     t = by_n[0]
     H.append({"id": "cards", "anchor": "cards", "kicker": "Most common", "big": f"{t['n']:,}", "title": f"{t['s']} is the most common card onchain",
-              "sub": f"{t['n']:,} copies", "text": f"{t['s']} is the most common trading card onchain, with {t['n']:,} copies.", "cards": [x for x in (best(t),) if x]})
+              "sub": f"{t['n']:,} cards", "text": f"{t['s']} is the most common trading card onchain, with {t['n']:,} cards.", "cards": [x for x in (best(t),) if x]})
 ja_wins = [s for s in by_n[:60] if lang(s["lang"], "Japanese") > lang(s["lang"], "English")]
 p_ja = lang(FR["Pokemon"]["lang"], "Japanese") if "Pokemon" in FR else 0
 o_ja = lang(FR["One Piece"]["lang"], "Japanese") if "One Piece" in FR else 0
@@ -81,8 +81,8 @@ if most10 is not by_n[0]:
     t0 = by_n[0]
     H.append({"id": "most-tens", "anchor": slug(most10["s"]), "kicker": "Most 10s", "big": f"{tens(most10['grade']):,}", "only": True,
               "title": f"{most10['s']} has more 10s onchain than any other card",
-              "sub": f"{tens(most10['grade']):,} of {most10['n']:,} copies graded 10 or higher, against {tens(t0['grade']):,} for {t0['s']}",
-              "text": f"{most10['s']} has more 10s onchain than any other card: {tens(most10['grade']):,} of {most10['n']:,} copies are graded 10 or higher.",
+              "sub": f"{tens(most10['grade']):,} of {most10['n']:,} cards graded 10 or higher, against {tens(t0['grade']):,} for {t0['s']}",
+              "text": f"{most10['s']} has more 10s onchain than any other card: {tens(most10['grade']):,} of {most10['n']:,} cards are graded 10 or higher.",
               "cards": [x for x in (best(most10),) if x], "solo": True})
 FRS = sorted(S["franchises"], key=lambda f: -f["n"]); on_map = S["n"] - (S.get("map") or {}).get("off", 0)
 if FRS and os.path.exists(os.path.join(ROOT, "data", "og_map.png")):

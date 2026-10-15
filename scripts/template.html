@@ -547,10 +547,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     <div class="sect-h"><h2 id="h-explore">Look up a card</h2><p id="explore-note"></p></div>
     <div class="controls">
       <div class="tabs" role="group" aria-label="Sort cards" id="sorts">
-        <button type="button" data-sort="n" aria-pressed="true">Most copies</button>
+        <button type="button" data-sort="n" aria-pressed="true">Most cards</button>
         <button type="button" data-sort="ten" aria-pressed="false">Most 10s</button>
         <button type="button" data-sort="gem" aria-pressed="false">Gem rate</button>
-        <button type="button" data-sort="val" aria-pressed="false">Priciest copy</button>
+        <button type="button" data-sort="val" aria-pressed="false">Priciest card</button>
       </div>
       <select id="fr" aria-label="Filter by franchise"></select>
       <input type="search" id="q" placeholder="Pikachu, Luffy, Jordan…" aria-label="Filter cards by name">
@@ -684,7 +684,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("h1").textContent = "Every card onchain, counted";
   $("dek").textContent = `How many ${hero.s}s are there? ${nf.format(hero.n)}. Which grader hands out the most 10s? I counted all ${nf.format(S.n)} tokenized trading cards on OpenSea, by card, grade and grader, the way collectors read a pop report.`;
   $("snap").textContent = "Snapshot " + whenTxt;
-  $("top10").innerHTML = `<h2><span>Most copies onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
+  $("top10").innerHTML = `<h2><span>Most cards onchain</span><span>Cards</span><span>10s</span></h2>` + byN.slice(0, 10).map((s, i) => `
     <button type="button" class="trow" data-slug="${slug(s.s)}"><span class="r">${i + 1}</span>${cardHTML(s.copies[0] ? s.copies[0].i : -1, 26)}
       <span class="t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span><span class="c">${cf.format(s.n)}</span><span class="c ten">${cf.format(tenOf(s))}</span></button>`).join("");
   const ver = (u) => u ? u + (u.includes("?") ? "&" : "?") + "v=" + S.v : u;
@@ -773,7 +773,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     CM = { W, H: Math.ceil(Hu * tw), tw, th, isl, items, lookup };
     const h0 = items[isl[0].items[0]]; cmap.dataset.hero = `${Math.round(h0.x + h0.w / 2)},${Math.round(h0.y + h0.h / 2)}`;  // for scripts/shots.mjs
     cmap.style.height = CM.H + "px";
-    $("cmap-note").textContent = `Each island is a franchise, sized by its cards, and each tile is a real card from it, about ${nf.format(Math.round((S.n - MD.off) / N / 100) * 100)} cards to a tile. The most valuable card sits in the middle. Cards with ${nf.format(1500)} or more copies are slices of their island: hover the map or the list to find them.${MD.off ? ` The ${nf.format(MD.off)} cards with no franchise listed aren't on the map.` : ""}`;
+    $("cmap-note").textContent = `Each island is a franchise, sized by its cards, and each tile is a real card from it, about ${nf.format(Math.round((S.n - MD.off) / N / 100) * 100)} cards to a tile. The most valuable card sits in the middle. Characters and players with ${nf.format(1500)} or more cards are slices of their island: hover the map or the list to find them.${MD.off ? ` The ${nf.format(MD.off)} cards with no franchise listed aren't on the map.` : ""}`;
   }
   function sizeCv(cv) { const dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(CM.W * dpr); cv.height = Math.round(CM.H * dpr); const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return g; }
   const box = (it) => { const gap = Math.max(1, CM.tw * 0.09); return [it.x + gap / 2, it.y + gap / 2, it.w - gap, it.h - gap]; };
@@ -981,7 +981,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("h-tens").textContent = `${cap(half)} graded cards onchain ${tenShare >= 0.45 && tenShare <= 0.55 ? "are" : "are"} 10s`;
   const tp = [`Of the ${nf.format(graded)} graded cards onchain, ${nf.format(tenN)} carry a 10 or better.`];
   if (psa && cgc) tp.push(`It depends on who graded it. ${pct0(gem(psa))} of PSA slabs here are 10s, against ${pct0(gem(cgc))} for CGC.${G.find((g) => g.g === "BGS") ? ` Beckett's BGS sits at ${pct0(gem(G.find((g) => g.g === "BGS")))}, and its scale tops out differently, with 9.5 as Gem Mint.` : ""}`);
-  tp.push(`Part of that is probably selection. Vaulting a card to tokenize it costs money, so people send the copies worth the trouble.`);
+  tp.push(`Part of that is probably selection. Vaulting a card to tokenize it costs money, so people send the cards worth the trouble.`);
   $("p-tens").innerHTML = tp.map(P_).join("");
   const gOrder = ["10.5", "10", "9.5", "9", "8.5", "8", "7.5", "7"];
   const gRows = gOrder.map((g) => [g, (S.grade.find((p) => p[0] === g) || [g, 0])[1]]).filter((r) => r[1] > 0);
@@ -995,11 +995,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     <figcaption><b>Fig. 2</b> Graders with at least 1,000 cards onchain. A 10 means 10 or higher on that grader's scale.</figcaption>`;
 
   $("h-cards").textContent = `${top.s} is the most common card onchain`;
-  const cp = [`${top.s} leads with ${nf.format(top.n)} copies${byN[1] ? `, ahead of ${byN[1].s} (${nf.format(byN[1].n)})${byN[2] ? ` and ${byN[2].s} (${nf.format(byN[2].n)})` : ""}` : ""}.`];
+  const cp = [`${top.s} leads with ${nf.format(top.n)} cards${byN[1] ? `, ahead of ${byN[1].s} (${nf.format(byN[1].n)})${byN[2] ? ` and ${byN[2].s} (${nf.format(byN[2].n)})` : ""}` : ""}.`];
   const zb = zard && bestCopy(zard), pb = pika && bestCopy(pika);
   if (zard && pika && pika.n > zard.n) cp.push(`There are more Pikachus onchain than Charizards: ${nf.format(pika.n)} to ${nf.format(zard.n)}.${zb && pb && zb.v > pb.v ? ` Charizard still wins on price: its top copy is estimated at ${usd(zb.v)}, against ${usd(pb.v)} for Pikachu.` : ""}`);
   const rare = byN.slice(0, 40).filter((s) => s.graded >= 300).sort((a, b) => gemOf(a) - gemOf(b))[0];
-  if (rare) cp.push(`Among the 40 most common cards, ${rare.s} is the hardest to find in a 10: only ${pct0(gemOf(rare))} of its graded copies made it.`);
+  if (rare) cp.push(`Among the 40 most common cards, ${rare.s} is the hardest to find in a 10: only ${pct0(gemOf(rare))} of its graded cards made it.`);
   $("p-cards").innerHTML = cp.map(P_).join("");
   const popCols = ["10.5", "10", "9.5", "9", "8.5", "8"];
   const popRows = byN.slice(0, 14);
@@ -1015,7 +1015,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const jp = [`English cards are still the majority, ${pct0(langShare(S.lang, "English"))}. Japanese cards make up ${pct0(jaAll)}, and every other language combined is under ${Math.max(1, Math.ceil((1 - jaAll - langShare(S.lang, "English")) * 100))}%.`];
   const op = jaFr.find((x) => x.f.f === "One Piece"), pk = jaFr.find((x) => x.f.f === "Pokemon");
   if (op && pk) jp.push(`It splits by franchise. ${pct0(op.ja)} of One Piece cards onchain are Japanese, against ${pct0(pk.ja)} of Pokemon.`);
-  if (jaWins.length >= 2) jp.push(`For ${jaWins.length} of the 60 most common cards, Japanese copies outnumber English ones, including ${joinList(jaWins.slice(0, 3).map((s) => s.s))}.`);
+  if (jaWins.length >= 2) jp.push(`For ${jaWins.length} of the 60 most common cards, Japanese cards outnumber English ones, including ${joinList(jaWins.slice(0, 3).map((s) => s.s))}.`);
   $("p-japanese").innerHTML = jp.map(P_).join("");
   $("fig-lang").innerHTML = `<div class="legend"><span><i style="background:var(--c-en)"></i>English</span><span><i style="background:var(--c-ja)"></i>Japanese</span><span><i style="background:var(--c-ot)"></i>Other</span></div><div class="bars">${jaFr.map(({ f, ja, en }) => `<div class="brow"><span class="bn"><b>${esc(f.f)}</b><span>${nf.format(f.n)} cards</span></span><span class="stack" title="English ${pct0(en)}, Japanese ${pct0(ja)}"><i style="width:${en * 100}%;background:var(--c-en)"></i><i style="width:${ja * 100}%;background:var(--c-ja)"></i><i style="width:${Math.max(0, (1 - en - ja) * 100)}%;background:var(--c-ot)"></i></span><span class="bv"><b>${pct0(ja)}</b><span>Japanese</span></span></div>`).join("")}</div>
     <figcaption><b>Fig. 4</b> Language of tokenized cards by franchise, for franchises with at least 2,000 cards.</figcaption>`;
@@ -1044,7 +1044,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("h-grails").textContent = top1 ? `The most valuable card onchain is worth about ${money(top1.v)}` : "The grails";
   const gp = [];
   if (top1) gp.push(`That's ${an(top1.t)} ${esc(top1.t)}${top1.g ? ` graded ${esc(top1.g)}` : ""}, by OpenSea's estimate. ${wallItems.length >= 6 ? `The ${WORDS[wallItems.length] || wallItems.length} lots in the vault are each estimated at ${money(wallItems[wallItems.length - 1].v)} or more.` : ""}`);
-  gp.push(`Every franchise has its own top card. Here is the most valuable copy I found for each one.`);
+  gp.push(`Every franchise has its own top card. Here is the most valuable card I found for each one.`);
   $("p-grails").innerHTML = gp.map(P_).join("");
   const sealed = (S.sealed || []).filter((c) => c.w && c.v != null).slice(0, 10);
   if (sealed.length) {
@@ -1071,7 +1071,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   }
 
   $("fig-champs").innerHTML = `<div class="champs">${champs.map(({ f, c }) => `<button type="button" class="champ lift" data-zoom="${zid(c)}"><small>${esc(f)}</small><span class="card">${c.w ? `<img src="${esc(ver(c.w))}" alt="" loading="lazy" decoding="async">` : `<i style="${cardStyle(c.i, 160)}"></i>`}</span><b>${usd(c.v)}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div>
-    <figcaption><b>Fig. 6</b> The most valuable copy found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
+    <figcaption><b>Fig. 6</b> The most valuable card found for each franchise with at least 2,000 cards, by OpenSea's estimated value. Values are estimates, not sales.</figcaption>`;
 
   const SHARE = {
     tens: `${cap(half)} graded trading cards onchain are 10s. ${psa && cgc ? `PSA: ${pct0(gem(psa))}. CGC: ${pct0(gem(cgc))}.` : ""}`,
@@ -1096,10 +1096,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   });
 
   /* ---------- lookup ---------- */
-  $("explore-note").textContent = `${nf.format(SUB.length)} cards with their own pop report. Open one for its grades by grader, languages, sets and most valuable copies.`;
+  $("explore-note").textContent = `${nf.format(SUB.length)} cards with their own pop report. Open one for its grades by grader, languages, sets and most valuable cards.`;
   $("fr").innerHTML = `<option value="">All franchises</option>` + FR.map((f) => `<option value="${esc(f.f)}">${esc(f.f)} (${SUB.filter((s) => s.f === f.f).length})</option>`).join("");
   const state = { sort: "n", fr: "", q: "", all: false };
-  const NOTES = { n: "Ranked by copies onchain: graded, raw and sealed.", ten: "Ranked by copies graded 10 or higher, any grader.", gem: "Share of graded copies that are 10s. Cards with at least 200 graded copies.", val: "Ranked by the most valuable copy found, by OpenSea's estimated value." };
+  const NOTES = { n: "Ranked by cards onchain: graded, raw and sealed.", ten: "Ranked by cards graded 10 or higher, any grader.", gem: "Share of graded cards that are 10s. Cards with at least 200 graded copies.", val: "Ranked by the most valuable copy found, by OpenSea's estimated value." };
   const metric = { n: (s) => s.n, ten: tenOf, gem: gemOf, val: (s) => (bestCopy(s) || {}).v || 0 };
   function rows() {
     let list = SUB.filter((s) => (!state.fr || s.f === state.fr) && (!state.q || s.s.toLowerCase().includes(state.q)));
@@ -1111,13 +1111,13 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     listed = true;
     const list = rows(), shown = state.all ? list : list.slice(0, 50), mx = Math.max(1e-9, ...list.map(metric[state.sort]));
     $("sort-note").textContent = NOTES[state.sort];
-    const main = { n: (s) => [nf.format(s.n), "copies"], ten: (s) => [nf.format(tenOf(s)), `of ${nf.format(s.graded)} graded`], gem: (s) => [pct0(gemOf(s)), `${nf.format(tenOf(s))} of ${nf.format(s.graded)}`], val: (s) => [usd(bestCopy(s).v), "top copy"] }[state.sort];
-    $("reg").innerHTML = `<div class="reg-head" aria-hidden="true"><span>#</span><span>Card</span><span>${{ n: "Copies", ten: "10s", gem: "Gem rate", val: "Priciest copy" }[state.sort]}</span><span class="r c-alt">PSA 10</span><span class="r c-alt">Japanese</span><span class="r c-val">Top copy</span></div>` +
+    const main = { n: (s) => [nf.format(s.n), "cards"], ten: (s) => [nf.format(tenOf(s)), `of ${nf.format(s.graded)} graded`], gem: (s) => [pct0(gemOf(s)), `${nf.format(tenOf(s))} of ${nf.format(s.graded)}`], val: (s) => [usd(bestCopy(s).v), "top copy"] }[state.sort];
+    $("reg").innerHTML = `<div class="reg-head" aria-hidden="true"><span>#</span><span>Card</span><span>${{ n: "Cards", ten: "10s", gem: "Gem rate", val: "Priciest card" }[state.sort]}</span><span class="r c-alt">PSA 10</span><span class="r c-alt">Japanese</span><span class="r c-val">Top copy</span></div>` +
       (shown.length ? shown.map((s, i) => { const [v, sub] = main(s), b = bestCopy(s); return `<button type="button" role="listitem" class="row" data-slug="${slug(s.s)}"><span class="rank">${i + 1}</span>
         <span class="who">${cardHTML(s.copies[0] ? s.copies[0].i : -1, 34)}<span class="who-t"><b>${esc(s.s)}</b><span>${esc(s.f)}</span></span></span>
         <span class="bar"><span class="bar-v"><b>${v}</b><span>${esc(sub)}</span></span><i style="width:${Math.max(2, metric[state.sort](s) / mx * 100)}%"></i></span>
         <span class="cell-v c-alt"><b>${nf.format(psa10(s))}</b><span>of ${nf.format(tot(s.psa))} PSA</span></span>
-        <span class="cell-v c-alt"><b>${pct0(langShare(s.lang, "Japanese"))}</b><span>of copies</span></span>
+        <span class="cell-v c-alt"><b>${pct0(langShare(s.lang, "Japanese"))}</b><span>of cards</span></span>
         <span class="cell-v c-val"><b>${b ? usd(b.v) : "–"}</b><span>${b ? "estimated" : ""}</span></span></button>`; }).join("") : `<p class="empty">No cards match.</p>`);
     $("more").hidden = state.all || list.length <= 50; $("more").textContent = `Show all ${nf.format(list.length)}`;
     hydrate($("reg"));
@@ -1142,8 +1142,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     const gradeBars = (pairs) => { const g = pairs.filter((p) => num(p[0]) >= 7).sort((a, b) => num(b[0]) - num(a[0])); const rest = tot(pairs) - tot(g); const rowsG = rest > 0 ? [...g, ["≤6.5", rest]] : g; const mx = Math.max(1, ...rowsG.map((r) => r[1])), t = Math.max(1, tot(pairs));
       return rowsG.length ? rowsG.map(([gr, c]) => `<div class="brow ${num(gr) >= 10 ? "hi" : ""}"><span class="bn"><b>${esc(gr)}</b></span><span class="track"><span class="fill" style="width:${Math.max(0.5, c / mx * 100)}%"></span></span><span class="bv"><b>${nf.format(c)}</b><span>${pct1(c / t)}</span></span></div>`).join("") : `<p class="empty">No graded copies.</p>`; };
     $("dlg-body").innerHTML = `
-      <dl class="dlg-stats"><div><dt>Copies</dt><dd>${nf.format(s.n)}</dd></div><div><dt>Graded</dt><dd>${nf.format(s.graded)}</dd></div><div><dt>10s</dt><dd>${nf.format(tenOf(s))}</dd></div><div><dt>Gem rate</dt><dd>${s.graded ? pct0(gemOf(s)) : "–"}</dd></div><div><dt>Japanese</dt><dd>${pct0(ja)}</dd></div>${b ? `<div><dt>Top copy</dt><dd>${usd(b.v)}</dd></div>` : ""}</dl>
-      ${s.copies.length ? `<div><h4>Most valuable copies onchain</h4><div class="copies">${s.copies.map((c) => `<button type="button" class="lift" data-zoom="${zid(c)}"><span class="card"><img src="${esc(cdn(c.u, 480))}" alt="" loading="lazy" decoding="async"></span><b>${c.v != null ? usd(c.v) : "–"}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div></div>` : ""}
+      <dl class="dlg-stats"><div><dt>Cards</dt><dd>${nf.format(s.n)}</dd></div><div><dt>Graded</dt><dd>${nf.format(s.graded)}</dd></div><div><dt>10s</dt><dd>${nf.format(tenOf(s))}</dd></div><div><dt>Gem rate</dt><dd>${s.graded ? pct0(gemOf(s)) : "–"}</dd></div><div><dt>Japanese</dt><dd>${pct0(ja)}</dd></div>${b ? `<div><dt>Top copy</dt><dd>${usd(b.v)}</dd></div>` : ""}</dl>
+      ${s.copies.length ? `<div><h4>Most valuable cards onchain</h4><div class="copies">${s.copies.map((c) => `<button type="button" class="lift" data-zoom="${zid(c)}"><span class="card"><img src="${esc(cdn(c.u, 480))}" alt="" loading="lazy" decoding="async"></span><b>${c.v != null ? usd(c.v) : "–"}</b>${c.g ? `<span class="meta"><span class="chip">${esc(c.g)}</span></span>` : ""}<span>${esc(c.t)}</span></button>`).join("")}</div></div>` : ""}
       <div class="dlg-grid">
         <div class="mini"><h4>Pop report <span class="tabs" role="group" aria-label="Grader" id="gtabs"><button type="button" data-g="all" aria-pressed="true">All</button><button type="button" data-g="psa" aria-pressed="false">PSA</button><button type="button" data-g="cgc" aria-pressed="false">CGC</button></span></h4><div class="bars" id="gbars">${gradeBars(s.grade)}</div></div>
         <div style="display:grid;gap:22px;align-content:start">
@@ -1170,6 +1170,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <p>For each of the ${nf.format(SUB.length)} cards here I asked for its facets overall, then for PSA and for CGC. A value list stops at 100 entries, so cards outside each franchise's top 30 and the overall top 100 are counted in the totals but don't get their own report.</p>
     </div><div>
       <p>A 10 means 10 or higher on the grader's scale, including CGC's Pristine and BGS's Black Label, which show up as 10.5. Graded counts only include cards with a numeric grade. Card images and values come from <code>GET /api/v2/nfts/group/trading_cards</code> sorted by <code>estimated_value</code>, OpenSea's estimate, not a sale price.</p>
+      <p>The counts are tokens in OpenSea's index, and some of those tokens are burned. When a platform buys a card back and puts it in a new pack, it can burn the old token and mint a new one for the same physical card, so one card can be counted more than once. A sample I checked onchain on October 15 found about 8% of tokens burned, which puts the number of distinct cards a little under the totals here.</p>
       <p>Platform counts use the same facets endpoint with <code>collection_slugs</code> set to each platform's collections. The cover map draws the cards with a franchise listed; each tile is a photo of a real card from that territory.</p>
       <p>Snapshot taken ${esc(whenTxt)}.</p>
       <p>The data is open. Every refresh updates <a href="https://github.com/ryanio/card-census/blob/main/data/cards.csv">cards.csv</a> and <a href="https://github.com/ryanio/card-census/blob/main/data/grades.csv">grades.csv</a> in <a href="https://github.com/ryanio/card-census">the GitHub repo</a>, and <a href="https://github.com/ryanio/card-census/tree/main/data/history">data/history</a> keeps one row per crawl so you can track changes over time. The code that crawls and builds this page is there too.</p>
