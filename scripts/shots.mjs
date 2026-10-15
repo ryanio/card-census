@@ -68,7 +68,7 @@ try {
   await element("vaults.png", "#vaults", { pad: 32 });
   await element("pop-report-chart.png", "#fig-pop");
   await open({ width: 1280, height: 900, clean: true });
-  await ev(`(() => { const t = [...document.querySelectorAll(".ctag")].find((e) => /LUFFY/i.test(e.innerText)); t && t.click(); return 1; })()`);
+  await ev(`(() => { const r = document.querySelector('.trow[data-slug="card-monkey-d-luffy"]'); r && r.click(); return 1; })()`);
   await sleep(4000); await ev(`document.activeElement && document.activeElement.blur(); true`);
   await element("luffy-pop-report.png", "#dlg", { pad: 0, wait: 300 });
   await open({ width: 390, height: 844, mobile: true });
