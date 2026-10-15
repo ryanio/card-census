@@ -42,8 +42,8 @@ async function element(name, selector, { pad = 28, wait = 1200 } = {}) {
   const r = await ev(`(() => { const b = document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect(); return { x: b.left + scrollX, y: b.top + scrollY, w: b.width, h: b.height }; })()`);
   await save(name, (await s("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { x: Math.max(0, r.x - pad), y: Math.max(0, r.y - pad), width: r.w + pad * 2, height: r.h + pad * 2, scale: 1 } })).data);
 }
-async function hoverCard(atX, atY) {
-  const p = await ev(`(() => { const c = document.getElementById("cmap-top").getBoundingClientRect(); return { x: c.left + c.width * ${atX}, y: c.top + c.height * ${atY} }; })()`);
+async function hoverCard() {
+  const p = await ev(`(() => { const c = document.getElementById("cmap-top").getBoundingClientRect(), [x, y] = document.getElementById("cmap").dataset.hero.split(",").map(Number); return { x: c.left + x, y: c.top + y }; })()`);
   await s("Input.dispatchMouseEvent", { type: "mouseMoved", x: p.x - 4, y: p.y }); await sleep(80);
   await s("Input.dispatchMouseEvent", { type: "mouseMoved", x: p.x, y: p.y });
   await ev(`new Promise((r) => { const t = Date.now(); (function w() { const i = document.querySelector("#cprev img"); if ((i && i.classList.contains("on")) || Date.now() - t > 8000) r(1); else setTimeout(w, 150); })(); })`);
@@ -55,7 +55,7 @@ try {
   await open({ width: 1600, height: 1000 });
   await viewport("cover.png");
   // the most valuable card on the map, with its preview open
-  await hoverCard(0.62, 0.36); await viewport("cover-preview.png");
+  await hoverCard(); await viewport("cover-preview.png");
   await s("Input.dispatchMouseEvent", { type: "mouseMoved", x: 5, y: 5 }); await sleep(300);
   await ev(`(() => { const t = [...document.querySelectorAll(".ctag")].find((e) => /^POKEMON/i.test(e.innerText)); t && t.dispatchEvent(new Event("mouseenter")); return 1; })()`); await sleep(600);
   await viewport("cover-pokemon.png");

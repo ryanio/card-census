@@ -90,11 +90,11 @@ big = list(dict.fromkeys(u for u in big if u))
 with cf.ThreadPoolExecutor(8) as ex: rb = list(ex.map(fetch_big, big))
 print(f"big ok={sum(rb)} of {len(rb)}", flush=True)
 
-# cover map tiles: small photos cropped to fill a 5:7 cell, flattened on the dark display bed; the most valuable
-# cards also get a bigger tile (data/midi), since the map draws them across 2x2 to 4x4 cells
-MINI = os.path.join(ROOT, "data", "mini"); os.makedirs(MINI, exist_ok=True)
+# cover map tiles: small tiles show the card face (a slab's label and plastic cropped off, so the map reads as color),
+# and the most valuable cards also get a bigger tile of the whole slab (data/midi) for the center of their island
+MINI = os.path.join(ROOT, "data", "tiles"); os.makedirs(MINI, exist_ok=True)
 MIDI = os.path.join(ROOT, "data", "midi"); os.makedirs(MIDI, exist_ok=True)
-def fetch_mini(u, MW=36, MH=50, out=MINI, w=160):
+def fetch_mini(u, MW=40, MH=56, out=MINI, w=160, face=True):
     """Write the tile, and next to it a .box file: where the slab sits in the photo, as fractions, for the page's preview."""
     path = os.path.join(out, key(u) + ".png")
     if os.path.exists(path + ".fail") or (os.path.exists(path) and (out != MINI or os.path.exists(path + ".box"))): return os.path.exists(path)
@@ -113,9 +113,11 @@ def fetch_mini(u, MW=36, MH=50, out=MINI, w=160):
         b = trim_box(im) or (0, 0, im.width, im.height)
         open(path + ".box", "w").write(" ".join(f"{v:.3f}" for v in (b[0] / im.width, b[1] / im.height, b[2] / im.width, b[3] / im.height)))
         im = im.crop(b)
+        if face and im.width / im.height < 0.66:  # a slab: keep the card window below the label
+            im = im.crop((round(im.width * 0.08), round(im.height * 0.235), round(im.width * 0.92), round(im.height * 0.955)))
         r = MW / MH
         if im.width / im.height > r: nw = round(im.height * r); x = (im.width - nw) // 2; im = im.crop((x, 0, x + nw, im.height))
-        else: nh = round(im.width / r); y = round((im.height - nh) * 0.3); im = im.crop((0, y, im.width, y + nh))
+        else: nh = round(im.width / r); y = round((im.height - nh) * (0.5 if face else 0.3)); im = im.crop((0, y, im.width, y + nh))
         bed = Image.new("RGBA", (MW, MH), (27, 26, 32, 255)); bed.alpha_composite(im.resize((MW, MH), Image.LANCZOS)); bed.convert("RGB").save(path)
         return True
     except Exception as e:
@@ -129,5 +131,7 @@ def value(n):
     try: return float(n.get("estimated_value_usd") or 0)
     except (TypeError, ValueError): return 0
 big = list(dict.fromkeys(url_of(n) for n in sorted(nfts, key=lambda n: -value(n)) if url_of(n)))[:160]
-with cf.ThreadPoolExecutor(12) as ex: rb = list(ex.map(lambda u: fetch_mini(u, 120, 168, MIDI, 420), big))
+big += [url_of(n) for ns in (mp.get("franchise") or {}).values() for n in sorted(ns or [], key=lambda n: -value(n))[:2] if url_of(n)]
+big = list(dict.fromkeys(big))
+with cf.ThreadPoolExecutor(12) as ex: rb = list(ex.map(lambda u: fetch_mini(u, 120, 168, MIDI, 420, face=False), big))
 print(f"big map tiles ok={sum(rb)} of {len(rb)}", flush=True)

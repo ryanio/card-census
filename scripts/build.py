@@ -1,6 +1,6 @@
 """Build site/ from data/crawl.json: one page with the summary inline, plus card-photo sprite sheets."""
 import hashlib, json, math, os, re, sys
-from PIL import Image
+from PIL import Image, ImageStat
 ROOT = sys.argv[1]; SITE = os.path.join(ROOT, "site"); os.makedirs(SITE, exist_ok=True)
 HIRES = os.path.join(ROOT, "data", "hires"); os.makedirs(os.path.join(SITE, "w"), exist_ok=True)
 CACHE = os.path.join(ROOT, "data", "img2"); W, H = int(os.environ.get("CELL_W", 200)), int(os.environ.get("CELL_H", 280))
@@ -147,7 +147,7 @@ for k, c in enumerate(S["sealed"][:10]): c["w"] = hires_file(c, f"s{k}.webp", *(
 
 # cover map: territories in the order they run along the curve (franchises by size, each one's long tail, then its big cards),
 # with small photo tiles; tile captions go to map.json, which the page loads after first paint
-MINI, MW, MH, MCOLS, MBIG = os.path.join(ROOT, "data", "mini"), 36, 50, 32, 1500
+MINI, MW, MH, MCOLS, MBIG = os.path.join(ROOT, "data", "tiles"), 40, 56, 32, 1500
 mcells, mindex, mmeta, murls, mvals = [], {}, [], [], []
 def short(u): return (u or "").replace("https://i2c.seadn.io/", "~i/").replace("https://opensea.io/assets/", "~a/")
 def mcell(n):
@@ -178,8 +178,15 @@ for fr in S["franchises"]:
     groups += named
 # the most valuable cards get a bigger photo, which the page draws across 2x2 to 4x4 cells
 MIDI, BW, BH, BCOLS = os.path.join(ROOT, "data", "midi"), 120, 168, 10
-has_big = lambda t: mvals[t] > 0 and os.path.exists(os.path.join(MIDI, hashlib.sha1(murls[t].encode()).hexdigest() + ".png"))
+def has_big(t):
+    p = os.path.join(MIDI, hashlib.sha1(murls[t].encode()).hexdigest() + ".png")
+    if not (mvals[t] > 0 and os.path.exists(p)): return False
+    # skip photos where the slab is lost in a dark studio backdrop: most of the tile should have something in it
+    return ImageStat.Stat(Image.open(p).convert("L").point(lambda v: 255 if v > 45 else 0)).mean[0] / 255 > 0.5
 bset = sorted({t for g in groups for t in g["tiles"] if has_big(t)}, key=lambda t: -mvals[t])[:90]
+for f in {g["f"] for g in groups}:  # and each franchise's priciest card, wherever it ranks overall
+    best = max((t for g in groups if g["f"] == f for t in g["tiles"] if has_big(t)), key=lambda t: mvals[t], default=None)
+    if best is not None and best not in bset: bset.append(best)
 bindex = {t: k for k, t in enumerate(bset)}
 for g in groups: g["big"] = sorted([[t, bindex[t], mvals[t]] for t in g["tiles"] if t in bindex], key=lambda c: -c[2])
 bsheet = Image.new("RGB", (BCOLS * BW, max(1, math.ceil(len(bset) / BCOLS)) * BH), (27, 26, 32))

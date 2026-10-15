@@ -129,9 +129,14 @@ h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(52px, 5.5
 .cmap.ready .ctag { opacity: 1; }
 .ctag b { font-family: var(--f-display); font-weight: 800; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ctag span { font: 500 10.5px var(--f-mono); color: #4A4E55; white-space: nowrap; }
-.ctag.fr { background: #111214; color: #FFFFFF; box-shadow: 0 0 0 1.5px rgba(255,255,255,.9), 0 4px 16px rgba(0,0,0,.5); padding: 5px 11px 6px; }
-.ctag.fr b { font-size: 19px; }
-.ctag.fr span { color: #D2D0D7; font-size: 11px; }
+.ctag.fr { background: rgba(11,10,12,.84); color: #FFFFFF; box-shadow: 0 0 0 1px rgba(255,255,255,.22), 0 6px 18px rgba(0,0,0,.45); padding: 5px 11px 6px; border-radius: 999px; }
+.ctag.fr b { font-size: 16px; letter-spacing: .04em; }
+.ctag.fr span { color: #BDBBC3; font-size: 10.5px; }
+.ctag.fr.minor { background: none; box-shadow: none; padding: 0; }
+.ctag.fr.minor b { font-size: 11.5px; color: #D9D7DE; }
+.ctag.fr.minor span { font-size: 9.5px; color: #8E8C95; }
+.ctag.fr.minor.on, .ctag.fr.minor:hover { background: none; }
+.ctag.fr.minor.on b, .ctag.fr.minor:hover b { color: #FF6FA3; }
 .ctag.on, .ctag:hover, .ctag:focus-visible { background: #FF6FA3; color: #111214; outline: none; }
 .ctag.on span, .ctag:hover span, .ctag:focus-visible span { color: #2A1220; }
 /* the preview: the card under the pointer, big enough to read the slab */
@@ -697,32 +702,11 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   $("vault-note").textContent = `The ${Math.min(10, lots.length)} most valuable graded cards onchain, by OpenSea's estimated value. Bigger lots, bigger money. Click any to read the slab.`;
   const wallItems = lots.slice(0, 10);
 
-  /* ---------- the map: every franchise one territory of real card photos, laid along a Gilbert curve,
-     with each territory's most valuable cards drawn across 2x2 to 4x4 cells ---------- */
+  /* ---------- the map: an archipelago, one island per franchise sized by its cards, each crowned by its most
+     valuable card; the big cards are slices of their island, shown on hover ---------- */
   const MD = S.map, MG = MD.groups.filter((g) => g.n > 0), MB = MD.big;
   const cmap = $("cmap"), cBase = $("cmap-base"), cTop = $("cmap-top"), cprev = $("cprev"), coverL = document.querySelector(".cover-l");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function gilbert(w, h) {
-    const pts = [];
-    const gen = (x, y, ax, ay, bx, by) => {
-      const W = Math.abs(ax + ay), H = Math.abs(bx + by), dax = Math.sign(ax), day = Math.sign(ay), dbx = Math.sign(bx), dby = Math.sign(by);
-      if (H === 1) { for (let i = 0; i < W; i++) { pts.push([x, y]); x += dax; y += day; } return; }
-      if (W === 1) { for (let i = 0; i < H; i++) { pts.push([x, y]); x += dbx; y += dby; } return; }
-      let ax2 = Math.floor(ax / 2), ay2 = Math.floor(ay / 2), bx2 = Math.floor(bx / 2), by2 = Math.floor(by / 2);
-      const W2 = Math.abs(ax2 + ay2), H2 = Math.abs(bx2 + by2);
-      if (2 * W > 3 * H) {
-        if (W2 % 2 && W > 2) { ax2 += dax; ay2 += day; }
-        gen(x, y, ax2, ay2, bx, by); gen(x + ax2, y + ay2, ax - ax2, ay - ay2, bx, by);
-      } else {
-        if (H2 % 2 && H > 2) { bx2 += dbx; by2 += dby; }
-        gen(x, y, bx2, by2, ax2, ay2); gen(x + bx2, y + by2, ax, ay, bx - bx2, by - by2);
-        gen(x + (ax - dax) + (bx2 - dbx), y + (ay - day) + (by2 - dby), -bx2, -by2, -(ax - ax2), -(ay - ay2));
-      }
-    };
-    if (w >= h) gen(0, 0, w, 0, 0, h); else gen(0, 0, 0, h, w, 0);
-    // end the line in a bottom corner, so the smallest franchises sit low on the map
-    return pts[pts.length - 1][1] === 0 ? pts.map(([x, y]) => [x, h - 1 - y]) : pts;
-  }
   function allocate(counts, N) {
     const total = counts.reduce((s, x) => s + x, 0), raw = counts.map((x) => (x * N) / total);
     const a = raw.map((x) => Math.max(1, Math.floor(x)));
@@ -733,66 +717,66 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     return a;
   }
   const gName = (g) => g.k === "s" ? g.s : g.f;
-  const gCount = (g) => g.k === "f" ? g.total : g.n;
   const loadImg = (src) => { const im = new Image(); im.decoding = "async"; im.src = src + "?v=" + S.v; return im; };
   const mImgs = MD.files.map(loadImg), bImg = loadImg(MB.file);
   let CM = null, META = null, hoverG = -1, hoverItem = -1, intro = false, introT0 = 0, introDone = false, introRaf = 0, moveRaf = 0;
   const wantIntro = !reduceMotion && !location.hash && scrollY < 120;
   function layout() {
-    const W = cmap.clientWidth, cols = W < 560 ? 24 : W < 900 ? 36 : 40, tw = W / cols, th = tw * MD.h / MD.w;
-    const side = coverL.offsetHeight > 0 && matchMedia("(min-width: 1001px)").matches;
-    const rows = side ? Math.max(28, Math.min(48, 2 * Math.round((coverL.offsetHeight - 64) / th / 2))) : cols < 30 ? 28 : 28;
-    const pts = gilbert(cols, rows), N = pts.length, alloc = allocate(MG.map((g) => g.n), N);
-    const owner = new Int16Array(N), at = new Int32Array(cols * rows), own = new Int16Array(cols * rows);
-    let k = 0;
-    MG.forEach((g, gi) => { for (let j = 0; j < alloc[gi]; j++, k++) owner[k] = gi; });
-    pts.forEach(([x, y], i) => { at[y * cols + x] = i; own[y * cols + x] = owner[i]; });
-    const cells = MG.map(() => []);
-    for (let i = 0; i < N; i++) cells[owner[i]].push(i);
-    // the priciest cards across the map get the biggest tiles, each placed inside its own territory, spread apart
-    const items = [], used = new Uint8Array(cols * rows), placedT = MG.map(() => new Set()), centers = [];
-    const cands = [], seen = new Set();
-    MG.forEach((g, gi) => (g.big || []).forEach(([t, b, v]) => { if (!seen.has(t)) { seen.add(t); cands.push([gi, t, b, v]); } }));
-    cands.sort((a, b) => b[3] - a[3]);
-    const n4 = Math.max(1, Math.round(N / 480)), n3 = Math.round(N / 130), n2 = Math.round(N / 40);
-    const fits = (gi, x, y, sz) => { if (x + sz > cols || y + sz > rows) return false; for (let yy = y; yy < y + sz; yy++) for (let xx = x; xx < x + sz; xx++) { const c = yy * cols + xx; if (used[c] || own[c] !== gi) return false; } return true; };
-    cands.forEach(([gi, t, b, v], rank) => {
-      const target = rank < n4 ? 4 : rank < n4 + n3 ? 3 : rank < n4 + n3 + n2 ? 2 : 0;
-      for (let sz = target; sz >= 2; sz--) {
-        let best = null, bestScore = -Infinity;
-        const cs = cells[gi]; let mx = 0, my = 0; for (const i of cs) { mx += pts[i][0]; my += pts[i][1]; } mx /= cs.length; my /= cs.length;
-        for (const i of cs) {
-          const [x, y] = pts[i]; if (!fits(gi, x, y, sz)) continue;
-          const cx = x + sz / 2, cy = y + sz / 2;
-          let d = 1e9; for (const [px, py] of centers) d = Math.min(d, Math.hypot(px - cx, py - cy));
-          const score = Math.min(d, 12) * 10 - Math.hypot(cx - mx, cy - my);
-          if (score > bestScore) { bestScore = score; best = [x, y]; }
-        }
-        if (!best) continue;
-        const [x, y] = best;
-        for (let yy = y; yy < y + sz; yy++) for (let xx = x; xx < x + sz; xx++) used[yy * cols + xx] = 1;
-        items.push({ x, y, sz, t, b, v, gi }); placedT[gi].add(t); centers.push([x + sz / 2, y + sz / 2]);
-        break;
+    const W = cmap.clientWidth, phone = W < 560, TH = MD.h / MD.w, N = phone ? 300 : 520;
+    const byF = new Map(); MG.forEach((g, gi) => { if (!byF.has(g.f)) byF.set(g.f, []); byF.get(g.f).push(gi); });
+    const isl = [...byF].map(([f, gis]) => ({ f, gis, n: gis.reduce((a, gi) => a + MG[gi].n, 0) })).sort((a, b) => b.n - a.n);
+    allocate(isl.map((x) => x.n), N).forEach((c, k) => { isl[k].cells = Math.max(3, c); isl[k].ru = Math.sqrt(isl[k].cells * TH / Math.PI) * 1.04; });
+    // pack into one cluster: the biggest island in the middle, then each one at the spot nearest the middle where it
+    // touches another; a tall column stretches the cluster vertically
+    const side = coverL.offsetHeight > 0 && matchMedia("(min-width: 1001px)").matches, gap = 1.25;
+    const maxH = side ? Math.min(coverL.offsetHeight - 70, window.innerHeight - 130) : Infinity;
+    const stretch = phone ? 1.7 : side ? Math.max(0.8, Math.min(1.2, maxH / W)) : 1.1;
+    isl[0].ux = 0; isl[0].uy = 0;
+    for (let k = 1; k < isl.length; k++) {
+      const r = isl[k].ru; let best = null;
+      for (const c of isl.slice(0, k)) for (let a = 0; a < 360; a += 2) {
+        const t = (a * Math.PI) / 180, x = c.ux + (c.ru + r + gap) * Math.cos(t), y = c.uy + (c.ru + r + gap) * Math.sin(t);
+        if (isl.slice(0, k).some((q) => Math.hypot(q.ux - x, q.uy - y) < q.ru + r + gap - 1e-6)) continue;
+        const score = Math.hypot(x * stretch, y);
+        if (!best || score < best.s) best = { x, y, s: score };
       }
-    });
-    // everything else: one cell each, cycling through the territory's other photos
-    const nextT = MG.map((g, gi) => { const rest = g.tiles.filter((t) => !placedT[gi].has(t)); return { list: rest.length ? rest : g.tiles, j: 0 }; });
-    for (let i = 0; i < N; i++) {
-      const [x, y] = pts[i]; if (used[y * cols + x]) continue;
-      const q = nextT[owner[i]], t = q.list.length ? q.list[q.j++ % q.list.length] : -1;
-      items.push({ x, y, sz: 1, t, b: -1, v: 0, gi: owner[i] });
+      isl[k].ux = best.x; isl[k].uy = best.y;
     }
-    const itemAt = new Int32Array(cols * rows);
-    items.forEach((it, n) => { for (let yy = it.y; yy < it.y + it.sz; yy++) for (let xx = it.x; xx < it.x + it.sz; xx++) itemAt[yy * cols + xx] = n; });
-    CM = { W, H: Math.round(rows * th), cols, rows, tw, th, N, pts, owner, at, own, cells, items, itemAt };
+    const minX = Math.min(...isl.map((x) => x.ux - x.ru)), maxX = Math.max(...isl.map((x) => x.ux + x.ru)), minY = Math.min(...isl.map((x) => x.uy - x.ru)) - 0.6, maxY = Math.max(...isl.map((x) => x.uy + x.ru)) + 1.6;
+    isl.forEach((x) => { x.ux -= minX; x.uy -= minY; });
+    const Wu = maxX - minX, Hu = maxY - minY;
+    const tw = Math.min(W / Wu, Math.max(maxH, 420) / Hu), th = tw * TH, offX = (W - Wu * tw) / 2;
+    const items = [], lookup = new Map();
+    isl.forEach((I, ii) => {
+      I.cx = offX + I.ux * tw; I.cy = I.uy * tw; I.r = I.ru * tw;
+      // the island's most valuable card sits in the middle, bigger the bigger the island
+      const cands = I.gis.flatMap((gi) => (MG[gi].big || []).map(([t, b, v]) => ({ t, b, v, gi }))).sort((a, b) => b.v - a.v);
+      const hero = cands[0], k = hero ? (I.cells >= 200 ? 4 : I.cells >= 60 ? 3 : I.cells >= 16 ? 2 : 0) : 0;
+      I.ox = I.cx - (k ? k / 2 : 0.5) * tw; I.oy = I.cy - (k ? k / 2 : 0.5) * th;
+      const R = Math.ceil(I.ru / 1) + 3, cand = [];
+      for (let j = -R; j <= R; j++) for (let i = -R; i <= R; i++) { const x = I.ox + i * tw, y = I.oy + j * th; cand.push({ i, j, x, y, d: Math.hypot(x + tw / 2 - I.cx, y + th / 2 - I.cy) }); }
+      cand.sort((a, b) => a.d - b.d);
+      const cells = cand.slice(0, I.cells), inHero = (c) => k && c.i >= 0 && c.i < k && c.j >= 0 && c.j < k;
+      I.items = [];
+      if (k) { const n = items.length; items.push({ x: I.ox, y: I.oy, w: k * tw, h: k * th, sz: k, t: hero.t, b: hero.b, v: hero.v, gi: hero.gi, isl: ii, dn: 0 }); I.items.push(n); for (let j = 0; j < k; j++) for (let i = 0; i < k; i++) lookup.set(`${ii}:${i},${j}`, n); }
+      // slices: the island's big cards clockwise from twelve o'clock, then the rest of the franchise
+      const rest = cells.filter((c) => !inHero(c)).map((c) => ({ ...c, a: (Math.atan2(c.x + tw / 2 - I.cx, -(c.y + th / 2 - I.cy)) + Math.PI * 2) % (Math.PI * 2) })).sort((p, q) => p.a - q.a || p.d - q.d);
+      const order = [...I.gis.filter((gi) => MG[gi].k === "s").sort((p, q) => MG[q].n - MG[p].n), ...I.gis.filter((gi) => MG[gi].k !== "s")];
+      const share = rest.length ? allocate(order.map((gi) => MG[gi].n), rest.length) : [];
+      let at = 0;
+      order.forEach((gi, oi) => {
+        const slice = rest.slice(at, at + share[oi]).sort((p, q) => p.d - q.d); at += share[oi];
+        const tiles = MG[gi].tiles.filter((t) => !hero || t !== hero.t), list = tiles.length ? tiles : MG[gi].tiles;
+        slice.forEach((c, n) => { const idx = items.length; items.push({ x: c.x, y: c.y, w: tw, h: th, sz: 1, t: list.length ? list[n % list.length] : -1, b: -1, v: 0, gi, isl: ii, dn: c.d / Math.max(1, I.r), i: c.i, j: c.j }); I.items.push(idx); lookup.set(`${ii}:${c.i},${c.j}`, idx); });
+      });
+    });
+    CM = { W, H: Math.ceil(Hu * tw), tw, th, isl, items, lookup };
+    const h0 = items[isl[0].items[0]]; cmap.dataset.hero = `${Math.round(h0.x + h0.w / 2)},${Math.round(h0.y + h0.h / 2)}`;  // for scripts/shots.mjs
     cmap.style.height = CM.H + "px";
-    $("cmap-note").textContent = `Each tile is a real card from the census. A small one stands in for about ${nf.format(Math.round((S.n - MD.off) / N / 10) * 10)} cards, and the most valuable cards in each territory are drawn bigger. Franchises run along one unbroken curve, so each stays in one piece, sized by its count, and every card with ${nf.format(1500)} or more copies gets its own territory. ${MD.off ? `The ${nf.format(MD.off)} cards with no franchise listed aren't on the map.` : ""}`;
+    $("cmap-note").textContent = `Each island is a franchise, sized by its cards, and each tile is a real card from it, about ${nf.format(Math.round((S.n - MD.off) / N / 100) * 100)} cards to a tile. The most valuable card sits in the middle. Cards with ${nf.format(1500)} or more copies are slices of their island: hover the map or the list to find them.${MD.off ? ` The ${nf.format(MD.off)} cards with no franchise listed aren't on the map.` : ""}`;
   }
-  const px = (i) => CM.pts[i][0] * CM.tw, py = (i) => CM.pts[i][1] * CM.th;
-  const cellIdx = (x, y) => x < 0 || y < 0 || x >= CM.cols || y >= CM.rows ? -1 : CM.at[y * CM.cols + x];
-  const nbr = (i, dx, dy) => cellIdx(CM.pts[i][0] + dx, CM.pts[i][1] + dy);
   function sizeCv(cv) { const dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(CM.W * dpr); cv.height = Math.round(CM.H * dpr); const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return g; }
-  const box = (it) => { const gap = Math.max(1, CM.tw * 0.08); return [it.x * CM.tw + gap / 2, it.y * CM.th + gap / 2, it.sz * CM.tw - gap, it.sz * CM.th - gap]; };
+  const box = (it) => { const gap = Math.max(1, CM.tw * 0.09); return [it.x + gap / 2, it.y + gap / 2, it.w - gap, it.h - gap]; };
   function drawItem(g, it) {
     const [x, y, w, h] = box(it);
     if (it.b >= 0 && bImg.complete && bImg.naturalWidth) return g.drawImage(bImg, (it.b % MB.cols) * MB.w, Math.floor(it.b / MB.cols) * MB.h, MB.w, MB.h, x, y, w, h);
@@ -801,72 +785,30 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     else { g.fillStyle = "#2A2930"; g.fillRect(x, y, w, h); }
   }
   function drawBase() {
-    const g = sizeCv(cBase), { tw, th } = CM, r = Math.max(1.5, tw * 0.13);
-    // one clip for every rounded tile, then plain image draws
-    const clip = new Path2D();
-    for (const it of CM.items) { const [x, y, w, h] = box(it); if (clip.roundRect) clip.roundRect(x, y, w, h, it.sz > 1 ? r * 1.6 : r); else clip.rect(x, y, w, h); }
+    const g = sizeCv(cBase), r = Math.max(1.5, CM.tw * 0.14), clip = new Path2D();
+    for (const it of CM.items) { const [x, y, w, h] = box(it); if (clip.roundRect) clip.roundRect(x, y, w, h, it.sz > 1 ? r * 1.8 : r); else clip.rect(x, y, w, h); }
     g.save(); g.clip(clip);
     for (const it of CM.items) drawItem(g, it);
     g.restore();
-    // territory gutters, wider between franchises
-    g.globalCompositeOperation = "destination-out"; g.lineCap = "square";
-    for (const wide of [true, false]) {
-      g.lineWidth = wide ? Math.max(3, tw * 0.3) : Math.max(2, tw * 0.17); g.beginPath();
-      for (let i = 0; i < CM.N; i++) for (const [dx, dy] of [[1, 0], [0, 1]]) {
-        const j = nbr(i, dx, dy); if (j < 0) continue;
-        const a = MG[CM.owner[i]], b = MG[CM.owner[j]]; if (a === b || (a.f === b.f) === wide) continue;
-        const x = px(i) + (dx ? tw : 0), y = py(i) + (dy ? th : 0);
-        g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
-      }
-      g.stroke();
-    }
-    g.globalCompositeOperation = "source-over";
-    // a faint outline around each big card's territory, and a ring and price on the biggest tiles
-    g.strokeStyle = "rgba(255,255,255,.34)"; g.lineWidth = 1; g.beginPath();
-    for (let i = 0; i < CM.N; i++) {
-      if (MG[CM.owner[i]].k !== "s") continue;
-      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-        const j = nbr(i, dx, dy); if (j >= 0 && CM.owner[j] === CM.owner[i]) continue;
-        const x = px(i) + (dx > 0 ? tw : 0), y = py(i) + (dy > 0 ? th : 0);
-        g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
-      }
-    }
-    g.stroke();
-    g.font = `600 ${Math.max(9, Math.round(tw * 0.62))}px "IBM Plex Mono", ui-monospace, monospace`; g.textBaseline = "middle";
-    for (const it of CM.items) {
-      if (it.sz < 2) continue;
-      const [x, y, w, h] = box(it);
-      g.strokeStyle = "rgba(255,255,255,.6)"; g.lineWidth = 1; g.beginPath(); if (g.roundRect) g.roundRect(x + 0.5, y + 0.5, w - 1, h - 1, r * 1.6); else g.rect(x + 0.5, y + 0.5, w - 1, h - 1); g.stroke();
-      if (it.sz < 3 || !it.v) continue;
-      const label = usd(it.v), lw = g.measureText(label).width + 10, lh = Math.max(14, tw * 0.95);
-      g.fillStyle = "rgba(11,10,12,.82)"; g.beginPath(); if (g.roundRect) g.roundRect(x + 4, y + h - lh - 4, lw, lh, 3); else g.rect(x + 4, y + h - lh - 4, lw, lh); g.fill();
-      g.fillStyle = "#FFFFFF"; g.fillText(label, x + 9, y + h - lh / 2 - 4);
-    }
+    g.strokeStyle = "rgba(255,255,255,.75)"; g.lineWidth = 1.25;
+    for (const it of CM.items) { if (it.sz < 2) continue; const [x, y, w, h] = box(it); g.beginPath(); if (g.roundRect) g.roundRect(x + 0.5, y + 0.5, w - 1, h - 1, r * 1.8); else g.rect(x + 0.5, y + 0.5, w - 1, h - 1); g.stroke(); }
   }
   const family = (gi) => { const g = MG[gi]; return g.k === "f" ? MG.map((h, j) => h.f === g.f ? j : -1).filter((j) => j >= 0) : [gi]; };
-  function centerOf(cs) {
-    const free = cs.filter((i) => CM.items[CM.itemAt[CM.pts[i][1] * CM.cols + CM.pts[i][0]]].sz === 1), use = free.length ? free : cs;
-    let sx = 0, sy = 0; for (const i of use) { sx += px(i); sy += py(i); } sx /= use.length; sy /= use.length;
-    let best = use[0], bd = Infinity; for (const i of use) { const d = (px(i) - sx) ** 2 + (py(i) - sy) ** 2; if (d < bd) { bd = d; best = i; } }
-    return [px(best) + CM.tw / 2, py(best) + CM.th / 2];
-  }
   function placeTags() {
     cmap.querySelectorAll(".ctag").forEach((e) => e.remove());
-    const placed = [], minCells = CM.cols < 30 ? 6 : 9;
-    const bigRects = CM.items.filter((it) => it.sz > 1).map((it) => { const [x, y, w, h] = box(it); return { left: x, right: x + w, top: y, bottom: y + h }; });
-    MG.map((g, gi) => gi).sort((a, b) => CM.cells[b].length - CM.cells[a].length).forEach((gi) => {
-      const g = MG[gi], cs = CM.cells[gi]; if (cs.length < minCells) return;
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "ctag" + (g.k === "s" ? "" : " fr"); b.dataset.g = gi;
-      b.setAttribute("aria-label", `${gName(g)}: ${nf.format(gCount(g))} cards`);
-      b.innerHTML = `<b>${esc(gName(g))}</b><span>${nf.format(gCount(g))}</span>`;
+    const placed = [];
+    CM.isl.forEach((I) => {
+      const rest = I.gis.find((gi) => MG[gi].k === "f"), gi = rest != null ? rest : I.gis[0], g = MG[gi], b = document.createElement("button");
+      const minor = I.cells < 15;
+      b.type = "button"; b.className = "ctag fr" + (minor ? " minor" : ""); b.dataset.g = gi;
+      b.setAttribute("aria-label", `${g.f}: ${nf.format(g.total || I.n)} cards`);
+      b.innerHTML = `<b>${esc(g.f)}</b><span>${nf.format(g.total || I.n)}</span>`;
       cmap.appendChild(b);
-      const hw = b.offsetWidth / 2 + 2, hh = b.offsetHeight / 2 + 2, [cx, cy] = centerOf(cs);
-      const hit = (r) => placed.some((p) => !(r.right + 4 < p.left || r.left - 4 > p.right || r.bottom + 2 < p.top || r.top - 2 > p.bottom));
-      const spot = cs.map((i) => [px(i) + CM.tw / 2, py(i) + CM.th / 2]).sort((a, q) => Math.hypot(a[0] - cx, a[1] - cy) - Math.hypot(q[0] - cx, q[1] - cy)).slice(0, 80).map(([x, y]) => {
-        const l = Math.min(CM.W - hw, Math.max(hw, x)), t = Math.min(CM.H - hh, Math.max(hh, y));
-        return { left: l - hw, right: l + hw, top: t - hh, bottom: t + hh, l, t };
-      }).find((r) => !hit(r) && !bigRects.some((p) => !(r.right < p.left || r.left > p.right || r.bottom < p.top || r.top > p.bottom)));
+      const hw = b.offsetWidth / 2 + 2, hh = b.offsetHeight / 2 + 2;
+      const spots = !minor ? [[I.cx, I.cy + I.r - hh * 0.55]] : [[I.cx, I.cy + I.r + hh - 2], [I.cx + I.r + hw + 2, I.cy], [I.cx - I.r - hw - 2, I.cy], [I.cx, I.cy - I.r - hh + 2]];
+      const overIsland = (r) => CM.isl.some((J) => J !== I && Math.hypot(Math.max(r.left, Math.min(J.cx, r.right)) - J.cx, Math.max(r.top, Math.min(J.cy, r.bottom)) - J.cy) < J.r - 2);
+      const spot = spots.map(([x, y]) => { const l = Math.min(CM.W - hw, Math.max(hw, x)), t = Math.min(CM.H - hh, Math.max(hh, y)); return { left: l - hw, right: l + hw, top: t - hh, bottom: t + hh, l, t }; })
+        .find((r) => !placed.some((p) => !(r.right + 4 < p.left || r.left - 4 > p.right || r.bottom + 2 < p.top || r.top - 2 > p.bottom)) && (!minor || !overIsland(r)));
       if (!spot) { b.remove(); return; }
       placed.push(spot); b.style.left = spot.l + "px"; b.style.top = spot.t + "px";
       b.addEventListener("mouseenter", () => setHover(gi, -1)); b.addEventListener("mouseleave", () => setHover(-1, -1));
@@ -875,45 +817,46 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     });
   }
   const coverBg = () => getComputedStyle(document.querySelector(".cover")).backgroundColor;
+  const clearTop = () => { const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0); return g; };
+  // the intro: every island blooms out from its centerpiece
   function drawIntro(now) {
-    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1), { tw, th } = CM;
-    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const p = intro ? Math.min(1, (now - introT0) / 1800) : 0, e = p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2, k = Math.floor(e * CM.N);
+    const g = clearTop(), p = intro ? Math.min(1, (now - introT0) / 1600) : 0, e = 1 - (1 - p) ** 3;
     g.fillStyle = coverBg(); g.beginPath();
-    for (let i = k; i < CM.N; i++) g.rect(px(i) - 0.5, py(i) - 0.5, tw + 1, th + 1);
+    for (const it of CM.items) if (it.dn > e * 1.08 - 0.04) g.rect(it.x - 0.5, it.y - 0.5, it.w + 1, it.h + 1);
     g.fill();
-    if (intro && k < CM.N) {
-      const hx = px(k) + tw / 2, hy = py(k) + th / 2, R = tw * 3.2, rg = g.createRadialGradient(hx, hy, 0, hx, hy, R);
-      rg.addColorStop(0, "rgba(255,111,163,.95)"); rg.addColorStop(1, "rgba(255,111,163,0)"); g.fillStyle = rg; g.fillRect(hx - R, hy - R, R * 2, R * 2);
-    }
     if (intro && p < 1) introRaf = requestAnimationFrame(drawIntro);
     else if (intro) { intro = false; introDone = true; cmap.classList.add("ready"); drawTop(); }
   }
   function drawTop() {
-    const g = cTop.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1), { tw, th } = CM;
-    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, cTop.width, cTop.height); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (hoverG < 0) return;
-    const set = family(hoverG).flatMap((j) => CM.cells[j]), inSet = new Uint8Array(CM.N);
-    for (const i of set) inSet[i] = 1;
-    g.globalAlpha = 0.72; g.fillStyle = coverBg(); g.fillRect(0, 0, CM.W, CM.H); g.globalAlpha = 1;
+    const g = clearTop(); if (hoverG < 0) return;
+    const fam = new Set(family(hoverG)), set = CM.items.map((it, n) => fam.has(it.gi) ? n : -1).filter((n) => n >= 0), inSet = new Set(set);
+    g.globalAlpha = 0.74; g.fillStyle = coverBg(); g.fillRect(0, 0, CM.W, CM.H); g.globalAlpha = 1;
     g.globalCompositeOperation = "destination-out"; g.beginPath();
-    for (const i of set) g.rect(px(i), py(i), tw, th);
+    for (const n of set) { const it = CM.items[n]; g.rect(it.x, it.y, it.w, it.h); }
     g.fill(); g.globalCompositeOperation = "source-over";
-    g.strokeStyle = "#FF6FA3"; g.lineWidth = Math.max(2, tw * 0.16); g.lineCap = "round"; g.beginPath();
-    for (const i of set) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-      const j = nbr(i, dx, dy); if (j >= 0 && inSet[j]) continue;
-      const x = px(i) + (dx > 0 ? tw : 0), y = py(i) + (dy > 0 ? th : 0);
-      g.moveTo(x, y); g.lineTo(dx ? x : x + tw, dx ? y + th : y);
+    // outline the slice along cell edges that border something outside it
+    g.strokeStyle = "#FF6FA3"; g.lineWidth = Math.max(2, CM.tw * 0.14); g.lineCap = "round"; g.beginPath();
+    const { tw, th } = CM;
+    for (const n of set) {
+      const it = CM.items[n], I = CM.isl[it.isl], i0 = Math.round((it.x - I.ox) / tw), j0 = Math.round((it.y - I.oy) / th);
+      for (let dj = 0; dj < it.sz; dj++) for (let di = 0; di < it.sz; di++) {
+        const i = i0 + di, j = j0 + dj, x = I.ox + i * tw, y = I.oy + j * th;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const m = CM.lookup.get(`${it.isl}:${i + dx},${j + dy}`); if (m != null && inSet.has(m)) continue;
+          const ex = x + (dx > 0 ? tw : 0), ey = y + (dy > 0 ? th : 0);
+          g.moveTo(ex, ey); g.lineTo(dx ? ex : ex + tw, dx ? ey + th : ey);
+        }
+      }
     }
     g.stroke();
-    if (hoverItem >= 0) { const it = CM.items[hoverItem], [x, y, w, h] = box(it); g.strokeStyle = "#FFFFFF"; g.lineWidth = 2; g.strokeRect(x - 1, y - 1, w + 2, h + 2); }
+    if (hoverItem >= 0) { const [x, y, w, h] = box(CM.items[hoverItem]); g.strokeStyle = "#FFFFFF"; g.lineWidth = 2; g.strokeRect(x - 1, y - 1, w + 2, h + 2); }
   }
   function setHover(gi, item) {
     if (intro || (gi === hoverG && item === hoverItem)) return;
     const moved = gi !== hoverG; hoverG = gi; hoverItem = item;
     drawTop();
     if (moved) {
-      cmap.querySelectorAll(".ctag").forEach((e) => e.classList.toggle("on", gi >= 0 && family(gi).includes(+e.dataset.g)));
+      cmap.querySelectorAll(".ctag").forEach((e) => e.classList.toggle("on", gi >= 0 && MG[+e.dataset.g].f === MG[gi].f));
       const s = gi >= 0 && MG[gi].k === "s" ? slug(MG[gi].s) : null;
       $("top10").querySelectorAll(".trow").forEach((e) => e.classList.toggle("on", e.dataset.slug === s));
     }
@@ -960,7 +903,14 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     requestAnimationFrame(() => cprev.classList.add("on"));
   }
   function hidePreview() { cprev.classList.remove("on"); cprev.hidden = true; prevItem = -1; }
-  const itemAtPoint = (clientX, clientY) => { const b = cTop.getBoundingClientRect(), cx = Math.floor((clientX - b.left) / CM.tw), cy = Math.floor((clientY - b.top) / CM.th); return cx < 0 || cy < 0 || cx >= CM.cols || cy >= CM.rows ? -1 : CM.itemAt[cy * CM.cols + cx]; };
+  const itemAtPoint = (clientX, clientY) => {
+    const b = cTop.getBoundingClientRect(), x = clientX - b.left, y = clientY - b.top;
+    for (let ii = 0; ii < CM.isl.length; ii++) {
+      const I = CM.isl[ii]; if (Math.hypot(x - I.cx, y - I.cy) > I.r + CM.tw * 1.5) continue;
+      const n = CM.lookup.get(`${ii}:${Math.floor((x - I.ox) / CM.tw)},${Math.floor((y - I.oy) / CM.th)}`); if (n != null) return n;
+    }
+    return -1;
+  };
   function openGroup(gi, item = -1) {
     const g = MG[gi], c = item >= 0 ? cardOf(CM.items[item]) : null;
     if (g.k === "s") return openCard(subBySlug.get(slug(g.s)));

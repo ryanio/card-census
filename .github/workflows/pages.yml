@@ -68,7 +68,7 @@ jobs:
         with:
           path: |
             data/raw
-            data/mini
+            data/tiles
             data/midi
           key: avatars-${{ github.run_id }}
           restore-keys: avatars-
