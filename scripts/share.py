@@ -53,9 +53,9 @@ ja_wins = [s for s in by_n[:60] if lang(s["lang"], "Japanese") > lang(s["lang"],
 p_ja = lang(FR["Pokemon"]["lang"], "Japanese") if "Pokemon" in FR else 0
 o_ja = lang(FR["One Piece"]["lang"], "Japanese") if "One Piece" in FR else 0
 H.append({"id": "japanese", "anchor": "japanese", "kicker": "Language", "big": f"{round(ja_all * 100)}%",
-          "title": f"{one_in(ja_all).capitalize()} cards onchain {'is' if one_in(ja_all).startswith('one in') else 'are'} Japanese",
+          "title": f"{one_in(ja_all).capitalize()} cards with a language listed {'is' if one_in(ja_all).startswith('one in') else 'are'} Japanese",
           "sub": f"{round(p_ja * 100)}% of Pokemon, {round(o_ja * 100)}% of One Piece" if p_ja else "",
-          "text": f"{one_in(ja_all).capitalize()} tokenized trading cards on OpenSea {'is' if one_in(ja_all).startswith('one in') else 'are'} Japanese.",
+          "text": f"{one_in(ja_all).capitalize()} tokenized trading cards on OpenSea with a language listed {'is' if one_in(ja_all).startswith('one in') else 'are'} Japanese.",
           "cards": [x for x in (best(s) for s in ja_wins[:6]) if x and "japanese" in (x["t"] or "").lower()][:3] or [x for x in (best(s) for s in ja_wins[:3]) if x]})
 if V["top_n"]:
     H.append({"id": "years", "anchor": "years", "kicker": "Vintage", "big": f"{round(v_share * 100)}%",
