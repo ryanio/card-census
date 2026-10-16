@@ -62,12 +62,17 @@ def fr_photos(f):
     k = min(800, max(30, -(-fr_n[f] // 750)))
     return search(limit=k // 2, franchise=f) + search(limit=k - k // 2, by_value=False, franchise=f)
 MAP_FR = pmap(fr_photos, franchises)
-# the issuers that vault the cards: every collection seen in the photos above, counted with collection_slugs
+# the issuers that vault the cards: the group's collections (os2-core TradingCardGroupConfig) plus any other
+# collection seen in the photos above. Facets only count cards that carry the attribute, so a collection's exact
+# card count comes from its unique_item_count instead.
+GROUP_SLUGS = ["courtyard-nft", "phygitals", "collector-crypt", "collector-crypt-base", "collector-crypt-robinhood", "beezie-flow", "beezie-base", "dyli"]
 seen = [n.get("collection") for n in TOP + SEALED + [n for v in list(COPIES.values()) + list(MAP_SUB.values()) + list(MAP_FR.values()) for n in (v or [])]]
-slugs = [c for c in dict.fromkeys(seen) if c and seen.count(c) >= 3]
+slugs = list(dict.fromkeys(GROUP_SLUGS + [c for c in dict.fromkeys(seen) if c and seen.count(c) >= 3]))
 def issuer(slug):
     s, b = get(f"/collections/{slug}", [])
-    return {"slug": slug, "name": (b or {}).get("name") if s == 200 else slug, "facets": facets(types=["product_type", "franchise", "grader"], collection_slugs=slug)}
+    b = b if s == 200 else {}
+    return {"slug": slug, "name": b.get("name") or slug, "items": b.get("unique_item_count"),
+            "facets": facets(types=["product_type", "franchise", "grader"], collection_slugs=slug)}
 ISSUERS = list(pmap(issuer, slugs).values())
 json.dump({"group": GROUP, "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "all": ALL, "franchise": FR, "grader": GR, "fg": FG,
            "subjects": subjects, "subject": SUB, "subject_grader": SUBG, "sets": sets, "set": SET, "top": TOP, "sealed": SEALED, "copies": COPIES,

@@ -115,9 +115,13 @@ for it in cr.get("issuers") or []:
     f = it.get("facets") or {}; pt = dict(f.get("product_type", []))
     name = re.sub(r"\.io$", "", (it.get("name") or it["slug"]).split(" - ")[0].strip())
     x = iss.setdefault(name, {"name": name, "slugs": [], "n": 0, "graded": 0, "raw": 0, "sealed": 0, "fr": {}})
-    x["slugs"].append(it["slug"]); x["n"] += tot(f.get("product_type")); x["graded"] += pt.get("Graded Card", 0); x["raw"] += pt.get("Raw Card", 0); x["sealed"] += pt.get("Sealed Product", 0)
+    # unique_item_count is exact; a facet sum skips cards that carry no product_type
+    x["slugs"].append(it["slug"]); x["n"] += max(it.get("items") or 0, tot(f.get("product_type"))); x["graded"] += pt.get("Graded Card", 0); x["raw"] += pt.get("Raw Card", 0); x["sealed"] += pt.get("Sealed Product", 0)
     for v, c in f.get("franchise", []): x["fr"][v] = x["fr"].get(v, 0) + c
 S["issuers"] = sorted([dict(x, fr=sorted(x["fr"].items(), key=lambda kv: -kv[1])[:4]) for x in iss.values() if x["n"]], key=lambda x: -x["n"])
+# the headline: every card the issuers hold, when that beats the best single facet total (it should, since facets
+# only count the cards that carry each attribute)
+S["n"] = max(S["n"], sum(x["n"] for x in S["issuers"]))
 # franchise champions: the most valuable copy found for each franchise with at least 2,000 cards
 S["champs"] = []
 for fr in S["franchises"]:
