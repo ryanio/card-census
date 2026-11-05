@@ -1,5 +1,5 @@
 card,grader,grade,count
-Pikachu,all,1,13
+Pikachu,all,1,12
 Pikachu,all,1.5,1
 Pikachu,all,2,9
 Pikachu,all,3,14
@@ -7,43 +7,43 @@ Pikachu,all,3.5,2
 Pikachu,all,4,42
 Pikachu,all,4.5,4
 Pikachu,all,5,85
-Pikachu,all,5.5,21
-Pikachu,all,6,221
-Pikachu,all,6.5,40
-Pikachu,all,7,365
-Pikachu,all,7.5,131
-Pikachu,all,8,1170
-Pikachu,all,8.5,553
-Pikachu,all,9,4643
-Pikachu,all,9.5,482
-Pikachu,all,10,8773
-Pikachu,PSA,1,13
+Pikachu,all,5.5,20
+Pikachu,all,6,222
+Pikachu,all,6.5,39
+Pikachu,all,7,358
+Pikachu,all,7.5,132
+Pikachu,all,8,1164
+Pikachu,all,8.5,555
+Pikachu,all,9,4657
+Pikachu,all,9.5,479
+Pikachu,all,10,8712
+Pikachu,PSA,1,12
 Pikachu,PSA,2,8
 Pikachu,PSA,3,13
 Pikachu,PSA,4,35
 Pikachu,PSA,5,74
 Pikachu,PSA,6,204
-Pikachu,PSA,7,306
-Pikachu,PSA,8,932
+Pikachu,PSA,7,299
+Pikachu,PSA,8,927
 Pikachu,PSA,8.5,10
-Pikachu,PSA,9,3507
-Pikachu,PSA,10,4485
+Pikachu,PSA,9,3514
+Pikachu,PSA,10,4452
 Pikachu,CGC,1.5,1
 Pikachu,CGC,3,1
 Pikachu,CGC,3.5,2
 Pikachu,CGC,4,6
 Pikachu,CGC,4.5,4
 Pikachu,CGC,5,11
-Pikachu,CGC,5.5,21
-Pikachu,CGC,6,16
-Pikachu,CGC,6.5,40
+Pikachu,CGC,5.5,20
+Pikachu,CGC,6,17
+Pikachu,CGC,6.5,39
 Pikachu,CGC,7,55
-Pikachu,CGC,7.5,131
-Pikachu,CGC,8,236
-Pikachu,CGC,8.5,526
-Pikachu,CGC,9,1099
-Pikachu,CGC,9.5,410
-Pikachu,CGC,10,4216
+Pikachu,CGC,7.5,132
+Pikachu,CGC,8,235
+Pikachu,CGC,8.5,528
+Pikachu,CGC,9,1106
+Pikachu,CGC,9.5,406
+Pikachu,CGC,10,4187
 Monkey D. Luffy,all,1,1
 Monkey D. Luffy,all,2.5,1
 Monkey D. Luffy,all,3,1
@@ -53,61 +53,61 @@ Monkey D. Luffy,all,6,17
 Monkey D. Luffy,all,6.5,2
 Monkey D. Luffy,all,7,25
 Monkey D. Luffy,all,7.5,20
-Monkey D. Luffy,all,8,293
+Monkey D. Luffy,all,8,292
 Monkey D. Luffy,all,8.5,123
-Monkey D. Luffy,all,9,2497
+Monkey D. Luffy,all,9,2501
 Monkey D. Luffy,all,9.5,207
-Monkey D. Luffy,all,10,12591
+Monkey D. Luffy,all,10,12716
 Monkey D. Luffy,PSA,1,1
 Monkey D. Luffy,PSA,3,1
 Monkey D. Luffy,PSA,4,1
 Monkey D. Luffy,PSA,5,3
 Monkey D. Luffy,PSA,6,14
 Monkey D. Luffy,PSA,7,16
-Monkey D. Luffy,PSA,8,244
+Monkey D. Luffy,PSA,8,243
 Monkey D. Luffy,PSA,8.5,1
-Monkey D. Luffy,PSA,9,2157
-Monkey D. Luffy,PSA,10,9642
+Monkey D. Luffy,PSA,9,2159
+Monkey D. Luffy,PSA,10,9761
 Monkey D. Luffy,CGC,6,3
 Monkey D. Luffy,CGC,6.5,2
 Monkey D. Luffy,CGC,7,9
 Monkey D. Luffy,CGC,7.5,20
 Monkey D. Luffy,CGC,8,49
 Monkey D. Luffy,CGC,8.5,121
-Monkey D. Luffy,CGC,9,330
+Monkey D. Luffy,CGC,9,331
 Monkey D. Luffy,CGC,9.5,131
-Monkey D. Luffy,CGC,10,2869
-Charizard,all,1,60
-Charizard,all,2,25
+Monkey D. Luffy,CGC,10,2873
+Charizard,all,1,63
+Charizard,all,2,24
 Charizard,all,2.5,3
-Charizard,all,3,41
+Charizard,all,3,40
 Charizard,all,3.5,5
 Charizard,all,4,57
 Charizard,all,4.5,6
-Charizard,all,5,94
+Charizard,all,5,95
 Charizard,all,5.5,28
-Charizard,all,6,176
-Charizard,all,6.5,32
-Charizard,all,7,278
+Charizard,all,6,178
+Charizard,all,6.5,31
+Charizard,all,7,280
 Charizard,all,7.5,98
-Charizard,all,8,853
-Charizard,all,8.5,435
-Charizard,all,9,3136
-Charizard,all,9.5,415
-Charizard,all,10,6910
-Charizard,PSA,1,60
-Charizard,PSA,2,25
-Charizard,PSA,3,40
+Charizard,all,8,854
+Charizard,all,8.5,434
+Charizard,all,9,3130
+Charizard,all,9.5,419
+Charizard,all,10,6890
+Charizard,PSA,1,63
+Charizard,PSA,2,24
+Charizard,PSA,3,39
 Charizard,PSA,4,50
-Charizard,PSA,5,81
-Charizard,PSA,6,159
+Charizard,PSA,5,82
+Charizard,PSA,6,160
 Charizard,PSA,6.5,1
-Charizard,PSA,7,240
+Charizard,PSA,7,241
 Charizard,PSA,7.5,1
-Charizard,PSA,8,653
+Charizard,PSA,8,652
 Charizard,PSA,8.5,7
-Charizard,PSA,9,2009
-Charizard,PSA,10,2868
+Charizard,PSA,9,2004
+Charizard,PSA,10,2854
 Charizard,CGC,2.5,2
 Charizard,CGC,3,1
 Charizard,CGC,3.5,4
@@ -115,57 +115,57 @@ Charizard,CGC,4,7
 Charizard,CGC,4.5,6
 Charizard,CGC,5,11
 Charizard,CGC,5.5,26
-Charizard,CGC,6,17
-Charizard,CGC,6.5,27
+Charizard,CGC,6,18
+Charizard,CGC,6.5,26
 Charizard,CGC,7,33
 Charizard,CGC,7.5,87
-Charizard,CGC,8,187
-Charizard,CGC,8.5,398
-Charizard,CGC,9,1057
-Charizard,CGC,9.5,330
-Charizard,CGC,10,3978
+Charizard,CGC,8,189
+Charizard,CGC,8.5,397
+Charizard,CGC,9,1056
+Charizard,CGC,9.5,333
+Charizard,CGC,10,3973
 Michael Jordan,all,2,5
 Michael Jordan,all,2.5,1
 Michael Jordan,all,3,9
 Michael Jordan,all,3.5,4
 Michael Jordan,all,4,26
 Michael Jordan,all,4.5,2
-Michael Jordan,all,5,96
-Michael Jordan,all,5.5,4
-Michael Jordan,all,6,262
+Michael Jordan,all,5,100
+Michael Jordan,all,5.5,5
+Michael Jordan,all,6,274
 Michael Jordan,all,6.5,16
-Michael Jordan,all,7,642
-Michael Jordan,all,7.5,174
-Michael Jordan,all,8,2055
-Michael Jordan,all,8.5,800
-Michael Jordan,all,9,2470
+Michael Jordan,all,7,650
+Michael Jordan,all,7.5,175
+Michael Jordan,all,8,2058
+Michael Jordan,all,8.5,807
+Michael Jordan,all,9,2457
 Michael Jordan,all,9.5,253
-Michael Jordan,all,10,668
+Michael Jordan,all,10,670
 Michael Jordan,PSA,2,4
 Michael Jordan,PSA,3,6
 Michael Jordan,PSA,4,21
-Michael Jordan,PSA,5,79
-Michael Jordan,PSA,6,220
+Michael Jordan,PSA,5,83
+Michael Jordan,PSA,6,229
 Michael Jordan,PSA,6.5,1
-Michael Jordan,PSA,7,473
+Michael Jordan,PSA,7,476
 Michael Jordan,PSA,7.5,2
-Michael Jordan,PSA,8,1240
+Michael Jordan,PSA,8,1238
 Michael Jordan,PSA,8.5,14
-Michael Jordan,PSA,9,1388
-Michael Jordan,PSA,10,435
+Michael Jordan,PSA,9,1373
+Michael Jordan,PSA,10,437
 Michael Jordan,CGC,2.5,1
 Michael Jordan,CGC,3,3
 Michael Jordan,CGC,3.5,4
 Michael Jordan,CGC,4,4
 Michael Jordan,CGC,5,12
-Michael Jordan,CGC,5.5,3
-Michael Jordan,CGC,6,38
+Michael Jordan,CGC,5.5,4
+Michael Jordan,CGC,6,41
 Michael Jordan,CGC,6.5,13
-Michael Jordan,CGC,7,151
-Michael Jordan,CGC,7.5,158
-Michael Jordan,CGC,8,769
-Michael Jordan,CGC,8.5,720
-Michael Jordan,CGC,9,972
+Michael Jordan,CGC,7,156
+Michael Jordan,CGC,7.5,159
+Michael Jordan,CGC,8,774
+Michael Jordan,CGC,8.5,728
+Michael Jordan,CGC,9,975
 Michael Jordan,CGC,9.5,174
 Michael Jordan,CGC,10,227
 Eevee,all,2,1
@@ -176,35 +176,35 @@ Eevee,all,5,8
 Eevee,all,5.5,7
 Eevee,all,6,35
 Eevee,all,6.5,11
-Eevee,all,7,78
+Eevee,all,7,77
 Eevee,all,7.5,46
-Eevee,all,8,383
-Eevee,all,8.5,206
-Eevee,all,9,1766
+Eevee,all,8,381
+Eevee,all,8.5,207
+Eevee,all,9,1748
 Eevee,all,9.5,177
-Eevee,all,10,2825
+Eevee,all,10,2815
 Eevee,PSA,2,1
 Eevee,PSA,4,4
 Eevee,PSA,5,8
 Eevee,PSA,6,27
 Eevee,PSA,7,53
-Eevee,PSA,8,278
+Eevee,PSA,8,276
 Eevee,PSA,8.5,4
-Eevee,PSA,9,1272
-Eevee,PSA,10,1436
+Eevee,PSA,9,1258
+Eevee,PSA,10,1426
 Eevee,CGC,3,1
 Eevee,CGC,4.5,2
 Eevee,CGC,5.5,7
 Eevee,CGC,6,8
 Eevee,CGC,6.5,11
-Eevee,CGC,7,25
+Eevee,CGC,7,24
 Eevee,CGC,7.5,46
 Eevee,CGC,8,104
-Eevee,CGC,8.5,201
-Eevee,CGC,9,466
+Eevee,CGC,8.5,202
+Eevee,CGC,9,463
 Eevee,CGC,9.5,157
-Eevee,CGC,10,1361
-Mew,all,1,7
+Eevee,CGC,10,1360
+Mew,all,1,8
 Mew,all,1.5,1
 Mew,all,2,2
 Mew,all,3,3
@@ -214,24 +214,24 @@ Mew,all,5,25
 Mew,all,5.5,7
 Mew,all,6,59
 Mew,all,6.5,6
-Mew,all,7,148
-Mew,all,7.5,39
+Mew,all,7,147
+Mew,all,7.5,40
 Mew,all,8,471
 Mew,all,8.5,176
-Mew,all,9,1723
-Mew,all,9.5,189
+Mew,all,9,1717
+Mew,all,9.5,188
 Mew,all,10,2415
-Mew,PSA,1,7
+Mew,PSA,1,8
 Mew,PSA,2,2
 Mew,PSA,3,2
 Mew,PSA,4,11
 Mew,PSA,5,20
 Mew,PSA,6,51
-Mew,PSA,7,132
-Mew,PSA,8,377
+Mew,PSA,7,131
+Mew,PSA,8,378
 Mew,PSA,8.5,7
-Mew,PSA,9,1141
-Mew,PSA,10,1136
+Mew,PSA,9,1134
+Mew,PSA,10,1133
 Mew,CGC,1.5,1
 Mew,CGC,3,1
 Mew,CGC,4.5,2
@@ -240,12 +240,12 @@ Mew,CGC,5.5,6
 Mew,CGC,6,8
 Mew,CGC,6.5,6
 Mew,CGC,7,16
-Mew,CGC,7.5,39
-Mew,CGC,8,90
+Mew,CGC,7.5,40
+Mew,CGC,8,89
 Mew,CGC,8.5,163
-Mew,CGC,9,562
+Mew,CGC,9,563
 Mew,CGC,9.5,168
-Mew,CGC,10,1250
+Mew,CGC,10,1253
 Umbreon,all,1,8
 Umbreon,all,2,2
 Umbreon,all,3,2
@@ -255,21 +255,21 @@ Umbreon,all,5,5
 Umbreon,all,5.5,3
 Umbreon,all,6,26
 Umbreon,all,6.5,5
-Umbreon,all,7,75
+Umbreon,all,7,76
 Umbreon,all,7.5,22
-Umbreon,all,8,218
-Umbreon,all,8.5,122
-Umbreon,all,9,1119
+Umbreon,all,8,216
+Umbreon,all,8.5,120
+Umbreon,all,9,1113
 Umbreon,all,9.5,194
-Umbreon,all,10,2595
+Umbreon,all,10,2588
 Umbreon,PSA,1,8
 Umbreon,PSA,2,2
 Umbreon,PSA,3,1
 Umbreon,PSA,4,5
 Umbreon,PSA,5,5
 Umbreon,PSA,6,23
-Umbreon,PSA,7,58
-Umbreon,PSA,8,162
+Umbreon,PSA,7,59
+Umbreon,PSA,8,160
 Umbreon,PSA,8.5,2
 Umbreon,PSA,9,705
 Umbreon,PSA,10,979
@@ -281,152 +281,78 @@ Umbreon,CGC,6.5,5
 Umbreon,CGC,7,17
 Umbreon,CGC,7.5,22
 Umbreon,CGC,8,54
-Umbreon,CGC,8.5,116
-Umbreon,CGC,9,401
+Umbreon,CGC,8.5,114
+Umbreon,CGC,9,395
 Umbreon,CGC,9.5,184
-Umbreon,CGC,10,1603
-Gengar,all,1,11
+Umbreon,CGC,10,1595
+Gengar,all,1,12
 Gengar,all,2,3
 Gengar,all,3,2
 Gengar,all,4,18
 Gengar,all,4.5,2
-Gengar,all,5,26
+Gengar,all,5,25
 Gengar,all,5.5,4
-Gengar,all,6,60
+Gengar,all,6,59
 Gengar,all,6.5,8
-Gengar,all,7,80
+Gengar,all,7,79
 Gengar,all,7.5,43
-Gengar,all,8,307
+Gengar,all,8,302
 Gengar,all,8.5,161
-Gengar,all,9,1125
-Gengar,all,9.5,153
-Gengar,all,10,2170
-Gengar,PSA,1,11
+Gengar,all,9,1122
+Gengar,all,9.5,152
+Gengar,all,10,2160
+Gengar,PSA,1,12
 Gengar,PSA,2,3
 Gengar,PSA,3,2
 Gengar,PSA,4,17
 Gengar,PSA,4.5,1
-Gengar,PSA,5,22
+Gengar,PSA,5,21
 Gengar,PSA,6,50
-Gengar,PSA,7,62
-Gengar,PSA,8,225
-Gengar,PSA,9,665
-Gengar,PSA,10,966
+Gengar,PSA,7,61
+Gengar,PSA,8,224
+Gengar,PSA,9,661
+Gengar,PSA,10,953
 Gengar,CGC,4,1
 Gengar,CGC,4.5,1
 Gengar,CGC,5,4
 Gengar,CGC,5.5,4
-Gengar,CGC,6,9
+Gengar,CGC,6,8
 Gengar,CGC,6.5,8
 Gengar,CGC,7,17
 Gengar,CGC,7.5,43
-Gengar,CGC,8,80
+Gengar,CGC,8,76
 Gengar,CGC,8.5,157
-Gengar,CGC,9,454
+Gengar,CGC,9,455
 Gengar,CGC,9.5,141
-Gengar,CGC,10,1200
-Mewtwo,all,1,13
-Mewtwo,all,2,8
-Mewtwo,all,2.5,1
-Mewtwo,all,3,16
-Mewtwo,all,3.5,1
-Mewtwo,all,4,23
-Mewtwo,all,4.5,7
-Mewtwo,all,5,63
-Mewtwo,all,5.5,10
-Mewtwo,all,6,102
-Mewtwo,all,6.5,9
-Mewtwo,all,7,127
-Mewtwo,all,7.5,45
-Mewtwo,all,8,311
-Mewtwo,all,8.5,168
-Mewtwo,all,9,1118
-Mewtwo,all,9.5,132
-Mewtwo,all,10,1900
-Mewtwo,PSA,1,13
-Mewtwo,PSA,2,6
-Mewtwo,PSA,3,13
-Mewtwo,PSA,4,17
-Mewtwo,PSA,5,57
-Mewtwo,PSA,6,89
-Mewtwo,PSA,7,109
-Mewtwo,PSA,8,241
-Mewtwo,PSA,8.5,6
-Mewtwo,PSA,9,664
-Mewtwo,PSA,10,789
-Mewtwo,CGC,2,2
-Mewtwo,CGC,2.5,1
-Mewtwo,CGC,3,3
-Mewtwo,CGC,3.5,1
-Mewtwo,CGC,4,4
-Mewtwo,CGC,4.5,6
-Mewtwo,CGC,5,5
-Mewtwo,CGC,5.5,9
-Mewtwo,CGC,6,12
-Mewtwo,CGC,6.5,9
-Mewtwo,CGC,7,16
-Mewtwo,CGC,7.5,44
-Mewtwo,CGC,8,64
-Mewtwo,CGC,8.5,150
-Mewtwo,CGC,9,441
-Mewtwo,CGC,9.5,114
-Mewtwo,CGC,10,1085
-Shohei Ohtani,all,3,1
-Shohei Ohtani,all,4,2
-Shohei Ohtani,all,5,5
-Shohei Ohtani,all,6,107
-Shohei Ohtani,all,7,117
-Shohei Ohtani,all,7.5,9
-Shohei Ohtani,all,8,680
-Shohei Ohtani,all,8.5,62
-Shohei Ohtani,all,9,1367
-Shohei Ohtani,all,9.5,166
-Shohei Ohtani,all,10,1556
-Shohei Ohtani,PSA,3,1
-Shohei Ohtani,PSA,4,2
-Shohei Ohtani,PSA,5,5
-Shohei Ohtani,PSA,6,105
-Shohei Ohtani,PSA,7,112
-Shohei Ohtani,PSA,8,630
-Shohei Ohtani,PSA,8.5,3
-Shohei Ohtani,PSA,9,1253
-Shohei Ohtani,PSA,10,1146
-Shohei Ohtani,CGC,6,2
-Shohei Ohtani,CGC,7,5
-Shohei Ohtani,CGC,7.5,9
-Shohei Ohtani,CGC,8,49
-Shohei Ohtani,CGC,8.5,56
-Shohei Ohtani,CGC,9,74
-Shohei Ohtani,CGC,9.5,66
-Shohei Ohtani,CGC,10,314
+Gengar,CGC,10,1203
 Charmander,all,1,2
 Charmander,all,2,1
 Charmander,all,2.5,1
 Charmander,all,3,4
 Charmander,all,3.5,2
-Charmander,all,4,6
-Charmander,all,5,18
+Charmander,all,4,5
+Charmander,all,5,17
 Charmander,all,5.5,9
 Charmander,all,6,38
 Charmander,all,6.5,15
 Charmander,all,7,113
 Charmander,all,7.5,36
-Charmander,all,8,325
+Charmander,all,8,326
 Charmander,all,8.5,131
-Charmander,all,9,1174
-Charmander,all,9.5,136
-Charmander,all,10,1667
+Charmander,all,9,1168
+Charmander,all,9.5,137
+Charmander,all,10,1673
 Charmander,PSA,1,2
 Charmander,PSA,2,1
 Charmander,PSA,3,4
-Charmander,PSA,4,4
-Charmander,PSA,5,15
+Charmander,PSA,4,3
+Charmander,PSA,5,14
 Charmander,PSA,6,32
 Charmander,PSA,7,97
-Charmander,PSA,8,268
+Charmander,PSA,8,270
 Charmander,PSA,8.5,6
-Charmander,PSA,9,892
-Charmander,PSA,10,830
+Charmander,PSA,9,887
+Charmander,PSA,10,836
 Charmander,CGC,2.5,1
 Charmander,CGC,3.5,2
 Charmander,CGC,4,2
@@ -436,32 +362,106 @@ Charmander,CGC,6,5
 Charmander,CGC,6.5,14
 Charmander,CGC,7,16
 Charmander,CGC,7.5,35
-Charmander,CGC,8,57
+Charmander,CGC,8,56
 Charmander,CGC,8.5,124
-Charmander,CGC,9,273
+Charmander,CGC,9,272
 Charmander,CGC,9.5,113
 Charmander,CGC,10,821
+Mewtwo,all,1,13
+Mewtwo,all,2,9
+Mewtwo,all,2.5,1
+Mewtwo,all,3,16
+Mewtwo,all,3.5,1
+Mewtwo,all,4,24
+Mewtwo,all,4.5,7
+Mewtwo,all,5,61
+Mewtwo,all,5.5,10
+Mewtwo,all,6,101
+Mewtwo,all,6.5,10
+Mewtwo,all,7,125
+Mewtwo,all,7.5,45
+Mewtwo,all,8,307
+Mewtwo,all,8.5,169
+Mewtwo,all,9,1117
+Mewtwo,all,9.5,132
+Mewtwo,all,10,1889
+Mewtwo,PSA,1,13
+Mewtwo,PSA,2,7
+Mewtwo,PSA,3,13
+Mewtwo,PSA,4,18
+Mewtwo,PSA,5,55
+Mewtwo,PSA,6,88
+Mewtwo,PSA,7,105
+Mewtwo,PSA,8,237
+Mewtwo,PSA,8.5,6
+Mewtwo,PSA,9,662
+Mewtwo,PSA,10,780
+Mewtwo,CGC,2,2
+Mewtwo,CGC,2.5,1
+Mewtwo,CGC,3,3
+Mewtwo,CGC,3.5,1
+Mewtwo,CGC,4,4
+Mewtwo,CGC,4.5,6
+Mewtwo,CGC,5,5
+Mewtwo,CGC,5.5,9
+Mewtwo,CGC,6,12
+Mewtwo,CGC,6.5,10
+Mewtwo,CGC,7,18
+Mewtwo,CGC,7.5,44
+Mewtwo,CGC,8,64
+Mewtwo,CGC,8.5,151
+Mewtwo,CGC,9,442
+Mewtwo,CGC,9.5,113
+Mewtwo,CGC,10,1083
+Shohei Ohtani,all,3,1
+Shohei Ohtani,all,4,2
+Shohei Ohtani,all,5,5
+Shohei Ohtani,all,6,107
+Shohei Ohtani,all,7,120
+Shohei Ohtani,all,7.5,10
+Shohei Ohtani,all,8,675
+Shohei Ohtani,all,8.5,68
+Shohei Ohtani,all,9,1364
+Shohei Ohtani,all,9.5,168
+Shohei Ohtani,all,10,1546
+Shohei Ohtani,PSA,3,1
+Shohei Ohtani,PSA,4,2
+Shohei Ohtani,PSA,5,5
+Shohei Ohtani,PSA,6,105
+Shohei Ohtani,PSA,7,115
+Shohei Ohtani,PSA,8,624
+Shohei Ohtani,PSA,8.5,3
+Shohei Ohtani,PSA,9,1243
+Shohei Ohtani,PSA,10,1131
+Shohei Ohtani,CGC,6,2
+Shohei Ohtani,CGC,7,5
+Shohei Ohtani,CGC,7.5,10
+Shohei Ohtani,CGC,8,50
+Shohei Ohtani,CGC,8.5,62
+Shohei Ohtani,CGC,9,81
+Shohei Ohtani,CGC,9.5,68
+Shohei Ohtani,CGC,10,318
 Cooper Flagg,all,5,6
 Cooper Flagg,all,5.5,1
 Cooper Flagg,all,6,53
-Cooper Flagg,all,7,54
+Cooper Flagg,all,7,56
 Cooper Flagg,all,7.5,1
 Cooper Flagg,all,8,268
-Cooper Flagg,all,8.5,24
-Cooper Flagg,all,9,1336
+Cooper Flagg,all,8.5,27
+Cooper Flagg,all,9,1309
 Cooper Flagg,all,9.5,218
-Cooper Flagg,all,10,2062
+Cooper Flagg,all,10,2010
 Cooper Flagg,PSA,5,6
 Cooper Flagg,PSA,6,53
-Cooper Flagg,PSA,7,54
+Cooper Flagg,PSA,7,56
 Cooper Flagg,PSA,8,254
 Cooper Flagg,PSA,8.5,4
-Cooper Flagg,PSA,9,1283
-Cooper Flagg,PSA,10,1587
+Cooper Flagg,PSA,9,1257
+Cooper Flagg,PSA,10,1540
 Cooper Flagg,CGC,5.5,1
 Cooper Flagg,CGC,7.5,1
 Cooper Flagg,CGC,8,14
-Cooper Flagg,CGC,8.5,20
+Cooper Flagg,CGC,8.5,23
 Cooper Flagg,CGC,9,45
 Cooper Flagg,CGC,9.5,30
 Cooper Flagg,CGC,10,277
@@ -472,14 +472,14 @@ Nami,all,7,6
 Nami,all,7.5,1
 Nami,all,8,33
 Nami,all,8.5,14
-Nami,all,9,468
+Nami,all,9,467
 Nami,all,9.5,56
-Nami,all,10,3314
+Nami,all,10,3330
 Nami,PSA,6,1
 Nami,PSA,7,2
 Nami,PSA,8,23
-Nami,PSA,9,380
-Nami,PSA,10,2413
+Nami,PSA,9,379
+Nami,PSA,10,2434
 Nami,CGC,5.5,2
 Nami,CGC,6.5,2
 Nami,CGC,7,4
@@ -488,7 +488,7 @@ Nami,CGC,8,10
 Nami,CGC,8.5,14
 Nami,CGC,9,86
 Nami,CGC,9.5,25
-Nami,CGC,10,849
+Nami,CGC,10,845
 Bulbasaur,all,1,1
 Bulbasaur,all,3,6
 Bulbasaur,all,3.5,2
@@ -498,23 +498,23 @@ Bulbasaur,all,5,12
 Bulbasaur,all,5.5,4
 Bulbasaur,all,6,25
 Bulbasaur,all,6.5,2
-Bulbasaur,all,7,66
+Bulbasaur,all,7,67
 Bulbasaur,all,7.5,29
-Bulbasaur,all,8,245
-Bulbasaur,all,8.5,107
-Bulbasaur,all,9,1079
-Bulbasaur,all,9.5,130
-Bulbasaur,all,10,1917
+Bulbasaur,all,8,244
+Bulbasaur,all,8.5,106
+Bulbasaur,all,9,1084
+Bulbasaur,all,9.5,131
+Bulbasaur,all,10,1898
 Bulbasaur,PSA,1,1
 Bulbasaur,PSA,3,4
 Bulbasaur,PSA,4,2
 Bulbasaur,PSA,5,11
 Bulbasaur,PSA,6,16
-Bulbasaur,PSA,7,53
-Bulbasaur,PSA,8,212
+Bulbasaur,PSA,7,54
+Bulbasaur,PSA,8,211
 Bulbasaur,PSA,8.5,3
-Bulbasaur,PSA,9,803
-Bulbasaur,PSA,10,973
+Bulbasaur,PSA,9,811
+Bulbasaur,PSA,10,955
 Bulbasaur,CGC,3,2
 Bulbasaur,CGC,3.5,2
 Bulbasaur,CGC,4,1
@@ -526,33 +526,71 @@ Bulbasaur,CGC,6.5,2
 Bulbasaur,CGC,7,13
 Bulbasaur,CGC,7.5,29
 Bulbasaur,CGC,8,33
-Bulbasaur,CGC,8.5,104
-Bulbasaur,CGC,9,266
-Bulbasaur,CGC,9.5,122
-Bulbasaur,CGC,10,932
+Bulbasaur,CGC,8.5,103
+Bulbasaur,CGC,9,263
+Bulbasaur,CGC,9.5,123
+Bulbasaur,CGC,10,931
 Mega Charizard X,all,4,1
 Mega Charizard X,all,5,3
 Mega Charizard X,all,6,11
 Mega Charizard X,all,7,20
 Mega Charizard X,all,7.5,5
-Mega Charizard X,all,8,160
+Mega Charizard X,all,8,162
 Mega Charizard X,all,8.5,42
-Mega Charizard X,all,9,1139
-Mega Charizard X,all,9.5,94
-Mega Charizard X,all,10,2380
+Mega Charizard X,all,9,1124
+Mega Charizard X,all,9.5,92
+Mega Charizard X,all,10,2370
 Mega Charizard X,PSA,4,1
 Mega Charizard X,PSA,5,3
 Mega Charizard X,PSA,6,11
 Mega Charizard X,PSA,7,20
-Mega Charizard X,PSA,8,134
-Mega Charizard X,PSA,9,878
-Mega Charizard X,PSA,10,994
+Mega Charizard X,PSA,8,136
+Mega Charizard X,PSA,9,863
+Mega Charizard X,PSA,10,990
 Mega Charizard X,CGC,7.5,5
-Mega Charizard X,CGC,8,26
+Mega Charizard X,CGC,8,27
 Mega Charizard X,CGC,8.5,39
-Mega Charizard X,CGC,9,249
+Mega Charizard X,CGC,9,250
 Mega Charizard X,CGC,9.5,75
-Mega Charizard X,CGC,10,1385
+Mega Charizard X,CGC,10,1379
+Squirtle,all,1,3
+Squirtle,all,3,1
+Squirtle,all,3.5,1
+Squirtle,all,4,4
+Squirtle,all,4.5,3
+Squirtle,all,5,16
+Squirtle,all,5.5,5
+Squirtle,all,6,39
+Squirtle,all,6.5,7
+Squirtle,all,7,63
+Squirtle,all,7.5,26
+Squirtle,all,8,189
+Squirtle,all,8.5,90
+Squirtle,all,9,869
+Squirtle,all,9.5,94
+Squirtle,all,10,1423
+Squirtle,PSA,1,3
+Squirtle,PSA,3,1
+Squirtle,PSA,4,4
+Squirtle,PSA,5,14
+Squirtle,PSA,6,32
+Squirtle,PSA,7,49
+Squirtle,PSA,8,151
+Squirtle,PSA,9,659
+Squirtle,PSA,10,672
+Squirtle,CGC,3.5,1
+Squirtle,CGC,4.5,3
+Squirtle,CGC,5,2
+Squirtle,CGC,5.5,5
+Squirtle,CGC,6,7
+Squirtle,CGC,6.5,6
+Squirtle,CGC,7,14
+Squirtle,CGC,7.5,26
+Squirtle,CGC,8,38
+Squirtle,CGC,8.5,84
+Squirtle,CGC,9,197
+Squirtle,CGC,9.5,82
+Squirtle,CGC,10,735
 Snorlax,all,1,2
 Snorlax,all,3,1
 Snorlax,all,4,8
@@ -563,20 +601,20 @@ Snorlax,all,6,41
 Snorlax,all,6.5,7
 Snorlax,all,7,56
 Snorlax,all,7.5,23
-Snorlax,all,8,205
-Snorlax,all,8.5,113
-Snorlax,all,9,858
-Snorlax,all,9.5,100
-Snorlax,all,10,1452
+Snorlax,all,8,204
+Snorlax,all,8.5,115
+Snorlax,all,9,841
+Snorlax,all,9.5,99
+Snorlax,all,10,1450
 Snorlax,PSA,1,2
 Snorlax,PSA,3,1
 Snorlax,PSA,4,8
 Snorlax,PSA,5,22
 Snorlax,PSA,6,37
 Snorlax,PSA,7,49
-Snorlax,PSA,8,152
-Snorlax,PSA,9,594
-Snorlax,PSA,10,718
+Snorlax,PSA,8,151
+Snorlax,PSA,9,578
+Snorlax,PSA,10,712
 Snorlax,CGC,4.5,1
 Snorlax,CGC,5.5,5
 Snorlax,CGC,6,4
@@ -584,74 +622,10 @@ Snorlax,CGC,6.5,7
 Snorlax,CGC,7,7
 Snorlax,CGC,7.5,22
 Snorlax,CGC,8,52
-Snorlax,CGC,8.5,109
-Snorlax,CGC,9,261
+Snorlax,CGC,8.5,111
+Snorlax,CGC,9,260
 Snorlax,CGC,9.5,93
-Snorlax,CGC,10,730
-Squirtle,all,1,3
-Squirtle,all,3,1
-Squirtle,all,3.5,1
-Squirtle,all,4,3
-Squirtle,all,4.5,3
-Squirtle,all,5,16
-Squirtle,all,5.5,5
-Squirtle,all,6,38
-Squirtle,all,6.5,7
-Squirtle,all,7,62
-Squirtle,all,7.5,26
-Squirtle,all,8,192
-Squirtle,all,8.5,82
-Squirtle,all,9,870
-Squirtle,all,9.5,95
-Squirtle,all,10,1422
-Squirtle,PSA,1,3
-Squirtle,PSA,3,1
-Squirtle,PSA,4,3
-Squirtle,PSA,5,14
-Squirtle,PSA,6,31
-Squirtle,PSA,7,48
-Squirtle,PSA,8,153
-Squirtle,PSA,9,661
-Squirtle,PSA,10,667
-Squirtle,CGC,3.5,1
-Squirtle,CGC,4.5,3
-Squirtle,CGC,5,2
-Squirtle,CGC,5.5,5
-Squirtle,CGC,6,7
-Squirtle,CGC,6.5,6
-Squirtle,CGC,7,14
-Squirtle,CGC,7.5,26
-Squirtle,CGC,8,39
-Squirtle,CGC,8.5,76
-Squirtle,CGC,9,196
-Squirtle,CGC,9.5,82
-Squirtle,CGC,10,739
-Victor Wembanyama,all,4,1
-Victor Wembanyama,all,5,2
-Victor Wembanyama,all,6,17
-Victor Wembanyama,all,6.5,1
-Victor Wembanyama,all,7,17
-Victor Wembanyama,all,8,206
-Victor Wembanyama,all,8.5,27
-Victor Wembanyama,all,9,870
-Victor Wembanyama,all,9.5,87
-Victor Wembanyama,all,10,1348
-Victor Wembanyama,PSA,4,1
-Victor Wembanyama,PSA,5,1
-Victor Wembanyama,PSA,6,16
-Victor Wembanyama,PSA,7,17
-Victor Wembanyama,PSA,8,196
-Victor Wembanyama,PSA,8.5,3
-Victor Wembanyama,PSA,9,801
-Victor Wembanyama,PSA,10,1067
-Victor Wembanyama,CGC,5,1
-Victor Wembanyama,CGC,6,1
-Victor Wembanyama,CGC,6.5,1
-Victor Wembanyama,CGC,8,9
-Victor Wembanyama,CGC,8.5,22
-Victor Wembanyama,CGC,9,56
-Victor Wembanyama,CGC,9.5,55
-Victor Wembanyama,CGC,10,259
+Snorlax,CGC,10,734
 Jolteon,all,1,4
 Jolteon,all,2,2
 Jolteon,all,2.5,1
@@ -662,23 +636,23 @@ Jolteon,all,5,11
 Jolteon,all,5.5,2
 Jolteon,all,6,32
 Jolteon,all,6.5,10
-Jolteon,all,7,44
+Jolteon,all,7,43
 Jolteon,all,7.5,25
 Jolteon,all,8,136
 Jolteon,all,8.5,113
-Jolteon,all,9,593
-Jolteon,all,9.5,96
-Jolteon,all,10,1418
+Jolteon,all,9,588
+Jolteon,all,9.5,98
+Jolteon,all,10,1415
 Jolteon,PSA,1,4
 Jolteon,PSA,2,2
 Jolteon,PSA,3,1
 Jolteon,PSA,4,7
 Jolteon,PSA,5,8
 Jolteon,PSA,6,24
-Jolteon,PSA,7,31
+Jolteon,PSA,7,30
 Jolteon,PSA,8,85
-Jolteon,PSA,9,328
-Jolteon,PSA,10,511
+Jolteon,PSA,9,323
+Jolteon,PSA,10,507
 Jolteon,CGC,2.5,1
 Jolteon,CGC,3,1
 Jolteon,CGC,4.5,4
@@ -691,36 +665,60 @@ Jolteon,CGC,7.5,24
 Jolteon,CGC,8,50
 Jolteon,CGC,8.5,112
 Jolteon,CGC,9,259
-Jolteon,CGC,9.5,88
-Jolteon,CGC,10,896
+Jolteon,CGC,9.5,90
+Jolteon,CGC,10,897
+Victor Wembanyama,all,4,1
+Victor Wembanyama,all,5,2
+Victor Wembanyama,all,6,17
+Victor Wembanyama,all,6.5,1
+Victor Wembanyama,all,7,17
+Victor Wembanyama,all,8,207
+Victor Wembanyama,all,8.5,27
+Victor Wembanyama,all,9,864
+Victor Wembanyama,all,9.5,86
+Victor Wembanyama,all,10,1343
+Victor Wembanyama,PSA,4,1
+Victor Wembanyama,PSA,5,1
+Victor Wembanyama,PSA,6,16
+Victor Wembanyama,PSA,7,17
+Victor Wembanyama,PSA,8,197
+Victor Wembanyama,PSA,8.5,3
+Victor Wembanyama,PSA,9,795
+Victor Wembanyama,PSA,10,1062
+Victor Wembanyama,CGC,5,1
+Victor Wembanyama,CGC,6,1
+Victor Wembanyama,CGC,6.5,1
+Victor Wembanyama,CGC,8,9
+Victor Wembanyama,CGC,8.5,22
+Victor Wembanyama,CGC,9,56
+Victor Wembanyama,CGC,9.5,55
+Victor Wembanyama,CGC,10,259
 Blastoise,all,1,18
-Blastoise,all,1.5,1
 Blastoise,all,2,8
 Blastoise,all,3,10
 Blastoise,all,3.5,2
-Blastoise,all,4,25
+Blastoise,all,4,24
 Blastoise,all,4.5,6
 Blastoise,all,5,38
 Blastoise,all,5.5,3
-Blastoise,all,6,50
+Blastoise,all,6,52
 Blastoise,all,6.5,9
 Blastoise,all,7,91
 Blastoise,all,7.5,24
-Blastoise,all,8,221
-Blastoise,all,8.5,119
-Blastoise,all,9,664
-Blastoise,all,9.5,92
-Blastoise,all,10,1252
+Blastoise,all,8,222
+Blastoise,all,8.5,120
+Blastoise,all,9,666
+Blastoise,all,9.5,91
+Blastoise,all,10,1253
 Blastoise,PSA,1,18
-Blastoise,PSA,1.5,1
 Blastoise,PSA,2,8
 Blastoise,PSA,3,10
-Blastoise,PSA,4,25
+Blastoise,PSA,4,24
 Blastoise,PSA,5,31
-Blastoise,PSA,6,46
-Blastoise,PSA,7,84
-Blastoise,PSA,8,167
-Blastoise,PSA,9,408
+Blastoise,PSA,6,48
+Blastoise,PSA,7,83
+Blastoise,PSA,8,168
+Blastoise,PSA,9,410
 Blastoise,PSA,10,476
 Blastoise,CGC,3.5,2
 Blastoise,CGC,4.5,5
@@ -728,79 +726,79 @@ Blastoise,CGC,5,7
 Blastoise,CGC,5.5,3
 Blastoise,CGC,6,2
 Blastoise,CGC,6.5,9
-Blastoise,CGC,7,7
+Blastoise,CGC,7,8
 Blastoise,CGC,7.5,20
 Blastoise,CGC,8,50
-Blastoise,CGC,8.5,112
+Blastoise,CGC,8.5,113
 Blastoise,CGC,9,248
-Blastoise,CGC,9.5,87
-Blastoise,CGC,10,771
+Blastoise,CGC,9.5,86
+Blastoise,CGC,10,772
 Vaporeon,all,1,4
 Vaporeon,all,3,2
 Vaporeon,all,4,9
 Vaporeon,all,4.5,1
-Vaporeon,all,5,25
+Vaporeon,all,5,26
 Vaporeon,all,5.5,5
 Vaporeon,all,6,34
 Vaporeon,all,6.5,2
-Vaporeon,all,7,50
-Vaporeon,all,7.5,30
+Vaporeon,all,7,48
+Vaporeon,all,7.5,29
 Vaporeon,all,8,165
 Vaporeon,all,8.5,106
-Vaporeon,all,9,559
+Vaporeon,all,9,553
 Vaporeon,all,9.5,88
-Vaporeon,all,10,1365
+Vaporeon,all,10,1361
 Vaporeon,PSA,1,4
 Vaporeon,PSA,3,1
 Vaporeon,PSA,4,8
-Vaporeon,PSA,5,22
+Vaporeon,PSA,5,23
 Vaporeon,PSA,6,28
-Vaporeon,PSA,7,37
+Vaporeon,PSA,7,36
 Vaporeon,PSA,8,114
-Vaporeon,PSA,9,335
-Vaporeon,PSA,10,449
+Vaporeon,PSA,9,333
+Vaporeon,PSA,10,445
 Vaporeon,CGC,3,1
 Vaporeon,CGC,4.5,1
 Vaporeon,CGC,5,2
 Vaporeon,CGC,5.5,5
 Vaporeon,CGC,6,5
 Vaporeon,CGC,6.5,2
-Vaporeon,CGC,7,11
-Vaporeon,CGC,7.5,28
+Vaporeon,CGC,7,10
+Vaporeon,CGC,7.5,27
 Vaporeon,CGC,8,49
 Vaporeon,CGC,8.5,106
-Vaporeon,CGC,9,213
+Vaporeon,CGC,9,209
 Vaporeon,CGC,9.5,85
 Vaporeon,CGC,10,909
-Venusaur,all,1,11
+Venusaur,all,1,12
 Venusaur,all,2,7
 Venusaur,all,2.5,1
 Venusaur,all,3,17
 Venusaur,all,3.5,2
-Venusaur,all,4,30
+Venusaur,all,4,29
 Venusaur,all,4.5,2
 Venusaur,all,5,45
 Venusaur,all,5.5,8
 Venusaur,all,6,53
-Venusaur,all,6.5,21
-Venusaur,all,7,83
+Venusaur,all,6.5,20
+Venusaur,all,7,82
 Venusaur,all,7.5,28
-Venusaur,all,8,174
-Venusaur,all,8.5,86
-Venusaur,all,9,652
+Venusaur,all,8,175
+Venusaur,all,8.5,85
+Venusaur,all,9,650
 Venusaur,all,9.5,73
-Venusaur,all,10,1295
-Venusaur,PSA,1,11
+Venusaur,all,10,1288
+Venusaur,PSA,1,12
 Venusaur,PSA,2,7
 Venusaur,PSA,3,16
-Venusaur,PSA,4,30
+Venusaur,PSA,4,29
 Venusaur,PSA,5,43
 Venusaur,PSA,6,45
-Venusaur,PSA,7,70
-Venusaur,PSA,8,116
+Venusaur,PSA,7,69
+Venusaur,PSA,8,117
 Venusaur,PSA,8.5,2
-Venusaur,PSA,9,403
-Venusaur,PSA,10,515
+Venusaur,PSA,9,402
+Venusaur,PSA,10,510
 Venusaur,CGC,2.5,1
 Venusaur,CGC,3,1
 Venusaur,CGC,3.5,2
@@ -812,10 +810,10 @@ Venusaur,CGC,6.5,18
 Venusaur,CGC,7,12
 Venusaur,CGC,7.5,26
 Venusaur,CGC,8,55
-Venusaur,CGC,8.5,80
+Venusaur,CGC,8.5,78
 Venusaur,CGC,9,238
 Venusaur,CGC,9.5,67
-Venusaur,CGC,10,770
+Venusaur,CGC,10,768
 Flareon,all,1,5
 Flareon,all,2,2
 Flareon,all,4,4
@@ -825,11 +823,11 @@ Flareon,all,6,17
 Flareon,all,6.5,8
 Flareon,all,7,51
 Flareon,all,7.5,21
-Flareon,all,8,142
+Flareon,all,8,143
 Flareon,all,8.5,75
-Flareon,all,9,577
+Flareon,all,9,572
 Flareon,all,9.5,89
-Flareon,all,10,1335
+Flareon,all,10,1330
 Flareon,PSA,1,5
 Flareon,PSA,2,2
 Flareon,PSA,4,2
@@ -837,19 +835,19 @@ Flareon,PSA,5,13
 Flareon,PSA,6,13
 Flareon,PSA,7,43
 Flareon,PSA,8,109
-Flareon,PSA,9,318
-Flareon,PSA,10,481
+Flareon,PSA,9,313
+Flareon,PSA,10,477
 Flareon,CGC,4,2
 Flareon,CGC,5.5,2
 Flareon,CGC,6,4
 Flareon,CGC,6.5,8
 Flareon,CGC,7,8
 Flareon,CGC,7.5,21
-Flareon,CGC,8,29
+Flareon,CGC,8,30
 Flareon,CGC,8.5,71
 Flareon,CGC,9,248
 Flareon,CGC,9.5,81
-Flareon,CGC,10,847
+Flareon,CGC,10,846
 Rayquaza,all,1,4
 Rayquaza,all,2,3
 Rayquaza,all,2.5,1
@@ -861,10 +859,10 @@ Rayquaza,all,6.5,1
 Rayquaza,all,7,59
 Rayquaza,all,7.5,20
 Rayquaza,all,8,150
-Rayquaza,all,8.5,94
-Rayquaza,all,9,684
+Rayquaza,all,8.5,95
+Rayquaza,all,9,686
 Rayquaza,all,9.5,123
-Rayquaza,all,10,1244
+Rayquaza,all,10,1245
 Rayquaza,PSA,1,4
 Rayquaza,PSA,2,2
 Rayquaza,PSA,3,2
@@ -872,10 +870,10 @@ Rayquaza,PSA,4,5
 Rayquaza,PSA,5,12
 Rayquaza,PSA,6,29
 Rayquaza,PSA,7,44
-Rayquaza,PSA,8,83
+Rayquaza,PSA,8,84
 Rayquaza,PSA,8.5,1
-Rayquaza,PSA,9,358
-Rayquaza,PSA,10,438
+Rayquaza,PSA,9,360
+Rayquaza,PSA,10,436
 Rayquaza,CGC,2,1
 Rayquaza,CGC,4,1
 Rayquaza,CGC,5,2
@@ -883,34 +881,34 @@ Rayquaza,CGC,6,5
 Rayquaza,CGC,6.5,1
 Rayquaza,CGC,7,14
 Rayquaza,CGC,7.5,20
-Rayquaza,CGC,8,66
-Rayquaza,CGC,8.5,92
+Rayquaza,CGC,8,65
+Rayquaza,CGC,8.5,93
 Rayquaza,CGC,9,318
 Rayquaza,CGC,9.5,107
-Rayquaza,CGC,10,793
+Rayquaza,CGC,10,796
 LeBron James,all,1,1
 LeBron James,all,2,1
-LeBron James,all,5,3
+LeBron James,all,5,4
 LeBron James,all,6,17
 LeBron James,all,7,39
-LeBron James,all,8,180
-LeBron James,all,8.5,30
-LeBron James,all,9,702
-LeBron James,all,9.5,80
-LeBron James,all,10,810
+LeBron James,all,8,179
+LeBron James,all,8.5,28
+LeBron James,all,9,705
+LeBron James,all,9.5,81
+LeBron James,all,10,806
 LeBron James,PSA,1,1
-LeBron James,PSA,5,3
+LeBron James,PSA,5,4
 LeBron James,PSA,6,17
 LeBron James,PSA,7,36
-LeBron James,PSA,8,168
+LeBron James,PSA,8,167
 LeBron James,PSA,8.5,5
-LeBron James,PSA,9,620
-LeBron James,PSA,10,665
+LeBron James,PSA,9,621
+LeBron James,PSA,10,661
 LeBron James,CGC,2,1
 LeBron James,CGC,7,3
 LeBron James,CGC,8,6
-LeBron James,CGC,8.5,7
-LeBron James,CGC,9,45
+LeBron James,CGC,8.5,6
+LeBron James,CGC,9,47
 LeBron James,CGC,9.5,19
 LeBron James,CGC,10,133
 Espeon,all,1,2
@@ -922,20 +920,20 @@ Espeon,all,6,15
 Espeon,all,6.5,1
 Espeon,all,7,25
 Espeon,all,7.5,7
-Espeon,all,8,129
+Espeon,all,8,126
 Espeon,all,8.5,86
-Espeon,all,9,590
-Espeon,all,9.5,91
-Espeon,all,10,1359
+Espeon,all,9,589
+Espeon,all,9.5,92
+Espeon,all,10,1356
 Espeon,PSA,1,2
 Espeon,PSA,4,3
 Espeon,PSA,5,3
 Espeon,PSA,6,13
 Espeon,PSA,7,19
-Espeon,PSA,8,91
+Espeon,PSA,8,89
 Espeon,PSA,8.5,1
 Espeon,PSA,9,360
-Espeon,PSA,10,548
+Espeon,PSA,10,551
 Espeon,CGC,4.5,1
 Espeon,CGC,5,2
 Espeon,CGC,5.5,2
@@ -943,55 +941,32 @@ Espeon,CGC,6,1
 Espeon,CGC,6.5,1
 Espeon,CGC,7,5
 Espeon,CGC,7.5,6
-Espeon,CGC,8,33
+Espeon,CGC,8,32
 Espeon,CGC,8.5,82
-Espeon,CGC,9,224
-Espeon,CGC,9.5,85
-Espeon,CGC,10,805
+Espeon,CGC,9,223
+Espeon,CGC,9.5,86
+Espeon,CGC,10,799
 Boa Hancock,all,3,1
 Boa Hancock,all,6,3
 Boa Hancock,all,7,2
 Boa Hancock,all,7.5,4
 Boa Hancock,all,8,20
 Boa Hancock,all,8.5,14
-Boa Hancock,all,9,334
+Boa Hancock,all,9,327
 Boa Hancock,all,9.5,33
-Boa Hancock,all,10,1703
+Boa Hancock,all,10,1719
 Boa Hancock,PSA,3,1
 Boa Hancock,PSA,6,3
 Boa Hancock,PSA,7,1
 Boa Hancock,PSA,8,14
-Boa Hancock,PSA,9,291
-Boa Hancock,PSA,10,1296
+Boa Hancock,PSA,9,284
+Boa Hancock,PSA,10,1313
 Boa Hancock,CGC,7.5,4
 Boa Hancock,CGC,8,6
 Boa Hancock,CGC,8.5,14
 Boa Hancock,CGC,9,43
 Boa Hancock,CGC,9.5,21
 Boa Hancock,CGC,10,359
-Mega Gengar,all,5,1
-Mega Gengar,all,6,5
-Mega Gengar,all,7,5
-Mega Gengar,all,7.5,3
-Mega Gengar,all,8,33
-Mega Gengar,all,8.5,12
-Mega Gengar,all,9,453
-Mega Gengar,all,9.5,43
-Mega Gengar,all,10,1580
-Mega Gengar,PSA,6,4
-Mega Gengar,PSA,7,4
-Mega Gengar,PSA,8,26
-Mega Gengar,PSA,9,337
-Mega Gengar,PSA,10,937
-Mega Gengar,CGC,5,1
-Mega Gengar,CGC,6,1
-Mega Gengar,CGC,7,1
-Mega Gengar,CGC,7.5,3
-Mega Gengar,CGC,8,7
-Mega Gengar,CGC,8.5,12
-Mega Gengar,CGC,9,112
-Mega Gengar,CGC,9.5,35
-Mega Gengar,CGC,10,640
 Psyduck,all,3.5,1
 Psyduck,all,4,3
 Psyduck,all,4.5,1
@@ -1000,18 +975,18 @@ Psyduck,all,6,12
 Psyduck,all,6.5,10
 Psyduck,all,7,30
 Psyduck,all,7.5,16
-Psyduck,all,8,150
+Psyduck,all,8,149
 Psyduck,all,8.5,56
-Psyduck,all,9,719
+Psyduck,all,9,721
 Psyduck,all,9.5,37
-Psyduck,all,10,885
+Psyduck,all,10,876
 Psyduck,PSA,4,2
 Psyduck,PSA,6,7
 Psyduck,PSA,7,21
-Psyduck,PSA,8,120
+Psyduck,PSA,8,119
 Psyduck,PSA,8.5,4
 Psyduck,PSA,9,574
-Psyduck,PSA,10,518
+Psyduck,PSA,10,508
 Psyduck,CGC,3.5,1
 Psyduck,CGC,4,1
 Psyduck,CGC,4.5,1
@@ -1022,36 +997,126 @@ Psyduck,CGC,7,8
 Psyduck,CGC,7.5,16
 Psyduck,CGC,8,30
 Psyduck,CGC,8.5,52
-Psyduck,CGC,9,140
+Psyduck,CGC,9,142
 Psyduck,CGC,9.5,33
-Psyduck,CGC,10,366
+Psyduck,CGC,10,367
+Roronoa Zoro,all,4,1
+Roronoa Zoro,all,7.5,2
+Roronoa Zoro,all,8,28
+Roronoa Zoro,all,8.5,16
+Roronoa Zoro,all,9,270
+Roronoa Zoro,all,9.5,24
+Roronoa Zoro,all,10,1649
+Roronoa Zoro,PSA,8,20
+Roronoa Zoro,PSA,9,234
+Roronoa Zoro,PSA,10,1321
+Roronoa Zoro,CGC,4,1
+Roronoa Zoro,CGC,7.5,2
+Roronoa Zoro,CGC,8,8
+Roronoa Zoro,CGC,8.5,16
+Roronoa Zoro,CGC,9,36
+Roronoa Zoro,CGC,9.5,8
+Roronoa Zoro,CGC,10,304
+Mega Gengar,all,5,1
+Mega Gengar,all,6,5
+Mega Gengar,all,7,5
+Mega Gengar,all,7.5,3
+Mega Gengar,all,8,32
+Mega Gengar,all,8.5,12
+Mega Gengar,all,9,458
+Mega Gengar,all,9.5,43
+Mega Gengar,all,10,1546
+Mega Gengar,PSA,6,4
+Mega Gengar,PSA,7,4
+Mega Gengar,PSA,8,25
+Mega Gengar,PSA,9,342
+Mega Gengar,PSA,10,911
+Mega Gengar,CGC,5,1
+Mega Gengar,CGC,6,1
+Mega Gengar,CGC,7,1
+Mega Gengar,CGC,7.5,3
+Mega Gengar,CGC,8,7
+Mega Gengar,CGC,8.5,12
+Mega Gengar,CGC,9,112
+Mega Gengar,CGC,9.5,35
+Mega Gengar,CGC,10,632
+Sylveon,all,4,2
+Sylveon,all,5,2
+Sylveon,all,5.5,1
+Sylveon,all,6,3
+Sylveon,all,6.5,1
+Sylveon,all,7,23
+Sylveon,all,7.5,9
+Sylveon,all,8,86
+Sylveon,all,8.5,38
+Sylveon,all,9,480
+Sylveon,all,9.5,58
+Sylveon,all,10,1337
+Sylveon,PSA,4,2
+Sylveon,PSA,5,1
+Sylveon,PSA,6,3
+Sylveon,PSA,7,19
+Sylveon,PSA,8,61
+Sylveon,PSA,9,297
+Sylveon,PSA,10,563
+Sylveon,CGC,5,1
+Sylveon,CGC,6.5,1
+Sylveon,CGC,7,4
+Sylveon,CGC,7.5,9
+Sylveon,CGC,8,25
+Sylveon,CGC,8.5,35
+Sylveon,CGC,9,179
+Sylveon,CGC,9.5,51
+Sylveon,CGC,10,758
+Jayden Daniels,all,5,1
+Jayden Daniels,all,5.5,1
+Jayden Daniels,all,6,3
+Jayden Daniels,all,7,14
+Jayden Daniels,all,8,176
+Jayden Daniels,all,8.5,8
+Jayden Daniels,all,9,772
+Jayden Daniels,all,9.5,38
+Jayden Daniels,all,10,989
+Jayden Daniels,PSA,6,3
+Jayden Daniels,PSA,7,14
+Jayden Daniels,PSA,8,169
+Jayden Daniels,PSA,8.5,1
+Jayden Daniels,PSA,9,745
+Jayden Daniels,PSA,10,904
+Jayden Daniels,CGC,5,1
+Jayden Daniels,CGC,5.5,1
+Jayden Daniels,CGC,8,6
+Jayden Daniels,CGC,8.5,5
+Jayden Daniels,CGC,9,19
+Jayden Daniels,CGC,9.5,7
+Jayden Daniels,CGC,10,47
 Lugia,all,1,8
 Lugia,all,2,3
-Lugia,all,3,8
-Lugia,all,4,5
+Lugia,all,3,9
+Lugia,all,4,4
 Lugia,all,4.5,3
 Lugia,all,5,13
 Lugia,all,5.5,4
-Lugia,all,6,29
+Lugia,all,6,28
 Lugia,all,6.5,5
-Lugia,all,7,35
+Lugia,all,7,37
 Lugia,all,7.5,26
-Lugia,all,8,156
-Lugia,all,8.5,106
-Lugia,all,9,646
-Lugia,all,9.5,77
-Lugia,all,10,967
+Lugia,all,8,160
+Lugia,all,8.5,104
+Lugia,all,9,644
+Lugia,all,9.5,76
+Lugia,all,10,961
 Lugia,PSA,1,8
 Lugia,PSA,2,3
-Lugia,PSA,3,7
-Lugia,PSA,4,3
+Lugia,PSA,3,8
+Lugia,PSA,4,2
 Lugia,PSA,5,13
-Lugia,PSA,6,25
-Lugia,PSA,7,32
-Lugia,PSA,8,96
+Lugia,PSA,6,24
+Lugia,PSA,7,34
+Lugia,PSA,8,95
 Lugia,PSA,8.5,1
 Lugia,PSA,9,342
-Lugia,PSA,10,413
+Lugia,PSA,10,410
 Lugia,CGC,3,1
 Lugia,CGC,4,2
 Lugia,CGC,4.5,3
@@ -1060,78 +1125,11 @@ Lugia,CGC,6,3
 Lugia,CGC,6.5,5
 Lugia,CGC,7,3
 Lugia,CGC,7.5,25
-Lugia,CGC,8,57
-Lugia,CGC,8.5,96
-Lugia,CGC,9,294
+Lugia,CGC,8,62
+Lugia,CGC,8.5,94
+Lugia,CGC,9,292
 Lugia,CGC,9.5,71
-Lugia,CGC,10,547
-Sylveon,all,4,2
-Sylveon,all,5,2
-Sylveon,all,5.5,1
-Sylveon,all,6,3
-Sylveon,all,6.5,1
-Sylveon,all,7,23
-Sylveon,all,7.5,9
-Sylveon,all,8,85
-Sylveon,all,8.5,38
-Sylveon,all,9,477
-Sylveon,all,9.5,58
-Sylveon,all,10,1343
-Sylveon,PSA,4,2
-Sylveon,PSA,5,1
-Sylveon,PSA,6,3
-Sylveon,PSA,7,19
-Sylveon,PSA,8,60
-Sylveon,PSA,9,296
-Sylveon,PSA,10,566
-Sylveon,CGC,5,1
-Sylveon,CGC,6.5,1
-Sylveon,CGC,7,4
-Sylveon,CGC,7.5,9
-Sylveon,CGC,8,25
-Sylveon,CGC,8.5,35
-Sylveon,CGC,9,177
-Sylveon,CGC,9.5,51
-Sylveon,CGC,10,761
-Roronoa Zoro,all,4,1
-Roronoa Zoro,all,7.5,2
-Roronoa Zoro,all,8,28
-Roronoa Zoro,all,8.5,16
-Roronoa Zoro,all,9,269
-Roronoa Zoro,all,9.5,24
-Roronoa Zoro,all,10,1628
-Roronoa Zoro,PSA,8,20
-Roronoa Zoro,PSA,9,233
-Roronoa Zoro,PSA,10,1301
-Roronoa Zoro,CGC,4,1
-Roronoa Zoro,CGC,7.5,2
-Roronoa Zoro,CGC,8,8
-Roronoa Zoro,CGC,8.5,16
-Roronoa Zoro,CGC,9,36
-Roronoa Zoro,CGC,9.5,8
-Roronoa Zoro,CGC,10,303
-Jayden Daniels,all,5,1
-Jayden Daniels,all,5.5,1
-Jayden Daniels,all,6,3
-Jayden Daniels,all,7,14
-Jayden Daniels,all,8,176
-Jayden Daniels,all,8.5,8
-Jayden Daniels,all,9,771
-Jayden Daniels,all,9.5,38
-Jayden Daniels,all,10,992
-Jayden Daniels,PSA,6,3
-Jayden Daniels,PSA,7,14
-Jayden Daniels,PSA,8,169
-Jayden Daniels,PSA,8.5,1
-Jayden Daniels,PSA,9,744
-Jayden Daniels,PSA,10,907
-Jayden Daniels,CGC,5,1
-Jayden Daniels,CGC,5.5,1
-Jayden Daniels,CGC,8,6
-Jayden Daniels,CGC,8.5,5
-Jayden Daniels,CGC,9,19
-Jayden Daniels,CGC,9.5,7
-Jayden Daniels,CGC,10,47
+Lugia,CGC,10,544
 Leafeon,all,5,2
 Leafeon,all,5.5,1
 Leafeon,all,6,1
@@ -1139,44 +1137,44 @@ Leafeon,all,6.5,2
 Leafeon,all,7,8
 Leafeon,all,7.5,6
 Leafeon,all,8,70
-Leafeon,all,8.5,58
-Leafeon,all,9,406
+Leafeon,all,8.5,57
+Leafeon,all,9,399
 Leafeon,all,9.5,85
-Leafeon,all,10,1310
+Leafeon,all,10,1308
 Leafeon,PSA,5,1
 Leafeon,PSA,6,1
 Leafeon,PSA,7,8
 Leafeon,PSA,8,44
 Leafeon,PSA,8.5,1
-Leafeon,PSA,9,230
-Leafeon,PSA,10,459
+Leafeon,PSA,9,228
+Leafeon,PSA,10,457
 Leafeon,CGC,5,1
 Leafeon,CGC,5.5,1
 Leafeon,CGC,6.5,2
 Leafeon,CGC,7.5,6
 Leafeon,CGC,8,26
-Leafeon,CGC,8.5,55
-Leafeon,CGC,9,171
+Leafeon,CGC,8.5,54
+Leafeon,CGC,9,166
 Leafeon,CGC,9.5,78
 Leafeon,CGC,10,841
 Drake Maye,all,4,2
 Drake Maye,all,5,2
-Drake Maye,all,6,9
+Drake Maye,all,6,10
 Drake Maye,all,7,22
 Drake Maye,all,7.5,1
-Drake Maye,all,8,210
+Drake Maye,all,8,208
 Drake Maye,all,8.5,14
-Drake Maye,all,9,785
+Drake Maye,all,9,782
 Drake Maye,all,9.5,27
-Drake Maye,all,10,840
+Drake Maye,all,10,832
 Drake Maye,PSA,4,1
 Drake Maye,PSA,5,2
-Drake Maye,PSA,6,8
+Drake Maye,PSA,6,9
 Drake Maye,PSA,7,21
-Drake Maye,PSA,8,196
+Drake Maye,PSA,8,194
 Drake Maye,PSA,8.5,1
-Drake Maye,PSA,9,752
-Drake Maye,PSA,10,787
+Drake Maye,PSA,9,749
+Drake Maye,PSA,10,779
 Drake Maye,CGC,4,1
 Drake Maye,CGC,6,1
 Drake Maye,CGC,7,1
@@ -1189,30 +1187,30 @@ Raichu,all,1,7
 Raichu,all,2,3
 Raichu,all,3,5
 Raichu,all,3.5,1
-Raichu,all,4,13
+Raichu,all,4,12
 Raichu,all,4.5,2
 Raichu,all,5,29
 Raichu,all,5.5,11
 Raichu,all,6,39
 Raichu,all,6.5,11
-Raichu,all,7,64
+Raichu,all,7,62
 Raichu,all,7.5,26
 Raichu,all,8,154
 Raichu,all,8.5,116
-Raichu,all,9,381
+Raichu,all,9,382
 Raichu,all,9.5,61
-Raichu,all,10,900
+Raichu,all,10,896
 Raichu,PSA,1,7
 Raichu,PSA,2,2
 Raichu,PSA,3,4
-Raichu,PSA,4,12
+Raichu,PSA,4,11
 Raichu,PSA,5,24
 Raichu,PSA,6,34
-Raichu,PSA,7,47
+Raichu,PSA,7,45
 Raichu,PSA,8,107
 Raichu,PSA,8.5,1
 Raichu,PSA,9,232
-Raichu,PSA,10,345
+Raichu,PSA,10,341
 Raichu,CGC,3,1
 Raichu,CGC,3.5,1
 Raichu,CGC,4,1
@@ -1225,7 +1223,7 @@ Raichu,CGC,7,13
 Raichu,CGC,7.5,26
 Raichu,CGC,8,43
 Raichu,CGC,8.5,109
-Raichu,CGC,9,146
+Raichu,CGC,9,147
 Raichu,CGC,9.5,59
 Raichu,CGC,10,550
 Alakazam,all,1,4
@@ -1234,27 +1232,27 @@ Alakazam,all,2.5,1
 Alakazam,all,3,5
 Alakazam,all,4,10
 Alakazam,all,4.5,3
-Alakazam,all,5,28
+Alakazam,all,5,27
 Alakazam,all,5.5,4
 Alakazam,all,6,40
 Alakazam,all,6.5,9
 Alakazam,all,7,62
 Alakazam,all,7.5,20
-Alakazam,all,8,166
-Alakazam,all,8.5,66
-Alakazam,all,9,473
+Alakazam,all,8,160
+Alakazam,all,8.5,64
+Alakazam,all,9,471
 Alakazam,all,9.5,75
-Alakazam,all,10,870
+Alakazam,all,10,869
 Alakazam,PSA,1,4
 Alakazam,PSA,2,2
 Alakazam,PSA,3,4
 Alakazam,PSA,4,9
-Alakazam,PSA,5,24
+Alakazam,PSA,5,23
 Alakazam,PSA,6,35
 Alakazam,PSA,7,50
-Alakazam,PSA,8,130
-Alakazam,PSA,9,327
-Alakazam,PSA,10,342
+Alakazam,PSA,8,127
+Alakazam,PSA,9,324
+Alakazam,PSA,10,341
 Alakazam,CGC,2.5,1
 Alakazam,CGC,3,1
 Alakazam,CGC,4,1
@@ -1265,12 +1263,12 @@ Alakazam,CGC,6,4
 Alakazam,CGC,6.5,9
 Alakazam,CGC,7,12
 Alakazam,CGC,7.5,19
-Alakazam,CGC,8,35
-Alakazam,CGC,8.5,62
-Alakazam,CGC,9,141
+Alakazam,CGC,8,31
+Alakazam,CGC,8.5,60
+Alakazam,CGC,9,142
 Alakazam,CGC,9.5,71
 Alakazam,CGC,10,522
-Dragonite,all,1,3
+Dragonite,all,1,4
 Dragonite,all,2,2
 Dragonite,all,3,3
 Dragonite,all,4,13
@@ -1278,24 +1276,24 @@ Dragonite,all,5,30
 Dragonite,all,5.5,4
 Dragonite,all,6,52
 Dragonite,all,6.5,6
-Dragonite,all,7,67
+Dragonite,all,7,69
 Dragonite,all,7.5,29
-Dragonite,all,8,161
-Dragonite,all,8.5,92
-Dragonite,all,9,464
+Dragonite,all,8,159
+Dragonite,all,8.5,90
+Dragonite,all,9,462
 Dragonite,all,9.5,62
-Dragonite,all,10,791
-Dragonite,PSA,1,3
+Dragonite,all,10,789
+Dragonite,PSA,1,4
 Dragonite,PSA,2,2
 Dragonite,PSA,3,3
 Dragonite,PSA,4,12
 Dragonite,PSA,5,23
 Dragonite,PSA,6,44
-Dragonite,PSA,7,58
-Dragonite,PSA,8,115
+Dragonite,PSA,7,60
+Dragonite,PSA,8,113
 Dragonite,PSA,8.5,2
-Dragonite,PSA,9,240
-Dragonite,PSA,10,272
+Dragonite,PSA,9,236
+Dragonite,PSA,10,271
 Dragonite,CGC,5,7
 Dragonite,CGC,5.5,4
 Dragonite,CGC,6,7
@@ -1303,10 +1301,10 @@ Dragonite,CGC,6.5,6
 Dragonite,CGC,7,9
 Dragonite,CGC,7.5,28
 Dragonite,CGC,8,45
-Dragonite,CGC,8.5,84
-Dragonite,CGC,9,218
+Dragonite,CGC,8.5,82
+Dragonite,CGC,9,220
 Dragonite,CGC,9.5,57
-Dragonite,CGC,10,514
+Dragonite,CGC,10,513
 Glaceon,all,4,1
 Glaceon,all,4.5,1
 Glaceon,all,5,1
@@ -1316,9 +1314,9 @@ Glaceon,all,7,11
 Glaceon,all,7.5,8
 Glaceon,all,8,44
 Glaceon,all,8.5,45
-Glaceon,all,9,404
+Glaceon,all,9,402
 Glaceon,all,9.5,50
-Glaceon,all,10,1188
+Glaceon,all,10,1185
 Glaceon,PSA,4,1
 Glaceon,PSA,5,1
 Glaceon,PSA,6,1
@@ -1332,35 +1330,35 @@ Glaceon,CGC,7,5
 Glaceon,CGC,7.5,8
 Glaceon,CGC,8,14
 Glaceon,CGC,8.5,45
-Glaceon,CGC,9,155
+Glaceon,CGC,9,153
 Glaceon,CGC,9.5,45
-Glaceon,CGC,10,773
+Glaceon,CGC,10,770
 Articuno,all,1,3
 Articuno,all,2,1
 Articuno,all,3,3
 Articuno,all,4,10
 Articuno,all,4.5,2
-Articuno,all,5,14
+Articuno,all,5,15
 Articuno,all,5.5,1
 Articuno,all,6,23
 Articuno,all,6.5,7
 Articuno,all,7,50
 Articuno,all,7.5,16
-Articuno,all,8,126
-Articuno,all,8.5,69
+Articuno,all,8,125
+Articuno,all,8.5,70
 Articuno,all,9,440
 Articuno,all,9.5,55
-Articuno,all,10,872
+Articuno,all,10,868
 Articuno,PSA,1,3
 Articuno,PSA,2,1
 Articuno,PSA,3,3
 Articuno,PSA,4,7
-Articuno,PSA,5,13
+Articuno,PSA,5,14
 Articuno,PSA,6,19
 Articuno,PSA,7,39
 Articuno,PSA,8,95
-Articuno,PSA,9,293
-Articuno,PSA,10,392
+Articuno,PSA,9,294
+Articuno,PSA,10,388
 Articuno,CGC,4,2
 Articuno,CGC,4.5,2
 Articuno,CGC,5,1
@@ -1369,11 +1367,20 @@ Articuno,CGC,6,4
 Articuno,CGC,6.5,7
 Articuno,CGC,7,11
 Articuno,CGC,7.5,16
-Articuno,CGC,8,31
-Articuno,CGC,8.5,67
-Articuno,CGC,9,140
+Articuno,CGC,8,30
+Articuno,CGC,8.5,68
+Articuno,CGC,9,139
 Articuno,CGC,9.5,43
 Articuno,CGC,10,477
+Don!! Card,all,7,1
+Don!! Card,all,8,13
+Don!! Card,all,9,449
+Don!! Card,all,9.5,1
+Don!! Card,all,10,1309
+Don!! Card,PSA,7,1
+Don!! Card,PSA,8,13
+Don!! Card,PSA,9,449
+Don!! Card,PSA,10,1308
 Ivysaur,all,1,1
 Ivysaur,all,3,1
 Ivysaur,all,4,1
@@ -1385,9 +1392,9 @@ Ivysaur,all,7,13
 Ivysaur,all,7.5,10
 Ivysaur,all,8,86
 Ivysaur,all,8.5,60
-Ivysaur,all,9,438
+Ivysaur,all,9,439
 Ivysaur,all,9.5,56
-Ivysaur,all,10,954
+Ivysaur,all,10,944
 Ivysaur,PSA,1,1
 Ivysaur,PSA,3,1
 Ivysaur,PSA,4,1
@@ -1396,8 +1403,8 @@ Ivysaur,PSA,6,14
 Ivysaur,PSA,7,10
 Ivysaur,PSA,8,62
 Ivysaur,PSA,8.5,1
-Ivysaur,PSA,9,332
-Ivysaur,PSA,10,510
+Ivysaur,PSA,9,334
+Ivysaur,PSA,10,504
 Ivysaur,CGC,5,1
 Ivysaur,CGC,5.5,4
 Ivysaur,CGC,6,1
@@ -1406,9 +1413,9 @@ Ivysaur,CGC,7,3
 Ivysaur,CGC,7.5,10
 Ivysaur,CGC,8,23
 Ivysaur,CGC,8.5,58
-Ivysaur,CGC,9,102
+Ivysaur,CGC,9,101
 Ivysaur,CGC,9.5,50
-Ivysaur,CGC,10,438
+Ivysaur,CGC,10,435
 Charmeleon,all,1,2
 Charmeleon,all,2,2
 Charmeleon,all,3,3
@@ -1417,25 +1424,25 @@ Charmeleon,all,4,4
 Charmeleon,all,4.5,3
 Charmeleon,all,5,9
 Charmeleon,all,5.5,5
-Charmeleon,all,6,18
+Charmeleon,all,6,19
 Charmeleon,all,6.5,5
-Charmeleon,all,7,47
-Charmeleon,all,7.5,23
-Charmeleon,all,8,126
+Charmeleon,all,7,48
+Charmeleon,all,7.5,22
+Charmeleon,all,8,128
 Charmeleon,all,8.5,63
-Charmeleon,all,9,443
-Charmeleon,all,9.5,45
-Charmeleon,all,10,751
+Charmeleon,all,9,444
+Charmeleon,all,9.5,44
+Charmeleon,all,10,747
 Charmeleon,PSA,1,2
 Charmeleon,PSA,2,2
 Charmeleon,PSA,3,2
 Charmeleon,PSA,4,4
 Charmeleon,PSA,5,6
-Charmeleon,PSA,6,15
-Charmeleon,PSA,7,43
-Charmeleon,PSA,8,98
-Charmeleon,PSA,9,306
-Charmeleon,PSA,10,394
+Charmeleon,PSA,6,16
+Charmeleon,PSA,7,44
+Charmeleon,PSA,8,100
+Charmeleon,PSA,9,307
+Charmeleon,PSA,10,391
 Charmeleon,CGC,3,1
 Charmeleon,CGC,3.5,2
 Charmeleon,CGC,4.5,3
@@ -1444,21 +1451,12 @@ Charmeleon,CGC,5.5,5
 Charmeleon,CGC,6,3
 Charmeleon,CGC,6.5,5
 Charmeleon,CGC,7,4
-Charmeleon,CGC,7.5,23
+Charmeleon,CGC,7.5,22
 Charmeleon,CGC,8,28
 Charmeleon,CGC,8.5,62
 Charmeleon,CGC,9,133
-Charmeleon,CGC,9.5,42
-Charmeleon,CGC,10,356
-Don!! Card,all,7,1
-Don!! Card,all,8,15
-Don!! Card,all,9,433
-Don!! Card,all,9.5,1
-Don!! Card,all,10,1277
-Don!! Card,PSA,7,1
-Don!! Card,PSA,8,15
-Don!! Card,PSA,9,433
-Don!! Card,PSA,10,1275
+Charmeleon,CGC,9.5,41
+Charmeleon,CGC,10,355
 Zapdos,all,1,4
 Zapdos,all,2,3
 Zapdos,all,2.5,1
@@ -1468,27 +1466,27 @@ Zapdos,all,4,7
 Zapdos,all,4.5,2
 Zapdos,all,5,40
 Zapdos,all,5.5,5
-Zapdos,all,6,52
+Zapdos,all,6,51
 Zapdos,all,6.5,3
 Zapdos,all,7,82
-Zapdos,all,7.5,24
-Zapdos,all,8,179
-Zapdos,all,8.5,89
-Zapdos,all,9,497
+Zapdos,all,7.5,22
+Zapdos,all,8,181
+Zapdos,all,8.5,88
+Zapdos,all,9,498
 Zapdos,all,9.5,44
-Zapdos,all,10,643
+Zapdos,all,10,639
 Zapdos,PSA,1,4
 Zapdos,PSA,2,3
 Zapdos,PSA,3,2
 Zapdos,PSA,4,5
 Zapdos,PSA,5,35
-Zapdos,PSA,6,47
+Zapdos,PSA,6,46
 Zapdos,PSA,7,68
 Zapdos,PSA,7.5,1
-Zapdos,PSA,8,123
+Zapdos,PSA,8,124
 Zapdos,PSA,8.5,2
-Zapdos,PSA,9,334
-Zapdos,PSA,10,279
+Zapdos,PSA,9,335
+Zapdos,PSA,10,280
 Zapdos,CGC,2.5,1
 Zapdos,CGC,3,1
 Zapdos,CGC,3.5,5
@@ -1499,31 +1497,30 @@ Zapdos,CGC,5.5,5
 Zapdos,CGC,6,3
 Zapdos,CGC,6.5,3
 Zapdos,CGC,7,12
-Zapdos,CGC,7.5,23
-Zapdos,CGC,8,48
-Zapdos,CGC,8.5,81
+Zapdos,CGC,7.5,21
+Zapdos,CGC,8,49
+Zapdos,CGC,8.5,80
 Zapdos,CGC,9,154
 Zapdos,CGC,9.5,40
-Zapdos,CGC,10,361
+Zapdos,CGC,10,356
 Portgas D. Ace,all,7,4
 Portgas D. Ace,all,7.5,3
 Portgas D. Ace,all,8,10
 Portgas D. Ace,all,8.5,8
-Portgas D. Ace,all,9,229
+Portgas D. Ace,all,9,231
 Portgas D. Ace,all,9.5,14
-Portgas D. Ace,all,10,1414
+Portgas D. Ace,all,10,1420
 Portgas D. Ace,PSA,7,3
 Portgas D. Ace,PSA,8,9
-Portgas D. Ace,PSA,9,208
-Portgas D. Ace,PSA,10,1084
+Portgas D. Ace,PSA,9,210
+Portgas D. Ace,PSA,10,1092
 Portgas D. Ace,CGC,7,1
 Portgas D. Ace,CGC,7.5,3
 Portgas D. Ace,CGC,8,1
 Portgas D. Ace,CGC,8.5,8
 Portgas D. Ace,CGC,9,20
 Portgas D. Ace,CGC,9.5,4
-Portgas D. Ace,CGC,10,308
-Meowth,all,3,1
+Portgas D. Ace,CGC,10,307
 Meowth,all,3.5,1
 Meowth,all,4,2
 Meowth,all,4.5,4
@@ -1531,63 +1528,62 @@ Meowth,all,5,6
 Meowth,all,5.5,5
 Meowth,all,6,9
 Meowth,all,6.5,10
-Meowth,all,7,39
+Meowth,all,7,40
 Meowth,all,7.5,19
-Meowth,all,8,125
+Meowth,all,8,124
 Meowth,all,8.5,81
-Meowth,all,9,450
+Meowth,all,9,454
 Meowth,all,9.5,16
-Meowth,all,10,615
+Meowth,all,10,607
 Meowth,PSA,4,2
 Meowth,PSA,5,4
 Meowth,PSA,6,7
 Meowth,PSA,7,31
-Meowth,PSA,8,92
+Meowth,PSA,8,90
 Meowth,PSA,8.5,1
-Meowth,PSA,9,329
-Meowth,PSA,10,370
-Meowth,CGC,3,1
+Meowth,PSA,9,330
+Meowth,PSA,10,366
 Meowth,CGC,3.5,1
 Meowth,CGC,4.5,4
 Meowth,CGC,5,2
 Meowth,CGC,5.5,5
 Meowth,CGC,6,2
 Meowth,CGC,6.5,10
-Meowth,CGC,7,8
+Meowth,CGC,7,9
 Meowth,CGC,7.5,19
-Meowth,CGC,8,33
+Meowth,CGC,8,34
 Meowth,CGC,8.5,80
-Meowth,CGC,9,121
+Meowth,CGC,9,124
 Meowth,CGC,9.5,14
-Meowth,CGC,10,244
+Meowth,CGC,10,241
 Gyarados,all,1,5
 Gyarados,all,1.5,1
 Gyarados,all,2,3
-Gyarados,all,3,3
+Gyarados,all,3,2
 Gyarados,all,3.5,1
-Gyarados,all,4,16
+Gyarados,all,4,17
 Gyarados,all,4.5,3
-Gyarados,all,5,30
+Gyarados,all,5,31
 Gyarados,all,5.5,6
 Gyarados,all,6,51
-Gyarados,all,6.5,11
-Gyarados,all,7,89
+Gyarados,all,6.5,12
+Gyarados,all,7,88
 Gyarados,all,7.5,19
-Gyarados,all,8,170
-Gyarados,all,8.5,101
-Gyarados,all,9,369
+Gyarados,all,8,171
+Gyarados,all,8.5,104
+Gyarados,all,9,367
 Gyarados,all,9.5,52
-Gyarados,all,10,645
+Gyarados,all,10,641
 Gyarados,PSA,1,5
 Gyarados,PSA,2,3
-Gyarados,PSA,3,3
-Gyarados,PSA,4,9
-Gyarados,PSA,5,25
+Gyarados,PSA,3,2
+Gyarados,PSA,4,10
+Gyarados,PSA,5,26
 Gyarados,PSA,6,42
-Gyarados,PSA,7,76
-Gyarados,PSA,8,119
+Gyarados,PSA,7,75
+Gyarados,PSA,8,120
 Gyarados,PSA,8.5,1
-Gyarados,PSA,9,203
+Gyarados,PSA,9,202
 Gyarados,PSA,10,204
 Gyarados,CGC,1.5,1
 Gyarados,CGC,3.5,1
@@ -1596,85 +1592,58 @@ Gyarados,CGC,4.5,3
 Gyarados,CGC,5,4
 Gyarados,CGC,5.5,6
 Gyarados,CGC,6,9
-Gyarados,CGC,6.5,11
+Gyarados,CGC,6.5,12
 Gyarados,CGC,7,12
 Gyarados,CGC,7.5,19
 Gyarados,CGC,8,51
-Gyarados,CGC,8.5,96
-Gyarados,CGC,9,161
+Gyarados,CGC,8.5,99
+Gyarados,CGC,9,160
 Gyarados,CGC,9.5,49
-Gyarados,CGC,10,439
+Gyarados,CGC,10,435
 Sabo,all,5.5,1
 Sabo,all,6,1
 Sabo,all,8,13
 Sabo,all,8.5,5
-Sabo,all,9,136
+Sabo,all,9,135
 Sabo,all,9.5,12
-Sabo,all,10,1352
+Sabo,all,10,1337
 Sabo,PSA,8,10
-Sabo,PSA,9,124
-Sabo,PSA,10,1072
+Sabo,PSA,9,123
+Sabo,PSA,10,1056
 Sabo,CGC,5.5,1
 Sabo,CGC,6,1
 Sabo,CGC,8,3
 Sabo,CGC,8.5,5
 Sabo,CGC,9,11
 Sabo,CGC,9.5,3
-Sabo,CGC,10,263
-Mimikyu,all,4,1
-Mimikyu,all,5,1
-Mimikyu,all,6,5
-Mimikyu,all,6.5,1
-Mimikyu,all,7,12
-Mimikyu,all,7.5,9
-Mimikyu,all,8,103
-Mimikyu,all,8.5,59
-Mimikyu,all,9,506
-Mimikyu,all,9.5,48
-Mimikyu,all,10,717
-Mimikyu,PSA,4,1
-Mimikyu,PSA,5,1
-Mimikyu,PSA,6,4
-Mimikyu,PSA,7,11
-Mimikyu,PSA,8,59
-Mimikyu,PSA,9,339
-Mimikyu,PSA,10,293
-Mimikyu,CGC,6,1
-Mimikyu,CGC,6.5,1
-Mimikyu,CGC,7,1
-Mimikyu,CGC,7.5,9
-Mimikyu,CGC,8,44
-Mimikyu,CGC,8.5,59
-Mimikyu,CGC,9,162
-Mimikyu,CGC,9.5,44
-Mimikyu,CGC,10,415
+Sabo,CGC,10,264
 Magneton,all,1,2
 Magneton,all,1.5,1
 Magneton,all,2.5,1
 Magneton,all,3,6
 Magneton,all,4,9
 Magneton,all,4.5,2
-Magneton,all,5,26
+Magneton,all,5,25
 Magneton,all,5.5,5
-Magneton,all,6,34
+Magneton,all,6,32
 Magneton,all,6.5,5
 Magneton,all,7,52
 Magneton,all,7.5,23
-Magneton,all,8,164
+Magneton,all,8,163
 Magneton,all,8.5,66
-Magneton,all,9,415
+Magneton,all,9,417
 Magneton,all,9.5,19
-Magneton,all,10,491
+Magneton,all,10,492
 Magneton,PSA,1,2
 Magneton,PSA,3,5
 Magneton,PSA,4,5
-Magneton,PSA,5,20
-Magneton,PSA,6,25
+Magneton,PSA,5,19
+Magneton,PSA,6,23
 Magneton,PSA,7,44
 Magneton,PSA,8,124
 Magneton,PSA,8.5,2
 Magneton,PSA,9,330
-Magneton,PSA,10,304
+Magneton,PSA,10,305
 Magneton,CGC,1.5,1
 Magneton,CGC,3,1
 Magneton,CGC,4,1
@@ -1685,56 +1654,59 @@ Magneton,CGC,6,8
 Magneton,CGC,6.5,5
 Magneton,CGC,7,6
 Magneton,CGC,7.5,22
-Magneton,CGC,8,36
+Magneton,CGC,8,35
 Magneton,CGC,8.5,60
-Magneton,CGC,9,79
+Magneton,CGC,9,81
 Magneton,CGC,9.5,19
 Magneton,CGC,10,185
-Oricorio,all,5,1
-Oricorio,all,6,6
-Oricorio,all,7,3
-Oricorio,all,7.5,2
-Oricorio,all,8,31
-Oricorio,all,8.5,16
-Oricorio,all,9,404
-Oricorio,all,9.5,64
-Oricorio,all,10,902
-Oricorio,PSA,5,1
-Oricorio,PSA,6,6
-Oricorio,PSA,7,2
-Oricorio,PSA,8,19
-Oricorio,PSA,9,317
-Oricorio,PSA,10,420
-Oricorio,CGC,7,1
-Oricorio,CGC,7.5,2
-Oricorio,CGC,8,12
-Oricorio,CGC,8.5,16
-Oricorio,CGC,9,85
-Oricorio,CGC,9.5,62
-Oricorio,CGC,10,479
+Mimikyu,all,4,1
+Mimikyu,all,5,1
+Mimikyu,all,6,5
+Mimikyu,all,6.5,1
+Mimikyu,all,7,12
+Mimikyu,all,7.5,9
+Mimikyu,all,8,102
+Mimikyu,all,8.5,59
+Mimikyu,all,9,503
+Mimikyu,all,9.5,48
+Mimikyu,all,10,707
+Mimikyu,PSA,4,1
+Mimikyu,PSA,5,1
+Mimikyu,PSA,6,4
+Mimikyu,PSA,7,11
+Mimikyu,PSA,8,58
+Mimikyu,PSA,9,337
+Mimikyu,PSA,10,287
+Mimikyu,CGC,6,1
+Mimikyu,CGC,6.5,1
+Mimikyu,CGC,7,1
+Mimikyu,CGC,7.5,9
+Mimikyu,CGC,8,44
+Mimikyu,CGC,8.5,59
+Mimikyu,CGC,9,161
+Mimikyu,CGC,9.5,44
+Mimikyu,CGC,10,411
 Lapras,all,1,1
-Lapras,all,3,1
 Lapras,all,3.5,1
 Lapras,all,4,5
 Lapras,all,5,9
 Lapras,all,5.5,1
-Lapras,all,6,25
+Lapras,all,6,26
 Lapras,all,6.5,6
 Lapras,all,7,39
 Lapras,all,7.5,18
-Lapras,all,8,88
-Lapras,all,8.5,55
-Lapras,all,9,261
-Lapras,all,9.5,71
-Lapras,all,10,642
+Lapras,all,8,87
+Lapras,all,8.5,54
+Lapras,all,9,263
+Lapras,all,9.5,72
+Lapras,all,10,641
 Lapras,PSA,1,1
-Lapras,PSA,3,1
 Lapras,PSA,4,4
 Lapras,PSA,5,7
-Lapras,PSA,6,22
+Lapras,PSA,6,23
 Lapras,PSA,7,35
 Lapras,PSA,8,60
-Lapras,PSA,9,141
+Lapras,PSA,9,142
 Lapras,PSA,10,163
 Lapras,CGC,3.5,1
 Lapras,CGC,4,1
@@ -1744,57 +1716,79 @@ Lapras,CGC,6,3
 Lapras,CGC,6.5,6
 Lapras,CGC,7,4
 Lapras,CGC,7.5,18
-Lapras,CGC,8,24
+Lapras,CGC,8,23
 Lapras,CGC,8.5,51
-Lapras,CGC,9,118
-Lapras,CGC,9.5,68
-Lapras,CGC,10,473
+Lapras,CGC,9,119
+Lapras,CGC,9.5,69
+Lapras,CGC,10,472
 Aaron Judge,all,5,2
 Aaron Judge,all,6,19
-Aaron Judge,all,6.5,1
+Aaron Judge,all,6.5,2
 Aaron Judge,all,7,16
-Aaron Judge,all,8,135
+Aaron Judge,all,8,140
 Aaron Judge,all,8.5,14
-Aaron Judge,all,9,471
-Aaron Judge,all,9.5,39
+Aaron Judge,all,9,477
+Aaron Judge,all,9.5,40
 Aaron Judge,all,10,394
 Aaron Judge,PSA,5,2
 Aaron Judge,PSA,6,19
-Aaron Judge,PSA,7,16
-Aaron Judge,PSA,8,129
+Aaron Judge,PSA,7,17
+Aaron Judge,PSA,8,134
 Aaron Judge,PSA,8.5,3
-Aaron Judge,PSA,9,452
+Aaron Judge,PSA,9,457
 Aaron Judge,PSA,10,318
-Aaron Judge,CGC,6.5,1
+Aaron Judge,CGC,6.5,2
 Aaron Judge,CGC,8,5
 Aaron Judge,CGC,8.5,9
-Aaron Judge,CGC,9,15
-Aaron Judge,CGC,9.5,2
+Aaron Judge,CGC,9,16
+Aaron Judge,CGC,9.5,3
 Aaron Judge,CGC,10,63
+Oricorio,all,5,1
+Oricorio,all,6,6
+Oricorio,all,7,3
+Oricorio,all,7.5,5
+Oricorio,all,8,31
+Oricorio,all,8.5,16
+Oricorio,all,9,404
+Oricorio,all,9.5,63
+Oricorio,all,10,876
+Oricorio,PSA,5,1
+Oricorio,PSA,6,6
+Oricorio,PSA,7,2
+Oricorio,PSA,8,19
+Oricorio,PSA,9,314
+Oricorio,PSA,10,398
+Oricorio,CGC,7,1
+Oricorio,CGC,7.5,5
+Oricorio,CGC,8,12
+Oricorio,CGC,8.5,16
+Oricorio,CGC,9,88
+Oricorio,CGC,9.5,61
+Oricorio,CGC,10,475
 Kobe Bryant,all,2,1
 Kobe Bryant,all,3,1
 Kobe Bryant,all,4,6
 Kobe Bryant,all,5,15
 Kobe Bryant,all,6,46
 Kobe Bryant,all,6.5,3
-Kobe Bryant,all,7,127
+Kobe Bryant,all,7,130
 Kobe Bryant,all,7.5,10
-Kobe Bryant,all,8,459
+Kobe Bryant,all,8,448
 Kobe Bryant,all,8.5,54
-Kobe Bryant,all,9,533
+Kobe Bryant,all,9,528
 Kobe Bryant,all,9.5,28
-Kobe Bryant,all,10,148
+Kobe Bryant,all,10,146
 Kobe Bryant,PSA,2,1
 Kobe Bryant,PSA,3,1
 Kobe Bryant,PSA,4,6
 Kobe Bryant,PSA,5,13
 Kobe Bryant,PSA,6,46
-Kobe Bryant,PSA,7,117
+Kobe Bryant,PSA,7,120
 Kobe Bryant,PSA,7.5,4
-Kobe Bryant,PSA,8,424
+Kobe Bryant,PSA,8,413
 Kobe Bryant,PSA,8.5,5
-Kobe Bryant,PSA,9,458
-Kobe Bryant,PSA,10,122
+Kobe Bryant,PSA,9,454
+Kobe Bryant,PSA,10,120
 Kobe Bryant,CGC,6.5,2
 Kobe Bryant,CGC,7,8
 Kobe Bryant,CGC,7.5,2
@@ -1805,21 +1799,21 @@ Kobe Bryant,CGC,9.5,8
 Kobe Bryant,CGC,10,23
 Lionel Messi,all,4,2
 Lionel Messi,all,5,22
-Lionel Messi,all,6,22
-Lionel Messi,all,7,34
-Lionel Messi,all,8,205
+Lionel Messi,all,6,21
+Lionel Messi,all,7,33
+Lionel Messi,all,8,204
 Lionel Messi,all,8.5,6
-Lionel Messi,all,9,532
-Lionel Messi,all,9.5,61
-Lionel Messi,all,10,558
+Lionel Messi,all,9,530
+Lionel Messi,all,9.5,58
+Lionel Messi,all,10,552
 Lionel Messi,PSA,4,2
 Lionel Messi,PSA,5,22
-Lionel Messi,PSA,6,22
-Lionel Messi,PSA,7,34
-Lionel Messi,PSA,8,203
+Lionel Messi,PSA,6,21
+Lionel Messi,PSA,7,33
+Lionel Messi,PSA,8,202
 Lionel Messi,PSA,8.5,3
-Lionel Messi,PSA,9,520
-Lionel Messi,PSA,10,493
+Lionel Messi,PSA,9,518
+Lionel Messi,PSA,10,488
 Lionel Messi,CGC,8,2
 Lionel Messi,CGC,8.5,2
 Lionel Messi,CGC,9,5
@@ -1828,79 +1822,134 @@ Lionel Messi,CGC,10,24
 Lamine Yamal,all,4,1
 Lamine Yamal,all,5,2
 Lamine Yamal,all,6,11
-Lamine Yamal,all,7,21
+Lamine Yamal,all,7,23
 Lamine Yamal,all,8,258
 Lamine Yamal,all,8.5,6
-Lamine Yamal,all,9,662
+Lamine Yamal,all,9,657
 Lamine Yamal,all,9.5,14
-Lamine Yamal,all,10,421
+Lamine Yamal,all,10,423
 Lamine Yamal,PSA,4,1
 Lamine Yamal,PSA,5,2
 Lamine Yamal,PSA,6,11
-Lamine Yamal,PSA,7,21
+Lamine Yamal,PSA,7,23
 Lamine Yamal,PSA,8,257
 Lamine Yamal,PSA,8.5,3
-Lamine Yamal,PSA,9,654
-Lamine Yamal,PSA,10,385
+Lamine Yamal,PSA,9,649
+Lamine Yamal,PSA,10,387
 Lamine Yamal,CGC,8,1
 Lamine Yamal,CGC,8.5,1
 Lamine Yamal,CGC,9,5
 Lamine Yamal,CGC,10,7
-Kon Knueppel,all,4,2
-Kon Knueppel,all,5,3
-Kon Knueppel,all,7,7
-Kon Knueppel,all,8,94
-Kon Knueppel,all,8.5,3
-Kon Knueppel,all,9,453
-Kon Knueppel,all,9.5,18
-Kon Knueppel,all,10,769
-Kon Knueppel,PSA,4,2
-Kon Knueppel,PSA,5,3
-Kon Knueppel,PSA,7,5
-Kon Knueppel,PSA,8,93
-Kon Knueppel,PSA,8.5,1
-Kon Knueppel,PSA,9,446
-Kon Knueppel,PSA,10,723
-Kon Knueppel,CGC,7,2
-Kon Knueppel,CGC,8,1
-Kon Knueppel,CGC,8.5,1
-Kon Knueppel,CGC,9,3
-Kon Knueppel,CGC,9.5,1
-Kon Knueppel,CGC,10,38
+Tony Tony Chopper,all,7,1
+Tony Tony Chopper,all,7.5,1
+Tony Tony Chopper,all,8,10
+Tony Tony Chopper,all,8.5,6
+Tony Tony Chopper,all,9,150
+Tony Tony Chopper,all,9.5,7
+Tony Tony Chopper,all,10,1177
+Tony Tony Chopper,PSA,7,1
+Tony Tony Chopper,PSA,8,9
+Tony Tony Chopper,PSA,9,139
+Tony Tony Chopper,PSA,10,989
+Tony Tony Chopper,CGC,7.5,1
+Tony Tony Chopper,CGC,8,1
+Tony Tony Chopper,CGC,8.5,6
+Tony Tony Chopper,CGC,9,11
+Tony Tony Chopper,CGC,9.5,6
+Tony Tony Chopper,CGC,10,188
 Mega Lucario,all,5,1
 Mega Lucario,all,7,2
 Mega Lucario,all,8,22
 Mega Lucario,all,8.5,26
 Mega Lucario,all,9,266
 Mega Lucario,all,9.5,34
-Mega Lucario,all,10,978
+Mega Lucario,all,10,973
 Mega Lucario,PSA,5,1
 Mega Lucario,PSA,7,2
 Mega Lucario,PSA,8,14
-Mega Lucario,PSA,9,191
-Mega Lucario,PSA,10,470
+Mega Lucario,PSA,9,190
+Mega Lucario,PSA,10,462
 Mega Lucario,CGC,8,8
 Mega Lucario,CGC,8.5,26
-Mega Lucario,CGC,9,73
+Mega Lucario,CGC,9,74
 Mega Lucario,CGC,9.5,33
-Mega Lucario,CGC,10,508
-Tony Tony Chopper,all,7,1
-Tony Tony Chopper,all,7.5,1
-Tony Tony Chopper,all,8,10
-Tony Tony Chopper,all,8.5,6
-Tony Tony Chopper,all,9,151
-Tony Tony Chopper,all,9.5,7
-Tony Tony Chopper,all,10,1156
-Tony Tony Chopper,PSA,7,1
-Tony Tony Chopper,PSA,8,9
-Tony Tony Chopper,PSA,9,140
-Tony Tony Chopper,PSA,10,971
-Tony Tony Chopper,CGC,7.5,1
-Tony Tony Chopper,CGC,8,1
-Tony Tony Chopper,CGC,8.5,6
-Tony Tony Chopper,CGC,9,11
-Tony Tony Chopper,CGC,9.5,6
-Tony Tony Chopper,CGC,10,185
+Mega Lucario,CGC,10,510
+Slowpoke,all,4,2
+Slowpoke,all,4.5,1
+Slowpoke,all,5,4
+Slowpoke,all,5.5,4
+Slowpoke,all,6,7
+Slowpoke,all,6.5,4
+Slowpoke,all,7,20
+Slowpoke,all,7.5,26
+Slowpoke,all,8,83
+Slowpoke,all,8.5,109
+Slowpoke,all,9,246
+Slowpoke,all,9.5,31
+Slowpoke,all,10,488
+Slowpoke,PSA,4,1
+Slowpoke,PSA,5,4
+Slowpoke,PSA,6,4
+Slowpoke,PSA,7,9
+Slowpoke,PSA,8,36
+Slowpoke,PSA,8.5,1
+Slowpoke,PSA,9,113
+Slowpoke,PSA,10,188
+Slowpoke,CGC,4,1
+Slowpoke,CGC,4.5,1
+Slowpoke,CGC,5.5,4
+Slowpoke,CGC,6,3
+Slowpoke,CGC,6.5,4
+Slowpoke,CGC,7,11
+Slowpoke,CGC,7.5,26
+Slowpoke,CGC,8,40
+Slowpoke,CGC,8.5,106
+Slowpoke,CGC,9,131
+Slowpoke,CGC,9.5,30
+Slowpoke,CGC,10,299
+Kon Knueppel,all,4,2
+Kon Knueppel,all,5,3
+Kon Knueppel,all,7,7
+Kon Knueppel,all,8,94
+Kon Knueppel,all,8.5,3
+Kon Knueppel,all,9,461
+Kon Knueppel,all,9.5,18
+Kon Knueppel,all,10,725
+Kon Knueppel,PSA,4,2
+Kon Knueppel,PSA,5,3
+Kon Knueppel,PSA,7,5
+Kon Knueppel,PSA,8,93
+Kon Knueppel,PSA,8.5,1
+Kon Knueppel,PSA,9,456
+Kon Knueppel,PSA,10,679
+Kon Knueppel,CGC,7,2
+Kon Knueppel,CGC,8,1
+Kon Knueppel,CGC,8.5,1
+Kon Knueppel,CGC,9,1
+Kon Knueppel,CGC,9.5,1
+Kon Knueppel,CGC,10,38
+Shanks,all,5,2
+Shanks,all,6,1
+Shanks,all,6.5,1
+Shanks,all,7,3
+Shanks,all,8,9
+Shanks,all,8.5,9
+Shanks,all,9,180
+Shanks,all,9.5,19
+Shanks,all,10,1053
+Shanks,PSA,5,2
+Shanks,PSA,6,1
+Shanks,PSA,7,2
+Shanks,PSA,8,6
+Shanks,PSA,9,154
+Shanks,PSA,10,798
+Shanks,CGC,6.5,1
+Shanks,CGC,7,1
+Shanks,CGC,8,2
+Shanks,CGC,8.5,9
+Shanks,CGC,9,25
+Shanks,CGC,9.5,12
+Shanks,CGC,10,247
 Ninetales,all,1,2
 Ninetales,all,2,4
 Ninetales,all,2.5,1
@@ -1908,27 +1957,27 @@ Ninetales,all,3,3
 Ninetales,all,3.5,1
 Ninetales,all,4,11
 Ninetales,all,4.5,1
-Ninetales,all,5,15
+Ninetales,all,5,14
 Ninetales,all,5.5,7
 Ninetales,all,6,41
 Ninetales,all,6.5,5
-Ninetales,all,7,60
+Ninetales,all,7,59
 Ninetales,all,7.5,18
-Ninetales,all,8,118
-Ninetales,all,8.5,85
-Ninetales,all,9,299
+Ninetales,all,8,115
+Ninetales,all,8.5,81
+Ninetales,all,9,295
 Ninetales,all,9.5,37
 Ninetales,all,10,496
 Ninetales,PSA,1,2
 Ninetales,PSA,2,4
 Ninetales,PSA,3,3
 Ninetales,PSA,4,7
-Ninetales,PSA,5,13
+Ninetales,PSA,5,12
 Ninetales,PSA,6,36
-Ninetales,PSA,7,50
-Ninetales,PSA,8,90
+Ninetales,PSA,7,48
+Ninetales,PSA,8,88
 Ninetales,PSA,8.5,1
-Ninetales,PSA,9,190
+Ninetales,PSA,9,186
 Ninetales,PSA,10,193
 Ninetales,CGC,2.5,1
 Ninetales,CGC,3.5,1
@@ -1938,130 +1987,75 @@ Ninetales,CGC,5,2
 Ninetales,CGC,5.5,7
 Ninetales,CGC,6,4
 Ninetales,CGC,6.5,5
-Ninetales,CGC,7,8
+Ninetales,CGC,7,9
 Ninetales,CGC,7.5,16
 Ninetales,CGC,8,26
-Ninetales,CGC,8.5,82
+Ninetales,CGC,8.5,78
 Ninetales,CGC,9,106
 Ninetales,CGC,9.5,37
 Ninetales,CGC,10,298
-Piplup,all,5.5,2
-Piplup,all,6,3
-Piplup,all,7,8
-Piplup,all,7.5,3
-Piplup,all,8,28
-Piplup,all,8.5,17
-Piplup,all,9,326
-Piplup,all,9.5,32
-Piplup,all,10,797
-Piplup,PSA,6,2
-Piplup,PSA,7,4
-Piplup,PSA,8,23
-Piplup,PSA,9,237
-Piplup,PSA,10,364
-Piplup,CGC,5.5,2
-Piplup,CGC,6,1
-Piplup,CGC,7,3
-Piplup,CGC,7.5,3
-Piplup,CGC,8,5
-Piplup,CGC,8.5,17
-Piplup,CGC,9,88
-Piplup,CGC,9.5,31
-Piplup,CGC,10,430
-Shanks,all,5,2
-Shanks,all,6,1
-Shanks,all,6.5,1
-Shanks,all,7,3
-Shanks,all,8,9
-Shanks,all,8.5,10
-Shanks,all,9,186
-Shanks,all,9.5,17
-Shanks,all,10,1035
-Shanks,PSA,5,2
-Shanks,PSA,6,1
-Shanks,PSA,7,2
-Shanks,PSA,8,6
-Shanks,PSA,9,160
-Shanks,PSA,10,781
-Shanks,CGC,6.5,1
-Shanks,CGC,7,1
-Shanks,CGC,8,2
-Shanks,CGC,8.5,10
-Shanks,CGC,9,25
-Shanks,CGC,9.5,11
-Shanks,CGC,10,246
-Slowpoke,all,4,2
-Slowpoke,all,4.5,1
-Slowpoke,all,5,4
-Slowpoke,all,5.5,4
-Slowpoke,all,6,7
-Slowpoke,all,6.5,4
-Slowpoke,all,7,20
-Slowpoke,all,7.5,25
-Slowpoke,all,8,84
-Slowpoke,all,8.5,109
-Slowpoke,all,9,247
-Slowpoke,all,9.5,31
-Slowpoke,all,10,487
-Slowpoke,PSA,4,1
-Slowpoke,PSA,5,4
-Slowpoke,PSA,6,4
-Slowpoke,PSA,7,9
-Slowpoke,PSA,8,37
-Slowpoke,PSA,8.5,1
-Slowpoke,PSA,9,113
-Slowpoke,PSA,10,192
-Slowpoke,CGC,4,1
-Slowpoke,CGC,4.5,1
-Slowpoke,CGC,5.5,4
-Slowpoke,CGC,6,3
-Slowpoke,CGC,6.5,4
-Slowpoke,CGC,7,11
-Slowpoke,CGC,7.5,25
-Slowpoke,CGC,8,40
-Slowpoke,CGC,8.5,106
-Slowpoke,CGC,9,132
-Slowpoke,CGC,9.5,30
-Slowpoke,CGC,10,294
 Sanji,all,6,1
 Sanji,all,7.5,4
 Sanji,all,8,6
 Sanji,all,8.5,8
 Sanji,all,9,135
-Sanji,all,9.5,24
-Sanji,all,10,1041
+Sanji,all,9.5,25
+Sanji,all,10,1050
 Sanji,PSA,8,4
 Sanji,PSA,9,102
-Sanji,PSA,10,718
+Sanji,PSA,10,725
 Sanji,CGC,6,1
 Sanji,CGC,7.5,4
 Sanji,CGC,8,2
 Sanji,CGC,8.5,8
 Sanji,CGC,9,33
 Sanji,CGC,9.5,10
-Sanji,CGC,10,315
+Sanji,CGC,10,317
+Piplup,all,5.5,2
+Piplup,all,6,3
+Piplup,all,7,8
+Piplup,all,7.5,3
+Piplup,all,8,27
+Piplup,all,8.5,17
+Piplup,all,9,323
+Piplup,all,9.5,32
+Piplup,all,10,785
+Piplup,PSA,6,2
+Piplup,PSA,7,4
+Piplup,PSA,8,22
+Piplup,PSA,9,236
+Piplup,PSA,10,354
+Piplup,CGC,5.5,2
+Piplup,CGC,6,1
+Piplup,CGC,7,3
+Piplup,CGC,7.5,3
+Piplup,CGC,8,5
+Piplup,CGC,8.5,17
+Piplup,CGC,9,86
+Piplup,CGC,9.5,31
+Piplup,CGC,10,427
 Mega Gardevoir,all,5.5,1
 Mega Gardevoir,all,6,2
 Mega Gardevoir,all,6.5,1
 Mega Gardevoir,all,7,2
 Mega Gardevoir,all,8,16
-Mega Gardevoir,all,8.5,22
-Mega Gardevoir,all,9,255
-Mega Gardevoir,all,9.5,44
-Mega Gardevoir,all,10,937
+Mega Gardevoir,all,8.5,21
+Mega Gardevoir,all,9,256
+Mega Gardevoir,all,9.5,42
+Mega Gardevoir,all,10,931
 Mega Gardevoir,PSA,6,2
 Mega Gardevoir,PSA,7,1
 Mega Gardevoir,PSA,8,11
-Mega Gardevoir,PSA,9,169
-Mega Gardevoir,PSA,10,451
+Mega Gardevoir,PSA,9,171
+Mega Gardevoir,PSA,10,443
 Mega Gardevoir,CGC,5.5,1
 Mega Gardevoir,CGC,6.5,1
 Mega Gardevoir,CGC,7,1
 Mega Gardevoir,CGC,8,5
-Mega Gardevoir,CGC,8.5,22
-Mega Gardevoir,CGC,9,86
-Mega Gardevoir,CGC,9.5,43
-Mega Gardevoir,CGC,10,486
+Mega Gardevoir,CGC,8.5,21
+Mega Gardevoir,CGC,9,85
+Mega Gardevoir,CGC,9.5,41
+Mega Gardevoir,CGC,10,488
 Gardevoir,all,1,2
 Gardevoir,all,3,1
 Gardevoir,all,3.5,1
@@ -2073,16 +2067,16 @@ Gardevoir,all,7,22
 Gardevoir,all,7.5,10
 Gardevoir,all,8,60
 Gardevoir,all,8.5,25
-Gardevoir,all,9,346
-Gardevoir,all,9.5,41
-Gardevoir,all,10,739
+Gardevoir,all,9,342
+Gardevoir,all,9.5,40
+Gardevoir,all,10,738
 Gardevoir,PSA,1,2
 Gardevoir,PSA,5,1
 Gardevoir,PSA,6,5
 Gardevoir,PSA,7,15
 Gardevoir,PSA,8,47
-Gardevoir,PSA,9,244
-Gardevoir,PSA,10,328
+Gardevoir,PSA,9,241
+Gardevoir,PSA,10,327
 Gardevoir,CGC,3,1
 Gardevoir,CGC,3.5,1
 Gardevoir,CGC,4,1
@@ -2092,9 +2086,9 @@ Gardevoir,CGC,7,7
 Gardevoir,CGC,7.5,10
 Gardevoir,CGC,8,13
 Gardevoir,CGC,8.5,25
-Gardevoir,CGC,9,95
-Gardevoir,CGC,9.5,37
-Gardevoir,CGC,10,401
+Gardevoir,CGC,9,93
+Gardevoir,CGC,9.5,36
+Gardevoir,CGC,10,402
 Reshiram,all,1,1
 Reshiram,all,2,1
 Reshiram,all,3,1
@@ -2104,11 +2098,11 @@ Reshiram,all,5.5,1
 Reshiram,all,6,5
 Reshiram,all,7,17
 Reshiram,all,7.5,6
-Reshiram,all,8,58
-Reshiram,all,8.5,53
-Reshiram,all,9,311
-Reshiram,all,9.5,47
-Reshiram,all,10,712
+Reshiram,all,8,57
+Reshiram,all,8.5,49
+Reshiram,all,9,306
+Reshiram,all,9.5,46
+Reshiram,all,10,711
 Reshiram,PSA,1,1
 Reshiram,PSA,2,1
 Reshiram,PSA,3,1
@@ -2118,86 +2112,62 @@ Reshiram,PSA,6,3
 Reshiram,PSA,7,13
 Reshiram,PSA,8,39
 Reshiram,PSA,8.5,2
-Reshiram,PSA,9,179
+Reshiram,PSA,9,181
 Reshiram,PSA,10,319
 Reshiram,CGC,5.5,1
 Reshiram,CGC,6,1
 Reshiram,CGC,7,4
 Reshiram,CGC,7.5,6
-Reshiram,CGC,8,19
-Reshiram,CGC,8.5,50
-Reshiram,CGC,9,130
-Reshiram,CGC,9.5,37
-Reshiram,CGC,10,388
-Paul Skenes,all,6,9
-Paul Skenes,all,7,17
-Paul Skenes,all,7.5,1
-Paul Skenes,all,8,104
-Paul Skenes,all,8.5,5
-Paul Skenes,all,9,558
-Paul Skenes,all,9.5,10
-Paul Skenes,all,10,459
-Paul Skenes,PSA,6,9
-Paul Skenes,PSA,7,17
-Paul Skenes,PSA,8,100
-Paul Skenes,PSA,8.5,1
-Paul Skenes,PSA,9,549
-Paul Skenes,PSA,10,421
-Paul Skenes,CGC,7.5,1
-Paul Skenes,CGC,8,4
-Paul Skenes,CGC,8.5,3
-Paul Skenes,CGC,9,6
-Paul Skenes,CGC,9.5,2
-Paul Skenes,CGC,10,24
-Mike Trout,all,4,2
-Mike Trout,all,5,7
-Mike Trout,all,6,8
-Mike Trout,all,7,12
-Mike Trout,all,7.5,2
-Mike Trout,all,8,39
-Mike Trout,all,8.5,6
-Mike Trout,all,9,178
-Mike Trout,all,9.5,11
-Mike Trout,all,10,349
-Mike Trout,PSA,4,2
-Mike Trout,PSA,5,7
-Mike Trout,PSA,6,8
-Mike Trout,PSA,7,12
-Mike Trout,PSA,8,36
-Mike Trout,PSA,8.5,1
-Mike Trout,PSA,9,173
-Mike Trout,PSA,10,333
-Mike Trout,CGC,7.5,2
-Mike Trout,CGC,8.5,2
-Mike Trout,CGC,9.5,1
-Mike Trout,CGC,10,8
+Reshiram,CGC,8,18
+Reshiram,CGC,8.5,46
+Reshiram,CGC,9,124
+Reshiram,CGC,9.5,36
+Reshiram,CGC,10,387
+Nico Robin,all,7,3
+Nico Robin,all,7.5,1
+Nico Robin,all,8,9
+Nico Robin,all,8.5,5
+Nico Robin,all,9,142
+Nico Robin,all,9.5,16
+Nico Robin,all,10,1037
+Nico Robin,PSA,7,1
+Nico Robin,PSA,8,7
+Nico Robin,PSA,9,114
+Nico Robin,PSA,10,844
+Nico Robin,CGC,7,2
+Nico Robin,CGC,7.5,1
+Nico Robin,CGC,8,2
+Nico Robin,CGC,8.5,5
+Nico Robin,CGC,9,28
+Nico Robin,CGC,9.5,10
+Nico Robin,CGC,10,188
 Clefairy,all,1,2
 Clefairy,all,2,1
 Clefairy,all,3,2
 Clefairy,all,4,6
 Clefairy,all,4.5,2
-Clefairy,all,5,16
+Clefairy,all,5,17
 Clefairy,all,5.5,3
 Clefairy,all,6,26
 Clefairy,all,6.5,8
 Clefairy,all,7,30
 Clefairy,all,7.5,16
-Clefairy,all,8,88
+Clefairy,all,8,89
 Clefairy,all,8.5,55
-Clefairy,all,9,189
+Clefairy,all,9,190
 Clefairy,all,9.5,22
-Clefairy,all,10,504
+Clefairy,all,10,503
 Clefairy,PSA,1,2
 Clefairy,PSA,2,1
 Clefairy,PSA,3,2
 Clefairy,PSA,4,6
-Clefairy,PSA,5,13
+Clefairy,PSA,5,14
 Clefairy,PSA,6,19
 Clefairy,PSA,7,22
-Clefairy,PSA,8,63
+Clefairy,PSA,8,64
 Clefairy,PSA,8.5,1
-Clefairy,PSA,9,137
-Clefairy,PSA,10,343
+Clefairy,PSA,9,138
+Clefairy,PSA,10,342
 Clefairy,CGC,4.5,2
 Clefairy,CGC,5,3
 Clefairy,CGC,5.5,3
@@ -2210,6 +2180,86 @@ Clefairy,CGC,8.5,49
 Clefairy,CGC,9,50
 Clefairy,CGC,9.5,21
 Clefairy,CGC,10,158
+Paul Skenes,all,6,9
+Paul Skenes,all,7,17
+Paul Skenes,all,7.5,1
+Paul Skenes,all,8,104
+Paul Skenes,all,8.5,5
+Paul Skenes,all,9,558
+Paul Skenes,all,9.5,10
+Paul Skenes,all,10,461
+Paul Skenes,PSA,6,9
+Paul Skenes,PSA,7,17
+Paul Skenes,PSA,8,100
+Paul Skenes,PSA,8.5,1
+Paul Skenes,PSA,9,549
+Paul Skenes,PSA,10,423
+Paul Skenes,CGC,7.5,1
+Paul Skenes,CGC,8,4
+Paul Skenes,CGC,8.5,3
+Paul Skenes,CGC,9,6
+Paul Skenes,CGC,9.5,2
+Paul Skenes,CGC,10,24
+Mike Trout,all,4,2
+Mike Trout,all,5,7
+Mike Trout,all,6,8
+Mike Trout,all,7,12
+Mike Trout,all,7.5,2
+Mike Trout,all,8,40
+Mike Trout,all,8.5,6
+Mike Trout,all,9,180
+Mike Trout,all,9.5,11
+Mike Trout,all,10,350
+Mike Trout,PSA,4,2
+Mike Trout,PSA,5,7
+Mike Trout,PSA,6,8
+Mike Trout,PSA,7,12
+Mike Trout,PSA,8,37
+Mike Trout,PSA,8.5,1
+Mike Trout,PSA,9,175
+Mike Trout,PSA,10,334
+Mike Trout,CGC,7.5,2
+Mike Trout,CGC,8.5,2
+Mike Trout,CGC,9.5,1
+Mike Trout,CGC,10,8
+Wartortle,all,2,1
+Wartortle,all,2.5,1
+Wartortle,all,4,6
+Wartortle,all,4.5,2
+Wartortle,all,5,13
+Wartortle,all,5.5,3
+Wartortle,all,6,23
+Wartortle,all,6.5,3
+Wartortle,all,7,35
+Wartortle,all,7.5,16
+Wartortle,all,8,102
+Wartortle,all,8.5,40
+Wartortle,all,9,322
+Wartortle,all,9.5,43
+Wartortle,all,10,542
+Wartortle,PSA,2,1
+Wartortle,PSA,4,4
+Wartortle,PSA,5,12
+Wartortle,PSA,6,18
+Wartortle,PSA,7,26
+Wartortle,PSA,8,78
+Wartortle,PSA,8.5,1
+Wartortle,PSA,9,223
+Wartortle,PSA,10,260
+Wartortle,CGC,2.5,1
+Wartortle,CGC,4,2
+Wartortle,CGC,4.5,2
+Wartortle,CGC,5,1
+Wartortle,CGC,5.5,3
+Wartortle,CGC,6,4
+Wartortle,CGC,6.5,2
+Wartortle,CGC,7,9
+Wartortle,CGC,7.5,16
+Wartortle,CGC,8,21
+Wartortle,CGC,8.5,36
+Wartortle,CGC,9,94
+Wartortle,CGC,9.5,41
+Wartortle,CGC,10,278
 Tyranitar,all,1,2
 Tyranitar,all,3,7
 Tyranitar,all,4,2
@@ -2221,9 +2271,9 @@ Tyranitar,all,7,25
 Tyranitar,all,7.5,18
 Tyranitar,all,8,68
 Tyranitar,all,8.5,57
-Tyranitar,all,9,321
+Tyranitar,all,9,325
 Tyranitar,all,9.5,51
-Tyranitar,all,10,640
+Tyranitar,all,10,641
 Tyranitar,PSA,1,2
 Tyranitar,PSA,3,7
 Tyranitar,PSA,4,2
@@ -2231,8 +2281,8 @@ Tyranitar,PSA,5,4
 Tyranitar,PSA,6,8
 Tyranitar,PSA,7,21
 Tyranitar,PSA,8,48
-Tyranitar,PSA,9,187
-Tyranitar,PSA,10,219
+Tyranitar,PSA,9,189
+Tyranitar,PSA,10,218
 Tyranitar,CGC,4.5,1
 Tyranitar,CGC,5,2
 Tyranitar,CGC,6,2
@@ -2241,65 +2291,80 @@ Tyranitar,CGC,7,4
 Tyranitar,CGC,7.5,18
 Tyranitar,CGC,8,19
 Tyranitar,CGC,8.5,56
-Tyranitar,CGC,9,131
+Tyranitar,CGC,9,133
 Tyranitar,CGC,9.5,47
-Tyranitar,CGC,10,419
-Wartortle,all,2,1
-Wartortle,all,2.5,1
-Wartortle,all,4,6
-Wartortle,all,4.5,2
-Wartortle,all,5,13
-Wartortle,all,5.5,3
-Wartortle,all,6,21
-Wartortle,all,6.5,3
-Wartortle,all,7,35
-Wartortle,all,7.5,16
-Wartortle,all,8,103
-Wartortle,all,8.5,41
-Wartortle,all,9,325
-Wartortle,all,9.5,43
-Wartortle,all,10,543
-Wartortle,PSA,2,1
-Wartortle,PSA,4,4
-Wartortle,PSA,5,12
-Wartortle,PSA,6,16
-Wartortle,PSA,7,26
-Wartortle,PSA,8,79
-Wartortle,PSA,8.5,1
-Wartortle,PSA,9,224
-Wartortle,PSA,10,263
-Wartortle,CGC,2.5,1
-Wartortle,CGC,4,2
-Wartortle,CGC,4.5,2
-Wartortle,CGC,5,1
-Wartortle,CGC,5.5,3
-Wartortle,CGC,6,4
-Wartortle,CGC,6.5,2
-Wartortle,CGC,7,9
-Wartortle,CGC,7.5,16
-Wartortle,CGC,8,21
-Wartortle,CGC,8.5,37
-Wartortle,CGC,9,96
-Wartortle,CGC,9.5,41
-Wartortle,CGC,10,276
-Nico Robin,all,7,3
-Nico Robin,all,7.5,1
-Nico Robin,all,8,9
-Nico Robin,all,8.5,5
-Nico Robin,all,9,140
-Nico Robin,all,9.5,16
-Nico Robin,all,10,1013
-Nico Robin,PSA,7,1
-Nico Robin,PSA,8,7
-Nico Robin,PSA,9,113
-Nico Robin,PSA,10,818
-Nico Robin,CGC,7,2
-Nico Robin,CGC,7.5,1
-Nico Robin,CGC,8,2
-Nico Robin,CGC,8.5,5
-Nico Robin,CGC,9,27
-Nico Robin,CGC,9.5,10
-Nico Robin,CGC,10,190
+Tyranitar,CGC,10,421
+Bo Nix,all,5,1
+Bo Nix,all,6,6
+Bo Nix,all,7,7
+Bo Nix,all,7.5,1
+Bo Nix,all,8,98
+Bo Nix,all,8.5,9
+Bo Nix,all,9,480
+Bo Nix,all,9.5,10
+Bo Nix,all,10,486
+Bo Nix,PSA,5,1
+Bo Nix,PSA,6,5
+Bo Nix,PSA,7,7
+Bo Nix,PSA,8,97
+Bo Nix,PSA,8.5,1
+Bo Nix,PSA,9,457
+Bo Nix,PSA,10,446
+Bo Nix,CGC,6,1
+Bo Nix,CGC,7.5,1
+Bo Nix,CGC,8,1
+Bo Nix,CGC,8.5,6
+Bo Nix,CGC,9,16
+Bo Nix,CGC,9.5,3
+Bo Nix,CGC,10,34
+Magikarp,all,1,2
+Magikarp,all,4.5,1
+Magikarp,all,5,7
+Magikarp,all,5.5,2
+Magikarp,all,6,14
+Magikarp,all,6.5,2
+Magikarp,all,7,27
+Magikarp,all,7.5,15
+Magikarp,all,8,77
+Magikarp,all,8.5,33
+Magikarp,all,9,284
+Magikarp,all,9.5,33
+Magikarp,all,10,460
+Magikarp,PSA,1,2
+Magikarp,PSA,5,5
+Magikarp,PSA,6,11
+Magikarp,PSA,7,20
+Magikarp,PSA,8,52
+Magikarp,PSA,9,181
+Magikarp,PSA,10,281
+Magikarp,CGC,4.5,1
+Magikarp,CGC,5,2
+Magikarp,CGC,5.5,2
+Magikarp,CGC,6,3
+Magikarp,CGC,6.5,2
+Magikarp,CGC,7,7
+Magikarp,CGC,7.5,15
+Magikarp,CGC,8,24
+Magikarp,CGC,8.5,32
+Magikarp,CGC,9,102
+Magikarp,CGC,9.5,30
+Magikarp,CGC,10,175
+Justin Herbert,all,7,1
+Justin Herbert,all,7.5,1
+Justin Herbert,all,8,26
+Justin Herbert,all,8.5,4
+Justin Herbert,all,9,328
+Justin Herbert,all,9.5,17
+Justin Herbert,all,10,445
+Justin Herbert,PSA,7,1
+Justin Herbert,PSA,8,26
+Justin Herbert,PSA,9,307
+Justin Herbert,PSA,10,420
+Justin Herbert,CGC,7.5,1
+Justin Herbert,CGC,8.5,1
+Justin Herbert,CGC,9,14
+Justin Herbert,CGC,9.5,1
+Justin Herbert,CGC,10,16
 Patrick Mahomes II,all,4,2
 Patrick Mahomes II,all,5,2
 Patrick Mahomes II,all,6,9
@@ -2309,71 +2374,23 @@ Patrick Mahomes II,all,8,79
 Patrick Mahomes II,all,8.5,12
 Patrick Mahomes II,all,9,364
 Patrick Mahomes II,all,9.5,24
-Patrick Mahomes II,all,10,471
+Patrick Mahomes II,all,10,468
 Patrick Mahomes II,PSA,4,2
 Patrick Mahomes II,PSA,5,2
 Patrick Mahomes II,PSA,6,7
 Patrick Mahomes II,PSA,7,23
 Patrick Mahomes II,PSA,8,74
 Patrick Mahomes II,PSA,8.5,3
-Patrick Mahomes II,PSA,9,309
-Patrick Mahomes II,PSA,10,385
+Patrick Mahomes II,PSA,9,308
+Patrick Mahomes II,PSA,10,381
 Patrick Mahomes II,CGC,6,2
 Patrick Mahomes II,CGC,7,4
 Patrick Mahomes II,CGC,7.5,2
 Patrick Mahomes II,CGC,8,3
 Patrick Mahomes II,CGC,8.5,6
-Patrick Mahomes II,CGC,9,49
+Patrick Mahomes II,CGC,9,50
 Patrick Mahomes II,CGC,9.5,7
-Patrick Mahomes II,CGC,10,82
-Magikarp,all,1,2
-Magikarp,all,4.5,1
-Magikarp,all,5,8
-Magikarp,all,5.5,2
-Magikarp,all,6,15
-Magikarp,all,6.5,2
-Magikarp,all,7,29
-Magikarp,all,7.5,16
-Magikarp,all,8,78
-Magikarp,all,8.5,33
-Magikarp,all,9,288
-Magikarp,all,9.5,34
-Magikarp,all,10,459
-Magikarp,PSA,1,2
-Magikarp,PSA,5,6
-Magikarp,PSA,6,12
-Magikarp,PSA,7,22
-Magikarp,PSA,8,53
-Magikarp,PSA,9,185
-Magikarp,PSA,10,281
-Magikarp,CGC,4.5,1
-Magikarp,CGC,5,2
-Magikarp,CGC,5.5,2
-Magikarp,CGC,6,3
-Magikarp,CGC,6.5,2
-Magikarp,CGC,7,7
-Magikarp,CGC,7.5,16
-Magikarp,CGC,8,24
-Magikarp,CGC,8.5,32
-Magikarp,CGC,9,102
-Magikarp,CGC,9.5,31
-Magikarp,CGC,10,174
-Justin Herbert,all,7,1
-Justin Herbert,all,7.5,1
-Justin Herbert,all,8,26
-Justin Herbert,all,8.5,4
-Justin Herbert,all,9,335
-Justin Herbert,all,9.5,17
-Justin Herbert,all,10,446
-Justin Herbert,PSA,7,1
-Justin Herbert,PSA,8,26
-Justin Herbert,PSA,9,314
-Justin Herbert,PSA,10,420
-Justin Herbert,CGC,7.5,1
-Justin Herbert,CGC,8.5,1
-Justin Herbert,CGC,9,14
-Justin Herbert,CGC,9.5,1
-Justin Herbert,CGC,10,17
+Patrick Mahomes II,CGC,10,83
 Haunter,all,4,6
 Haunter,all,5,13
 Haunter,all,5.5,2
@@ -2381,18 +2398,18 @@ Haunter,all,6,24
 Haunter,all,6.5,4
 Haunter,all,7,31
 Haunter,all,7.5,8
-Haunter,all,8,113
+Haunter,all,8,112
 Haunter,all,8.5,44
-Haunter,all,9,257
+Haunter,all,9,256
 Haunter,all,9.5,31
-Haunter,all,10,426
+Haunter,all,10,413
 Haunter,PSA,4,6
 Haunter,PSA,5,11
 Haunter,PSA,6,19
 Haunter,PSA,7,29
-Haunter,PSA,8,89
+Haunter,PSA,8,88
 Haunter,PSA,9,168
-Haunter,PSA,10,265
+Haunter,PSA,10,251
 Haunter,CGC,5,2
 Haunter,CGC,5.5,2
 Haunter,CGC,6,5
@@ -2401,32 +2418,9 @@ Haunter,CGC,7,2
 Haunter,CGC,7.5,8
 Haunter,CGC,8,23
 Haunter,CGC,8.5,41
-Haunter,CGC,9,84
+Haunter,CGC,9,83
 Haunter,CGC,9.5,29
-Haunter,CGC,10,160
-Bo Nix,all,5,1
-Bo Nix,all,6,6
-Bo Nix,all,7,7
-Bo Nix,all,7.5,1
-Bo Nix,all,8,96
-Bo Nix,all,8.5,9
-Bo Nix,all,9,471
-Bo Nix,all,9.5,10
-Bo Nix,all,10,490
-Bo Nix,PSA,5,1
-Bo Nix,PSA,6,5
-Bo Nix,PSA,7,7
-Bo Nix,PSA,8,95
-Bo Nix,PSA,8.5,1
-Bo Nix,PSA,9,447
-Bo Nix,PSA,10,449
-Bo Nix,CGC,6,1
-Bo Nix,CGC,7.5,1
-Bo Nix,CGC,8,1
-Bo Nix,CGC,8.5,6
-Bo Nix,CGC,9,17
-Bo Nix,CGC,9.5,3
-Bo Nix,CGC,10,35
+Haunter,CGC,10,161
 Tom Brady,all,4,2
 Tom Brady,all,5,2
 Tom Brady,all,6,18
@@ -2435,9 +2429,9 @@ Tom Brady,all,7,30
 Tom Brady,all,7.5,2
 Tom Brady,all,8,111
 Tom Brady,all,8.5,18
-Tom Brady,all,9,412
-Tom Brady,all,9.5,35
-Tom Brady,all,10,326
+Tom Brady,all,9,414
+Tom Brady,all,9.5,39
+Tom Brady,all,10,324
 Tom Brady,PSA,4,1
 Tom Brady,PSA,5,2
 Tom Brady,PSA,6,17
@@ -2445,73 +2439,73 @@ Tom Brady,PSA,7,25
 Tom Brady,PSA,8,99
 Tom Brady,PSA,8.5,2
 Tom Brady,PSA,9,326
-Tom Brady,PSA,10,279
+Tom Brady,PSA,10,278
 Tom Brady,CGC,4,1
 Tom Brady,CGC,6,1
 Tom Brady,CGC,7,3
 Tom Brady,CGC,7.5,2
 Tom Brady,CGC,8,8
 Tom Brady,CGC,8.5,5
-Tom Brady,CGC,9,67
-Tom Brady,CGC,9.5,18
-Tom Brady,CGC,10,46
-Luka Doncic,all,6,2
-Luka Doncic,all,7,7
-Luka Doncic,all,7.5,1
-Luka Doncic,all,8,47
-Luka Doncic,all,8.5,4
-Luka Doncic,all,9,290
-Luka Doncic,all,9.5,40
-Luka Doncic,all,10,490
-Luka Doncic,PSA,6,2
-Luka Doncic,PSA,7,7
-Luka Doncic,PSA,8,44
-Luka Doncic,PSA,8.5,1
-Luka Doncic,PSA,9,270
-Luka Doncic,PSA,10,430
-Luka Doncic,CGC,9,6
-Luka Doncic,CGC,9.5,1
-Luka Doncic,CGC,10,57
+Tom Brady,CGC,9,69
+Tom Brady,CGC,9.5,22
+Tom Brady,CGC,10,45
 Jaxson Dart,all,5,1
 Jaxson Dart,all,6,3
 Jaxson Dart,all,7,8
 Jaxson Dart,all,7.5,2
-Jaxson Dart,all,8,150
+Jaxson Dart,all,8,152
 Jaxson Dart,all,8.5,12
-Jaxson Dart,all,9,425
-Jaxson Dart,all,9.5,22
-Jaxson Dart,all,10,458
+Jaxson Dart,all,9,432
+Jaxson Dart,all,9.5,21
+Jaxson Dart,all,10,455
 Jaxson Dart,PSA,5,1
 Jaxson Dart,PSA,6,2
 Jaxson Dart,PSA,7,6
-Jaxson Dart,PSA,8,142
-Jaxson Dart,PSA,9,397
-Jaxson Dart,PSA,10,409
+Jaxson Dart,PSA,8,144
+Jaxson Dart,PSA,9,401
+Jaxson Dart,PSA,10,406
 Jaxson Dart,CGC,6,1
 Jaxson Dart,CGC,7,2
 Jaxson Dart,CGC,7.5,2
 Jaxson Dart,CGC,8,8
 Jaxson Dart,CGC,8.5,11
-Jaxson Dart,CGC,9,27
+Jaxson Dart,CGC,9,30
 Jaxson Dart,CGC,9.5,10
 Jaxson Dart,CGC,10,43
+Luka Doncic,all,6,2
+Luka Doncic,all,7,7
+Luka Doncic,all,7.5,1
+Luka Doncic,all,8,46
+Luka Doncic,all,8.5,5
+Luka Doncic,all,9,290
+Luka Doncic,all,9.5,39
+Luka Doncic,all,10,487
+Luka Doncic,PSA,6,2
+Luka Doncic,PSA,7,7
+Luka Doncic,PSA,8,43
+Luka Doncic,PSA,8.5,2
+Luka Doncic,PSA,9,270
+Luka Doncic,PSA,10,429
+Luka Doncic,CGC,9,6
+Luka Doncic,CGC,9.5,1
+Luka Doncic,CGC,10,55
 Caleb Williams,all,4,1
 Caleb Williams,all,5,1
 Caleb Williams,all,6,14
-Caleb Williams,all,7,12
+Caleb Williams,all,7,11
 Caleb Williams,all,7.5,3
-Caleb Williams,all,8,111
+Caleb Williams,all,8,110
 Caleb Williams,all,8.5,14
-Caleb Williams,all,9,415
+Caleb Williams,all,9,411
 Caleb Williams,all,9.5,66
-Caleb Williams,all,10,480
+Caleb Williams,all,10,479
 Caleb Williams,PSA,5,1
 Caleb Williams,PSA,6,13
-Caleb Williams,PSA,7,11
-Caleb Williams,PSA,8,94
+Caleb Williams,PSA,7,10
+Caleb Williams,PSA,8,93
 Caleb Williams,PSA,8.5,3
-Caleb Williams,PSA,9,377
-Caleb Williams,PSA,10,390
+Caleb Williams,PSA,9,373
+Caleb Williams,PSA,10,389
 Caleb Williams,CGC,4,1
 Caleb Williams,CGC,6,1
 Caleb Williams,CGC,7,1
@@ -2524,37 +2518,37 @@ Caleb Williams,CGC,10,52
 Riolu,all,6,3
 Riolu,all,7,6
 Riolu,all,7.5,1
-Riolu,all,8,54
+Riolu,all,8,55
 Riolu,all,8.5,11
-Riolu,all,9,232
+Riolu,all,9,230
 Riolu,all,9.5,20
-Riolu,all,10,516
+Riolu,all,10,510
 Riolu,PSA,6,2
 Riolu,PSA,7,6
-Riolu,PSA,8,47
-Riolu,PSA,9,192
-Riolu,PSA,10,310
+Riolu,PSA,8,49
+Riolu,PSA,9,191
+Riolu,PSA,10,305
 Riolu,CGC,6,1
 Riolu,CGC,7.5,1
-Riolu,CGC,8,7
+Riolu,CGC,8,6
 Riolu,CGC,8.5,11
-Riolu,CGC,9,39
+Riolu,CGC,9,38
 Riolu,CGC,9.5,19
-Riolu,CGC,10,206
+Riolu,CGC,10,205
 Zion Williamson,all,3,1
 Zion Williamson,all,6,3
 Zion Williamson,all,7,5
-Zion Williamson,all,8,47
+Zion Williamson,all,8,45
 Zion Williamson,all,8.5,4
-Zion Williamson,all,9,350
+Zion Williamson,all,9,352
 Zion Williamson,all,9.5,60
 Zion Williamson,all,10,581
 Zion Williamson,PSA,3,1
 Zion Williamson,PSA,6,3
 Zion Williamson,PSA,7,5
-Zion Williamson,PSA,8,46
+Zion Williamson,PSA,8,44
 Zion Williamson,PSA,8.5,2
-Zion Williamson,PSA,9,321
+Zion Williamson,PSA,9,322
 Zion Williamson,PSA,10,562
 Zion Williamson,CGC,9,2
 Zion Williamson,CGC,10,5
@@ -2562,17 +2556,17 @@ Team Rocket's Mewtwo,all,5,1
 Team Rocket's Mewtwo,all,6,1
 Team Rocket's Mewtwo,all,7,1
 Team Rocket's Mewtwo,all,7.5,2
-Team Rocket's Mewtwo,all,8,30
+Team Rocket's Mewtwo,all,8,31
 Team Rocket's Mewtwo,all,8.5,12
-Team Rocket's Mewtwo,all,9,267
+Team Rocket's Mewtwo,all,9,268
 Team Rocket's Mewtwo,all,9.5,15
-Team Rocket's Mewtwo,all,10,779
+Team Rocket's Mewtwo,all,10,775
 Team Rocket's Mewtwo,PSA,6,1
 Team Rocket's Mewtwo,PSA,7,1
 Team Rocket's Mewtwo,PSA,7.5,1
-Team Rocket's Mewtwo,PSA,8,22
-Team Rocket's Mewtwo,PSA,9,219
-Team Rocket's Mewtwo,PSA,10,422
+Team Rocket's Mewtwo,PSA,8,23
+Team Rocket's Mewtwo,PSA,9,220
+Team Rocket's Mewtwo,PSA,10,418
 Team Rocket's Mewtwo,CGC,5,1
 Team Rocket's Mewtwo,CGC,7.5,1
 Team Rocket's Mewtwo,CGC,8,8
@@ -2582,95 +2576,22 @@ Team Rocket's Mewtwo,CGC,9.5,13
 Team Rocket's Mewtwo,CGC,10,353
 CJ Stroud,all,6,1
 CJ Stroud,all,7,10
-CJ Stroud,all,8,78
+CJ Stroud,all,8,77
 CJ Stroud,all,8.5,1
-CJ Stroud,all,9,406
-CJ Stroud,all,9.5,2
-CJ Stroud,all,10,560
+CJ Stroud,all,9,415
+CJ Stroud,all,9.5,3
+CJ Stroud,all,10,565
 CJ Stroud,PSA,6,1
 CJ Stroud,PSA,7,10
-CJ Stroud,PSA,8,77
-CJ Stroud,PSA,9,399
-CJ Stroud,PSA,10,553
+CJ Stroud,PSA,8,76
+CJ Stroud,PSA,9,408
+CJ Stroud,PSA,10,557
 CJ Stroud,CGC,8,1
 CJ Stroud,CGC,9,3
-CJ Stroud,CGC,10,3
-Suicune,all,1,3
-Suicune,all,4,1
-Suicune,all,5,3
-Suicune,all,5.5,2
-Suicune,all,6,5
-Suicune,all,6.5,1
-Suicune,all,7,20
-Suicune,all,7.5,11
-Suicune,all,8,51
-Suicune,all,8.5,37
-Suicune,all,9,265
-Suicune,all,9.5,62
-Suicune,all,10,511
-Suicune,PSA,1,2
-Suicune,PSA,4,1
-Suicune,PSA,5,3
-Suicune,PSA,6,2
-Suicune,PSA,7,14
-Suicune,PSA,8,29
-Suicune,PSA,8.5,1
-Suicune,PSA,9,110
-Suicune,PSA,10,177
-Suicune,CGC,1,1
-Suicune,CGC,5.5,2
-Suicune,CGC,6,3
-Suicune,CGC,6.5,1
-Suicune,CGC,7,6
-Suicune,CGC,7.5,11
-Suicune,CGC,8,22
-Suicune,CGC,8.5,35
-Suicune,CGC,9,150
-Suicune,CGC,9.5,55
-Suicune,CGC,10,331
-Mega Dragonite,all,7,3
-Mega Dragonite,all,8,16
-Mega Dragonite,all,8.5,7
-Mega Dragonite,all,9,263
-Mega Dragonite,all,9.5,12
-Mega Dragonite,all,10,775
-Mega Dragonite,PSA,7,3
-Mega Dragonite,PSA,8,14
-Mega Dragonite,PSA,9,221
-Mega Dragonite,PSA,10,407
-Mega Dragonite,CGC,8,2
-Mega Dragonite,CGC,8.5,7
-Mega Dragonite,CGC,9,40
-Mega Dragonite,CGC,9.5,10
-Mega Dragonite,CGC,10,367
-Lucario,all,4,1
-Lucario,all,5,1
-Lucario,all,6,1
-Lucario,all,7,10
-Lucario,all,7.5,9
-Lucario,all,8,31
-Lucario,all,8.5,53
-Lucario,all,9,286
-Lucario,all,9.5,41
-Lucario,all,10,521
-Lucario,PSA,5,1
-Lucario,PSA,6,1
-Lucario,PSA,7,7
-Lucario,PSA,8,14
-Lucario,PSA,8.5,2
-Lucario,PSA,9,134
-Lucario,PSA,10,141
-Lucario,CGC,4,1
-Lucario,CGC,7,3
-Lucario,CGC,7.5,9
-Lucario,CGC,8,17
-Lucario,CGC,8.5,51
-Lucario,CGC,9,151
-Lucario,CGC,9.5,39
-Lucario,CGC,10,377
+CJ Stroud,CGC,10,4
 Gastly,all,4,2
 Gastly,all,4.5,2
-Gastly,all,5,6
+Gastly,all,5,7
 Gastly,all,5.5,1
 Gastly,all,6,9
 Gastly,all,6.5,1
@@ -2678,17 +2599,17 @@ Gastly,all,7,21
 Gastly,all,7.5,18
 Gastly,all,8,74
 Gastly,all,8.5,50
-Gastly,all,9,216
+Gastly,all,9,217
 Gastly,all,9.5,25
-Gastly,all,10,323
+Gastly,all,10,321
 Gastly,PSA,4,1
-Gastly,PSA,5,4
+Gastly,PSA,5,5
 Gastly,PSA,6,6
 Gastly,PSA,7,10
 Gastly,PSA,8,43
 Gastly,PSA,8.5,1
 Gastly,PSA,9,150
-Gastly,PSA,10,158
+Gastly,PSA,10,156
 Gastly,CGC,4,1
 Gastly,CGC,4.5,2
 Gastly,CGC,5,2
@@ -2699,23 +2620,23 @@ Gastly,CGC,7,11
 Gastly,CGC,7.5,15
 Gastly,CGC,8,30
 Gastly,CGC,8.5,48
-Gastly,CGC,9,64
+Gastly,CGC,9,65
 Gastly,CGC,9.5,23
 Gastly,CGC,10,163
 Caitlin Clark,all,5,2
 Caitlin Clark,all,6,3
 Caitlin Clark,all,7,8
 Caitlin Clark,all,7.5,1
-Caitlin Clark,all,8,94
-Caitlin Clark,all,9,465
+Caitlin Clark,all,8,95
+Caitlin Clark,all,9,463
 Caitlin Clark,all,9.5,14
-Caitlin Clark,all,10,460
+Caitlin Clark,all,10,464
 Caitlin Clark,PSA,5,2
 Caitlin Clark,PSA,6,2
 Caitlin Clark,PSA,7,8
-Caitlin Clark,PSA,8,91
-Caitlin Clark,PSA,9,432
-Caitlin Clark,PSA,10,419
+Caitlin Clark,PSA,8,92
+Caitlin Clark,PSA,9,430
+Caitlin Clark,PSA,10,423
 Caitlin Clark,CGC,6,1
 Caitlin Clark,CGC,7.5,1
 Caitlin Clark,CGC,8,3
@@ -2729,149 +2650,161 @@ Radiant Charizard,all,7,2
 Radiant Charizard,all,7.5,7
 Radiant Charizard,all,8,27
 Radiant Charizard,all,8.5,18
-Radiant Charizard,all,9,265
+Radiant Charizard,all,9,260
 Radiant Charizard,all,9.5,52
-Radiant Charizard,all,10,677
+Radiant Charizard,all,10,685
 Radiant Charizard,PSA,5,1
 Radiant Charizard,PSA,6,4
 Radiant Charizard,PSA,7,2
 Radiant Charizard,PSA,8,18
-Radiant Charizard,PSA,9,188
+Radiant Charizard,PSA,9,184
 Radiant Charizard,PSA,10,316
 Radiant Charizard,CGC,5.5,1
 Radiant Charizard,CGC,7.5,7
 Radiant Charizard,CGC,8,8
 Radiant Charizard,CGC,8.5,18
-Radiant Charizard,CGC,9,76
+Radiant Charizard,CGC,9,75
 Radiant Charizard,CGC,9.5,47
-Radiant Charizard,CGC,10,356
-Zekrom,all,1,2
-Zekrom,all,5,6
-Zekrom,all,6,3
-Zekrom,all,7,16
-Zekrom,all,7.5,7
-Zekrom,all,8,55
-Zekrom,all,8.5,44
-Zekrom,all,9,253
-Zekrom,all,9.5,26
-Zekrom,all,10,637
-Zekrom,PSA,1,2
-Zekrom,PSA,5,5
-Zekrom,PSA,6,2
-Zekrom,PSA,7,11
-Zekrom,PSA,8,29
-Zekrom,PSA,9,148
-Zekrom,PSA,10,323
-Zekrom,CGC,5,1
-Zekrom,CGC,6,1
-Zekrom,CGC,7,5
-Zekrom,CGC,7.5,7
-Zekrom,CGC,8,26
-Zekrom,CGC,8.5,44
-Zekrom,CGC,9,103
-Zekrom,CGC,9.5,24
-Zekrom,CGC,10,312
+Radiant Charizard,CGC,10,364
+Suicune,all,1,3
+Suicune,all,4,1
+Suicune,all,5,3
+Suicune,all,5.5,2
+Suicune,all,6,5
+Suicune,all,6.5,1
+Suicune,all,7,19
+Suicune,all,7.5,10
+Suicune,all,8,50
+Suicune,all,8.5,37
+Suicune,all,9,260
+Suicune,all,9.5,62
+Suicune,all,10,509
+Suicune,PSA,1,2
+Suicune,PSA,4,1
+Suicune,PSA,5,3
+Suicune,PSA,6,2
+Suicune,PSA,7,14
+Suicune,PSA,8,29
+Suicune,PSA,8.5,1
+Suicune,PSA,9,108
+Suicune,PSA,10,172
+Suicune,CGC,1,1
+Suicune,CGC,5.5,2
+Suicune,CGC,6,3
+Suicune,CGC,6.5,1
+Suicune,CGC,7,5
+Suicune,CGC,7.5,10
+Suicune,CGC,8,21
+Suicune,CGC,8.5,35
+Suicune,CGC,9,147
+Suicune,CGC,9.5,55
+Suicune,CGC,10,334
 Chansey,all,1,3
 Chansey,all,2,2
 Chansey,all,3,1
 Chansey,all,4,7
 Chansey,all,4.5,1
 Chansey,all,5,20
-Chansey,all,5.5,3
-Chansey,all,6,29
+Chansey,all,5.5,2
+Chansey,all,6,30
 Chansey,all,6.5,15
-Chansey,all,7,59
+Chansey,all,7,58
 Chansey,all,7.5,14
-Chansey,all,8,97
-Chansey,all,8.5,62
-Chansey,all,9,262
+Chansey,all,8,96
+Chansey,all,8.5,60
+Chansey,all,9,263
 Chansey,all,9.5,24
-Chansey,all,10,355
+Chansey,all,10,352
 Chansey,PSA,1,3
 Chansey,PSA,2,2
 Chansey,PSA,3,1
 Chansey,PSA,4,4
 Chansey,PSA,5,17
-Chansey,PSA,6,20
-Chansey,PSA,7,52
-Chansey,PSA,8,64
+Chansey,PSA,6,21
+Chansey,PSA,7,51
+Chansey,PSA,8,63
 Chansey,PSA,8.5,1
-Chansey,PSA,9,163
-Chansey,PSA,10,142
+Chansey,PSA,9,164
+Chansey,PSA,10,141
 Chansey,CGC,4,3
 Chansey,CGC,4.5,1
 Chansey,CGC,5,3
-Chansey,CGC,5.5,3
+Chansey,CGC,5.5,2
 Chansey,CGC,6,9
 Chansey,CGC,6.5,15
 Chansey,CGC,7,7
 Chansey,CGC,7.5,14
 Chansey,CGC,8,31
-Chansey,CGC,8.5,59
+Chansey,CGC,8.5,57
 Chansey,CGC,9,97
 Chansey,CGC,9.5,23
-Chansey,CGC,10,211
-Stephen Curry,all,5,1
-Stephen Curry,all,6,4
-Stephen Curry,all,7,12
-Stephen Curry,all,7.5,2
-Stephen Curry,all,8,48
-Stephen Curry,all,8.5,9
-Stephen Curry,all,9,221
-Stephen Curry,all,9.5,26
-Stephen Curry,all,10,320
-Stephen Curry,PSA,5,1
-Stephen Curry,PSA,6,4
-Stephen Curry,PSA,7,12
-Stephen Curry,PSA,8,45
-Stephen Curry,PSA,9,199
-Stephen Curry,PSA,10,235
-Stephen Curry,CGC,7.5,1
-Stephen Curry,CGC,8.5,1
-Stephen Curry,CGC,9,8
-Stephen Curry,CGC,9.5,2
-Stephen Curry,CGC,10,77
-Trafalgar Law,all,8,1
-Trafalgar Law,all,8.5,2
-Trafalgar Law,all,9,117
-Trafalgar Law,all,9.5,9
-Trafalgar Law,all,10,859
-Trafalgar Law,PSA,8,1
-Trafalgar Law,PSA,9,102
-Trafalgar Law,PSA,10,730
-Trafalgar Law,CGC,8.5,2
-Trafalgar Law,CGC,9,15
-Trafalgar Law,CGC,9.5,4
-Trafalgar Law,CGC,10,119
-Derek Jeter,all,3,1
-Derek Jeter,all,4,1
-Derek Jeter,all,5,2
-Derek Jeter,all,5.5,1
-Derek Jeter,all,6,17
-Derek Jeter,all,7,33
-Derek Jeter,all,7.5,7
-Derek Jeter,all,8,121
-Derek Jeter,all,8.5,14
-Derek Jeter,all,9,171
-Derek Jeter,all,9.5,14
-Derek Jeter,all,10,593
-Derek Jeter,PSA,3,1
-Derek Jeter,PSA,4,1
-Derek Jeter,PSA,5,1
-Derek Jeter,PSA,6,16
-Derek Jeter,PSA,7,30
-Derek Jeter,PSA,8,111
-Derek Jeter,PSA,9,152
-Derek Jeter,PSA,10,579
-Derek Jeter,CGC,5.5,1
-Derek Jeter,CGC,6,1
-Derek Jeter,CGC,7,2
-Derek Jeter,CGC,7.5,2
-Derek Jeter,CGC,8,3
-Derek Jeter,CGC,8.5,3
-Derek Jeter,CGC,9,8
-Derek Jeter,CGC,9.5,1
-Derek Jeter,CGC,10,12
+Chansey,CGC,10,209
+Lucario,all,4,1
+Lucario,all,5,1
+Lucario,all,6,1
+Lucario,all,7,10
+Lucario,all,7.5,9
+Lucario,all,8,31
+Lucario,all,8.5,51
+Lucario,all,9,283
+Lucario,all,9.5,40
+Lucario,all,10,520
+Lucario,PSA,5,1
+Lucario,PSA,6,1
+Lucario,PSA,7,7
+Lucario,PSA,8,14
+Lucario,PSA,8.5,2
+Lucario,PSA,9,134
+Lucario,PSA,10,140
+Lucario,CGC,4,1
+Lucario,CGC,7,3
+Lucario,CGC,7.5,9
+Lucario,CGC,8,17
+Lucario,CGC,8.5,49
+Lucario,CGC,9,148
+Lucario,CGC,9.5,38
+Lucario,CGC,10,377
+Mega Dragonite,all,7,3
+Mega Dragonite,all,8,17
+Mega Dragonite,all,8.5,7
+Mega Dragonite,all,9,271
+Mega Dragonite,all,9.5,11
+Mega Dragonite,all,10,760
+Mega Dragonite,PSA,7,3
+Mega Dragonite,PSA,8,14
+Mega Dragonite,PSA,9,225
+Mega Dragonite,PSA,10,391
+Mega Dragonite,CGC,8,3
+Mega Dragonite,CGC,8.5,7
+Mega Dragonite,CGC,9,44
+Mega Dragonite,CGC,9.5,10
+Mega Dragonite,CGC,10,368
+Zekrom,all,1,2
+Zekrom,all,5,6
+Zekrom,all,6,3
+Zekrom,all,7,16
+Zekrom,all,7.5,7
+Zekrom,all,8,53
+Zekrom,all,8.5,44
+Zekrom,all,9,251
+Zekrom,all,9.5,26
+Zekrom,all,10,637
+Zekrom,PSA,1,2
+Zekrom,PSA,5,5
+Zekrom,PSA,6,2
+Zekrom,PSA,7,11
+Zekrom,PSA,8,28
+Zekrom,PSA,9,149
+Zekrom,PSA,10,322
+Zekrom,CGC,5,1
+Zekrom,CGC,6,1
+Zekrom,CGC,7,5
+Zekrom,CGC,7.5,7
+Zekrom,CGC,8,25
+Zekrom,CGC,8.5,44
+Zekrom,CGC,9,100
+Zekrom,CGC,9.5,24
+Zekrom,CGC,10,313
 Vulpix,all,4,2
 Vulpix,all,4.5,2
 Vulpix,all,5,4
@@ -2882,15 +2815,15 @@ Vulpix,all,7,20
 Vulpix,all,7.5,19
 Vulpix,all,8,52
 Vulpix,all,8.5,40
-Vulpix,all,9,178
+Vulpix,all,9,179
 Vulpix,all,9.5,17
-Vulpix,all,10,394
+Vulpix,all,10,388
 Vulpix,PSA,5,1
 Vulpix,PSA,6,5
 Vulpix,PSA,7,14
 Vulpix,PSA,8,37
 Vulpix,PSA,9,100
-Vulpix,PSA,10,239
+Vulpix,PSA,10,232
 Vulpix,CGC,4,2
 Vulpix,CGC,4.5,2
 Vulpix,CGC,5,3
@@ -2901,32 +2834,89 @@ Vulpix,CGC,7,6
 Vulpix,CGC,7.5,19
 Vulpix,CGC,8,15
 Vulpix,CGC,8.5,40
-Vulpix,CGC,9,77
+Vulpix,CGC,9,78
 Vulpix,CGC,9.5,17
-Vulpix,CGC,10,155
+Vulpix,CGC,10,156
+Stephen Curry,all,5,1
+Stephen Curry,all,6,4
+Stephen Curry,all,7,12
+Stephen Curry,all,7.5,2
+Stephen Curry,all,8,48
+Stephen Curry,all,8.5,9
+Stephen Curry,all,9,221
+Stephen Curry,all,9.5,25
+Stephen Curry,all,10,318
+Stephen Curry,PSA,5,1
+Stephen Curry,PSA,6,4
+Stephen Curry,PSA,7,12
+Stephen Curry,PSA,8,45
+Stephen Curry,PSA,9,199
+Stephen Curry,PSA,10,232
+Stephen Curry,CGC,7.5,1
+Stephen Curry,CGC,8.5,1
+Stephen Curry,CGC,9,8
+Stephen Curry,CGC,9.5,2
+Stephen Curry,CGC,10,78
+Trafalgar Law,all,8.5,2
+Trafalgar Law,all,9,115
+Trafalgar Law,all,9.5,9
+Trafalgar Law,all,10,864
+Trafalgar Law,PSA,9,100
+Trafalgar Law,PSA,10,736
+Trafalgar Law,CGC,8.5,2
+Trafalgar Law,CGC,9,15
+Trafalgar Law,CGC,9.5,4
+Trafalgar Law,CGC,10,118
+Derek Jeter,all,3,1
+Derek Jeter,all,4,1
+Derek Jeter,all,5,2
+Derek Jeter,all,6,17
+Derek Jeter,all,7,33
+Derek Jeter,all,7.5,7
+Derek Jeter,all,8,121
+Derek Jeter,all,8.5,14
+Derek Jeter,all,9,173
+Derek Jeter,all,9.5,14
+Derek Jeter,all,10,591
+Derek Jeter,PSA,3,1
+Derek Jeter,PSA,4,1
+Derek Jeter,PSA,5,1
+Derek Jeter,PSA,6,16
+Derek Jeter,PSA,7,30
+Derek Jeter,PSA,8,110
+Derek Jeter,PSA,9,153
+Derek Jeter,PSA,10,577
+Derek Jeter,CGC,6,1
+Derek Jeter,CGC,7,2
+Derek Jeter,CGC,7.5,2
+Derek Jeter,CGC,8,4
+Derek Jeter,CGC,8.5,3
+Derek Jeter,CGC,9,9
+Derek Jeter,CGC,9.5,1
+Derek Jeter,CGC,10,12
 Entei,all,3,3
 Entei,all,3.5,1
 Entei,all,4,2
 Entei,all,4.5,3
 Entei,all,5,8
 Entei,all,5.5,3
-Entei,all,6,19
+Entei,all,6,18
 Entei,all,6.5,7
-Entei,all,7,36
+Entei,all,7,35
 Entei,all,7.5,12
-Entei,all,8,94
+Entei,all,8,96
 Entei,all,8.5,29
 Entei,all,9,258
 Entei,all,9.5,26
-Entei,all,10,458
+Entei,all,10,455
 Entei,PSA,3,2
 Entei,PSA,4,2
 Entei,PSA,5,4
-Entei,PSA,6,16
-Entei,PSA,7,23
-Entei,PSA,8,77
+Entei,PSA,6,15
+Entei,PSA,7,22
+Entei,PSA,8,78
 Entei,PSA,9,183
-Entei,PSA,10,167
+Entei,PSA,10,165
 Entei,CGC,3,1
 Entei,CGC,3.5,1
 Entei,CGC,4.5,3
@@ -2936,80 +2926,80 @@ Entei,CGC,6,3
 Entei,CGC,6.5,7
 Entei,CGC,7,13
 Entei,CGC,7.5,12
-Entei,CGC,8,16
+Entei,CGC,8,17
 Entei,CGC,8.5,28
 Entei,CGC,9,71
 Entei,CGC,9.5,21
-Entei,CGC,10,288
-Ceruledge,all,7,2
-Ceruledge,all,8,27
-Ceruledge,all,8.5,18
-Ceruledge,all,9,234
-Ceruledge,all,9.5,23
-Ceruledge,all,10,613
-Ceruledge,PSA,7,2
-Ceruledge,PSA,8,25
-Ceruledge,PSA,9,192
-Ceruledge,PSA,10,364
-Ceruledge,CGC,8,2
-Ceruledge,CGC,8.5,17
-Ceruledge,CGC,9,39
-Ceruledge,CGC,9.5,20
-Ceruledge,CGC,10,243
-Joe Burrow,all,5,1
-Joe Burrow,all,6,3
-Joe Burrow,all,7,2
-Joe Burrow,all,7.5,1
-Joe Burrow,all,8,53
-Joe Burrow,all,8.5,8
-Joe Burrow,all,9,329
-Joe Burrow,all,9.5,15
-Joe Burrow,all,10,402
-Joe Burrow,PSA,5,1
-Joe Burrow,PSA,6,3
-Joe Burrow,PSA,7,2
-Joe Burrow,PSA,8,50
-Joe Burrow,PSA,8.5,1
-Joe Burrow,PSA,9,312
-Joe Burrow,PSA,10,374
-Joe Burrow,CGC,8,3
-Joe Burrow,CGC,8.5,3
-Joe Burrow,CGC,9,7
-Joe Burrow,CGC,10,27
+Entei,CGC,10,287
 Jewelry Bonney,all,6,3
 Jewelry Bonney,all,7.5,1
 Jewelry Bonney,all,8,16
 Jewelry Bonney,all,8.5,2
-Jewelry Bonney,all,9,102
-Jewelry Bonney,all,9.5,11
-Jewelry Bonney,all,10,790
+Jewelry Bonney,all,9,100
+Jewelry Bonney,all,9.5,10
+Jewelry Bonney,all,10,813
 Jewelry Bonney,PSA,6,3
 Jewelry Bonney,PSA,8,15
-Jewelry Bonney,PSA,9,95
-Jewelry Bonney,PSA,10,702
+Jewelry Bonney,PSA,9,93
+Jewelry Bonney,PSA,10,725
 Jewelry Bonney,CGC,7.5,1
 Jewelry Bonney,CGC,8,1
 Jewelry Bonney,CGC,8.5,2
 Jewelry Bonney,CGC,9,7
 Jewelry Bonney,CGC,9.5,3
 Jewelry Bonney,CGC,10,73
+Ceruledge,all,7,2
+Ceruledge,all,8,27
+Ceruledge,all,8.5,18
+Ceruledge,all,9,233
+Ceruledge,all,9.5,23
+Ceruledge,all,10,606
+Ceruledge,PSA,7,2
+Ceruledge,PSA,8,25
+Ceruledge,PSA,9,191
+Ceruledge,PSA,10,358
+Ceruledge,CGC,8,2
+Ceruledge,CGC,8.5,17
+Ceruledge,CGC,9,39
+Ceruledge,CGC,9.5,20
+Ceruledge,CGC,10,242
+Joe Burrow,all,5,1
+Joe Burrow,all,6,3
+Joe Burrow,all,7,2
+Joe Burrow,all,7.5,1
+Joe Burrow,all,8,55
+Joe Burrow,all,8.5,8
+Joe Burrow,all,9,325
+Joe Burrow,all,9.5,14
+Joe Burrow,all,10,396
+Joe Burrow,PSA,5,1
+Joe Burrow,PSA,6,3
+Joe Burrow,PSA,7,2
+Joe Burrow,PSA,8,52
+Joe Burrow,PSA,8.5,1
+Joe Burrow,PSA,9,308
+Joe Burrow,PSA,10,368
+Joe Burrow,CGC,8,3
+Joe Burrow,CGC,8.5,3
+Joe Burrow,CGC,9,7
+Joe Burrow,CGC,10,27
 Ja Morant,all,2,1
 Ja Morant,all,5,2
 Ja Morant,all,6,1
 Ja Morant,all,7,4
-Ja Morant,all,8,31
+Ja Morant,all,8,32
 Ja Morant,all,8.5,6
-Ja Morant,all,9,319
+Ja Morant,all,9,323
 Ja Morant,all,9.5,28
-Ja Morant,all,10,435
+Ja Morant,all,10,434
 Ja Morant,PSA,2,1
 Ja Morant,PSA,5,2
 Ja Morant,PSA,6,1
 Ja Morant,PSA,7,4
-Ja Morant,PSA,8,31
+Ja Morant,PSA,8,32
 Ja Morant,PSA,8.5,2
-Ja Morant,PSA,9,303
-Ja Morant,PSA,10,418
+Ja Morant,PSA,9,307
+Ja Morant,PSA,10,417
 Ja Morant,CGC,9,1
 Ja Morant,CGC,10,13
 Shaquille O'Neal,all,4,1
@@ -3018,20 +3008,20 @@ Shaquille O'Neal,all,5,10
 Shaquille O'Neal,all,5.5,1
 Shaquille O'Neal,all,6,23
 Shaquille O'Neal,all,6.5,3
-Shaquille O'Neal,all,7,79
+Shaquille O'Neal,all,7,82
 Shaquille O'Neal,all,7.5,9
-Shaquille O'Neal,all,8,255
-Shaquille O'Neal,all,8.5,86
-Shaquille O'Neal,all,9,291
+Shaquille O'Neal,all,8,254
+Shaquille O'Neal,all,8.5,87
+Shaquille O'Neal,all,9,292
 Shaquille O'Neal,all,9.5,10
 Shaquille O'Neal,all,10,77
 Shaquille O'Neal,PSA,4,1
 Shaquille O'Neal,PSA,5,8
 Shaquille O'Neal,PSA,6,22
-Shaquille O'Neal,PSA,7,75
-Shaquille O'Neal,PSA,8,233
+Shaquille O'Neal,PSA,7,78
+Shaquille O'Neal,PSA,8,230
 Shaquille O'Neal,PSA,8.5,2
-Shaquille O'Neal,PSA,9,241
+Shaquille O'Neal,PSA,9,242
 Shaquille O'Neal,PSA,10,68
 Shaquille O'Neal,CGC,4.5,1
 Shaquille O'Neal,CGC,5,2
@@ -3040,20 +3030,20 @@ Shaquille O'Neal,CGC,6,1
 Shaquille O'Neal,CGC,6.5,1
 Shaquille O'Neal,CGC,7,3
 Shaquille O'Neal,CGC,7.5,3
-Shaquille O'Neal,CGC,8,12
-Shaquille O'Neal,CGC,8.5,6
+Shaquille O'Neal,CGC,8,14
+Shaquille O'Neal,CGC,8.5,7
 Shaquille O'Neal,CGC,9,25
 Shaquille O'Neal,CGC,9.5,1
 Shaquille O'Neal,CGC,10,8
 Yamato,all,7,1
 Yamato,all,8,8
 Yamato,all,8.5,4
-Yamato,all,9,112
+Yamato,all,9,113
 Yamato,all,9.5,16
-Yamato,all,10,722
+Yamato,all,10,737
 Yamato,PSA,8,7
-Yamato,PSA,9,98
-Yamato,PSA,10,539
+Yamato,PSA,9,99
+Yamato,PSA,10,553
 Yamato,CGC,7,1
 Yamato,CGC,8,1
 Yamato,CGC,8.5,4
@@ -3062,78 +3052,91 @@ Yamato,CGC,9.5,4
 Yamato,CGC,10,167
 Trevor Lawrence,all,5,3
 Trevor Lawrence,all,6,3
-Trevor Lawrence,all,7,17
-Trevor Lawrence,all,8,62
+Trevor Lawrence,all,7,18
+Trevor Lawrence,all,8,65
 Trevor Lawrence,all,8.5,2
 Trevor Lawrence,all,9,199
 Trevor Lawrence,all,9.5,10
-Trevor Lawrence,all,10,244
+Trevor Lawrence,all,10,243
 Trevor Lawrence,PSA,5,3
 Trevor Lawrence,PSA,6,3
-Trevor Lawrence,PSA,7,13
-Trevor Lawrence,PSA,8,61
+Trevor Lawrence,PSA,7,14
+Trevor Lawrence,PSA,8,64
 Trevor Lawrence,PSA,9,191
-Trevor Lawrence,PSA,10,221
+Trevor Lawrence,PSA,10,220
 Trevor Lawrence,CGC,7,4
 Trevor Lawrence,CGC,8,1
 Trevor Lawrence,CGC,9,3
 Trevor Lawrence,CGC,9.5,1
 Trevor Lawrence,CGC,10,20
-Juan Soto,all,7,1
-Juan Soto,all,8,21
-Juan Soto,all,8.5,3
-Juan Soto,all,9,134
-Juan Soto,all,9.5,14
-Juan Soto,all,10,232
-Juan Soto,PSA,7,1
-Juan Soto,PSA,8,20
-Juan Soto,PSA,8.5,2
-Juan Soto,PSA,9,127
-Juan Soto,PSA,10,226
-Juan Soto,CGC,8,1
-Juan Soto,CGC,9,1
-Juan Soto,CGC,10,5
 Anthony Richardson,all,5,1
 Anthony Richardson,all,6,1
 Anthony Richardson,all,7,4
 Anthony Richardson,all,7.5,2
 Anthony Richardson,all,8,37
 Anthony Richardson,all,8.5,1
-Anthony Richardson,all,9,247
+Anthony Richardson,all,9,250
 Anthony Richardson,all,9.5,13
-Anthony Richardson,all,10,469
+Anthony Richardson,all,10,472
 Anthony Richardson,PSA,5,1
 Anthony Richardson,PSA,6,1
 Anthony Richardson,PSA,7,4
 Anthony Richardson,PSA,8,36
 Anthony Richardson,PSA,8.5,1
-Anthony Richardson,PSA,9,243
-Anthony Richardson,PSA,10,458
+Anthony Richardson,PSA,9,246
+Anthony Richardson,PSA,10,461
 Anthony Richardson,CGC,7.5,2
 Anthony Richardson,CGC,8,1
 Anthony Richardson,CGC,9,1
 Anthony Richardson,CGC,9.5,1
 Anthony Richardson,CGC,10,6
+Perona,all,8,4
+Perona,all,8.5,3
+Perona,all,9,66
+Perona,all,9.5,4
+Perona,all,10,727
+Perona,PSA,8,2
+Perona,PSA,9,61
+Perona,PSA,10,635
+Perona,CGC,8,2
+Perona,CGC,8.5,3
+Perona,CGC,9,5
+Perona,CGC,9.5,1
+Perona,CGC,10,79
+Juan Soto,all,7,1
+Juan Soto,all,8,21
+Juan Soto,all,8.5,3
+Juan Soto,all,9,134
+Juan Soto,all,9.5,13
+Juan Soto,all,10,226
+Juan Soto,PSA,7,1
+Juan Soto,PSA,8,20
+Juan Soto,PSA,8.5,2
+Juan Soto,PSA,9,126
+Juan Soto,PSA,10,220
+Juan Soto,CGC,8,1
+Juan Soto,CGC,9,2
+Juan Soto,CGC,10,5
 Barry Sanders,all,3.5,1
 Barry Sanders,all,4,2
 Barry Sanders,all,5,2
 Barry Sanders,all,5.5,3
-Barry Sanders,all,6,7
+Barry Sanders,all,6,8
 Barry Sanders,all,6.5,4
 Barry Sanders,all,7,36
 Barry Sanders,all,7.5,35
-Barry Sanders,all,8,227
+Barry Sanders,all,8,228
 Barry Sanders,all,8.5,89
-Barry Sanders,all,9,209
+Barry Sanders,all,9,207
 Barry Sanders,all,9.5,20
 Barry Sanders,all,10,90
 Barry Sanders,PSA,4,1
 Barry Sanders,PSA,5,1
-Barry Sanders,PSA,6,5
+Barry Sanders,PSA,6,6
 Barry Sanders,PSA,7,15
-Barry Sanders,PSA,8,80
+Barry Sanders,PSA,8,81
 Barry Sanders,PSA,8.5,2
-Barry Sanders,PSA,9,119
+Barry Sanders,PSA,9,117
 Barry Sanders,PSA,10,35
 Barry Sanders,CGC,3.5,1
 Barry Sanders,CGC,4,1
@@ -3148,53 +3151,40 @@ Barry Sanders,CGC,8.5,85
 Barry Sanders,CGC,9,83
 Barry Sanders,CGC,9.5,13
 Barry Sanders,CGC,10,55
-Perona,all,8,4
-Perona,all,8.5,3
-Perona,all,9,66
-Perona,all,9.5,4
-Perona,all,10,701
-Perona,PSA,8,2
-Perona,PSA,9,61
-Perona,PSA,10,609
-Perona,CGC,8,2
-Perona,CGC,8.5,3
-Perona,CGC,9,5
-Perona,CGC,9.5,1
-Perona,CGC,10,78
 Giannis Antetokounmpo,all,6,1
 Giannis Antetokounmpo,all,7,3
 Giannis Antetokounmpo,all,8,27
 Giannis Antetokounmpo,all,8.5,3
-Giannis Antetokounmpo,all,9,146
+Giannis Antetokounmpo,all,9,160
 Giannis Antetokounmpo,all,9.5,15
-Giannis Antetokounmpo,all,10,256
+Giannis Antetokounmpo,all,10,253
 Giannis Antetokounmpo,PSA,6,1
 Giannis Antetokounmpo,PSA,7,2
 Giannis Antetokounmpo,PSA,8,23
 Giannis Antetokounmpo,PSA,8.5,1
-Giannis Antetokounmpo,PSA,9,138
-Giannis Antetokounmpo,PSA,10,194
+Giannis Antetokounmpo,PSA,9,139
+Giannis Antetokounmpo,PSA,10,191
 Giannis Antetokounmpo,CGC,7,1
 Giannis Antetokounmpo,CGC,8,3
-Giannis Antetokounmpo,CGC,9,2
+Giannis Antetokounmpo,CGC,9,15
 Giannis Antetokounmpo,CGC,10,58
 Barry Bonds,all,4,2
 Barry Bonds,all,5,5
 Barry Bonds,all,5.5,2
 Barry Bonds,all,6,15
 Barry Bonds,all,6.5,2
-Barry Bonds,all,7,41
+Barry Bonds,all,7,43
 Barry Bonds,all,7.5,2
-Barry Bonds,all,8,151
+Barry Bonds,all,8,149
 Barry Bonds,all,8.5,31
-Barry Bonds,all,9,193
+Barry Bonds,all,9,194
 Barry Bonds,all,9.5,6
 Barry Bonds,all,10,37
 Barry Bonds,PSA,4,2
 Barry Bonds,PSA,5,3
 Barry Bonds,PSA,6,12
-Barry Bonds,PSA,7,37
-Barry Bonds,PSA,8,135
+Barry Bonds,PSA,7,39
+Barry Bonds,PSA,8,133
 Barry Bonds,PSA,8.5,3
 Barry Bonds,PSA,9,179
 Barry Bonds,PSA,10,34
@@ -3205,17 +3195,17 @@ Barry Bonds,CGC,7,3
 Barry Bonds,CGC,7.5,2
 Barry Bonds,CGC,8,9
 Barry Bonds,CGC,8.5,6
-Barry Bonds,CGC,9,4
+Barry Bonds,CGC,9,5
 Barry Bonds,CGC,9.5,3
 Barry Bonds,CGC,10,3
 Ken Griffey Jr,all,3,1
 Ken Griffey Jr,all,4,1
 Ken Griffey Jr,all,5,20
 Ken Griffey Jr,all,6,42
-Ken Griffey Jr,all,7,68
-Ken Griffey Jr,all,7.5,5
-Ken Griffey Jr,all,8,236
-Ken Griffey Jr,all,8.5,21
+Ken Griffey Jr,all,7,74
+Ken Griffey Jr,all,7.5,6
+Ken Griffey Jr,all,8,232
+Ken Griffey Jr,all,8.5,20
 Ken Griffey Jr,all,9,226
 Ken Griffey Jr,all,9.5,6
 Ken Griffey Jr,all,10,91
@@ -3223,51 +3213,34 @@ Ken Griffey Jr,PSA,3,1
 Ken Griffey Jr,PSA,4,1
 Ken Griffey Jr,PSA,5,19
 Ken Griffey Jr,PSA,6,40
-Ken Griffey Jr,PSA,7,66
-Ken Griffey Jr,PSA,8,226
+Ken Griffey Jr,PSA,7,72
+Ken Griffey Jr,PSA,8,221
 Ken Griffey Jr,PSA,8.5,4
-Ken Griffey Jr,PSA,9,209
+Ken Griffey Jr,PSA,9,208
 Ken Griffey Jr,PSA,10,86
 Ken Griffey Jr,CGC,5,1
 Ken Griffey Jr,CGC,7,1
 Ken Griffey Jr,CGC,7.5,1
 Ken Griffey Jr,CGC,8,3
-Ken Griffey Jr,CGC,8.5,3
+Ken Griffey Jr,CGC,8.5,2
 Ken Griffey Jr,CGC,9,5
 Ken Griffey Jr,CGC,9.5,4
 Ken Griffey Jr,CGC,10,5
-Bryce Harper,all,5,1
-Bryce Harper,all,6,2
-Bryce Harper,all,7,2
-Bryce Harper,all,8,24
-Bryce Harper,all,8.5,2
-Bryce Harper,all,9,89
-Bryce Harper,all,9.5,16
-Bryce Harper,all,10,79
-Bryce Harper,PSA,5,1
-Bryce Harper,PSA,6,2
-Bryce Harper,PSA,7,2
-Bryce Harper,PSA,8,24
-Bryce Harper,PSA,8.5,1
-Bryce Harper,PSA,9,83
-Bryce Harper,PSA,10,76
-Bryce Harper,CGC,9.5,1
-Bryce Harper,CGC,10,3
 Anthony Edwards,all,4,1
 Anthony Edwards,all,6,3
 Anthony Edwards,all,7,7
 Anthony Edwards,all,7.5,1
-Anthony Edwards,all,8,32
+Anthony Edwards,all,8,33
 Anthony Edwards,all,8.5,4
-Anthony Edwards,all,9,237
+Anthony Edwards,all,9,239
 Anthony Edwards,all,9.5,19
-Anthony Edwards,all,10,271
+Anthony Edwards,all,10,274
 Anthony Edwards,PSA,6,2
 Anthony Edwards,PSA,7,7
-Anthony Edwards,PSA,8,27
+Anthony Edwards,PSA,8,28
 Anthony Edwards,PSA,8.5,1
-Anthony Edwards,PSA,9,226
-Anthony Edwards,PSA,10,248
+Anthony Edwards,PSA,9,228
+Anthony Edwards,PSA,10,251
 Anthony Edwards,CGC,6,1
 Anthony Edwards,CGC,7.5,1
 Anthony Edwards,CGC,8,3
@@ -3275,45 +3248,63 @@ Anthony Edwards,CGC,8.5,1
 Anthony Edwards,CGC,9,9
 Anthony Edwards,CGC,9.5,1
 Anthony Edwards,CGC,10,17
-Yoshinobu Yamamoto,all,6,4
-Yoshinobu Yamamoto,all,7,5
-Yoshinobu Yamamoto,all,8,89
-Yoshinobu Yamamoto,all,8.5,1
-Yoshinobu Yamamoto,all,9,311
-Yoshinobu Yamamoto,all,9.5,5
-Yoshinobu Yamamoto,all,10,259
-Yoshinobu Yamamoto,PSA,6,4
-Yoshinobu Yamamoto,PSA,7,5
-Yoshinobu Yamamoto,PSA,8,88
-Yoshinobu Yamamoto,PSA,9,306
-Yoshinobu Yamamoto,PSA,10,241
-Yoshinobu Yamamoto,CGC,8,1
-Yoshinobu Yamamoto,CGC,9,3
-Yoshinobu Yamamoto,CGC,10,12
+Bryce Harper,all,5,1
+Bryce Harper,all,6,2
+Bryce Harper,all,7,2
+Bryce Harper,all,8,23
+Bryce Harper,all,8.5,2
+Bryce Harper,all,9,88
+Bryce Harper,all,9.5,16
+Bryce Harper,all,10,78
+Bryce Harper,PSA,5,1
+Bryce Harper,PSA,6,2
+Bryce Harper,PSA,7,2
+Bryce Harper,PSA,8,23
+Bryce Harper,PSA,8.5,1
+Bryce Harper,PSA,9,82
+Bryce Harper,PSA,10,75
+Bryce Harper,CGC,9.5,1
+Bryce Harper,CGC,10,3
 Derrick Henry,all,5,1
 Derrick Henry,all,7,1
 Derrick Henry,all,8,5
 Derrick Henry,all,8.5,1
 Derrick Henry,all,9,56
 Derrick Henry,all,9.5,1
-Derrick Henry,all,10,41
+Derrick Henry,all,10,42
 Derrick Henry,PSA,5,1
 Derrick Henry,PSA,8,4
 Derrick Henry,PSA,9,56
-Derrick Henry,PSA,10,32
+Derrick Henry,PSA,10,33
 Derrick Henry,CGC,7,1
 Derrick Henry,CGC,8,1
 Derrick Henry,CGC,8.5,1
 Derrick Henry,CGC,10,9
+Yoshinobu Yamamoto,all,6,4
+Yoshinobu Yamamoto,all,7,5
+Yoshinobu Yamamoto,all,8,87
+Yoshinobu Yamamoto,all,8.5,1
+Yoshinobu Yamamoto,all,9,305
+Yoshinobu Yamamoto,all,9.5,5
+Yoshinobu Yamamoto,all,10,255
+Yoshinobu Yamamoto,PSA,6,4
+Yoshinobu Yamamoto,PSA,7,5
+Yoshinobu Yamamoto,PSA,8,86
+Yoshinobu Yamamoto,PSA,9,300
+Yoshinobu Yamamoto,PSA,10,237
+Yoshinobu Yamamoto,CGC,8,1
+Yoshinobu Yamamoto,CGC,9,3
+Yoshinobu Yamamoto,CGC,10,12
 Usopp,all,6,1
-Usopp,all,8,3
+Usopp,all,8,4
 Usopp,all,8.5,3
 Usopp,all,9,51
 Usopp,all,9.5,5
-Usopp,all,10,575
+Usopp,all,10,578
 Usopp,PSA,6,1
+Usopp,PSA,8,1
 Usopp,PSA,9,36
-Usopp,PSA,10,438
+Usopp,PSA,10,442
 Usopp,CGC,8,3
 Usopp,CGC,8.5,3
 Usopp,CGC,9,15
@@ -3322,25 +3313,25 @@ Usopp,CGC,10,136
 Uta,all,5,1
 Uta,all,8,6
 Uta,all,8.5,3
-Uta,all,9,63
+Uta,all,9,62
 Uta,all,9.5,9
-Uta,all,10,559
+Uta,all,10,567
 Uta,PSA,5,1
 Uta,PSA,8,6
-Uta,PSA,9,58
-Uta,PSA,10,424
+Uta,PSA,9,57
+Uta,PSA,10,432
 Uta,CGC,8.5,3
 Uta,CGC,9,5
 Uta,CGC,9.5,4
 Uta,CGC,10,124
 Jinbe,all,7.5,1
-Jinbe,all,8,4
-Jinbe,all,9,45
+Jinbe,all,8,3
+Jinbe,all,9,46
 Jinbe,all,9.5,3
-Jinbe,all,10,483
-Jinbe,PSA,8,2
-Jinbe,PSA,9,41
-Jinbe,PSA,10,355
+Jinbe,all,10,486
+Jinbe,PSA,8,1
+Jinbe,PSA,9,42
+Jinbe,PSA,10,358
 Jinbe,CGC,7.5,1
 Jinbe,CGC,8,2
 Jinbe,CGC,9,3
@@ -3348,28 +3339,28 @@ Jinbe,CGC,9.5,2
 Jinbe,CGC,10,127
 Nick Kurtz,all,6,1
 Nick Kurtz,all,7,4
-Nick Kurtz,all,8,69
-Nick Kurtz,all,9,274
+Nick Kurtz,all,8,68
+Nick Kurtz,all,9,278
 Nick Kurtz,all,9.5,39
 Nick Kurtz,all,10,239
 Nick Kurtz,PSA,6,1
 Nick Kurtz,PSA,7,4
-Nick Kurtz,PSA,8,69
-Nick Kurtz,PSA,9,267
+Nick Kurtz,PSA,8,68
+Nick Kurtz,PSA,9,271
 Nick Kurtz,PSA,10,223
-Nick Kurtz,CGC,9,6
+Nick Kurtz,CGC,9,7
 Nick Kurtz,CGC,9.5,2
 Nick Kurtz,CGC,10,4
 JJ McCarthy,all,6,2
 JJ McCarthy,all,7,5
-JJ McCarthy,all,8,56
+JJ McCarthy,all,8,57
 JJ McCarthy,all,8.5,1
 JJ McCarthy,all,9,287
 JJ McCarthy,all,9.5,4
 JJ McCarthy,all,10,274
 JJ McCarthy,PSA,6,2
 JJ McCarthy,PSA,7,5
-JJ McCarthy,PSA,8,55
+JJ McCarthy,PSA,8,56
 JJ McCarthy,PSA,9,282
 JJ McCarthy,PSA,10,270
 JJ McCarthy,CGC,9,1
@@ -3379,13 +3370,13 @@ O-Nami,all,5,1
 O-Nami,all,7.5,1
 O-Nami,all,8,21
 O-Nami,all,8.5,4
-O-Nami,all,9,134
+O-Nami,all,9,137
 O-Nami,all,9.5,6
-O-Nami,all,10,445
+O-Nami,all,10,450
 O-Nami,PSA,5,1
 O-Nami,PSA,8,20
-O-Nami,PSA,9,129
-O-Nami,PSA,10,362
+O-Nami,PSA,9,132
+O-Nami,PSA,10,367
 O-Nami,CGC,7.5,1
 O-Nami,CGC,8,1
 O-Nami,CGC,8.5,4
@@ -3395,16 +3386,16 @@ O-Nami,CGC,10,81
 Shedeur Sanders,all,5,1
 Shedeur Sanders,all,7,4
 Shedeur Sanders,all,7.5,2
-Shedeur Sanders,all,8,31
+Shedeur Sanders,all,8,30
 Shedeur Sanders,all,8.5,5
-Shedeur Sanders,all,9,148
+Shedeur Sanders,all,9,150
 Shedeur Sanders,all,9.5,7
-Shedeur Sanders,all,10,199
+Shedeur Sanders,all,10,195
 Shedeur Sanders,PSA,5,1
 Shedeur Sanders,PSA,7,4
-Shedeur Sanders,PSA,8,23
-Shedeur Sanders,PSA,9,136
-Shedeur Sanders,PSA,10,187
+Shedeur Sanders,PSA,8,22
+Shedeur Sanders,PSA,9,138
+Shedeur Sanders,PSA,10,183
 Shedeur Sanders,CGC,7.5,2
 Shedeur Sanders,CGC,8,6
 Shedeur Sanders,CGC,8.5,5
@@ -3413,7 +3404,7 @@ Shedeur Sanders,CGC,9.5,4
 Shedeur Sanders,CGC,10,11
 Kevin Durant,all,3,1
 Kevin Durant,all,4.5,1
-Kevin Durant,all,6,3
+Kevin Durant,all,6,4
 Kevin Durant,all,7,18
 Kevin Durant,all,7.5,1
 Kevin Durant,all,8,43
@@ -3422,111 +3413,143 @@ Kevin Durant,all,9,106
 Kevin Durant,all,9.5,10
 Kevin Durant,all,10,126
 Kevin Durant,PSA,3,1
-Kevin Durant,PSA,6,3
+Kevin Durant,PSA,6,4
 Kevin Durant,PSA,7,17
 Kevin Durant,PSA,8,42
 Kevin Durant,PSA,8.5,4
 Kevin Durant,PSA,9,99
-Kevin Durant,PSA,10,112
+Kevin Durant,PSA,10,111
 Kevin Durant,CGC,8,1
 Kevin Durant,CGC,8.5,1
 Kevin Durant,CGC,9,3
 Kevin Durant,CGC,9.5,1
-Kevin Durant,CGC,10,14
+Kevin Durant,CGC,10,15
+Jalen Hurts,all,7,1
+Jalen Hurts,all,7.5,1
+Jalen Hurts,all,8,22
+Jalen Hurts,all,8.5,3
+Jalen Hurts,all,9,195
+Jalen Hurts,all,9.5,11
+Jalen Hurts,all,10,246
+Jalen Hurts,PSA,7,1
+Jalen Hurts,PSA,8,21
+Jalen Hurts,PSA,9,186
+Jalen Hurts,PSA,10,233
+Jalen Hurts,CGC,9,4
+Jalen Hurts,CGC,9.5,2
+Jalen Hurts,CGC,10,12
 VJ Edgecombe,all,5,1
 VJ Edgecombe,all,7,3
-VJ Edgecombe,all,8,32
+VJ Edgecombe,all,8,31
 VJ Edgecombe,all,8.5,3
-VJ Edgecombe,all,9,183
-VJ Edgecombe,all,9.5,23
-VJ Edgecombe,all,10,321
+VJ Edgecombe,all,9,179
+VJ Edgecombe,all,9.5,20
+VJ Edgecombe,all,10,315
 VJ Edgecombe,PSA,7,3
-VJ Edgecombe,PSA,8,29
-VJ Edgecombe,PSA,9,175
-VJ Edgecombe,PSA,10,247
+VJ Edgecombe,PSA,8,28
+VJ Edgecombe,PSA,9,171
+VJ Edgecombe,PSA,10,241
 VJ Edgecombe,CGC,5,1
 VJ Edgecombe,CGC,8,3
 VJ Edgecombe,CGC,8.5,3
 VJ Edgecombe,CGC,9,8
 VJ Edgecombe,CGC,9.5,3
 VJ Edgecombe,CGC,10,63
+Tua Tagovailoa,all,8,16
+Tua Tagovailoa,all,8.5,1
+Tua Tagovailoa,all,9,190
+Tua Tagovailoa,all,9.5,10
+Tua Tagovailoa,all,10,289
+Tua Tagovailoa,PSA,8,15
+Tua Tagovailoa,PSA,9,188
+Tua Tagovailoa,PSA,10,288
+Tua Tagovailoa,CGC,8,1
+Nolan Ryan,all,1,1
+Nolan Ryan,all,1.5,1
+Nolan Ryan,all,2,1
+Nolan Ryan,all,3,9
+Nolan Ryan,all,4,17
+Nolan Ryan,all,5,19
+Nolan Ryan,all,5.5,1
+Nolan Ryan,all,6,40
+Nolan Ryan,all,6.5,1
+Nolan Ryan,all,7,72
+Nolan Ryan,all,7.5,1
+Nolan Ryan,all,8,101
+Nolan Ryan,all,8.5,3
+Nolan Ryan,all,9,142
+Nolan Ryan,all,9.5,1
+Nolan Ryan,all,10,63
+Nolan Ryan,PSA,1,1
+Nolan Ryan,PSA,2,1
+Nolan Ryan,PSA,3,8
+Nolan Ryan,PSA,4,13
+Nolan Ryan,PSA,5,18
+Nolan Ryan,PSA,6,38
+Nolan Ryan,PSA,7,70
+Nolan Ryan,PSA,8,100
+Nolan Ryan,PSA,8.5,2
+Nolan Ryan,PSA,9,135
+Nolan Ryan,PSA,10,59
+Nolan Ryan,CGC,4,1
+Nolan Ryan,CGC,6,1
+Nolan Ryan,CGC,9,3
+Nolan Ryan,CGC,10,3
+Michael Penix Jr.,all,7,3
+Michael Penix Jr.,all,8,31
+Michael Penix Jr.,all,9,209
+Michael Penix Jr.,all,9.5,4
+Michael Penix Jr.,all,10,260
+Michael Penix Jr.,PSA,7,3
+Michael Penix Jr.,PSA,8,30
+Michael Penix Jr.,PSA,9,206
+Michael Penix Jr.,PSA,10,258
+Michael Penix Jr.,CGC,9,2
+Michael Penix Jr.,CGC,10,1
 Dylan Harper,all,6,2
 Dylan Harper,all,7,2
 Dylan Harper,all,7.5,1
 Dylan Harper,all,8,38
-Dylan Harper,all,8.5,7
-Dylan Harper,all,9,177
-Dylan Harper,all,9.5,44
-Dylan Harper,all,10,270
+Dylan Harper,all,8.5,8
+Dylan Harper,all,9,178
+Dylan Harper,all,9.5,42
+Dylan Harper,all,10,263
 Dylan Harper,PSA,6,2
 Dylan Harper,PSA,7,1
 Dylan Harper,PSA,8,37
-Dylan Harper,PSA,9,150
-Dylan Harper,PSA,10,148
+Dylan Harper,PSA,9,151
+Dylan Harper,PSA,10,143
 Dylan Harper,CGC,7,1
 Dylan Harper,CGC,7.5,1
-Dylan Harper,CGC,8.5,7
+Dylan Harper,CGC,8.5,8
 Dylan Harper,CGC,9,23
 Dylan Harper,CGC,9.5,3
 Dylan Harper,CGC,10,85
-Tua Tagovailoa,all,8,15
-Tua Tagovailoa,all,9,192
-Tua Tagovailoa,all,9.5,10
-Tua Tagovailoa,all,10,288
-Tua Tagovailoa,PSA,8,14
-Tua Tagovailoa,PSA,9,190
-Tua Tagovailoa,PSA,10,287
-Tua Tagovailoa,CGC,8,1
-Jalen Hurts,all,7,1
-Jalen Hurts,all,7.5,1
-Jalen Hurts,all,8,22
-Jalen Hurts,all,8.5,3
-Jalen Hurts,all,9,197
-Jalen Hurts,all,9.5,11
-Jalen Hurts,all,10,244
-Jalen Hurts,PSA,7,1
-Jalen Hurts,PSA,8,21
-Jalen Hurts,PSA,9,188
-Jalen Hurts,PSA,10,231
-Jalen Hurts,CGC,9,4
-Jalen Hurts,CGC,9.5,2
-Jalen Hurts,CGC,10,12
 Shai Gilgeous-Alexander,all,5,1
 Shai Gilgeous-Alexander,all,6,3
 Shai Gilgeous-Alexander,all,7,3
-Shai Gilgeous-Alexander,all,8,39
+Shai Gilgeous-Alexander,all,8,38
 Shai Gilgeous-Alexander,all,8.5,5
-Shai Gilgeous-Alexander,all,9,177
+Shai Gilgeous-Alexander,all,9,179
 Shai Gilgeous-Alexander,all,9.5,17
-Shai Gilgeous-Alexander,all,10,226
+Shai Gilgeous-Alexander,all,10,221
 Shai Gilgeous-Alexander,PSA,5,1
 Shai Gilgeous-Alexander,PSA,6,3
 Shai Gilgeous-Alexander,PSA,7,2
-Shai Gilgeous-Alexander,PSA,8,37
-Shai Gilgeous-Alexander,PSA,9,160
-Shai Gilgeous-Alexander,PSA,10,190
+Shai Gilgeous-Alexander,PSA,8,36
+Shai Gilgeous-Alexander,PSA,9,162
+Shai Gilgeous-Alexander,PSA,10,185
 Shai Gilgeous-Alexander,CGC,7,1
 Shai Gilgeous-Alexander,CGC,8,2
 Shai Gilgeous-Alexander,CGC,8.5,3
 Shai Gilgeous-Alexander,CGC,9,5
 Shai Gilgeous-Alexander,CGC,9.5,1
 Shai Gilgeous-Alexander,CGC,10,34
-Michael Penix Jr.,all,7,3
-Michael Penix Jr.,all,8,30
-Michael Penix Jr.,all,9,211
-Michael Penix Jr.,all,9.5,4
-Michael Penix Jr.,all,10,256
-Michael Penix Jr.,PSA,7,3
-Michael Penix Jr.,PSA,8,29
-Michael Penix Jr.,PSA,9,208
-Michael Penix Jr.,PSA,10,254
-Michael Penix Jr.,CGC,9,2
-Michael Penix Jr.,CGC,10,1
 John Elway,all,3,2
 John Elway,all,4,1
 John Elway,all,5,3
-John Elway,all,6,12
-John Elway,all,7,24
+John Elway,all,6,10
+John Elway,all,7,25
 John Elway,all,7.5,3
 John Elway,all,8,43
 John Elway,all,8.5,6
@@ -3536,8 +3559,8 @@ John Elway,all,10,57
 John Elway,PSA,3,1
 John Elway,PSA,4,1
 John Elway,PSA,5,2
-John Elway,PSA,6,12
-John Elway,PSA,7,23
+John Elway,PSA,6,10
+John Elway,PSA,7,24
 John Elway,PSA,8,32
 John Elway,PSA,8.5,2
 John Elway,PSA,9,37
@@ -3549,103 +3572,61 @@ John Elway,CGC,8,6
 John Elway,CGC,8.5,2
 John Elway,CGC,9,2
 John Elway,CGC,10,2
-Nolan Ryan,all,1,1
-Nolan Ryan,all,1.5,1
-Nolan Ryan,all,2,1
-Nolan Ryan,all,3,9
-Nolan Ryan,all,4,17
-Nolan Ryan,all,5,19
-Nolan Ryan,all,5.5,1
-Nolan Ryan,all,6,39
-Nolan Ryan,all,6.5,1
-Nolan Ryan,all,7,66
-Nolan Ryan,all,7.5,1
-Nolan Ryan,all,8,99
-Nolan Ryan,all,8.5,3
-Nolan Ryan,all,9,140
-Nolan Ryan,all,9.5,1
-Nolan Ryan,all,10,61
-Nolan Ryan,PSA,1,1
-Nolan Ryan,PSA,2,1
-Nolan Ryan,PSA,3,8
-Nolan Ryan,PSA,4,13
-Nolan Ryan,PSA,5,18
-Nolan Ryan,PSA,6,37
-Nolan Ryan,PSA,7,64
-Nolan Ryan,PSA,8,98
-Nolan Ryan,PSA,8.5,2
-Nolan Ryan,PSA,9,133
-Nolan Ryan,PSA,10,57
-Nolan Ryan,CGC,4,1
-Nolan Ryan,CGC,6,1
-Nolan Ryan,CGC,9,3
-Nolan Ryan,CGC,10,3
-Jackson Holliday,all,7,3
-Jackson Holliday,all,7.5,1
-Jackson Holliday,all,8,19
-Jackson Holliday,all,9,106
-Jackson Holliday,all,9.5,6
-Jackson Holliday,all,10,219
-Jackson Holliday,PSA,7,3
-Jackson Holliday,PSA,8,17
-Jackson Holliday,PSA,9,104
-Jackson Holliday,PSA,10,204
-Jackson Holliday,CGC,7.5,1
-Jackson Holliday,CGC,8,1
-Jackson Holliday,CGC,9,1
-Jackson Holliday,CGC,10,7
 Brock Bowers,all,6,1
 Brock Bowers,all,8,33
-Brock Bowers,all,8.5,3
-Brock Bowers,all,9,148
+Brock Bowers,all,8.5,4
+Brock Bowers,all,9,151
 Brock Bowers,all,9.5,8
-Brock Bowers,all,10,170
+Brock Bowers,all,10,172
 Brock Bowers,PSA,6,1
 Brock Bowers,PSA,8,33
-Brock Bowers,PSA,9,144
-Brock Bowers,PSA,10,167
+Brock Bowers,PSA,8.5,1
+Brock Bowers,PSA,9,147
+Brock Bowers,PSA,10,169
 Brock Bowers,CGC,8.5,3
 Brock Bowers,CGC,9,3
 Brock Bowers,CGC,9.5,1
 Brock Bowers,CGC,10,2
+Jackson Holliday,all,7,3
+Jackson Holliday,all,7.5,1
+Jackson Holliday,all,8,20
+Jackson Holliday,all,9,108
+Jackson Holliday,all,9.5,6
+Jackson Holliday,all,10,219
+Jackson Holliday,PSA,7,3
+Jackson Holliday,PSA,8,18
+Jackson Holliday,PSA,9,106
+Jackson Holliday,PSA,10,205
+Jackson Holliday,CGC,7.5,1
+Jackson Holliday,CGC,8,1
+Jackson Holliday,CGC,9,1
+Jackson Holliday,CGC,10,7
 Jayson Tatum,all,7,4
 Jayson Tatum,all,8,25
 Jayson Tatum,all,8.5,2
-Jayson Tatum,all,9,130
-Jayson Tatum,all,9.5,14
-Jayson Tatum,all,10,156
+Jayson Tatum,all,9,132
+Jayson Tatum,all,9.5,15
+Jayson Tatum,all,10,157
 Jayson Tatum,PSA,7,2
 Jayson Tatum,PSA,8,24
 Jayson Tatum,PSA,8.5,1
-Jayson Tatum,PSA,9,118
-Jayson Tatum,PSA,10,147
+Jayson Tatum,PSA,9,119
+Jayson Tatum,PSA,10,148
 Jayson Tatum,CGC,7,1
 Jayson Tatum,CGC,8,1
 Jayson Tatum,CGC,8.5,1
 Jayson Tatum,CGC,9,4
 Jayson Tatum,CGC,10,6
-Fernando Tatis Jr.,all,6,1
-Fernando Tatis Jr.,all,7,3
-Fernando Tatis Jr.,all,8,13
-Fernando Tatis Jr.,all,8.5,4
-Fernando Tatis Jr.,all,9,204
-Fernando Tatis Jr.,all,9.5,5
-Fernando Tatis Jr.,all,10,239
-Fernando Tatis Jr.,PSA,6,1
-Fernando Tatis Jr.,PSA,7,3
-Fernando Tatis Jr.,PSA,8,13
-Fernando Tatis Jr.,PSA,9,201
-Fernando Tatis Jr.,PSA,10,238
 Nefeltari Vivi,all,7,1
 Nefeltari Vivi,all,8,3
 Nefeltari Vivi,all,8.5,2
-Nefeltari Vivi,all,9,67
+Nefeltari Vivi,all,9,68
 Nefeltari Vivi,all,9.5,7
-Nefeltari Vivi,all,10,435
+Nefeltari Vivi,all,10,441
 Nefeltari Vivi,PSA,7,1
 Nefeltari Vivi,PSA,8,3
-Nefeltari Vivi,PSA,9,61
-Nefeltari Vivi,PSA,10,370
+Nefeltari Vivi,PSA,9,62
+Nefeltari Vivi,PSA,10,376
 Nefeltari Vivi,CGC,8.5,2
 Nefeltari Vivi,CGC,9,5
 Nefeltari Vivi,CGC,9.5,3
@@ -3654,98 +3635,111 @@ Julio Rodriguez,all,5,1
 Julio Rodriguez,all,6,1
 Julio Rodriguez,all,7,4
 Julio Rodriguez,all,8,21
-Julio Rodriguez,all,9,131
+Julio Rodriguez,all,9,135
 Julio Rodriguez,all,9.5,5
-Julio Rodriguez,all,10,315
+Julio Rodriguez,all,10,318
 Julio Rodriguez,PSA,5,1
 Julio Rodriguez,PSA,6,1
 Julio Rodriguez,PSA,7,4
 Julio Rodriguez,PSA,8,20
-Julio Rodriguez,PSA,9,129
-Julio Rodriguez,PSA,10,244
+Julio Rodriguez,PSA,9,133
+Julio Rodriguez,PSA,10,246
 Julio Rodriguez,CGC,8,1
 Julio Rodriguez,CGC,9,1
 Julio Rodriguez,CGC,9.5,1
-Julio Rodriguez,CGC,10,67
-Cristiano Ronaldo,all,4,1
-Cristiano Ronaldo,all,5,5
-Cristiano Ronaldo,all,6,9
-Cristiano Ronaldo,all,7,14
-Cristiano Ronaldo,all,8,59
-Cristiano Ronaldo,all,8.5,5
-Cristiano Ronaldo,all,9,235
-Cristiano Ronaldo,all,9.5,5
-Cristiano Ronaldo,all,10,176
-Cristiano Ronaldo,PSA,4,1
-Cristiano Ronaldo,PSA,5,5
-Cristiano Ronaldo,PSA,6,9
-Cristiano Ronaldo,PSA,7,14
-Cristiano Ronaldo,PSA,8,58
-Cristiano Ronaldo,PSA,8.5,1
-Cristiano Ronaldo,PSA,9,229
-Cristiano Ronaldo,PSA,10,169
-Cristiano Ronaldo,CGC,8.5,3
-Cristiano Ronaldo,CGC,9,1
-Cristiano Ronaldo,CGC,9.5,1
-Cristiano Ronaldo,CGC,10,5
+Julio Rodriguez,CGC,10,68
+Fernando Tatis Jr.,all,6,1
+Fernando Tatis Jr.,all,7,3
+Fernando Tatis Jr.,all,8,14
+Fernando Tatis Jr.,all,8.5,4
+Fernando Tatis Jr.,all,9,203
+Fernando Tatis Jr.,all,9.5,5
+Fernando Tatis Jr.,all,10,236
+Fernando Tatis Jr.,PSA,6,1
+Fernando Tatis Jr.,PSA,7,3
+Fernando Tatis Jr.,PSA,8,14
+Fernando Tatis Jr.,PSA,9,200
+Fernando Tatis Jr.,PSA,10,235
 Elly de La Cruz,all,6,2
 Elly de La Cruz,all,7,4
 Elly de La Cruz,all,8,36
 Elly de La Cruz,all,8.5,1
-Elly de La Cruz,all,9,195
+Elly de La Cruz,all,9,201
 Elly de La Cruz,all,9.5,3
-Elly de La Cruz,all,10,267
+Elly de La Cruz,all,10,269
 Elly de La Cruz,PSA,6,2
 Elly de La Cruz,PSA,7,4
 Elly de La Cruz,PSA,8,36
 Elly de La Cruz,PSA,8.5,1
-Elly de La Cruz,PSA,9,195
-Elly de La Cruz,PSA,10,258
-Elly de La Cruz,CGC,10,2
+Elly de La Cruz,PSA,9,199
+Elly de La Cruz,PSA,10,259
+Elly de La Cruz,CGC,9,2
+Elly de La Cruz,CGC,10,3
 Ronald Acuna Jr.,all,5,1
 Ronald Acuna Jr.,all,6,1
 Ronald Acuna Jr.,all,7,4
 Ronald Acuna Jr.,all,8,13
 Ronald Acuna Jr.,all,9,104
 Ronald Acuna Jr.,all,9.5,5
-Ronald Acuna Jr.,all,10,162
+Ronald Acuna Jr.,all,10,167
 Ronald Acuna Jr.,PSA,5,1
 Ronald Acuna Jr.,PSA,6,1
 Ronald Acuna Jr.,PSA,7,4
 Ronald Acuna Jr.,PSA,8,13
 Ronald Acuna Jr.,PSA,9,102
-Ronald Acuna Jr.,PSA,10,159
+Ronald Acuna Jr.,PSA,10,164
 Ronald Acuna Jr.,CGC,10,1
-Lamar Jackson,all,7,2
-Lamar Jackson,all,8,18
-Lamar Jackson,all,8.5,5
-Lamar Jackson,all,9,142
-Lamar Jackson,all,9.5,11
-Lamar Jackson,all,10,150
-Lamar Jackson,PSA,7,2
-Lamar Jackson,PSA,8,16
-Lamar Jackson,PSA,9,137
-Lamar Jackson,PSA,10,143
-Lamar Jackson,CGC,8,2
-Lamar Jackson,CGC,8.5,3
-Lamar Jackson,CGC,9,1
-Lamar Jackson,CGC,10,7
 Trae Young,all,4,1
 Trae Young,all,6,1
 Trae Young,all,7,3
 Trae Young,all,8,17
 Trae Young,all,8.5,3
-Trae Young,all,9,156
-Trae Young,all,9.5,14
-Trae Young,all,10,241
+Trae Young,all,9,158
+Trae Young,all,9.5,15
+Trae Young,all,10,240
 Trae Young,PSA,4,1
 Trae Young,PSA,6,1
 Trae Young,PSA,7,3
 Trae Young,PSA,8,15
-Trae Young,PSA,9,152
-Trae Young,PSA,10,231
+Trae Young,PSA,9,154
+Trae Young,PSA,10,230
 Trae Young,CGC,8,1
 Trae Young,CGC,10,7
+Lamar Jackson,all,7,2
+Lamar Jackson,all,8,18
+Lamar Jackson,all,8.5,5
+Lamar Jackson,all,9,144
+Lamar Jackson,all,9.5,11
+Lamar Jackson,all,10,148
+Lamar Jackson,PSA,7,2
+Lamar Jackson,PSA,8,16
+Lamar Jackson,PSA,9,139
+Lamar Jackson,PSA,10,140
+Lamar Jackson,CGC,8,2
+Lamar Jackson,CGC,8.5,3
+Lamar Jackson,CGC,9,1
+Lamar Jackson,CGC,10,8
+Cristiano Ronaldo,all,4,1
+Cristiano Ronaldo,all,5,5
+Cristiano Ronaldo,all,6,9
+Cristiano Ronaldo,all,7,14
+Cristiano Ronaldo,all,8,58
+Cristiano Ronaldo,all,8.5,5
+Cristiano Ronaldo,all,9,233
+Cristiano Ronaldo,all,9.5,5
+Cristiano Ronaldo,all,10,176
+Cristiano Ronaldo,PSA,4,1
+Cristiano Ronaldo,PSA,5,5
+Cristiano Ronaldo,PSA,6,9
+Cristiano Ronaldo,PSA,7,14
+Cristiano Ronaldo,PSA,8,57
+Cristiano Ronaldo,PSA,8.5,1
+Cristiano Ronaldo,PSA,9,227
+Cristiano Ronaldo,PSA,10,169
+Cristiano Ronaldo,CGC,8.5,3
+Cristiano Ronaldo,CGC,9,1
+Cristiano Ronaldo,CGC,9.5,1
+Cristiano Ronaldo,CGC,10,5
 Ronald Acuna Jr,all,7,1
 Ronald Acuna Jr,all,8,6
 Ronald Acuna Jr,all,9,182
@@ -3762,58 +3756,80 @@ Josh Allen,all,6,2
 Josh Allen,all,7,3
 Josh Allen,all,8,43
 Josh Allen,all,8.5,4
-Josh Allen,all,9,165
+Josh Allen,all,9,164
 Josh Allen,all,9.5,21
-Josh Allen,all,10,182
+Josh Allen,all,10,180
 Josh Allen,PSA,6,2
 Josh Allen,PSA,7,3
 Josh Allen,PSA,8,35
-Josh Allen,PSA,9,152
-Josh Allen,PSA,10,164
+Josh Allen,PSA,9,151
+Josh Allen,PSA,10,163
 Josh Allen,CGC,8,6
 Josh Allen,CGC,8.5,2
 Josh Allen,CGC,9,8
 Josh Allen,CGC,9.5,7
-Josh Allen,CGC,10,16
+Josh Allen,CGC,10,15
 Gunnar Henderson,all,6,2
 Gunnar Henderson,all,7,2
-Gunnar Henderson,all,8,7
+Gunnar Henderson,all,8,6
 Gunnar Henderson,all,8.5,1
-Gunnar Henderson,all,9,91
+Gunnar Henderson,all,9,93
 Gunnar Henderson,all,9.5,5
-Gunnar Henderson,all,10,148
+Gunnar Henderson,all,10,147
 Gunnar Henderson,PSA,6,2
 Gunnar Henderson,PSA,7,2
-Gunnar Henderson,PSA,8,7
-Gunnar Henderson,PSA,9,88
-Gunnar Henderson,PSA,10,134
+Gunnar Henderson,PSA,8,6
+Gunnar Henderson,PSA,9,90
+Gunnar Henderson,PSA,10,133
 Gunnar Henderson,CGC,9,2
 Gunnar Henderson,CGC,9.5,1
 Gunnar Henderson,CGC,10,11
 Peyton Manning,all,6,2
-Peyton Manning,all,7,19
-Peyton Manning,all,8,47
+Peyton Manning,all,7,18
+Peyton Manning,all,8,49
 Peyton Manning,all,8.5,14
-Peyton Manning,all,9,118
+Peyton Manning,all,9,117
 Peyton Manning,all,9.5,22
-Peyton Manning,all,10,90
+Peyton Manning,all,10,89
 Peyton Manning,PSA,6,1
-Peyton Manning,PSA,7,15
-Peyton Manning,PSA,8,47
+Peyton Manning,PSA,7,14
+Peyton Manning,PSA,8,49
 Peyton Manning,PSA,8.5,1
-Peyton Manning,PSA,9,94
-Peyton Manning,PSA,10,76
+Peyton Manning,PSA,9,93
+Peyton Manning,PSA,10,75
 Peyton Manning,CGC,6,1
 Peyton Manning,CGC,7,3
 Peyton Manning,CGC,8.5,1
 Peyton Manning,CGC,9,4
 Peyton Manning,CGC,9.5,3
 Peyton Manning,CGC,10,14
+Brook,all,5,2
+Brook,all,6,1
+Brook,all,6.5,1
+Brook,all,7,3
+Brook,all,7.5,1
+Brook,all,8,4
+Brook,all,8.5,2
+Brook,all,9,36
+Brook,all,9.5,10
+Brook,all,10,357
+Brook,PSA,5,2
+Brook,PSA,6,1
+Brook,PSA,7,3
+Brook,PSA,8,4
+Brook,PSA,9,29
+Brook,PSA,10,268
+Brook,CGC,6.5,1
+Brook,CGC,7.5,1
+Brook,CGC,8.5,2
+Brook,CGC,9,7
+Brook,CGC,9.5,4
+Brook,CGC,10,89
 Bryce Young,all,6,1
 Bryce Young,all,7,5
 Bryce Young,all,8,31
 Bryce Young,all,8.5,1
-Bryce Young,all,9,146
+Bryce Young,all,9,145
 Bryce Young,all,9.5,3
 Bryce Young,all,10,274
 Bryce Young,PSA,6,1
@@ -3822,44 +3838,22 @@ Bryce Young,PSA,8,30
 Bryce Young,PSA,9,139
 Bryce Young,PSA,10,269
 Bryce Young,CGC,7,1
-Bryce Young,CGC,9,5
+Bryce Young,CGC,9,4
 Bryce Young,CGC,10,4
-Brook,all,5,2
-Brook,all,6,1
-Brook,all,6.5,1
-Brook,all,7,3
-Brook,all,7.5,1
-Brook,all,8,4
-Brook,all,8.5,2
-Brook,all,9,35
-Brook,all,9.5,10
-Brook,all,10,348
-Brook,PSA,5,2
-Brook,PSA,6,1
-Brook,PSA,7,3
-Brook,PSA,8,4
-Brook,PSA,9,28
-Brook,PSA,10,258
-Brook,CGC,6.5,1
-Brook,CGC,7.5,1
-Brook,CGC,8.5,2
-Brook,CGC,9,7
-Brook,CGC,9.5,4
-Brook,CGC,10,90
 Cam Ward,all,6,1
 Cam Ward,all,6.5,1
 Cam Ward,all,7,5
 Cam Ward,all,7.5,2
-Cam Ward,all,8,53
+Cam Ward,all,8,55
 Cam Ward,all,8.5,10
-Cam Ward,all,9,139
+Cam Ward,all,9,138
 Cam Ward,all,9.5,8
-Cam Ward,all,10,217
+Cam Ward,all,10,219
 Cam Ward,PSA,6,1
 Cam Ward,PSA,7,4
-Cam Ward,PSA,8,42
-Cam Ward,PSA,9,127
-Cam Ward,PSA,10,201
+Cam Ward,PSA,8,44
+Cam Ward,PSA,9,126
+Cam Ward,PSA,10,203
 Cam Ward,CGC,6.5,1
 Cam Ward,CGC,7,1
 Cam Ward,CGC,7.5,2
@@ -3868,92 +3862,100 @@ Cam Ward,CGC,8.5,9
 Cam Ward,CGC,9,8
 Cam Ward,CGC,9.5,3
 Cam Ward,CGC,10,16
-Luis Robert,all,8,3
-Luis Robert,all,8.5,1
-Luis Robert,all,9,106
-Luis Robert,all,9.5,7
-Luis Robert,all,10,342
-Luis Robert,PSA,8,2
-Luis Robert,PSA,9,100
-Luis Robert,PSA,10,331
-Jackson Chourio,all,7,1
-Jackson Chourio,all,8,20
-Jackson Chourio,all,9,125
-Jackson Chourio,all,9.5,2
-Jackson Chourio,all,10,179
-Jackson Chourio,PSA,7,1
-Jackson Chourio,PSA,8,19
-Jackson Chourio,PSA,9,124
-Jackson Chourio,PSA,10,160
-Jackson Chourio,CGC,10,15
+Dalton Kincaid,all,6,1
+Dalton Kincaid,all,8,4
+Dalton Kincaid,all,9,31
+Dalton Kincaid,all,9.5,1
+Dalton Kincaid,all,10,35
+Dalton Kincaid,PSA,6,1
+Dalton Kincaid,PSA,8,3
+Dalton Kincaid,PSA,9,31
+Dalton Kincaid,PSA,10,35
+Roman Anthony,all,4,1
+Roman Anthony,all,6,2
+Roman Anthony,all,7,1
+Roman Anthony,all,8,39
+Roman Anthony,all,9,251
+Roman Anthony,all,9.5,11
+Roman Anthony,all,10,163
+Roman Anthony,PSA,4,1
+Roman Anthony,PSA,6,2
+Roman Anthony,PSA,7,1
+Roman Anthony,PSA,8,39
+Roman Anthony,PSA,9,246
+Roman Anthony,PSA,10,142
+Roman Anthony,CGC,9,4
+Roman Anthony,CGC,10,20
 Franky,all,6,1
 Franky,all,8,2
 Franky,all,8.5,3
-Franky,all,9,40
+Franky,all,9,43
 Franky,all,9.5,6
-Franky,all,10,336
+Franky,all,10,337
 Franky,PSA,6,1
 Franky,PSA,8,2
-Franky,PSA,9,36
-Franky,PSA,10,232
+Franky,PSA,9,39
+Franky,PSA,10,233
 Franky,CGC,8.5,3
 Franky,CGC,9,4
 Franky,CGC,9.5,2
 Franky,CGC,10,103
-Roman Anthony,all,4,1
-Roman Anthony,all,6,2
-Roman Anthony,all,7,1
-Roman Anthony,all,8,33
-Roman Anthony,all,9,249
-Roman Anthony,all,9.5,11
-Roman Anthony,all,10,161
-Roman Anthony,PSA,4,1
-Roman Anthony,PSA,6,2
-Roman Anthony,PSA,7,1
-Roman Anthony,PSA,8,32
-Roman Anthony,PSA,9,245
-Roman Anthony,PSA,10,141
-Roman Anthony,CGC,8,1
-Roman Anthony,CGC,9,3
-Roman Anthony,CGC,10,19
-Konnor Griffin,all,5,1
-Konnor Griffin,all,6,4
-Konnor Griffin,all,7,3
-Konnor Griffin,all,8,60
-Konnor Griffin,all,8.5,3
-Konnor Griffin,all,9,184
-Konnor Griffin,all,10,189
-Konnor Griffin,PSA,5,1
-Konnor Griffin,PSA,6,4
-Konnor Griffin,PSA,7,3
-Konnor Griffin,PSA,8,60
-Konnor Griffin,PSA,9,180
-Konnor Griffin,PSA,10,176
-Konnor Griffin,CGC,8.5,3
-Konnor Griffin,CGC,9,4
-Konnor Griffin,CGC,10,13
+Luis Robert,all,8,3
+Luis Robert,all,8.5,1
+Luis Robert,all,9,106
+Luis Robert,all,9.5,7
+Luis Robert,all,10,343
+Luis Robert,PSA,8,2
+Luis Robert,PSA,9,100
+Luis Robert,PSA,10,332
+Jackson Chourio,all,7,1
+Jackson Chourio,all,8,21
+Jackson Chourio,all,9,125
+Jackson Chourio,all,9.5,2
+Jackson Chourio,all,10,179
+Jackson Chourio,PSA,7,1
+Jackson Chourio,PSA,8,20
+Jackson Chourio,PSA,9,124
+Jackson Chourio,PSA,10,160
+Jackson Chourio,CGC,10,15
 Dracule Mihawk,all,7,1
 Dracule Mihawk,all,8,1
 Dracule Mihawk,all,8.5,1
-Dracule Mihawk,all,9,52
+Dracule Mihawk,all,9,51
 Dracule Mihawk,all,9.5,4
-Dracule Mihawk,all,10,366
+Dracule Mihawk,all,10,369
 Dracule Mihawk,PSA,7,1
-Dracule Mihawk,PSA,9,47
-Dracule Mihawk,PSA,10,312
+Dracule Mihawk,PSA,9,46
+Dracule Mihawk,PSA,10,315
 Dracule Mihawk,CGC,8,1
 Dracule Mihawk,CGC,8.5,1
 Dracule Mihawk,CGC,9,5
 Dracule Mihawk,CGC,9.5,2
 Dracule Mihawk,CGC,10,44
+Konnor Griffin,all,5,1
+Konnor Griffin,all,6,4
+Konnor Griffin,all,7,3
+Konnor Griffin,all,8,60
+Konnor Griffin,all,8.5,3
+Konnor Griffin,all,9,178
+Konnor Griffin,all,10,189
+Konnor Griffin,PSA,5,1
+Konnor Griffin,PSA,6,4
+Konnor Griffin,PSA,7,3
+Konnor Griffin,PSA,8,60
+Konnor Griffin,PSA,9,174
+Konnor Griffin,PSA,10,176
+Konnor Griffin,CGC,8.5,3
+Konnor Griffin,CGC,9,4
+Konnor Griffin,CGC,10,13
 LaMelo Ball,all,7,3
-LaMelo Ball,all,8,11
+LaMelo Ball,all,8,12
 LaMelo Ball,all,8.5,2
 LaMelo Ball,all,9,154
 LaMelo Ball,all,9.5,4
 LaMelo Ball,all,10,174
 LaMelo Ball,PSA,7,3
-LaMelo Ball,PSA,8,11
+LaMelo Ball,PSA,8,12
 LaMelo Ball,PSA,9,149
 LaMelo Ball,PSA,10,171
 LaMelo Ball,CGC,8.5,1
@@ -3963,43 +3965,29 @@ LaMelo Ball,CGC,10,3
 Bobby Witt Jr.,all,6,7
 Bobby Witt Jr.,all,7,4
 Bobby Witt Jr.,all,8,32
-Bobby Witt Jr.,all,9,204
+Bobby Witt Jr.,all,9,203
 Bobby Witt Jr.,all,9.5,4
-Bobby Witt Jr.,all,10,148
+Bobby Witt Jr.,all,10,146
 Bobby Witt Jr.,PSA,6,7
 Bobby Witt Jr.,PSA,7,4
 Bobby Witt Jr.,PSA,8,31
-Bobby Witt Jr.,PSA,9,202
-Bobby Witt Jr.,PSA,10,141
+Bobby Witt Jr.,PSA,9,201
+Bobby Witt Jr.,PSA,10,139
 Bobby Witt Jr.,CGC,10,4
 Paolo Banchero,all,5,1
 Paolo Banchero,all,7,2
-Paolo Banchero,all,8,19
+Paolo Banchero,all,8,20
 Paolo Banchero,all,8.5,3
-Paolo Banchero,all,9,101
+Paolo Banchero,all,9,104
 Paolo Banchero,all,9.5,7
-Paolo Banchero,all,10,124
+Paolo Banchero,all,10,123
 Paolo Banchero,PSA,5,1
-Paolo Banchero,PSA,8,19
-Paolo Banchero,PSA,9,99
-Paolo Banchero,PSA,10,118
+Paolo Banchero,PSA,8,20
+Paolo Banchero,PSA,9,101
+Paolo Banchero,PSA,10,117
 Paolo Banchero,CGC,8.5,2
-Paolo Banchero,CGC,9,1
+Paolo Banchero,CGC,9,2
 Paolo Banchero,CGC,10,5
-Roki Sasaki,all,6,1
-Roki Sasaki,all,7,2
-Roki Sasaki,all,8,33
-Roki Sasaki,all,8.5,1
-Roki Sasaki,all,9,205
-Roki Sasaki,all,9.5,5
-Roki Sasaki,all,10,178
-Roki Sasaki,PSA,6,1
-Roki Sasaki,PSA,7,2
-Roki Sasaki,PSA,8,32
-Roki Sasaki,PSA,8.5,1
-Roki Sasaki,PSA,9,204
-Roki Sasaki,PSA,10,164
-Roki Sasaki,CGC,10,8
 C.J. Stroud,all,5,1
 C.J. Stroud,all,7,1
 C.J. Stroud,all,7.5,1
@@ -4019,6 +4007,20 @@ C.J. Stroud,CGC,8.5,1
 C.J. Stroud,CGC,9,8
 C.J. Stroud,CGC,9.5,2
 C.J. Stroud,CGC,10,11
+Roki Sasaki,all,6,1
+Roki Sasaki,all,7,2
+Roki Sasaki,all,8,34
+Roki Sasaki,all,8.5,1
+Roki Sasaki,all,9,205
+Roki Sasaki,all,9.5,5
+Roki Sasaki,all,10,179
+Roki Sasaki,PSA,6,1
+Roki Sasaki,PSA,7,2
+Roki Sasaki,PSA,8,33
+Roki Sasaki,PSA,8.5,1
+Roki Sasaki,PSA,9,204
+Roki Sasaki,PSA,10,165
+Roki Sasaki,CGC,10,8
 RJ Barrett,all,7,1
 RJ Barrett,all,8,15
 RJ Barrett,all,8.5,1
@@ -4029,22 +4031,13 @@ RJ Barrett,PSA,7,1
 RJ Barrett,PSA,8,15
 RJ Barrett,PSA,9,144
 RJ Barrett,PSA,10,190
-Dalton Kincaid,all,6,1
-Dalton Kincaid,all,8,4
-Dalton Kincaid,all,9,31
-Dalton Kincaid,all,9.5,1
-Dalton Kincaid,all,10,34
-Dalton Kincaid,PSA,6,1
-Dalton Kincaid,PSA,8,3
-Dalton Kincaid,PSA,9,31
-Dalton Kincaid,PSA,10,34
 Malik Nabers,all,6,2
 Malik Nabers,all,7,1
 Malik Nabers,all,8,33
 Malik Nabers,all,8.5,4
-Malik Nabers,all,9,135
+Malik Nabers,all,9,136
 Malik Nabers,all,9.5,8
-Malik Nabers,all,10,147
+Malik Nabers,all,10,146
 Malik Nabers,PSA,7,1
 Malik Nabers,PSA,8,32
 Malik Nabers,PSA,9,129
@@ -4054,14 +4047,14 @@ Malik Nabers,CGC,8,1
 Malik Nabers,CGC,8.5,3
 Malik Nabers,CGC,9,7
 Malik Nabers,CGC,9.5,1
-Malik Nabers,CGC,10,21
+Malik Nabers,CGC,10,20
 Enel,all,8,1
 Enel,all,8.5,1
 Enel,all,9,28
 Enel,all,9.5,4
-Enel,all,10,378
+Enel,all,10,384
 Enel,PSA,9,27
-Enel,PSA,10,334
+Enel,PSA,10,339
 Enel,CGC,8,1
 Enel,CGC,8.5,1
 Enel,CGC,9,1
@@ -4070,156 +4063,156 @@ Enel,CGC,10,42
 Jordan Love,all,7,2
 Jordan Love,all,8,15
 Jordan Love,all,8.5,1
-Jordan Love,all,9,139
+Jordan Love,all,9,140
 Jordan Love,all,9.5,6
 Jordan Love,all,10,209
 Jordan Love,PSA,7,2
 Jordan Love,PSA,8,14
-Jordan Love,PSA,9,133
-Jordan Love,PSA,10,200
+Jordan Love,PSA,9,134
+Jordan Love,PSA,10,201
 Jordan Love,CGC,8,1
 Jordan Love,CGC,9,1
-Jordan Love,CGC,10,8
+Jordan Love,CGC,10,7
 Jasson Dominguez,all,5,1
 Jasson Dominguez,all,8,9
 Jasson Dominguez,all,9,147
 Jasson Dominguez,all,9.5,5
-Jasson Dominguez,all,10,239
+Jasson Dominguez,all,10,242
 Jasson Dominguez,PSA,5,1
 Jasson Dominguez,PSA,8,9
 Jasson Dominguez,PSA,9,145
-Jasson Dominguez,PSA,10,231
-Jasson Dominguez,CGC,10,7
+Jasson Dominguez,PSA,10,233
+Jasson Dominguez,CGC,10,8
+Buggy,all,6,1
+Buggy,all,7,1
+Buggy,all,8,2
+Buggy,all,8.5,2
+Buggy,all,9,53
+Buggy,all,9.5,3
+Buggy,all,10,330
+Buggy,PSA,6,1
+Buggy,PSA,8,2
+Buggy,PSA,9,51
+Buggy,PSA,10,292
+Buggy,CGC,7,1
+Buggy,CGC,8.5,2
+Buggy,CGC,9,2
+Buggy,CGC,9.5,2
+Buggy,CGC,10,32
 Mookie Betts,all,6,1
 Mookie Betts,all,6.5,1
 Mookie Betts,all,7,2
 Mookie Betts,all,8,11
-Mookie Betts,all,9,81
+Mookie Betts,all,9,78
 Mookie Betts,all,9.5,2
 Mookie Betts,all,10,101
 Mookie Betts,PSA,6,1
 Mookie Betts,PSA,7,1
 Mookie Betts,PSA,8,10
-Mookie Betts,PSA,9,78
+Mookie Betts,PSA,9,75
 Mookie Betts,PSA,10,93
 Mookie Betts,CGC,6.5,1
 Mookie Betts,CGC,7,1
 Mookie Betts,CGC,8,1
 Mookie Betts,CGC,9,2
 Mookie Betts,CGC,10,8
-Buggy,all,6,1
-Buggy,all,7,1
-Buggy,all,8,2
-Buggy,all,8.5,2
-Buggy,all,9,52
-Buggy,all,9.5,3
-Buggy,all,10,326
-Buggy,PSA,6,1
-Buggy,PSA,8,2
-Buggy,PSA,9,50
-Buggy,PSA,10,287
-Buggy,CGC,7,1
-Buggy,CGC,8.5,2
-Buggy,CGC,9,2
-Buggy,CGC,9.5,2
-Buggy,CGC,10,32
 Freddie Freeman,all,4,1
 Freddie Freeman,all,5,1
 Freddie Freeman,all,8,15
 Freddie Freeman,all,8.5,2
 Freddie Freeman,all,9,53
 Freddie Freeman,all,9.5,3
-Freddie Freeman,all,10,64
+Freddie Freeman,all,10,65
 Freddie Freeman,PSA,4,1
 Freddie Freeman,PSA,5,1
 Freddie Freeman,PSA,8,15
 Freddie Freeman,PSA,9,51
-Freddie Freeman,PSA,10,61
+Freddie Freeman,PSA,10,62
 Freddie Freeman,CGC,8.5,1
 Freddie Freeman,CGC,10,1
 Gleyber Torres,all,8,1
 Gleyber Torres,all,9,89
 Gleyber Torres,all,9.5,5
-Gleyber Torres,all,10,291
+Gleyber Torres,all,10,294
 Gleyber Torres,PSA,8,1
 Gleyber Torres,PSA,9,88
-Gleyber Torres,PSA,10,288
+Gleyber Torres,PSA,10,290
 Coby White,all,7,2
 Coby White,all,8,9
 Coby White,all,8.5,7
-Coby White,all,9,127
-Coby White,all,9.5,6
+Coby White,all,9,128
+Coby White,all,9.5,5
 Coby White,all,10,228
 Coby White,PSA,7,2
 Coby White,PSA,8,9
 Coby White,PSA,8.5,2
-Coby White,PSA,9,120
+Coby White,PSA,9,122
 Coby White,PSA,10,224
 Coby White,CGC,8.5,1
 Coby White,CGC,10,3
 Adley Rutschman,all,6,2
 Adley Rutschman,all,7,1
 Adley Rutschman,all,8,5
-Adley Rutschman,all,9,62
+Adley Rutschman,all,9,63
 Adley Rutschman,all,9.5,5
 Adley Rutschman,all,10,123
 Adley Rutschman,PSA,6,2
 Adley Rutschman,PSA,7,1
 Adley Rutschman,PSA,8,5
-Adley Rutschman,PSA,9,58
+Adley Rutschman,PSA,9,59
 Adley Rutschman,PSA,10,113
 Adley Rutschman,CGC,9,3
 Adley Rutschman,CGC,9.5,2
 Adley Rutschman,CGC,10,5
+Gol D. Roger,all,8,3
+Gol D. Roger,all,8.5,2
+Gol D. Roger,all,9,40
+Gol D. Roger,all,9.5,3
+Gol D. Roger,all,10,326
+Gol D. Roger,PSA,8,3
+Gol D. Roger,PSA,9,37
+Gol D. Roger,PSA,10,273
+Gol D. Roger,CGC,8.5,2
+Gol D. Roger,CGC,9,2
+Gol D. Roger,CGC,9.5,2
+Gol D. Roger,CGC,10,52
 Nikola Jokic,all,7,3
 Nikola Jokic,all,8,18
-Nikola Jokic,all,8.5,2
-Nikola Jokic,all,9,64
+Nikola Jokic,all,8.5,1
+Nikola Jokic,all,9,65
 Nikola Jokic,all,9.5,6
 Nikola Jokic,all,10,90
 Nikola Jokic,PSA,7,2
 Nikola Jokic,PSA,8,16
-Nikola Jokic,PSA,9,59
+Nikola Jokic,PSA,9,60
 Nikola Jokic,PSA,10,71
 Nikola Jokic,CGC,7,1
 Nikola Jokic,CGC,8,2
-Nikola Jokic,CGC,8.5,2
+Nikola Jokic,CGC,8.5,1
 Nikola Jokic,CGC,9,2
 Nikola Jokic,CGC,9.5,2
 Nikola Jokic,CGC,10,18
-Gol D. Roger,all,8,3
-Gol D. Roger,all,8.5,2
-Gol D. Roger,all,9,40
-Gol D. Roger,all,9.5,4
-Gol D. Roger,all,10,316
-Gol D. Roger,PSA,8,3
-Gol D. Roger,PSA,9,37
-Gol D. Roger,PSA,10,262
-Gol D. Roger,CGC,8.5,2
-Gol D. Roger,CGC,9,2
-Gol D. Roger,CGC,9.5,2
-Gol D. Roger,CGC,10,53
 Magic Johnson,all,3,1
 Magic Johnson,all,4,7
 Magic Johnson,all,5,14
 Magic Johnson,all,5.5,1
-Magic Johnson,all,6,28
+Magic Johnson,all,6,27
 Magic Johnson,all,6.5,1
-Magic Johnson,all,7,60
+Magic Johnson,all,7,62
 Magic Johnson,all,7.5,1
 Magic Johnson,all,8,66
 Magic Johnson,all,8.5,5
-Magic Johnson,all,9,79
+Magic Johnson,all,9,80
 Magic Johnson,all,9.5,5
 Magic Johnson,all,10,42
 Magic Johnson,PSA,3,1
 Magic Johnson,PSA,4,7
 Magic Johnson,PSA,5,12
-Magic Johnson,PSA,6,27
-Magic Johnson,PSA,7,52
+Magic Johnson,PSA,6,26
+Magic Johnson,PSA,7,54
 Magic Johnson,PSA,8,59
 Magic Johnson,PSA,8.5,2
-Magic Johnson,PSA,9,67
+Magic Johnson,PSA,9,68
 Magic Johnson,PSA,10,34
 Magic Johnson,CGC,5.5,1
 Magic Johnson,CGC,6,1
@@ -4230,80 +4223,83 @@ Magic Johnson,CGC,8.5,2
 Magic Johnson,CGC,9,4
 Magic Johnson,CGC,9.5,1
 Magic Johnson,CGC,10,7
-Brandon Miller,all,7,1
-Brandon Miller,all,7.5,2
-Brandon Miller,all,8,10
-Brandon Miller,all,9,116
-Brandon Miller,all,10,181
-Brandon Miller,PSA,7,1
-Brandon Miller,PSA,8,8
-Brandon Miller,PSA,9,115
-Brandon Miller,PSA,10,174
-Brandon Miller,CGC,7.5,2
-Brandon Miller,CGC,8,2
-Brandon Miller,CGC,10,6
-Crocodile,all,8,2
-Crocodile,all,9,37
-Crocodile,all,9.5,6
-Crocodile,all,10,281
-Crocodile,PSA,8,2
-Crocodile,PSA,9,28
-Crocodile,PSA,10,219
-Crocodile,CGC,9,9
-Crocodile,CGC,9.5,2
-Crocodile,CGC,10,54
 Vinsmoke Reiju,all,8,2
 Vinsmoke Reiju,all,8.5,1
-Vinsmoke Reiju,all,9,24
+Vinsmoke Reiju,all,9,23
 Vinsmoke Reiju,all,9.5,2
-Vinsmoke Reiju,all,10,302
+Vinsmoke Reiju,all,10,307
 Vinsmoke Reiju,PSA,8,2
-Vinsmoke Reiju,PSA,9,21
-Vinsmoke Reiju,PSA,10,244
+Vinsmoke Reiju,PSA,9,20
+Vinsmoke Reiju,PSA,10,249
 Vinsmoke Reiju,CGC,8.5,1
 Vinsmoke Reiju,CGC,9,3
 Vinsmoke Reiju,CGC,9.5,1
 Vinsmoke Reiju,CGC,10,56
-Cade Cunningham,all,6,1
-Cade Cunningham,all,7,1
-Cade Cunningham,all,8,20
-Cade Cunningham,all,8.5,5
-Cade Cunningham,all,9,118
-Cade Cunningham,all,10,130
-Cade Cunningham,PSA,6,1
-Cade Cunningham,PSA,7,1
-Cade Cunningham,PSA,8,19
-Cade Cunningham,PSA,8.5,1
-Cade Cunningham,PSA,9,110
-Cade Cunningham,PSA,10,117
-Cade Cunningham,CGC,8,1
-Cade Cunningham,CGC,8.5,1
-Cade Cunningham,CGC,9,5
-Cade Cunningham,CGC,10,9
+Brandon Miller,all,7,1
+Brandon Miller,all,7.5,2
+Brandon Miller,all,8,10
+Brandon Miller,all,9,118
+Brandon Miller,all,10,180
+Brandon Miller,PSA,7,1
+Brandon Miller,PSA,8,8
+Brandon Miller,PSA,9,116
+Brandon Miller,PSA,10,173
+Brandon Miller,CGC,7.5,2
+Brandon Miller,CGC,8,2
+Brandon Miller,CGC,9,1
+Brandon Miller,CGC,10,6
+Crocodile,all,8,2
+Crocodile,all,9,38
+Crocodile,all,9.5,6
+Crocodile,all,10,280
+Crocodile,PSA,8,2
+Crocodile,PSA,9,29
+Crocodile,PSA,10,218
+Crocodile,CGC,9,9
+Crocodile,CGC,9.5,2
+Crocodile,CGC,10,54
 Kaido,all,6.5,1
 Kaido,all,7,1
 Kaido,all,7.5,1
 Kaido,all,8,2
 Kaido,all,8.5,1
 Kaido,all,9,37
-Kaido,all,9.5,10
-Kaido,all,10,266
+Kaido,all,9.5,9
+Kaido,all,10,267
 Kaido,PSA,7,1
 Kaido,PSA,8,2
 Kaido,PSA,9,26
-Kaido,PSA,10,203
+Kaido,PSA,10,204
 Kaido,CGC,6.5,1
 Kaido,CGC,7.5,1
 Kaido,CGC,8.5,1
 Kaido,CGC,9,9
 Kaido,CGC,9.5,4
 Kaido,CGC,10,58
+Cade Cunningham,all,6,1
+Cade Cunningham,all,7,1
+Cade Cunningham,all,8,20
+Cade Cunningham,all,8.5,5
+Cade Cunningham,all,9,118
+Cade Cunningham,all,10,128
+Cade Cunningham,PSA,6,1
+Cade Cunningham,PSA,7,1
+Cade Cunningham,PSA,8,19
+Cade Cunningham,PSA,8.5,1
+Cade Cunningham,PSA,9,109
+Cade Cunningham,PSA,10,114
+Cade Cunningham,CGC,8,1
+Cade Cunningham,CGC,8.5,1
+Cade Cunningham,CGC,9,6
+Cade Cunningham,CGC,10,10
 Donquixote Doflamingo,all,6,1
+Donquixote Doflamingo,all,8,1
 Donquixote Doflamingo,all,8.5,1
 Donquixote Doflamingo,all,9,27
 Donquixote Doflamingo,all,9.5,3
 Donquixote Doflamingo,all,10,257
 Donquixote Doflamingo,PSA,6,1
+Donquixote Doflamingo,PSA,8,1
 Donquixote Doflamingo,PSA,9,23
 Donquixote Doflamingo,PSA,10,209
 Donquixote Doflamingo,CGC,8.5,1
@@ -4312,33 +4308,33 @@ Donquixote Doflamingo,CGC,9.5,1
 Donquixote Doflamingo,CGC,10,46
 Kylian Mbappe,all,6,3
 Kylian Mbappe,all,7,3
-Kylian Mbappe,all,8,27
+Kylian Mbappe,all,8,26
 Kylian Mbappe,all,8.5,4
-Kylian Mbappe,all,9,154
+Kylian Mbappe,all,9,153
 Kylian Mbappe,all,9.5,6
-Kylian Mbappe,all,10,128
+Kylian Mbappe,all,10,129
 Kylian Mbappe,PSA,6,3
 Kylian Mbappe,PSA,7,3
-Kylian Mbappe,PSA,8,26
+Kylian Mbappe,PSA,8,25
 Kylian Mbappe,PSA,8.5,2
-Kylian Mbappe,PSA,9,151
-Kylian Mbappe,PSA,10,122
+Kylian Mbappe,PSA,9,150
+Kylian Mbappe,PSA,10,123
 Kylian Mbappe,CGC,8,1
 Kylian Mbappe,CGC,9,2
 Kylian Mbappe,CGC,10,5
 Paige Bueckers,all,5,3
 Paige Bueckers,all,6,1
-Paige Bueckers,all,8,26
+Paige Bueckers,all,8,25
 Paige Bueckers,all,8.5,1
-Paige Bueckers,all,9,109
-Paige Bueckers,all,9.5,27
-Paige Bueckers,all,10,150
+Paige Bueckers,all,9,111
+Paige Bueckers,all,9.5,26
+Paige Bueckers,all,10,151
 Paige Bueckers,PSA,5,3
 Paige Bueckers,PSA,6,1
-Paige Bueckers,PSA,8,26
+Paige Bueckers,PSA,8,25
 Paige Bueckers,PSA,8.5,1
-Paige Bueckers,PSA,9,107
-Paige Bueckers,PSA,10,129
+Paige Bueckers,PSA,9,109
+Paige Bueckers,PSA,10,130
 Paige Bueckers,CGC,9.5,2
 Paige Bueckers,CGC,10,6
 Girl,all,6.5,1
@@ -4361,25 +4357,25 @@ Girl,CGC,10,193
 Larry Bird,all,3,3
 Larry Bird,all,4,3
 Larry Bird,all,4.5,1
-Larry Bird,all,5,12
+Larry Bird,all,5,11
 Larry Bird,all,6,37
 Larry Bird,all,6.5,3
-Larry Bird,all,7,38
+Larry Bird,all,7,39
 Larry Bird,all,7.5,5
 Larry Bird,all,8,53
 Larry Bird,all,8.5,8
-Larry Bird,all,9,62
+Larry Bird,all,9,63
 Larry Bird,all,9.5,3
-Larry Bird,all,10,51
+Larry Bird,all,10,50
 Larry Bird,PSA,3,2
 Larry Bird,PSA,4,2
-Larry Bird,PSA,5,10
+Larry Bird,PSA,5,9
 Larry Bird,PSA,6,35
-Larry Bird,PSA,7,32
+Larry Bird,PSA,7,33
 Larry Bird,PSA,8,45
 Larry Bird,PSA,8.5,1
-Larry Bird,PSA,9,55
-Larry Bird,PSA,10,46
+Larry Bird,PSA,9,56
+Larry Bird,PSA,10,45
 Larry Bird,CGC,4,1
 Larry Bird,CGC,4.5,1
 Larry Bird,CGC,5,2
@@ -4396,7 +4392,7 @@ Erling Haaland,all,6,4
 Erling Haaland,all,7,2
 Erling Haaland,all,8,23
 Erling Haaland,all,8.5,2
-Erling Haaland,all,9,109
+Erling Haaland,all,9,110
 Erling Haaland,all,9.5,4
 Erling Haaland,all,10,117
 Erling Haaland,PSA,4,1
@@ -4405,39 +4401,41 @@ Erling Haaland,PSA,6,4
 Erling Haaland,PSA,7,2
 Erling Haaland,PSA,8,23
 Erling Haaland,PSA,8.5,1
-Erling Haaland,PSA,9,108
+Erling Haaland,PSA,9,109
 Erling Haaland,PSA,10,114
 Erling Haaland,CGC,10,2
+Macklin Celebrini,all,7,1
 Macklin Celebrini,all,8,29
-Macklin Celebrini,all,9,115
-Macklin Celebrini,all,10,114
+Macklin Celebrini,all,9,113
+Macklin Celebrini,all,10,115
+Macklin Celebrini,PSA,7,1
 Macklin Celebrini,PSA,8,29
-Macklin Celebrini,PSA,9,112
-Macklin Celebrini,PSA,10,108
+Macklin Celebrini,PSA,9,110
+Macklin Celebrini,PSA,10,109
 Macklin Celebrini,CGC,10,2
 Connor Bedard,all,7,4
-Connor Bedard,all,8,15
+Connor Bedard,all,8,16
 Connor Bedard,all,8.5,1
 Connor Bedard,all,9,105
 Connor Bedard,all,9.5,1
-Connor Bedard,all,10,111
+Connor Bedard,all,10,109
 Connor Bedard,PSA,7,4
-Connor Bedard,PSA,8,15
+Connor Bedard,PSA,8,16
 Connor Bedard,PSA,9,105
-Connor Bedard,PSA,10,111
+Connor Bedard,PSA,10,109
 Christian Pulisic,all,5,1
 Christian Pulisic,all,6,1
 Christian Pulisic,all,7,2
 Christian Pulisic,all,8,16
-Christian Pulisic,all,9,100
+Christian Pulisic,all,9,97
 Christian Pulisic,all,9.5,6
-Christian Pulisic,all,10,99
+Christian Pulisic,all,10,102
 Christian Pulisic,PSA,5,1
 Christian Pulisic,PSA,6,1
 Christian Pulisic,PSA,7,2
 Christian Pulisic,PSA,8,15
-Christian Pulisic,PSA,9,98
-Christian Pulisic,PSA,10,93
+Christian Pulisic,PSA,9,95
+Christian Pulisic,PSA,10,96
 Christian Pulisic,CGC,10,1
 Wayne Gretzky,all,1.5,1
 Wayne Gretzky,all,3,3
@@ -4445,9 +4443,9 @@ Wayne Gretzky,all,3.5,1
 Wayne Gretzky,all,4,4
 Wayne Gretzky,all,5,4
 Wayne Gretzky,all,5.5,1
-Wayne Gretzky,all,6,12
+Wayne Gretzky,all,6,10
 Wayne Gretzky,all,7,15
-Wayne Gretzky,all,8,71
+Wayne Gretzky,all,8,72
 Wayne Gretzky,all,8.5,2
 Wayne Gretzky,all,9,78
 Wayne Gretzky,all,10,32
@@ -4456,9 +4454,9 @@ Wayne Gretzky,PSA,3,3
 Wayne Gretzky,PSA,3.5,1
 Wayne Gretzky,PSA,4,4
 Wayne Gretzky,PSA,5,4
-Wayne Gretzky,PSA,6,12
+Wayne Gretzky,PSA,6,10
 Wayne Gretzky,PSA,7,13
-Wayne Gretzky,PSA,8,70
+Wayne Gretzky,PSA,8,71
 Wayne Gretzky,PSA,9,78
 Wayne Gretzky,PSA,10,31
 Dark Magician,all,1,2
@@ -4486,7 +4484,7 @@ Dragon,all,7,4
 Dragon,all,7.5,3
 Dragon,all,8,6
 Dragon,all,8.5,8
-Dragon,all,9,49
+Dragon,all,9,50
 Dragon,all,9.5,6
 Dragon,all,10,71
 Dragon,PSA,3,1
@@ -4495,7 +4493,7 @@ Dragon,PSA,5,3
 Dragon,PSA,6,4
 Dragon,PSA,7,4
 Dragon,PSA,8,3
-Dragon,PSA,9,32
+Dragon,PSA,9,33
 Dragon,PSA,10,15
 Dragon,CGC,3.5,1
 Dragon,CGC,7.5,3
@@ -4515,10 +4513,10 @@ Jude Bellingham,PSA,9,59
 Jude Bellingham,PSA,10,77
 Jude Bellingham,CGC,9,1
 Jude Bellingham,CGC,10,2
-Estevao Willian,all,9,20
-Estevao Willian,all,10,117
-Estevao Willian,PSA,9,20
-Estevao Willian,PSA,10,116
+Estevao Willian,all,9,19
+Estevao Willian,all,10,118
+Estevao Willian,PSA,9,19
+Estevao Willian,PSA,10,117
 Estevao Willian,CGC,10,1
 Dark Magician Girl,all,7,3
 Dark Magician Girl,all,7.5,1
@@ -4539,15 +4537,15 @@ Jaromir Jagr,all,5,1
 Jaromir Jagr,all,6,2
 Jaromir Jagr,all,7,1
 Jaromir Jagr,all,8,21
-Jaromir Jagr,all,9,41
-Jaromir Jagr,all,10,57
+Jaromir Jagr,all,9,42
+Jaromir Jagr,all,10,58
 Jaromir Jagr,PSA,4,1
 Jaromir Jagr,PSA,5,1
 Jaromir Jagr,PSA,6,2
 Jaromir Jagr,PSA,7,1
 Jaromir Jagr,PSA,8,21
-Jaromir Jagr,PSA,9,39
-Jaromir Jagr,PSA,10,57
+Jaromir Jagr,PSA,9,40
+Jaromir Jagr,PSA,10,58
 Knight,all,8,1
 Knight,all,8.5,5
 Knight,all,9,12
@@ -4562,15 +4560,29 @@ Knight,CGC,9.5,5
 Knight,CGC,10,90
 Endrick,all,6,1
 Endrick,all,8,8
-Endrick,all,9,42
+Endrick,all,9,40
 Endrick,all,9.5,5
 Endrick,all,10,64
 Endrick,PSA,6,1
 Endrick,PSA,8,8
-Endrick,PSA,9,42
+Endrick,PSA,9,40
 Endrick,PSA,10,63
 Endrick,CGC,9.5,1
 Endrick,CGC,10,1
+Neymar Jr.,all,4,2
+Neymar Jr.,all,6,1
+Neymar Jr.,all,7,1
+Neymar Jr.,all,8,14
+Neymar Jr.,all,9,63
+Neymar Jr.,all,10,37
+Neymar Jr.,PSA,4,2
+Neymar Jr.,PSA,6,1
+Neymar Jr.,PSA,7,1
+Neymar Jr.,PSA,8,14
+Neymar Jr.,PSA,9,62
+Neymar Jr.,PSA,10,33
+Neymar Jr.,CGC,9,1
+Neymar Jr.,CGC,10,4
 Magician,all,3,1
 Magician,all,5,4
 Magician,all,6,3
@@ -4599,53 +4611,48 @@ Pedri,all,10,51
 Pedri,PSA,8,13
 Pedri,PSA,9,42
 Pedri,PSA,10,50
-Neymar Jr.,all,4,2
-Neymar Jr.,all,6,1
-Neymar Jr.,all,7,1
-Neymar Jr.,all,8,14
-Neymar Jr.,all,9,55
-Neymar Jr.,all,10,36
-Neymar Jr.,PSA,4,2
-Neymar Jr.,PSA,6,1
-Neymar Jr.,PSA,7,1
-Neymar Jr.,PSA,8,14
-Neymar Jr.,PSA,9,54
-Neymar Jr.,PSA,10,32
-Neymar Jr.,CGC,9,1
-Neymar Jr.,CGC,10,4
-Gavi,all,7,9
+Gavi,all,7,8
 Gavi,all,7.5,1
 Gavi,all,8,13
-Gavi,all,9,33
-Gavi,all,10,33
-Gavi,PSA,7,9
+Gavi,all,9,34
+Gavi,all,10,35
+Gavi,PSA,7,8
 Gavi,PSA,8,13
-Gavi,PSA,9,32
-Gavi,PSA,10,33
+Gavi,PSA,9,33
+Gavi,PSA,10,34
 Gavi,CGC,7.5,1
+Gavi,CGC,10,1
 Lennart Karl,all,7,1
 Lennart Karl,all,8,2
 Lennart Karl,all,9,15
 Lennart Karl,all,9.5,4
-Lennart Karl,all,10,63
+Lennart Karl,all,10,64
 Lennart Karl,PSA,7,1
 Lennart Karl,PSA,8,2
 Lennart Karl,PSA,9,15
-Lennart Karl,PSA,10,59
+Lennart Karl,PSA,10,60
 Mario Lemieux,all,1,1
 Mario Lemieux,all,5,2
 Mario Lemieux,all,6,4
-Mario Lemieux,all,7,5
+Mario Lemieux,all,7,6
 Mario Lemieux,all,8,10
-Mario Lemieux,all,9,33
+Mario Lemieux,all,9,34
 Mario Lemieux,all,10,28
 Mario Lemieux,PSA,1,1
 Mario Lemieux,PSA,5,1
 Mario Lemieux,PSA,6,4
-Mario Lemieux,PSA,7,5
+Mario Lemieux,PSA,7,6
 Mario Lemieux,PSA,8,10
-Mario Lemieux,PSA,9,33
+Mario Lemieux,PSA,9,34
 Mario Lemieux,PSA,10,28
+Connor McDavid,all,8,9
+Connor McDavid,all,9,35
+Connor McDavid,all,10,33
+Connor McDavid,PSA,8,9
+Connor McDavid,PSA,9,33
+Connor McDavid,PSA,10,30
+Connor McDavid,CGC,9,1
+Connor McDavid,CGC,10,3
 Dro,all,6,1
 Dro,all,7,4
 Dro,all,8,6
@@ -4656,14 +4663,6 @@ Dro,PSA,7,4
 Dro,PSA,8,6
 Dro,PSA,9,19
 Dro,PSA,10,46
-Connor McDavid,all,8,8
-Connor McDavid,all,9,35
-Connor McDavid,all,10,33
-Connor McDavid,PSA,8,8
-Connor McDavid,PSA,9,33
-Connor McDavid,PSA,10,30
-Connor McDavid,CGC,9,1
-Connor McDavid,CGC,10,3
 Blue-Eyes White Dragon,all,2,2
 Blue-Eyes White Dragon,all,2.5,1
 Blue-Eyes White Dragon,all,3,1
@@ -4689,35 +4688,34 @@ Blue-Eyes White Dragon,CGC,7.5,1
 Blue-Eyes White Dragon,CGC,9,6
 Blue-Eyes White Dragon,CGC,9.5,2
 Blue-Eyes White Dragon,CGC,10,32
-Phil Foden,all,8,3
+Phil Foden,all,8,4
 Phil Foden,all,9,33
 Phil Foden,all,9.5,2
 Phil Foden,all,10,35
-Phil Foden,PSA,8,3
+Phil Foden,PSA,8,4
 Phil Foden,PSA,9,33
 Phil Foden,PSA,10,34
 Phil Foden,CGC,10,1
-Matthew Schaefer,all,8,12
-Matthew Schaefer,all,9,30
-Matthew Schaefer,all,10,30
-Matthew Schaefer,PSA,8,12
-Matthew Schaefer,PSA,9,30
-Matthew Schaefer,PSA,10,30
 Cole Palmer,all,8,3
 Cole Palmer,all,9,22
 Cole Palmer,all,10,46
 Cole Palmer,PSA,8,3
 Cole Palmer,PSA,9,22
 Cole Palmer,PSA,10,46
-Julian Alvarez,all,7,1
-Julian Alvarez,all,8,3
-Julian Alvarez,all,9,14
-Julian Alvarez,all,10,52
-Julian Alvarez,PSA,7,1
-Julian Alvarez,PSA,8,3
-Julian Alvarez,PSA,9,14
-Julian Alvarez,PSA,10,47
-Julian Alvarez,CGC,10,3
+Matvei Michkov,all,8,10
+Matvei Michkov,all,8.5,1
+Matvei Michkov,all,9,30
+Matvei Michkov,all,10,30
+Matvei Michkov,PSA,8,10
+Matvei Michkov,PSA,8.5,1
+Matvei Michkov,PSA,9,30
+Matvei Michkov,PSA,10,26
+Matthew Schaefer,all,8,12
+Matthew Schaefer,all,9,29
+Matthew Schaefer,all,10,29
+Matthew Schaefer,PSA,8,12
+Matthew Schaefer,PSA,9,29
+Matthew Schaefer,PSA,10,29
 Alexander Ovechkin,all,6,1
 Alexander Ovechkin,all,7,1
 Alexander Ovechkin,all,8,11
@@ -4729,14 +4727,15 @@ Alexander Ovechkin,PSA,7,1
 Alexander Ovechkin,PSA,8,11
 Alexander Ovechkin,PSA,9,33
 Alexander Ovechkin,PSA,10,21
-Matvei Michkov,all,8,10
-Matvei Michkov,all,8.5,1
-Matvei Michkov,all,9,30
-Matvei Michkov,all,10,27
-Matvei Michkov,PSA,8,10
-Matvei Michkov,PSA,8.5,1
-Matvei Michkov,PSA,9,30
-Matvei Michkov,PSA,10,23
+Julian Alvarez,all,7,1
+Julian Alvarez,all,8,3
+Julian Alvarez,all,9,14
+Julian Alvarez,all,10,49
+Julian Alvarez,PSA,7,1
+Julian Alvarez,PSA,8,3
+Julian Alvarez,PSA,9,14
+Julian Alvarez,PSA,10,44
+Julian Alvarez,CGC,10,3
 Marcus Rashford,all,9,25
 Marcus Rashford,all,9.5,1
 Marcus Rashford,all,10,37
@@ -4757,14 +4756,20 @@ Jamal Musiala,PSA,8,4
 Jamal Musiala,PSA,9,22
 Jamal Musiala,PSA,10,31
 Robert Lewandowski,all,8,2
-Robert Lewandowski,all,9,19
+Robert Lewandowski,all,9,20
 Robert Lewandowski,all,9.5,2
-Robert Lewandowski,all,10,36
+Robert Lewandowski,all,10,35
 Robert Lewandowski,PSA,8,2
-Robert Lewandowski,PSA,9,15
-Robert Lewandowski,PSA,10,32
+Robert Lewandowski,PSA,9,16
+Robert Lewandowski,PSA,10,31
 Robert Lewandowski,CGC,9,3
 Robert Lewandowski,CGC,10,2
+Arda Guler,all,8,2
+Arda Guler,all,9,30
+Arda Guler,all,10,26
+Arda Guler,PSA,8,2
+Arda Guler,PSA,9,30
+Arda Guler,PSA,10,26
 Sidney Crosby,all,8,5
 Sidney Crosby,all,9,23
 Sidney Crosby,all,9.5,1
@@ -4773,27 +4778,21 @@ Sidney Crosby,PSA,8,4
 Sidney Crosby,PSA,9,22
 Sidney Crosby,PSA,10,27
 Sidney Crosby,CGC,10,2
-Arda Guler,all,8,2
-Arda Guler,all,9,28
-Arda Guler,all,10,27
-Arda Guler,PSA,8,2
-Arda Guler,PSA,9,28
-Arda Guler,PSA,10,27
-Lionel Messi/Steph Curry,all,7,3
-Lionel Messi/Steph Curry,all,8,20
-Lionel Messi/Steph Curry,all,8.5,1
-Lionel Messi/Steph Curry,all,9,16
-Lionel Messi/Steph Curry,all,10,17
-Lionel Messi/Steph Curry,PSA,7,3
-Lionel Messi/Steph Curry,PSA,8,20
-Lionel Messi/Steph Curry,PSA,9,15
-Lionel Messi/Steph Curry,PSA,10,17
 Lane Hutson,all,8,14
 Lane Hutson,all,9,15
 Lane Hutson,all,10,28
 Lane Hutson,PSA,8,14
 Lane Hutson,PSA,9,15
 Lane Hutson,PSA,10,28
+Lionel Messi/Steph Curry,all,7,3
+Lionel Messi/Steph Curry,all,8,20
+Lionel Messi/Steph Curry,all,8.5,1
+Lionel Messi/Steph Curry,all,9,16
+Lionel Messi/Steph Curry,all,10,16
+Lionel Messi/Steph Curry,PSA,7,3
+Lionel Messi/Steph Curry,PSA,8,20
+Lionel Messi/Steph Curry,PSA,9,15
+Lionel Messi/Steph Curry,PSA,10,16
 Harry Kane,all,8,1
 Harry Kane,all,9,31
 Harry Kane,all,10,22
@@ -4801,19 +4800,27 @@ Harry Kane,PSA,8,1
 Harry Kane,PSA,9,30
 Harry Kane,PSA,10,21
 Jack Hughes,all,8,6
-Jack Hughes,all,9,9
+Jack Hughes,all,9,8
 Jack Hughes,all,9.5,7
-Jack Hughes,all,10,30
+Jack Hughes,all,10,31
 Jack Hughes,PSA,8,6
-Jack Hughes,PSA,9,8
-Jack Hughes,PSA,10,24
+Jack Hughes,PSA,9,7
+Jack Hughes,PSA,10,25
 Jack Hughes,CGC,10,1
+Kirill Kaprizov,all,8,3
+Kirill Kaprizov,all,9,21
+Kirill Kaprizov,all,9.5,1
+Kirill Kaprizov,all,10,27
+Kirill Kaprizov,PSA,8,3
+Kirill Kaprizov,PSA,9,21
+Kirill Kaprizov,PSA,10,25
+Kirill Kaprizov,CGC,10,2
 Estevao,all,8,4
-Estevao,all,9,10
-Estevao,all,10,37
+Estevao,all,9,9
+Estevao,all,10,38
 Estevao,PSA,8,4
-Estevao,PSA,9,9
-Estevao,PSA,10,37
+Estevao,PSA,9,8
+Estevao,PSA,10,38
 Estevao,CGC,9,1
 Heung-Min Son,all,8,1
 Heung-Min Son,all,8.5,3
@@ -4824,16 +4831,12 @@ Heung-Min Son,PSA,8,1
 Heung-Min Son,PSA,9,20
 Heung-Min Son,PSA,10,17
 Rio Ngumoha,all,8,1
-Rio Ngumoha,all,9,16
-Rio Ngumoha,all,10,34
+Rio Ngumoha,all,9,15
+Rio Ngumoha,all,10,35
 Rio Ngumoha,PSA,8,1
-Rio Ngumoha,PSA,9,16
-Rio Ngumoha,PSA,10,33
+Rio Ngumoha,PSA,9,15
+Rio Ngumoha,PSA,10,34
 Rio Ngumoha,CGC,10,1
-Giovanni Reyna,all,9,7
-Giovanni Reyna,all,10,44
-Giovanni Reyna,PSA,9,7
-Giovanni Reyna,PSA,10,43
 Zinedine Zidane,all,4,1
 Zinedine Zidane,all,5,1
 Zinedine Zidane,all,7,3
@@ -4847,33 +4850,23 @@ Zinedine Zidane,PSA,7,3
 Zinedine Zidane,PSA,8,13
 Zinedine Zidane,PSA,9,11
 Zinedine Zidane,PSA,10,19
-Kirill Kaprizov,all,8,3
-Kirill Kaprizov,all,9,20
-Kirill Kaprizov,all,9.5,1
-Kirill Kaprizov,all,10,26
-Kirill Kaprizov,PSA,8,3
-Kirill Kaprizov,PSA,9,20
-Kirill Kaprizov,PSA,10,24
-Kirill Kaprizov,CGC,10,2
 Ansu Fati,all,5,1
 Ansu Fati,all,6,1
 Ansu Fati,all,8,3
 Ansu Fati,all,8.5,1
 Ansu Fati,all,9,19
-Ansu Fati,all,10,24
+Ansu Fati,all,10,25
 Ansu Fati,PSA,5,1
 Ansu Fati,PSA,6,1
 Ansu Fati,PSA,8,3
 Ansu Fati,PSA,8.5,1
 Ansu Fati,PSA,9,19
-Ansu Fati,PSA,10,23
+Ansu Fati,PSA,10,24
 Ansu Fati,CGC,10,1
-Gavin Mckenna,all,8,2
-Gavin Mckenna,all,9,12
-Gavin Mckenna,all,10,31
-Gavin Mckenna,PSA,8,2
-Gavin Mckenna,PSA,9,12
-Gavin Mckenna,PSA,10,31
+Giovanni Reyna,all,9,7
+Giovanni Reyna,all,10,43
+Giovanni Reyna,PSA,9,7
+Giovanni Reyna,PSA,10,42
 Eric Lindros,all,4,1
 Eric Lindros,all,7,1
 Eric Lindros,all,8,5
@@ -4885,25 +4878,31 @@ Eric Lindros,PSA,7,1
 Eric Lindros,PSA,8,5
 Eric Lindros,PSA,9,17
 Eric Lindros,PSA,10,19
-Dominik Hasek,all,8,4
-Dominik Hasek,all,9,13
-Dominik Hasek,all,10,25
-Dominik Hasek,PSA,8,4
-Dominik Hasek,PSA,9,13
-Dominik Hasek,PSA,10,25
 Patrick Roy,all,5,1
 Patrick Roy,all,6,2
 Patrick Roy,all,7,5
-Patrick Roy,all,8,9
+Patrick Roy,all,8,10
 Patrick Roy,all,9,4
-Patrick Roy,all,10,21
+Patrick Roy,all,10,22
 Patrick Roy,PSA,5,1
 Patrick Roy,PSA,6,2
 Patrick Roy,PSA,7,4
-Patrick Roy,PSA,8,9
+Patrick Roy,PSA,8,10
 Patrick Roy,PSA,9,4
-Patrick Roy,PSA,10,21
+Patrick Roy,PSA,10,22
 Patrick Roy,CGC,7,1
+Gavin Mckenna,all,8,2
+Gavin Mckenna,all,9,12
+Gavin Mckenna,all,10,29
+Gavin Mckenna,PSA,8,2
+Gavin Mckenna,PSA,9,12
+Gavin Mckenna,PSA,10,29
+Dominik Hasek,all,8,3
+Dominik Hasek,all,9,13
+Dominik Hasek,all,10,25
+Dominik Hasek,PSA,8,3
+Dominik Hasek,PSA,9,13
+Dominik Hasek,PSA,10,25
 Nicklas Lidstrom,all,7,1
 Nicklas Lidstrom,all,8,1
 Nicklas Lidstrom,all,9,17
@@ -4934,10 +4933,10 @@ Magicians,CGC,9.5,1
 Magicians,CGC,10,29
 Ivan Demidov,all,8,8
 Ivan Demidov,all,9,14
-Ivan Demidov,all,10,13
+Ivan Demidov,all,10,14
 Ivan Demidov,PSA,8,8
 Ivan Demidov,PSA,9,14
-Ivan Demidov,PSA,10,13
+Ivan Demidov,PSA,10,14
 Leo Carlsson,all,8,5
 Leo Carlsson,all,9,15
 Leo Carlsson,all,10,15
@@ -4952,28 +4951,28 @@ Neymar Jr,PSA,8,1
 Neymar Jr,PSA,9,15
 Neymar Jr,PSA,10,16
 Neymar Jr,CGC,10,1
+Moritz Seider,all,8,1
+Moritz Seider,all,9,8
+Moritz Seider,all,10,24
+Moritz Seider,PSA,8,1
+Moritz Seider,PSA,9,8
+Moritz Seider,PSA,10,22
+Moritz Seider,CGC,10,2
 Macklin Celebrini/Will Smith,all,8,2
-Macklin Celebrini/Will Smith,all,9,25
+Macklin Celebrini/Will Smith,all,9,24
 Macklin Celebrini/Will Smith,all,10,6
 Macklin Celebrini/Will Smith,PSA,8,2
-Macklin Celebrini/Will Smith,PSA,9,25
+Macklin Celebrini/Will Smith,PSA,9,24
 Macklin Celebrini/Will Smith,PSA,10,6
 Auston Matthews,all,7,1
 Auston Matthews,all,8,1
 Auston Matthews,all,9,11
 Auston Matthews,all,9.5,2
-Auston Matthews,all,10,17
+Auston Matthews,all,10,16
 Auston Matthews,PSA,7,1
 Auston Matthews,PSA,8,1
 Auston Matthews,PSA,9,10
-Auston Matthews,PSA,10,17
-Moritz Seider,all,8,1
-Moritz Seider,all,9,7
-Moritz Seider,all,10,24
-Moritz Seider,PSA,8,1
-Moritz Seider,PSA,9,7
-Moritz Seider,PSA,10,22
-Moritz Seider,CGC,10,2
+Auston Matthews,PSA,10,16
 Sergei Fedorov,all,5,1
 Sergei Fedorov,all,8,10
 Sergei Fedorov,all,9,13
@@ -4997,13 +4996,22 @@ Pavel Bure,all,10,15
 Pavel Bure,PSA,8,3
 Pavel Bure,PSA,9,11
 Pavel Bure,PSA,10,15
+Adam Fantilli,all,6,1
+Adam Fantilli,all,8,1
+Adam Fantilli,all,9,12
+Adam Fantilli,all,10,13
+Adam Fantilli,PSA,6,1
+Adam Fantilli,PSA,8,1
+Adam Fantilli,PSA,9,12
+Adam Fantilli,PSA,10,11
+Adam Fantilli,CGC,10,2
 Bobby Orr,all,1,1
 Bobby Orr,all,1.5,1
 Bobby Orr,all,3,1
 Bobby Orr,all,4,1
 Bobby Orr,all,5,4
 Bobby Orr,all,6,5
-Bobby Orr,all,7,8
+Bobby Orr,all,7,7
 Bobby Orr,all,9,6
 Bobby Orr,all,10,1
 Bobby Orr,PSA,1,1
@@ -5012,7 +5020,7 @@ Bobby Orr,PSA,3,1
 Bobby Orr,PSA,4,1
 Bobby Orr,PSA,5,4
 Bobby Orr,PSA,6,4
-Bobby Orr,PSA,7,8
+Bobby Orr,PSA,7,7
 Bobby Orr,PSA,9,6
 Bobby Orr,PSA,10,1
 Cale Makar,all,8,1
@@ -5021,12 +5029,6 @@ Cale Makar,all,10,18
 Cale Makar,PSA,8,1
 Cale Makar,PSA,9,8
 Cale Makar,PSA,10,18
-Cole Caufield,all,8,4
-Cole Caufield,all,9,14
-Cole Caufield,all,10,9
-Cole Caufield,PSA,8,4
-Cole Caufield,PSA,9,13
-Cole Caufield,PSA,10,9
 Sorcerer,all,9,3
 Sorcerer,all,9.5,1
 Sorcerer,all,10,17
@@ -5152,6 +5154,10 @@ Slifer the Sky Dragon,all,9,3
 Slifer the Sky Dragon,all,10,1
 Slifer the Sky Dragon,PSA,9,3
 Slifer the Sky Dragon,PSA,10,1
+The Winged Dragon of RA,all,9,3
+The Winged Dragon of RA,all,10,1
+The Winged Dragon of RA,PSA,9,3
+The Winged Dragon of RA,PSA,10,1
 Tormentor,all,8,1
 Tormentor,all,8.5,1
 Tormentor,all,9,2
@@ -5160,17 +5166,14 @@ Tormentor,PSA,9,2
 Tormentor,CGC,8.5,1
 Aerith Gainsborough,all,10,3
 Aerith Gainsborough,PSA,10,3
+Tifa Lockhart,all,10,3
+Tifa Lockhart,PSA,10,2
+Tifa Lockhart,CGC,10,1
 Mountain,all,8.5,1
 Mountain,all,9,2
 Mountain,PSA,9,1
 Mountain,CGC,8.5,1
 Mountain,CGC,9,1
-Accesscode Talker,all,8,1
-Accesscode Talker,all,9,1
-Accesscode Talker,all,10,1
-Accesscode Talker,PSA,8,1
-Accesscode Talker,PSA,9,1
-Accesscode Talker,PSA,10,1
 "Black Panther, Wakandan King",all,9,1
 "Black Panther, Wakandan King",all,10,1
 "Black Panther, Wakandan King",PSA,9,1
@@ -5191,8 +5194,6 @@ Ossification,all,10,2
 Ossification,PSA,10,2
 Radiant Lotus,all,10,2
 Radiant Lotus,PSA,10,2
-Tifa Lockhart,all,10,2
-Tifa Lockhart,PSA,10,2
 Tifa Lockhart BORDERLESS SURGE FOIL R,all,10,2
 Vivi Ornitier,all,10,2
 Vivi Ornitier,PSA,10,2
