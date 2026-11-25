@@ -440,6 +440,24 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 .list li span:last-child { font-variant-numeric: tabular-nums; color: var(--ink-2); }
 @media (max-width: 720px) { .dlg-grid { grid-template-columns: minmax(0, 1fr); } .copies { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dlg-top { padding: 14px; } .dlg-body { padding-inline: 14px; } }
 @media (prefers-reduced-motion: reduce) { .slab, .slab .frame { transition: none !important; } }
+
+.cprev.sheet { max-width: 540px; margin-inline: auto; max-height: calc(100dvh - 20px); overflow-y: auto; }
+.cprev.sheet .cap { padding-right: 42px; }
+.cprev.sheet .acts button { min-height: 44px; }
+.cprev.sheet .acts button[data-act="close"] { width: 40px; }
+@media (max-width: 680px) {
+  .pop, .pop tbody { display: block; }
+  .pop thead { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+  .pop tr { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 4px; border-bottom: 1px solid var(--rule); padding: 8px 0 12px; }
+  .pop td { border: 0; text-align: center; }
+  .pop td.subj { grid-column: span 3; }
+  .pop td.subj button { min-width: 0; min-height: 44px; }
+  .pop td[data-grade]::before, .pop td.tot::before { content: attr(data-grade); display: block; font: 11px var(--f-mono); color: var(--ink-3); }
+  .pop td.tot::before { content: "Total"; }
+  .pop td > span { padding: 4px; }
+}
+
+.row .who-t b { white-space: normal; overflow-wrap: anywhere; }
 </style>
 
 <header class="mast">
@@ -893,7 +911,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     const m = cmap.getBoundingClientRect(), w = cprev.offsetWidth, h = cprev.offsetHeight, gap = 22;
     let x = clientX - m.left + gap; if (m.left + x + w > window.innerWidth - 8) x = clientX - m.left - gap - w;
     let y = clientY - m.top - h * 0.4; y = Math.max(8 - m.top, Math.min(y, window.innerHeight - 8 - m.top - h));
-    cprev.style.left = x + "px"; cprev.style.top = y + "px";
+    cprev.style.left = Math.max(8 - m.left, Math.min(x, innerWidth - 8 - m.left - w)) + "px"; cprev.style.top = y + "px";
   }
   function showPreview(item, clientX, clientY, sheet = false) {
     cprev.classList.toggle("sheet", sheet);
@@ -931,7 +949,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
     });
   });
   cTop.addEventListener("pointerenter", loadMeta);
-  cTop.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { setHover(-1, -1); hidePreview(); } });
+  cTop.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { cancelAnimationFrame(moveRaf); moveRaf = 0; setHover(-1, -1); hidePreview(); } });
   cTop.addEventListener("pointerdown", (e) => { lastType = e.pointerType; });
   cTop.addEventListener("click", (e) => {
     if (intro) return;
@@ -1005,7 +1023,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
   const popRows = byN.slice(0, 14);
   $("fig-pop").innerHTML = `<div class="pop-wrap"><table class="pop"><thead><tr><th>Card</th><th>Total</th>${popCols.map((g) => `<th>${g}</th>`).join("")}<th>7.5 &amp; under</th></tr></thead><tbody>${popRows.map((s) => {
     const cells = popCols.map((g) => (s.grade.find((p) => p[0] === g) || [g, 0])[1]); const under = s.graded - cells.reduce((a, b) => a + b, 0); const all = [...cells, under]; const mx = Math.max(...all);
-    return `<tr><td class="subj"><button type="button" data-slug="${slug(s.s)}">${cardHTML(s.copies[0] ? s.copies[0].i : -1, 28)}<span>${esc(s.s)}<small>${esc(s.f)}</small></span></button></td><td class="tot"><span>${nf.format(s.n)}</span></td>${all.map((c) => { const a = mx ? c / mx : 0; return `<td><span style="background:color-mix(in srgb, var(--heat) ${Math.round(a * 70)}%, transparent);${a > .55 ? "color:#fff" : ""}">${c ? nf.format(c) : "–"}</span></td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div>
+    return `<tr><td class="subj"><button type="button" data-slug="${slug(s.s)}">${cardHTML(s.copies[0] ? s.copies[0].i : -1, 28)}<span>${esc(s.s)}<small>${esc(s.f)}</small></span></button></td><td class="tot"><span>${nf.format(s.n)}</span></td>${all.map((c, index) => { const a = mx ? c / mx : 0; return `<td data-grade="${popCols[index] || "≤7.5"}"><span style="background:color-mix(in srgb, var(--heat) ${Math.round(a * 70)}%, transparent);${a > .55 ? "color:#fff" : ""}">${c ? nf.format(c) : "–"}</span></td>`; }).join("")}</tr>`; }).join("")}</tbody></table></div>
     <figcaption><b>Fig. 3</b> The pop report for the 14 most common cards onchain, all graders. Shading is relative within each row. Click a card for its full report.</figcaption>`;
 
   const jaFr = FR.filter((f) => f.n >= 2000).map((f) => ({ f, ja: langShare(f.lang, "Japanese"), en: langShare(f.lang, "English") }));
