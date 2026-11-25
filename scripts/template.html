@@ -458,6 +458,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
 }
 
 .row .who-t b { white-space: normal; overflow-wrap: anywhere; }
+.year-inspector { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
+.year-inspector select { min-height: 44px; }
+.cols i.selected { outline: 2px solid var(--ink); }
 </style>
 
 <header class="mast">
@@ -1053,9 +1056,19 @@ dialog::backdrop { background: rgba(0, 0, 0, .66); }
       <div class="brow mute"><span class="bn"><b>All cards onchain</b><span>${nf.format(V.dated)} with a year</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vShare * 100)}%"></span></span><span class="bv"><b>${pct0(vShare)}</b><span>${nf.format(V.all)} cards</span></span></div>
       <div class="brow hi"><span class="bn"><b>Most valuable graded</b><span>top ${V.top_n} by estimate</span></span><span class="track"><span class="fill" style="width:${Math.max(1, vTop * 100)}%"></span></span><span class="bv"><b>${pct0(vTop)}</b><span>${V.top_old} of ${V.top_n}</span></span></div></div>
     <div class="cols" id="cols">${yrs.map(([y, c]) => `<i class="${y < V.cut ? "hi" : ""}" data-y="${y}" data-c="${c}" style="height:${Math.max(c ? 0.6 : 0, c / yMax * 100)}%"></i>`).join("")}</div>
-    <div class="cols-x"><span>${y0}</span><span>2000</span><span>2010</span><span>2020</span><span>${yrs[yrs.length - 1][0]}</span></div><p class="cols-tip" id="cols-tip">Hover a year for its count.</p>
+    <div class="cols-x"><span>${y0}</span><span>2000</span><span>2010</span><span>2020</span><span>${yrs[yrs.length - 1][0]}</span></div><div class="year-inspector"><label>Year <select id="chart-year">${yrs.map(([y]) => `<option>${y}</option>`).join("")}</select></label><output class="cols-tip" id="cols-tip" for="chart-year"></output></div>
     <figcaption><b>Fig. 5</b> Top: share printed before ${V.cut}, for every card onchain and for the most valuable graded cards (year read from the listing title). Bottom: cards onchain by print year from ${y0}, before ${V.cut} in color.${before ? ` ${nf.format(before)} cards are older than ${y0}.` : ""}</figcaption>`;
-  $("cols").addEventListener("mouseover", (e) => { const i = e.target.closest("i"); if (i) $("cols-tip").textContent = `${i.dataset.y}: ${nf.format(+i.dataset.c)} cards`; });
+  const yearPicker = $("chart-year");
+  function showYear(year) {
+    yearPicker.value = year;
+    const bar = $("cols").querySelector(`[data-y="${year}"]`);
+    $("cols").querySelector(".selected")?.classList.remove("selected");
+    bar.classList.add("selected");
+    $("cols-tip").textContent = nf.format(+bar.dataset.c) + " cards";
+  }
+  yearPicker.onchange = () => showYear(yearPicker.value);
+  $("cols").addEventListener("pointerover", (e) => { if (e.target.dataset.y) showYear(e.target.dataset.y); });
+  showYear(yearPicker.value);
 
   const champs = S.champs || [];
   const top1 = priciest[0];
